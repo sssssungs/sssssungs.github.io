@@ -32,7 +32,7 @@ const Tags = ({ data }) => {
 				<SidebarWrapper>
 					<>
 						<div className="marginTopTitle">
-							<h1 className="titleSeparate">#Tags</h1>
+							<h1 className="titleSeparate">Tags</h1>
 						</div>
 						<Row gutter={[30, 20]}>
 							{edges.map(val => (
