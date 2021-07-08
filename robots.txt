@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://sssssungs.github.io/sitemap/sitemap-index.xml
+Host: https://sssssungs.github.io
