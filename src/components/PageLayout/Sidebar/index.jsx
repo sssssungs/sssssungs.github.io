@@ -22,10 +22,10 @@ const DomContent = () => (
 			</div>
 			<div className={`${style.badge} ${style.badgeGray}`}>Frontend Developer</div>
 			<div className="centerAlign box">
-				<a href={github} target="_blank" label="button" rel="noopener noreferrer">
+				<a href={github} target="_blank" rel="noopener noreferrer">
 					<FA name="github" />
 				</a>
-				<a href={instagram} target="_blank" label="button" rel="noopener noreferrer">
+				<a href={instagram} target="_blank" rel="noopener noreferrer">
 					<FA name="instagram" />
 				</a>
 			</div>
