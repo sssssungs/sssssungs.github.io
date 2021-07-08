@@ -55,7 +55,9 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "gatsby-plugin-eslint-v2": "^2.0.0-beta.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "stylelint": "^13.13.1",
+    "stylelint-prettier": "^1.2.0"
   },
   "repository": {
     "type": "git",
