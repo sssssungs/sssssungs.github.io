@@ -85,15 +85,11 @@ module.exports = [
 		},
 	},
 	{
-		resolve: 'gatsby-plugin-google-analytics',
+		resolve: `gatsby-plugin-gtag`,
 		options: {
-			// The property ID; the tracking code won't be generated without it
-			trackingId: config.googleAnalyticTrackingId,
-			// Defines where to place the tracking script - `true` in the head and `false` in the body
-			head: false,
-			sampleRate: 5,
-			siteSpeedSampleRate: 10,
-			cookieDomain: 'sssssungs.github.com',
+			trackingId: config.googleAnalyticTrackingId, // 측정 ID
+			head: false, // head에 tracking script를 넣고 싶다면 true로 변경
+			anonymize: true,
 		},
 	},
 	{
