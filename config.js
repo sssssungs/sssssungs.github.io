@@ -9,7 +9,6 @@ module.exports = {
 	pages: {
 		home: '/',
 		blog: 'blog',
-		contact: 'contact',
 		resume: 'resume',
 		tag: 'tags',
 	},
