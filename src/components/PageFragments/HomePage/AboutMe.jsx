@@ -38,9 +38,9 @@ const AboutMe = () => {
 			<Row gutter={[20, 20]}>
 				<Col xs={24} sm={24} md={12} lg={8}>
 					<AboutTile
-						img="born.svg"
-						width={100}
-						height={100}
+						img="born.png"
+						width={110}
+						height={110}
 						alt="location image"
 						textH4="Born and bought up in"
 						textH3="South Korea"
@@ -48,9 +48,9 @@ const AboutMe = () => {
 				</Col>
 				<Col xs={24} sm={24} md={12} lg={8}>
 					<AboutTile
-						width={100}
-						height={100}
-						img="coffee.svg"
+						width={110}
+						height={110}
+						img="coffee.png"
 						alt="coffee image"
 						textH4="Love Coffee"
 						textH3="Happiness and Energy"
@@ -58,9 +58,9 @@ const AboutMe = () => {
 				</Col>
 				<Col xs={24} sm={24} md={12} lg={8}>
 					<AboutTile
-						width={100}
-						height={100}
-						img="social.svg"
+						width={110}
+						height={110}
+						img="social.png"
 						alt="meeting image"
 						textH4="Socially Active"
 						textH3="Awkward sometimes"
@@ -68,9 +68,9 @@ const AboutMe = () => {
 				</Col>
 				<Col xs={24} sm={24} md={12} lg={8}>
 					<AboutTile
-						width={100}
-						height={100}
-						img="workout.svg"
+						width={110}
+						height={110}
+						img="workout.png"
 						alt="motorcycle image"
 						textH4="Love to work out"
 						textH3="Sweaty Smile"
@@ -78,9 +78,9 @@ const AboutMe = () => {
 				</Col>
 				<Col xs={24} sm={24} md={12} lg={8}>
 					<AboutTile
-						width={100}
-						height={100}
-						img="self-taught.svg"
+						width={110}
+						height={110}
+						img="self-taught.png"
 						alt="web image"
 						textH4="Self Taught"
 						textH3="Good Learner"
@@ -88,9 +88,9 @@ const AboutMe = () => {
 				</Col>
 				<Col xs={24} sm={24} md={12} lg={8}>
 					<AboutTile
-						width={100}
-						height={100}
-						img="pens.svg"
+						width={110}
+						height={110}
+						img="gradu.png"
 						alt="graduation image"
 						textH4="Pursued B.Tech in"
 						textH3="Electronic Engineering"
