@@ -6,7 +6,7 @@ import { stripTags, domHtml } from '../../../utils/stripTags';
 import SEO from '../../Seo';
 
 const pageText = {
-	paraOne: `Hello guys with my big love! My name is <b>Sungsik Won</b>. I'm a frontend developer who is
+	paraOne: `Hello guys! And welcome with my big love! My name is <b>Sungsik Won</b>. I'm a frontend developer who is
     passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with Jquery, Spring framework and Oracle/SQL in Semiconductor industry. 
     Also about 2 years of React, Redux, Typescript and Next.js, too. I also have hands on experience working with cloud infrastructures like DC/OS (Apache Mesos), CI/CD with ELK and AWS a little and have deployed applications
     keeping scalability in mind.`,
