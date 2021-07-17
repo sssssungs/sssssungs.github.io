@@ -11,19 +11,17 @@ const PostCard = props => {
 		},
 	} = props;
 
-	// console.log(frontmatter);
-
 	return (
 		<div className={style.postCard}>
 			<Link to={Utils.resolvePageUrl(frontmatter.path)}>
-				<div
-					className={style.postCardImg}
-					style={{
-						backgroundImage: `url(${
-							frontmatter ? frontmatter.cover.childImageSharp.fluid.src : ''
-						})`,
-					}}
-				/>
+				<div className={style.postCardImg}>
+					<img
+						src={frontmatter ? frontmatter.cover.childImageSharp.fluid.src : ''}
+						width="100%"
+						height="100%"
+						alt="images"
+					/>
+				</div>
 				<div className={style.mrTp20}>
 					<p>
 						<span className={style.dateHolder}>

@@ -6,11 +6,17 @@
 	.postCardImg {
 		width: 100%;
 		height: 164px;
-		background-repeat: no-repeat;
 		border-radius: 10px;
 		box-shadow: 1px 3px 16px #a7a7a7;
-		background-size: cover;
+		overflow: hidden;
+		img {
+			transition: transform 0.5s ease;
+		}
+		&:hover img {
+			transform: scale(1.3);
+		}
 	}
+
 	.mrTp20 {
 		margin-top: 20px;
 	}
