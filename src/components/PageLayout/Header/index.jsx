@@ -8,8 +8,8 @@ import { useWindowSize } from '../../../utils/hooks';
 
 export default () => {
 	const [menu, setMenu] = useState(false);
-
 	const [width] = useWindowSize();
+
 	const toggleMenu = () => {
 		if (width !== 0 && width <= 768) {
 			if (menu) {
