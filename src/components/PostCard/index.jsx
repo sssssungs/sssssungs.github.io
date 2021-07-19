@@ -11,7 +11,6 @@ const PostCard = props => {
 		},
 	} = props;
 
-	console.log(frontmatter.tags);
 	return (
 		<div className={style.postCard}>
 			<Link to={Utils.resolvePageUrl(frontmatter.path)}>
