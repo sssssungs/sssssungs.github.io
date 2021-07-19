@@ -11,6 +11,7 @@ const PostCard = props => {
 		},
 	} = props;
 
+	console.log(frontmatter.tags);
 	return (
 		<div className={style.postCard}>
 			<Link to={Utils.resolvePageUrl(frontmatter.path)}>
@@ -22,19 +23,25 @@ const PostCard = props => {
 						alt="images"
 					/>
 				</div>
-				<div className={style.mrTp20}>
-					<p>
-						<span className={style.dateHolder}>
-							{frontmatter ? moment(frontmatter.date).format('MMM Do YYYY') : ''}
-						</span>
-					</p>
-					<h3>{frontmatter ? frontmatter.title : ''}</h3>
-					<p>{frontmatter ? frontmatter.excerpt : ''}</p>
-					<p style={{ color: '#ce6d96', wordSpacing: '10px' }}>
-						{`#${frontmatter.tags.join(' #')}`}
-					</p>
-				</div>
 			</Link>
+			<div className={style.mrTp20}>
+				<p>
+					<span className={style.dateHolder}>
+						{frontmatter ? moment(frontmatter.date).format('MMM Do YYYY') : ''}
+					</span>
+				</p>
+				<Link to={Utils.resolvePageUrl(frontmatter.path)}>
+					<h3>{frontmatter ? frontmatter.title : ''}</h3>
+				</Link>
+				<Link to={Utils.resolvePageUrl(frontmatter.path)}>
+					<p>{frontmatter ? frontmatter.excerpt : ''}</p>
+				</Link>
+				<div className={style.tags}>
+					{frontmatter.tags.map(tag => (
+						<Link to={`/tags/${tag}`}>{`#${tag}`}</Link>
+					))}
+				</div>
+			</div>
 		</div>
 	);
 };
