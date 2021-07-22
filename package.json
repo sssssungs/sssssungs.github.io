@@ -13,6 +13,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "predeploy": "npm run build && cp CNAME ./build",
     "deploy": "gatsby build && gh-pages -d public -b main"
   },
   "dependencies": {
