@@ -5,6 +5,7 @@ date: 2020-05-21T05:25:44.226Z
 path: blog/code-splitting-in-react
 cover: ./codesplitting.png
 excerpt: Suppose the bundle size of your project is very huge and you don't want to load everything at once during the initial render you can use code splitting along with React to improve the performance and load time of your application.
+show: false
 ---
 
 Code splitting is an awesome feature of webpack that can be used to split your code into smaller bundles and can be loaded when necessary or in parallel. If this feature is used properly it can have a very huge impact on the performance improvement of your application. You can look more into code splitting [here](https://webpack.js.org/guides/code-splitting/) in the official webpack documentation.

@@ -4,7 +4,8 @@ tags: [javascript, typescript, functionalProgramming]
 date: 2021-07-21T05:25:44.226Z
 path: blog/functional-programming
 cover: ./fp-img.png
-excerpt: 함수형 자바스크립트 프로그래밍 도서를 읽고 나서의 나의 정리
+excerpt: Book review on Functional javascript programming with my reckoning.
+show: true
 ---
 
 2021년, 개발관련 도서를 3권은 읽어보자는 생각에 처음 알라딘에서 구매하게된 책.   

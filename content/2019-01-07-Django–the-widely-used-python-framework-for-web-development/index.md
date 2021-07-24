@@ -5,6 +5,7 @@ date: 2019-01-07T05:25:44.226Z
 path: blog/django-the-widely-used-python-framework-for-web-development
 cover: ./django.png
 excerpt: Django is a widely used python framework for web development. Learn what makes django so popular for backend development and why many startups and Tech giants prefer Django.
+show: false
 ---
 
 Django is a full stack python web framework for web development. I have been working with Django from 2016 and it's my first ever framework that I had learned back then. It is a wonderful framework that provides some of the out of box features for rapid web development.

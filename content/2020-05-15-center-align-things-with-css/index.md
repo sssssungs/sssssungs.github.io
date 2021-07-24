@@ -5,6 +5,7 @@ date: 2020-05-15T05:25:44.226Z
 path: blog/center-align-things-with-css
 cover: ./flexbox-css.jpg
 excerpt: Many a time I noticed that people find it very difficult to align content to the center either vertically or horizontally using CSS. So let's see few ways in how you can align content with css.
+show: false
 ---
 
 Many a time I noticed that people find it very difficult to align content to the center either vertically or horizontally using CSS 😐.

@@ -5,6 +5,7 @@ date: 2019-01-07T05:25:44.226Z
 path: blog/react–the-future-of-web-frontend
 cover: ./preview.png
 excerpt: Working with ReactJS - A library by facebook was a great experience for me. React has made building web apps easy by making use of reusable components. This is clearly my viewpoint about the library.
+show: false
 ---
 
 Hello guys! In this article, I would love to talk about my experience working with React.js a frontend open source library developed at Facebook. I have been working with react over a couple of months and for my amazement, it’s a fantastic library. In this post, I would like to discuss some of the advantages and a few disadvantages of using React.

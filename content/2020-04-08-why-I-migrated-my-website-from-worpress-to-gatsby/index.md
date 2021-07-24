@@ -5,6 +5,7 @@ date: 2020-04-08T05:25:44.226Z
 path: blog/why-i-migrated-my-website-from-wordpress-to-gatsby
 cover: ./gatsby-wordpress.jpg
 excerpt: While building a CMS for blogging, worpdress is the most commonly used platform. Gatsby has also topped the list recently. This article talk which one to go for and why I shifted from wordpress to gatsby. Is gatsby better than wordpress is the question I would be answering.
+show: false
 ---
 
 [`Wordpress`](https://wordpress.org/) is an awesome 😍 platform for blogging 📖 and dynamic websites that powers more than 29% of the website on the internet 🌐. Previously I used to run my website on Wordpress. But recently I migrated my website and blog from Wordpress to Gatsby.

@@ -5,6 +5,7 @@ date: 2020-12-24T05:25:44.226Z
 path: blog/react17-new-features
 cover: ./react17.png
 excerpt: In this article let's discuss the new upgrades made to React v17.0 that were released on October 20, 2020. React 17 has no new developer features added to it rather it has features added for backward compatibility.
+show: false
 ---
 
 On 20th October the new version of React was released which was a major release for ReactJS after two long years. But surprisingly there were no major developer features that were introduced in this release, rather features related to backward compatibility were introduced to make it easier to upgrade React.

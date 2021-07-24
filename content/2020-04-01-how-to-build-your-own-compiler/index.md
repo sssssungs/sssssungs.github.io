@@ -5,6 +5,7 @@ date: 2020-04-01T05:25:44.226Z
 path: blog/how-to-build-your-own-compiler
 cover: ./compiler.png
 excerpt: Compilers are there everywhere in our day to day use. Most developers tend to ignore it because they feel only the nerdiest of the geeks can code it. Let's build the worlds smallest compiler to understand how compilers work.
+show: false
 ---
 
 Today we are going to write a compiler together this compiler is going to be the smallest compiler in the world. Since it's going to be a long article you can skip directly to the [code](https://github.com/rolwin100/mini_compiler_demo) if you can't wait 😅.
