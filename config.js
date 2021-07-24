@@ -67,5 +67,11 @@ module.exports = {
 				'A general purpose programming language that is widely used for developing various applications.',
 			color: '#f9c646',
 		},
+		functionalProgramming: {
+			name: 'Functional programming',
+			description:
+				'A programming paradigm where programs are constructed by applying and composing functions.',
+			color: '#db34e7',
+		},
 	},
 };
