@@ -11,6 +11,7 @@
 	}
 }
 .blogArticle {
+	line-height: 1.6;
 	h1,
 	h2,
 	h3,
@@ -26,8 +27,14 @@
 	a {
 		color: #0d25da;
 		font-weight: 600;
-		:hover {
+		&:hover {
 			color: #0d25da;
+			text-decoration: underline;
 		}
+	}
+	code {
+		padding: 0 0.5em !important;
+		//font-size: 0.9em;
+		font-weight: bolder;
 	}
 }
