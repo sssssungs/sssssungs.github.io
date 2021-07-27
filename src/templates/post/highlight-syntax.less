@@ -1,13 +1,15 @@
 @import (reference) '../../styles/index.less';
 .container {
 	:not(pre) > code[class*='language-'] {
-		padding: 0.2em 0.8em;
+		font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+		padding: 0.2em 0.5em;
 		border-radius: 2px;
 		font-weight: 500;
 		background-color: #657b83;
 		white-space: inherit;
-		font-family: inherit;
 		color: #5b6ac4;
+		font-size: 0.9em;
+		letter-spacing: -0.5px;
 	}
 }
 .language-label-colors (@language,@content, @background, @text: @theme-text) {
@@ -21,11 +23,7 @@
 	}
 }
 .language-text {
-	font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace !important;
-	font-size: 0.9em !important;
-	letter-spacing: -0.5px;
-	background-color: rgba(27, 31, 35, 0.06) !important;
-	padding: 0.2em 0.5em !important;
+	background-color: rgba(27, 31, 35, 0.09) !important;
 }
 
 .gatsby-highlight {
