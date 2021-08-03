@@ -25,6 +25,7 @@ const Post = ({ data }) => {
 	} = frontmatter;
 
 	const canonicalUrl = Utils.resolvePageUrl(Config.siteUrl, Config.pathPrefix, path);
+
 	return (
 		<Layout className="outerPadding">
 			<Layout className="container">
