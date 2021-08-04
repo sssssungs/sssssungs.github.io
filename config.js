@@ -29,7 +29,7 @@ module.exports = {
 			color: '#f0da50',
 		},
 		nodejs: {
-			name: 'Node.js',
+			name: 'nodejs',
 			description: 'Node.js is a tool for executing JavaScript in a variety of environments.',
 			color: '#90c53f',
 		},
@@ -45,12 +45,12 @@ module.exports = {
 			color: '#61dbfa',
 		},
 		gatsby: {
-			name: 'Gatsby.js',
+			name: 'gatsby',
 			description: 'A framework built over ReactJS to generate static page web application.  ',
 			color: '#6f309f',
 		},
 		html: {
-			name: 'HTML',
+			name: 'html',
 			description:
 				'A markup language that powers the web. All websites use HTML for structuring the content.',
 			color: '#dd3431',
@@ -68,13 +68,13 @@ module.exports = {
 			color: '#f9c646',
 		},
 		functionalProgramming: {
-			name: 'Functional programming',
+			name: 'functionalProgramming',
 			description:
 				'A programming paradigm where programs are constructed by applying and composing functions.',
 			color: '#db34e7',
 		},
 		codingFont: {
-			name: 'Coding font',
+			name: 'codingFont',
 			description: 'A font used by programmers when they are working which is "CODING".',
 			color: '#179047',
 		},
