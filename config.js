@@ -73,5 +73,10 @@ module.exports = {
 				'A programming paradigm where programs are constructed by applying and composing functions.',
 			color: '#db34e7',
 		},
+		codingFont: {
+			name: 'Coding font',
+			description: 'A font used by programmers when they are working which is "CODING".',
+			color: '#179047',
+		},
 	},
 };
