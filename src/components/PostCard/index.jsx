@@ -36,8 +36,8 @@ const PostCard = props => {
 					<p>{frontmatter ? frontmatter.excerpt : ''}</p>
 				</Link>
 				<div className={style.tags}>
-					{frontmatter.tags.map(tag => (
-						<Link to={`/tags/${tag}`}>{`#${tag}`}</Link>
+					{frontmatter.tags.map((tag, index) => (
+						<Link key={index} to={`/tags/${tag}`}>{`#${tag}`}</Link>
 					))}
 				</div>
 			</div>
