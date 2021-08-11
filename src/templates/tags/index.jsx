@@ -24,7 +24,7 @@ const TagPage = ({ data, pageContext }) => {
 	return (
 		<Layout className="outerPadding">
 			<Layout className="container">
-				<Header page={'tags'} />
+				<Header page="tags" />
 				<SEO
 					title={tagName}
 					description={`All post about ${tagName}. ${Config.tags[tag].description} `}
