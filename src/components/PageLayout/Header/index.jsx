@@ -6,7 +6,7 @@ import style from './header.module.less';
 import '../../../styles/global.less';
 import { useWindowSize } from '../../../utils/hooks';
 
-export default () => {
+export default ({ page }) => {
 	const [menu, setMenu] = useState(false);
 	const [width] = useWindowSize();
 
@@ -45,12 +45,22 @@ export default () => {
 							</Link>
 						</li>
 						<li className={style.navItem}>
-							<Link to="/blog" onClick={toggleMenu} activeClassName={style.anchorActive}>
+							<Link
+								to="/blog"
+								onClick={toggleMenu}
+								activeClassName={style.anchorActive}
+								partiallyActive={page === 'blog'}
+							>
 								Blog
 							</Link>
 						</li>
 						<li className={style.navItem}>
-							<Link to="/tags" onClick={toggleMenu} activeClassName={style.anchorActive}>
+							<Link
+								to="/tags"
+								onClick={toggleMenu}
+								activeClassName={style.anchorActive}
+								partiallyActive={page === 'tags'}
+							>
 								Tags
 							</Link>
 						</li>

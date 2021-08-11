@@ -42,7 +42,7 @@ const Post = ({ data }) => {
 						'technology',
 					]}
 				/>
-				<Header />
+				<Header page={'blog'} />
 				<SidebarWrapper>
 					<div className="marginTopTitle">
 						<h1>{title}</h1>
