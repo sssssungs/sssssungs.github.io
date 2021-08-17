@@ -27,9 +27,23 @@ ligature에 대한 부분은 지극히 개인적인 취향일 것이다. 개인�
 ---
 <br/>
 
-- `Agave`
-- `Calling Code`
-- `Rec Mono Casual`
-- `Azeret Mono`
-- `Fantasque Sans Mono`  
-`...wip`
+- `Agave` 귀엽고 둥글둥글 하지만 잘 monospaced 되어 있다. 일반적인 폰트보다 사이즈가 작은것이 특징.
+![](./agave.png)
+<br/>
+- `Calling Code` 폰트 중간중간 삐침이 있다. 폰트 weight는 다른 폰트보다 얇은편.
+![](./callingCode.png)
+  <br/>
+- `Rec Mono Casual` 필기체를 쓴것처럼 보이는 것이 특징. ligature를 지원한다.
+![](./recMonoCasual.png)
+<br/>
+- `Azeret Mono` 둥글둥글하고 정사각형 형태의 폰트. 요즘 자주 사용하는 폰트이다
+![](./azeretMono.png)
+  <br/>
+- `Fantasque Sans Mono` Rec Mono Casual 과는 다른 스타일의 필기체형태. 이 또한 일반적인 폰트보다 사이즈가 작다.
+![](./fantasque.png)
+
+<br/>
+
+요즘 사용해본 폰트 중 가독성과 스타일 면에서 맘에 들었던 폰트들이다. 혹자들은 이런것을 신경쓰지 않고 `IDE`에서 제공해주는 기본폰트를 사용만 해도 문제가 없을 것이다. 하지만 나는 `보기좋은것이 코딩하기도(?) 좋다` 주의이기 때문에 이런 부분도 바꿔가면서 기분전환을 하는 편이다.  
+아직 나의 ***best coding font***는 정해지지 않았고, 항상 일주일에 한번쯤은 새로운 coding font를 찾아보곤 한다. 기회가 된다면 만들어보고 싶기도 하다! (someday..)  
+다음에 또 기회가 된다면 coding font 2탄도 만들어봐야겠다.
