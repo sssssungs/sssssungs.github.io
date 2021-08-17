@@ -4,7 +4,7 @@ tags: [javascript, typescript, codingFont]
 date: 2021-08-04T20:25:44.226Z
 path: blog/free-coding-font
 cover: ./best-coding-fonts.jpeg
-excerpt: Coding font that you can get on the internet easily and makes your work more efficient !
+excerpt: Coding font that you can get on the internet easily and makes your work more efficient! (feat. My favorites)
 show: true
 ---
 

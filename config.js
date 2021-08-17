@@ -78,5 +78,11 @@ module.exports = {
 			description: 'A font used by programmers when they are working which is "CODING".',
 			color: '#179047',
 		},
+		designSystem: {
+			name: 'designSystem',
+			description:
+				'The single source of truth which groups all the elements allowing the teams to design, realize and develop a product.',
+			color: '#f86747',
+		},
 	},
 };
