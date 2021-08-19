@@ -1,6 +1,6 @@
 ---
 title: What is your best free coding font ?
-tags: [javascript, typescript, codingFont]
+tags: [javascript, typescript, codingFont, css]
 date: 2021-08-04T20:25:44.226Z
 path: blog/free-coding-font
 cover: ./best-coding-fonts.jpeg
