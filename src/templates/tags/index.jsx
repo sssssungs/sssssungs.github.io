@@ -13,6 +13,7 @@ import SidebarWrapper from '../../components/PageLayout/Sidebar';
 import Config from '../../../config';
 import Utils from '../../utils/pageUtils';
 import style from './tags.module.less';
+import ScrollHOC from '../../pages/scrollHOC';
 
 const TagPage = ({ data, pageContext }) => {
 	const { tag } = pageContext;
@@ -22,34 +23,36 @@ const TagPage = ({ data, pageContext }) => {
 		.fluid;
 	const posts = data.allMarkdownRemark.edges;
 	return (
-		<Layout className="outerPadding">
-			<Layout className="container">
-				<Header page="tags" />
-				<SEO
-					title={tagName}
-					description={`All post about ${tagName}. ${Config.tags[tag].description} `}
-					path={Utils.resolvePageUrl(tagPagePath, tag)}
-					keywords={[tagName]}
-				/>
-				<SidebarWrapper>
-					<div className={`marginTopTitle ${style.tagsList}`}>
-						<h1>#{tagName}</h1>
-						<div className={style.bannerImgContainer}>
-							<Img className={style.bannerImg} fluid={tagImage} alt={tagName} />
+		<ScrollHOC>
+			<Layout className="outerPadding">
+				<Layout className="container">
+					<Header page="tags" />
+					<SEO
+						title={tagName}
+						description={`All post about ${tagName}. ${Config.tags[tag].description} `}
+						path={Utils.resolvePageUrl(tagPagePath, tag)}
+						keywords={[tagName]}
+					/>
+					<SidebarWrapper>
+						<div className={`marginTopTitle ${style.tagsList}`}>
+							<h1>#{tagName}</h1>
+							<div className={style.bannerImgContainer}>
+								<Img className={style.bannerImg} fluid={tagImage} alt={tagName} />
+							</div>
+							<h4 className="textCenter">{Config.tags[tag].description}</h4>
 						</div>
-						<h4 className="textCenter">{Config.tags[tag].description}</h4>
-					</div>
-					<Row gutter={[20, 20]}>
-						{posts.map((post, key) => (
-							// eslint-disable-next-line react/no-array-index-key
-							<Col key={key} xs={24} sm={24} md={12} lg={8}>
-								<PostCard data={post} />
-							</Col>
-						))}
-					</Row>
-				</SidebarWrapper>
+						<Row gutter={[20, 20]}>
+							{posts.map((post, key) => (
+								// eslint-disable-next-line react/no-array-index-key
+								<Col key={key} xs={24} sm={24} md={12} lg={8}>
+									<PostCard data={post} />
+								</Col>
+							))}
+						</Row>
+					</SidebarWrapper>
+				</Layout>
 			</Layout>
-		</Layout>
+		</ScrollHOC>
 	);
 };
 

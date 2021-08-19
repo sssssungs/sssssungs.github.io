@@ -12,6 +12,7 @@ import Utils from '../../utils/pageUtils';
 import 'prismjs/themes/prism-solarizedlight.css';
 import './highlight-syntax.less';
 import style from './post.module.less';
+import ScrollHOC from '../../pages/scrollHOC';
 
 const Post = ({ data }) => {
 	const { html, frontmatter } = data.markdownRemark;
@@ -27,34 +28,36 @@ const Post = ({ data }) => {
 	const canonicalUrl = Utils.resolvePageUrl(Config.siteUrl, Config.pathPrefix, path);
 
 	return (
-		<Layout className="outerPadding">
-			<Layout className="container">
-				<SEO
-					title={title}
-					description={excerpt}
-					path={path}
-					keywords={[
-						'FullStack developer',
-						'Javascript',
-						'ReactJS',
-						'NodeJS',
-						'Gatsby',
-						'technology',
-					]}
-				/>
-				<Header page="blog" />
-				<SidebarWrapper>
-					<div className="marginTopTitle">
-						<h1>{title}</h1>
-						<div className={style.bannerImgContainer}>
-							<Img className={style.bannerImg} fluid={fluid} title={excerpt} alt={title} />
+		<ScrollHOC>
+			<Layout className="outerPadding">
+				<Layout className="container">
+					<SEO
+						title={title}
+						description={excerpt}
+						path={path}
+						keywords={[
+							'FullStack developer',
+							'Javascript',
+							'ReactJS',
+							'NodeJS',
+							'Gatsby',
+							'technology',
+						]}
+					/>
+					<Header page="blog" />
+					<SidebarWrapper>
+						<div className="marginTopTitle">
+							<h1>{title}</h1>
+							<div className={style.bannerImgContainer}>
+								<Img className={style.bannerImg} fluid={fluid} title={excerpt} alt={title} />
+							</div>
+							<article className={style.blogArticle} dangerouslySetInnerHTML={{ __html: html }} />
+							<Comment pageCanonicalUrl={canonicalUrl} pageId={title} />
 						</div>
-						<article className={style.blogArticle} dangerouslySetInnerHTML={{ __html: html }} />
-						<Comment pageCanonicalUrl={canonicalUrl} pageId={title} />
-					</div>
-				</SidebarWrapper>
+					</SidebarWrapper>
+				</Layout>
 			</Layout>
-		</Layout>
+		</ScrollHOC>
 	);
 };
 

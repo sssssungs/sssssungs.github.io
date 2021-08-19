@@ -8,6 +8,7 @@ import SEO from '../../components/Seo';
 import SidebarWrapper from '../../components/PageLayout/Sidebar';
 import TagCard from '../../components/TagCard';
 import Config from '../../../config';
+import ScrollHOC from '../scrollHOC';
 
 const Tags = ({ data }) => {
 	const {
@@ -20,36 +21,38 @@ const Tags = ({ data }) => {
 	// const tagPage = Config.pages.tag;
 	const tagData = Config.tags;
 	return (
-		<Layout className="outerPadding">
-			<Layout className="container">
-				<Header />
-				<SEO
-					title="Tags"
-					description="This page consists of various Tags on various technologies that I'll be using
+		<ScrollHOC>
+			<Layout className="outerPadding">
+				<Layout className="container">
+					<Header />
+					<SEO
+						title="Tags"
+						description="This page consists of various Tags on various technologies that I'll be using
           to write blogs. You can check the blogs related to the tags by clicking on any of the tags below."
-					path="tags"
-				/>
-				<SidebarWrapper>
-					<>
-						<div className="marginTopTitle">
-							<h1 className="titleSeparate">Tags</h1>
-						</div>
-						<Row gutter={[30, 20]}>
-							{edges.map(val => (
-								<Col key={val.node.name} xs={24} sm={24} md={12} lg={8}>
-									<TagCard
-										img={val.node.childImageSharp.fluid.src}
-										name={val.node.name}
-										description={tagData[val.node.name].description}
-										color={tagData[val.node.name].color}
-									/>
-								</Col>
-							))}
-						</Row>
-					</>
-				</SidebarWrapper>
+						path="tags"
+					/>
+					<SidebarWrapper>
+						<>
+							<div className="marginTopTitle">
+								<h1 className="titleSeparate">Tags</h1>
+							</div>
+							<Row gutter={[30, 20]}>
+								{edges.map(val => (
+									<Col key={val.node.name} xs={24} sm={24} md={12} lg={8}>
+										<TagCard
+											img={val.node.childImageSharp.fluid.src}
+											name={val.node.name}
+											description={tagData[val.node.name].description}
+											color={tagData[val.node.name].color}
+										/>
+									</Col>
+								))}
+							</Row>
+						</>
+					</SidebarWrapper>
+				</Layout>
 			</Layout>
-		</Layout>
+		</ScrollHOC>
 	);
 };
 
