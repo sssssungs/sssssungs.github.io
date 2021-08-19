@@ -24,24 +24,32 @@ ligature에 대한 부분은 지극히 개인적인 취향일 것이다. 개인�
 이 외에도 많은 부분을 고려하지만 위 세가지가 가장 신경쓰는 요소라고 할 수 있겠다.  
 그럼 다음부터 내가 최근 잘 사용하고 있는 몇가지 폰트를 소개하고자 한다. 순위는 따로 없다.
 
----
 <br/>
 
-- `Agave` 귀엽고 둥글둥글 하지만 잘 monospaced 되어 있다. 일반적인 폰트보다 사이즈가 작은것이 특징.
-![](./agave.png)
+- `Agave`  귀엽고 둥글둥글 하지만 잘 monospaced 되어 있다. 일반적인 폰트보다 사이즈가 작은것이 특징.
+<div style="width: 50%; margin-top: -10px">
+  <img src="./agave-small.png" />
+</div>
 <br/>
 - `Calling Code` 폰트 중간중간 삐침이 있다. 폰트 weight는 다른 폰트보다 얇은편.
-![](./callingCode.png)
-  <br/>
+<div style="width: 50%; margin-top: -10px">
+  <img src="./calling-small.png" />
+</div>
+<br/>
 - `Rec Mono Casual` 필기체를 쓴것처럼 보이는 것이 특징. ligature를 지원한다.
-![](./recMonoCasual.png)
+<div style="width: 50%; margin-top: -10px">
+  <img src="./rec-small.png"/>
+</div>
 <br/>
 - `Azeret Mono` 둥글둥글하고 정사각형 형태의 폰트. 요즘 자주 사용하는 폰트이다
-![](./azeretMono.png)
-  <br/>
+<div style="width: 50%; margin-top: -10px">
+  <img src="./azeret-small.png"/>
+</div>
+<br/>
 - `Fantasque Sans Mono` Rec Mono Casual 과는 다른 스타일의 필기체형태. 이 또한 일반적인 폰트보다 사이즈가 작다.
-![](./fantasque.png)
-
+<div style="width: 50%; margin-top: -10px">
+  <img src="./fanta-small.png" />
+</div>
 <br/>
 
 요즘 사용해본 폰트 중 가독성과 스타일 면에서 맘에 들었던 폰트들이다. 혹자들은 이런것을 신경쓰지 않고 `IDE`에서 제공해주는 기본폰트를 사용만 해도 문제가 없을 것이다. 하지만 나는 `보기좋은것이 코딩하기도(?) 좋다` 주의이기 때문에 이런 부분도 바꿔가면서 기분전환을 하는 편이다.  
