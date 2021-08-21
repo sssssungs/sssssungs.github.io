@@ -36,12 +36,12 @@ function SEO({
 			render={data => {
 				const metaKeywords =
 					keywords && keywords.length > 0 ? { name: 'keywords', content: keywords.join(', ') } : [];
-				const pageUrl = Utils.resolvePageUrl(Config.siteUrl, Config.pathPrefix, path);
+				const pageUrl = Utils.resolvePageUrl(Config.siteUrl, Config.pathPrefix, path).slice(1);
 				const metaImageUrl = Utils.resolveUrl(
 					Config.siteUrl,
 					imageUrl || data.file.childImageSharp.fixed.src,
-				);
-				console.log(metaImageUrl);
+				).slice(1);
+				// console.log(metaImageUrl.slice(1));
 
 				return (
 					<Helmet
