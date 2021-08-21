@@ -20,6 +20,14 @@ const Blog = ({ data }) => (
           javascript and other trends like graphql, prisma etc. This blog expresses my views of various technologies
           and scenarios I have come across in realtime."
 					path="blog"
+					keywords={[
+						'Randy',
+						'FullStack developer',
+						'Frontend developer',
+						'Javascript',
+						'Typescript',
+						'ReactJS',
+					]}
 				/>
 				<SidebarWrapper>
 					<div className="marginTopTitle">
