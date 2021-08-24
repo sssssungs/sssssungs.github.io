@@ -88,5 +88,11 @@ module.exports = {
 			description: 'Docker is an open platform for developing, shipping, and running applications.',
 			color: '#089CC7',
 		},
+		kubernetes: {
+			name: 'kubernetes',
+			description:
+				'An open-source system that automates the deployment, scaling, and management of applications run in containers.',
+			color: '#261a81',
+		},
 	},
 };
