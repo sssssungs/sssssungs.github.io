@@ -25,21 +25,26 @@
 <h3>life cycle</h3>
 <p><code class="language-text">docker create --name 이름 이미지이름:태그</code> 지정 이름으로 image를 container로 만듬 (실행은 하지않는다)<br>
 <code class="language-text">docker start 옵션 이름</code> container를 실행<br>
+<code class="language-text">docker stop 옵션 이름</code> container를 중지<br>
+<code class="language-text">docker rm 옵션 이름</code> container를 삭제 (실행 중인 것은 삭제되지 않음. <code class="language-text">-f</code> 옵션으로 강제 삭제 가능)<br>
 <code class="language-text">docker run 옵션 이미지이름:태그</code> container 생성 및 실행. 현재 local에 image가 없으면 pull까지 실행<br>
 <code class="language-text">docker top 이름</code> container 실행 내부 프로세스 확인<br>
 <code class="language-text">docker logs 이름</code> log 확인<br>
-<code class="language-text">docker exec 이름 /bin/bash</code> 추가로 명령 실행<br>
-<code class="language-text">docker inspect 옵션 이미지이름:태그</code> container image 상세보기</p>
+<code class="language-text">docker exec 이름 -it /bin/bash</code> container 내부로 접속<br>
+<code class="language-text">docker inspect 옵션 이미지이름:태그</code> container image 상세보기 </p>
 <h3>docker option</h3>
-<p><code class="language-text">-d</code> detached mode (background mode) 흔히 말하는 데몬<br>
+<p><code class="language-text">-a</code> 전체 내역을 보여줌<br>
+<code class="language-text">-d</code> detached mode (background mode) 흔히 말하는 데몬<br>
 <code class="language-text">-p</code> host와 container의 port를 연결 (forwarding)<br>
 <code class="language-text">-v</code> host와 container의 directory를 연결 (mount)<br>
 <code class="language-text">-e</code> container에서 사용할 환경변수 설정<br>
+<code class="language-text">-f</code> 변경사항을 watch해서 적용 또는 보여줌<br>
 <code class="language-text">--name</code> container 실행 이름 설정<br>
 <code class="language-text">--it</code> -i와 -t를 동시에 사용한 것으로 terminal 입력을 위한 설정 (container의 표준입력과 컴퓨터의 키보드 입력을 연결)<br>
 <code class="language-text">--rm</code> process 종료 시 container 자동제거<br>
 <code class="language-text">--link</code> container 연결<br>
-<code class="language-text">--restart</code> docker desktop을 실행할때마다 자동 restart 실행여부  </p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<code class="language-text">--restart</code> docker desktop을 실행할때마다 자동 restart 실행여부<br>
+<code class="language-text">inspect --format '{{.Network.Ip}}'</code> Network의 Ip만 보기 (.으로 구분)  </p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
