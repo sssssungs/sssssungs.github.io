@@ -29,19 +29,24 @@ show: true
 ### life cycle
 `docker create --name 이름 이미지이름:태그` 지정 이름으로 image를 container로 만듬 (실행은 하지않는다)  
 `docker start 옵션 이름` container를 실행  
+`docker stop 옵션 이름` container를 중지    
+`docker rm 옵션 이름` container를 삭제 (실행 중인 것은 삭제되지 않음. `-f` 옵션으로 강제 삭제 가능)     
 `docker run 옵션 이미지이름:태그` container 생성 및 실행. 현재 local에 image가 없으면 pull까지 실행  
 `docker top 이름` container 실행 내부 프로세스 확인  
 `docker logs 이름` log 확인  
-`docker exec 이름 /bin/bash` 추가로 명령 실행  
-`docker inspect 옵션 이미지이름:태그` container image 상세보기
+`docker exec 이름 -it /bin/bash` container 내부로 접속    
+`docker inspect 옵션 이미지이름:태그` container image 상세보기 
 
 ### docker option
+`-a` 전체 내역을 보여줌    
 `-d` detached mode (background mode) 흔히 말하는 데몬  
 `-p` host와 container의 port를 연결 (forwarding)  
 `-v` host와 container의 directory를 연결 (mount)  
 `-e` container에서 사용할 환경변수 설정  
+`-f` 변경사항을 watch해서 적용 또는 보여줌  
 `--name` container 실행 이름 설정  
 `--it` -i와 -t를 동시에 사용한 것으로 terminal 입력을 위한 설정 (container의 표준입력과 컴퓨터의 키보드 입력을 연결)  
 `--rm` process 종료 시 container 자동제거  
 `--link` container 연결  
 `--restart` docker desktop을 실행할때마다 자동 restart 실행여부  
+`inspect --format '{{.Network.Ip}}'` Network의 Ip만 보기 (.으로 구분)  
