@@ -1,5 +1,5 @@
 ---
-title: Archived notes about dockerfile instruction, docker life cycle command,  etc. 
+title: (Almost) Everything about DOCKER🐳 for myself 
 tags: [docker, kubernetes]
 date: 2021-08-23T20:25:44.226Z
 path: blog/docker-instruction
