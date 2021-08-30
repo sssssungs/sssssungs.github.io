@@ -35,7 +35,9 @@ show: true
 `docker top 이름` container 실행 내부 프로세스 확인  
 `docker logs 이름` log 확인  
 `docker exec 이름 -it /bin/bash` container 내부로 접속    
-`docker inspect 옵션 이미지이름:태그` container image 상세보기 
+`docker inspect 옵션 이미지이름:태그` container image 상세보기  
+`docker stat` 실행중인 container의 runtime resource 통계 확인  
+`docker event` docker host의 실시간 event 정보를 출력
 
 ### docker option
 `-a` 전체 내역을 보여줌    
