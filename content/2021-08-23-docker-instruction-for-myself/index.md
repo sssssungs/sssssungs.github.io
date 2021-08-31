@@ -44,6 +44,9 @@ show: true
 `-d` detached mode (background mode) 흔히 말하는 데몬  
 `-p` host와 container의 port를 연결 (forwarding)  
 `-v` host와 container의 directory를 연결 (mount)  
+`-v /hostpath:/container-path` host-container volume 연결  
+`-v /hostpath:/container-path:ro` host-container volume 연결 및 read/write mode (보통 readonly 사용)  
+`-v /container-path` /var/lib/docker/volumes/{UUID} 를 자동생성해서 연결    
 `-e` container에서 사용할 환경변수 설정  
 `-f` 변경사항을 watch해서 적용 또는 보여줌  
 `--name` container 실행 이름 설정  
