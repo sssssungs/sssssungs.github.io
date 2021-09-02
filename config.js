@@ -94,5 +94,17 @@ module.exports = {
 				'An open-source system that automates the deployment, scaling, and management of applications run in containers.',
 			color: '#261a81',
 		},
+		sql: {
+			name: 'sql',
+			description:
+				'Structured Query Language, commonly known as SQL, is a standard programming language for relational databases.',
+			color: '#e13535',
+		},
+		database: {
+			name: 'database',
+			description:
+				'A Database is a collection of information that is organized so that it can be easily accessed, managed and updated.',
+			color: '#13be30',
+		},
 	},
 };
