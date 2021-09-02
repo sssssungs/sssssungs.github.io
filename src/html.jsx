@@ -28,11 +28,6 @@ export default class HTML extends React.Component {
 	}
 }
 
-// The quick brown fox jumps over the lazy dog
-// {} [] () 123456789 ~!@#$%^&*()_+ <>?;''`~\
-// ligature <!-- -- != := === >= >- >=> |-> -> <$>
-// </> #[ |||> |= ~@
-
 HTML.propTypes = {
 	htmlAttributes: PropTypes.object,
 	headComponents: PropTypes.array,
