@@ -45,7 +45,7 @@ show: true
 `-p` host와 container의 port를 연결 (forwarding)  
 `-p hostPort:containerPort` host와 container의 port를 연결  
 `-p 8080` container port는 8080으로 open 하고 host port는 random으로 연결  
-`-P` dockerfile의 EXPOSE에 맞춰서 random port가 자동으로 open (좀더 확인 필요)  
+`-P` dockerfile의 EXPOSE 개수에 맞춰서 random port가 자동으로 open   
 `-v` host와 container의 directory를 연결 (mount)  
 `-v /hostpath:/container-path` host-container volume 연결  
 `-v /hostpath:/container-path:ro` host-container volume 연결 및 read/write mode (보통 readonly 사용)  
