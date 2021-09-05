@@ -58,3 +58,12 @@ show: true
 `--link` container 연결  
 `--restart` docker desktop을 실행할때마다 자동 restart 실행여부  
 `inspect --format '{{.Network.Ip}}'` Network의 Ip만 보기 (.으로 구분)  
+
+### 참고) vi ex 명령
+`:e!` 취소  
+`:w` 저장  
+`:w filename` filename 이라는 새 이름으로 저장  
+`:q` 종료 (마지막 변경사항 저장안되면 종료안됨)  
+`:q!` 변경사항 취소 & 강제종료    
+`:wq` 저장 후 종료  
+`:r filename` 현재 편집중인 파일의 cursor위치에 filename의 내용을 끼워넣음 
