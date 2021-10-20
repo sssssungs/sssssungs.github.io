@@ -8,9 +8,27 @@
 /static/b52c4820b3fe478ead2ae68f61876678/1e020/sql.png 712w" sizes="(max-width: 712px) 100vw, 712px" /><img loading="lazy" sizes="(max-width: 712px) 100vw, 712px" srcset="/static/b52c4820b3fe478ead2ae68f61876678/e1953/sql.png 250w,
 /static/b52c4820b3fe478ead2ae68f61876678/46604/sql.png 500w,
 /static/b52c4820b3fe478ead2ae68f61876678/1e020/sql.png 712w" src="/static/b52c4820b3fe478ead2ae68f61876678/1e020/sql.png" alt="Don't forget the SQL and RDB" title="Archived notes about sql, RDB and other database like no-sql, graph, etc." style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>지금은 <em><strong>Frontend developer</strong></em> 라는 role을 가지고 일을 하고 있지만, 나는 전직장에서 근무할 시절 full stack 으로 개발을 했었다. <code class="language-text">frontend</code>는 주로 <code class="language-text">jquery</code>를 사용했던것 같고 (물론 나중에는 <code class="language-text">react</code>를 사용했다), <code class="language-text">backend</code>는 <code class="language-text">java</code>를 이용했고 <code class="language-text">oracle</code>데이터 베이스를 주로 사용했었다.<br>
-그래도 나름 재미있고 관심있게 했던것이 <code class="language-text">database</code> 였기 때문에 내가 이해하기 어려웠던 몇가지 개념과 sql 개념들을 정리해본다.</p>
+그래도 나름 재미있고 관심있게 했던것이 <code class="language-text">database</code> 였기 때문에 내가 이해하기 어려웠던 몇가지 개념과 sql 개념들을 정리해본다. (oracle 기준)</p>
 <h3>Group by와 Distinct</h3>
+<p><code class="language-text">distinct</code>는 주로 unique한 column이나 record를 조회하는 경우에 사용되며, <code class="language-text">group by</code>는 데이터를 grouping해서 그 결과를 가져오는 경우 사용되는 쿼리 형태이다.<br>
+사실 두개 query의 결과는 다르지 않다. 하지만 <code class="language-text">distinct</code>는 정렬하지 않고 결과를 출력해, <code class="language-text">group by</code>보다 성능이 빠르다. 사실 <code class="language-text">distinct</code>는 내부적으로 <code class="language-text">group by</code>와 동일한 코드를 사용한다. <code class="language-text">group by</code>에는 기본적으로 <strong>정렬(sort)</strong>의 개념이 들어있어 결과에 반영되서 출력된다.
+그래서 정렬이 굳이 필요하지 않은 작업이라면 <code class="language-text">distinct</code>를 사용하는 것이 성능상 이득이다.</p>
 <h3>Outer join</h3>
+<p><code class="language-text">outer join</code>은 join 조건에서 동일한 값이 없는 행도 반환을 할때에 사용한다. 즉 A, B Table을 서로 join 할때에 조건이 맞지 않는 데이터도 표시하고 싶을때 outer join을 사용한다.<br>
+가장 기본적인 inner join은 조건이 맞는 경우만 출력하지만, outer join의 경우 조건이 맞지 않은 경우 null값으로 출력한다.  </p>
+<ul>
+<li>
+<p>Left Outer Join<br>
+<code class="language-text">LEFT OUTER JOIN</code> 수행시 먼저 표기된 좌측 테이블에 해당하는 데이터를 기준으로 나열하고, 우측 테이블에서 조건에 맞는 join 대상을 읽어와서 조건이 맞는 경우 맞게 배치하며, 조건이 맞지 않는 경우는 null 값으로 채운다.</p>
+<div style="width: 50%; margin-top: -10px">
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 280px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 58.4%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACQklEQVQoz22TW2/aQBCF+f8Pec5bhKKSoqIWpSSADYEEibu5Q4NIwPhCIGATzKXGYJ/O2gGapiONdmV7P8+cOetzbBssnP0eRucR43QGaozHy9095pU6HMuCvbVgtB+xqDXxJtRobWDZ7dHzrXf2wHAc+NjG0udQIlGIHA8pm4UiCJByOQzvH/B8cYnXKI+dYcAmOAv2A3M8wbxQxnamfYD67M0GUvgnpHweo2YTarUKlYCjZgMSAXvBbxhGbmFp+oeDh4oYdGcsTxXOsgWI6TSUeh1yqQS5XIZMQAbtffkKtVKBVCxixCW86gjIcr/bwWHdLZdYkDTezwgo3cYwIpjebmNGOaUqp502hqk0+uFrqPSOpUhVbt+r/DeM1q9jlT4lxkHgeVycnSF4fg7u6gp8KOQChsk7qLWam0xfU1ZQa7UQj8XAcRwKuTy6/T4sUYI5nXlA6SaGPrUU8fsRDwSQJlgxHod4Q0NKJD1gvYZBnIOpqJhoM5RJmjJJ0yb4RNdg9sUTUI5y7iGNtUwfsJZfaS89ZPD8PYxRo+4CWcXW/O2/LS8abezXaw+ol6sY8AmoNNXjUCjZtJ8CQSj0jFlonEx/GgoLZptFvXV0gM/Z21CpbZEs4trmXTO2l8lKXf8lhmQr2zQ/VbZfb6DnSieDH4zNPh4nUhiQbkNqlRnaXUlDKfQDWioD82WM3XLl5WqFNek2LwrHVhnMbZl55xC/SXStJGCaL2JGhl099Y/vGMBodbCk68nWjayeDP7X1fsDoRBp6+a8rigAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="leftouter" title="leftouter" src="/static/fc675cc1ca8dcd509c0b04318d4f6fe7/b873a/leftouter.png" srcset="/static/fc675cc1ca8dcd509c0b04318d4f6fe7/3e256/leftouter.png 250w,
+/static/fc675cc1ca8dcd509c0b04318d4f6fe7/b873a/leftouter.png 280w" sizes="(max-width: 280px) 100vw, 280px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+</li>
+</ul>
 <h3>rollup</h3></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
