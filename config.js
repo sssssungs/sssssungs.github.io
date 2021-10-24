@@ -38,8 +38,8 @@ module.exports = {
 				'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.',
 			color: '#257acc',
 		},
-		reactjs: {
-			name: 'reactjs',
+		react: {
+			name: 'react',
 			description: 'React is an open source JavaScript library used for designing user interfaces.',
 			color: '#61dbfa',
 		},
