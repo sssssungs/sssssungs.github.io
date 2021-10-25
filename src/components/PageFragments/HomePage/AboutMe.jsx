@@ -6,11 +6,14 @@ import { domHtml } from '../../../utils/stripTags';
 import SEO from '../../Seo';
 
 const pageText = {
-	paraOne: `Hello guys! And welcome with my big love! My name is <b>Sungsik Won</b>. I'm a frontend developer who is
-    passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with Jquery, Spring framework and Oracle/SQL in Semiconductor industry. 
-    Also about 2 years of React, Redux, Typescript and Next.js, too. I also have hands on experience working with cloud infrastructures like DC/OS (Apache Mesos), CI/CD with ELK and AWS a little and have deployed applications
+	paraOne: `Hello guys! And welcome with my big love! My name is <b>Sungsik Won</b>. I'm a <span style="font-size:17px;"><b><u>Frontend developer</u></b></span> who is
+    passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with <span style="font-size:17px;"><b><u>Jquery, Spring framework and Oracle/SQL</u></b></span> in Semiconductor industry. 
+    Also about 2 years of <span style="font-size:17px;"><b><u>React, Redux, Typescript and Next.js</u></b></span>, too. I also have hands on experience working with cloud infrastructures like <span style="font-size:17px;"><b><u>DC/OS (Apache Mesos), CI/CD with ELK and AWS</u></b></span> a little and have deployed applications
     keeping scalability in mind.`,
-	paraTwo: `Currently I'm working mostly with javascript/typescript like React and Next.js with Emotion. I'm always a learner and a self taught programmer. Thank you for reading and have a good one! 🤩`,
+	paraTwo: `Currently I'm working mostly with javascript/typescript like React and Next.js with Emotion. 
+	I'm always a learner and a self taught programmer. <span style="font-size:17px;"><b><u>Speaking English</u></b></span> always has been on my todo list so that I can communicate with English speaker in real life.
+	Nowadays, I've started <span style="font-size:17px;"><b><u>studying French</u></b></span> for fun. It's very attractive language I think.<br/> 
+	Thank you for reading and have a good one! 🤩`,
 };
 
 const AboutMe = () => (
