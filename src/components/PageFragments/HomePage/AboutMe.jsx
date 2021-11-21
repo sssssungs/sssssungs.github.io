@@ -12,7 +12,7 @@ const pageText = {
     keeping scalability in mind.`,
 	paraTwo: `Currently I'm working mostly with <span style="font-size:17px;"><b><u>javascript/typescript library like React and Next.js with Emotion.</u></b></span> 
 	I'm always a learner and a self taught programmer. <span style="font-size:17px;"><b><u>Speaking English</u></b></span> always has been on my todo list so that I can communicate with English speaker in real life.
-	Nowadays, I've started <span style="font-size:17px;"><b><u>studying French</u></b></span> for fun. It's very attractive language I think.<br/> 
+	Nowadays, I'm <span style="font-size:17px;"><b><u>learning French</u></b></span> for fun. It's very attractive language I think.<br/> 
 	Thank you for reading and have a good one! 🤩`,
 };
 
