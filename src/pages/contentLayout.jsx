@@ -20,7 +20,7 @@ const ContentLayout = ({ page, children }) => {
 								<Lottie
 									options={{
 										animationData,
-										loop: 0,
+										loop: 1,
 										autoplay: true,
 									}}
 									isStopped={false}
