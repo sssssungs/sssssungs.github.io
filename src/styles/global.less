@@ -140,3 +140,21 @@ ul {
 .react-pdf__Document {
 	background: lightslategray;
 }
+
+.content-layout {
+	width: 100%;
+	@media screen and (max-width: 768px) {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		right: 0;
+		top: 0;
+		background: #ffffff;
+		div[aria-label='animation'] {
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+	}
+}
