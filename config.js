@@ -43,11 +43,6 @@ module.exports = {
 			description: 'React is an open source JavaScript library used for designing user interfaces.',
 			color: '#61dbfa',
 		},
-		gatsby: {
-			name: 'gatsby',
-			description: 'A framework built over ReactJS to generate static page web application.  ',
-			color: '#6f309f',
-		},
 		html: {
 			name: 'html',
 			description:
@@ -59,12 +54,6 @@ module.exports = {
 			description:
 				'CSS is used to style the HTML element and to give a very fancy look for the web application.',
 			color: '#43ace0',
-		},
-		python: {
-			name: 'python',
-			description:
-				'A general purpose programming language that is widely used for developing various applications.',
-			color: '#f9c646',
 		},
 		functionalProgramming: {
 			name: 'functionalProgramming',
