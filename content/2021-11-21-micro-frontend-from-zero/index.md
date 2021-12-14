@@ -34,4 +34,8 @@ MSA는 일반적인 개발 아키텍쳐 라고 생각할 수 있지만 깊게 �
 </div>
 
 ## Micro Frontend 
-
+Micro frontend는 MSA처럼 전체화면을 작동할 수 있는 단위로 나누어 개발한 후 서로 조립하는 방식이다. MSA에서 Backend 구성을 제외한 형태라고 생각하면 된다. 여기서 작동 단위에 사용된 frontend framework는 그 종류에 상관하지 않고 각각 독립적인 형태를 가진다. 
+<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <img src="./mf-ci.png"/>
+  <div style="width:200px;margin-left:auto; margin-right: auto;font-size:13px;color:#8b9196">Micro frontend 구성예시</div>
+</div>
