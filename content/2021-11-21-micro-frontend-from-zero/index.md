@@ -39,3 +39,9 @@ Micro frontend는 MSA처럼 전체화면을 작동할 수 있는 단위로 나�
   <img src="./mf-ci.png"/>
   <div style="width:200px;margin-left:auto; margin-right: auto;font-size:13px;color:#8b9196">Micro frontend 구성예시</div>
 </div>
+
+Build 시점보다는 runtime에서 통합하도록 하는것이 효율적인 방법이며, 이를 구현할 수 있는 몇가지 방법이 있다
+1. <b>iframe을 이용한 Runtime integration</b>  
+  가장 쉬운 방식이다. iframe을 사용하면 페이지 안에 또다른 독립적인 페이지를 쉽게 구성할 수 있다. styling과 global 변수들이 독립적으로 존재하기 때문에 상당한 고립성을 가진다. 하지만 다른 옵션들보다 유연성이 떨어지는 경향이 있다. 특히 routing, history 등이 복잡해지고 responsive design 개발에도 어려움이 존재하는것이 현실이다.
+<br/>
+2. <b>javascript를 통한 Runtime integration</b>
