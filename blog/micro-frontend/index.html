@@ -49,7 +49,14 @@
 /static/1b5d7087a0a65e393cf2e14055937d1d/0440a/mf-ci.png 703w" sizes="(max-width: 703px) 100vw, 703px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
     </span>
   <div style="width:200px;margin-left:auto; margin-right: auto;font-size:13px;color:#8b9196">Micro frontend 구성예시</div>
-</div></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+</div>
+<p>Build 시점보다는 runtime에서 통합하도록 하는것이 효율적인 방법이며, 이를 구현할 수 있는 몇가지 방법이 있다</p>
+<ol>
+<li><b>iframe을 이용한 Runtime integration</b><br>
+가장 쉬운 방식이다. iframe을 사용하면 페이지 안에 또다른 독립적인 페이지를 쉽게 구성할 수 있다. styling과 global 변수들이 독립적으로 존재하기 때문에 상당한 고립성을 가진다. 하지만 다른 옵션들보다 유연성이 떨어지는 경향이 있다. 특히 routing, history 등이 복잡해지고 responsive design 개발에도 어려움이 존재하는것이 현실이다.
+<br/></li>
+<li><b>javascript를 통한 Runtime integration</b></li>
+</ol></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
