@@ -14,6 +14,7 @@ module.exports = {
 	social: {
 		github: 'https://github.com/sssssungs',
 		instagram: 'https://www.instagram.com/sssssungs/',
+		linkedin: 'https://www.linkedin.com/in/sungsik-won-3a5263176/',
 		rss: '/rss.xml',
 	},
 	contactFormUrl:

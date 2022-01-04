@@ -9,7 +9,7 @@ import { useWindowSize } from '../../../utils/hooks';
 import Config from '../../../../config';
 
 const { Content } = Layout;
-const { github, instagram } = Config.social;
+const { github, instagram, linkedin } = Config.social;
 
 const DomContent = () => (
 	<aside>
@@ -27,6 +27,9 @@ const DomContent = () => (
 				</a>
 				<a href={instagram} target="_blank" rel="noopener noreferrer">
 					<FA name="instagram" />
+				</a>
+				<a href={linkedin} target="_blank" rel="noopener noreferrer">
+					<FA name="linkedin" />
 				</a>
 			</div>
 			<ul className={`box ${style.badge} contactBlock`}>
