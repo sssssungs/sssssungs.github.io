@@ -96,5 +96,11 @@ module.exports = {
 				'A Database is a collection of information that is organized so that it can be easily accessed, managed and updated.',
 			color: '#13be30',
 		},
+		nextjs: {
+			name: 'nextjs',
+			description:
+				'An open-source development framework built on top of Node.js enabling React based web applications functionalities.',
+			color: '#2B2B2B',
+		},
 	},
 };
