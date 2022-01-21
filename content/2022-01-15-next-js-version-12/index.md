@@ -74,6 +74,8 @@ import confetti from 'https://cdn.skypack.dev/canvas-confetti'
 }
 ```
 
+<br/>
+
 이상으로 간략하게 최신 Nextjs의 버전 12 업데이트에 대해서 살펴보았다. 여러 주목할만한 기능이 추가되었고, React에도 대응하고 있는 모습이 보인다.
 특히 SSR에 대한 새로운 component가 등장하면서 Nextjs를 대표하는 feature였던 `getServersideProps`, `getStaticProps` 등이 점점 사라지게 될지도 모르겠다.
 
