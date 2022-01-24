@@ -7,7 +7,7 @@ cover: ./microf.png
 excerpt: Micro frontend service architecture research archive
 show: true
 ---
-회사에서 MSA에 대해 공부하기 시작하면서 여러가지 리서치,  등을 진행하는데 이곳에 조금씩 정리해보려고 한다.
+회사에서 MSA에 대해 공부하기 시작하면서 여러가지 리서치, 튜토리얼 등을 진행하는데 이곳에 조금씩 정리해보려고 한다.
 
 ## Monolithic Architecture
 서비스의 모든 구성요소가 하나의 프로젝트로 통합되어 있는 형태이다. 전통적으로 개발할때 설계 해오던 방식이며, 하나의 프로젝트 안에서 모듈별로 개발을 진행하고 이 프로젝트를 한번에 통합해서 결과물을 빌드해서 서비스로 배포하는 방식을 말한다. 하지만 서비스의 규모가 점점 커지고 복잡해 질수록 Monolithic 구성은 한계를 보인다.
