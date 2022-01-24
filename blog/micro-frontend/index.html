@@ -7,7 +7,7 @@
 /static/0b6bd33c2b152f7c60a9eb6d7960c9e1/46604/microf.png 500w,
 /static/0b6bd33c2b152f7c60a9eb6d7960c9e1/efc77/microf.png 865w" sizes="(max-width: 865px) 100vw, 865px" /><img loading="lazy" sizes="(max-width: 865px) 100vw, 865px" srcset="/static/0b6bd33c2b152f7c60a9eb6d7960c9e1/e1953/microf.png 250w,
 /static/0b6bd33c2b152f7c60a9eb6d7960c9e1/46604/microf.png 500w,
-/static/0b6bd33c2b152f7c60a9eb6d7960c9e1/efc77/microf.png 865w" src="/static/0b6bd33c2b152f7c60a9eb6d7960c9e1/efc77/microf.png" alt="Micro frontend from the scratch (1/2)" title="Micro frontend service architecture research archive" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>회사에서 MSA에 대해 공부하기 시작하면서 여러가지 리서치,  등을 진행하는데 이곳에 조금씩 정리해보려고 한다.</p>
+/static/0b6bd33c2b152f7c60a9eb6d7960c9e1/efc77/microf.png 865w" src="/static/0b6bd33c2b152f7c60a9eb6d7960c9e1/efc77/microf.png" alt="Micro frontend from the scratch (1/2)" title="Micro frontend service architecture research archive" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>회사에서 MSA에 대해 공부하기 시작하면서 여러가지 리서치, 튜토리얼 등을 진행하는데 이곳에 조금씩 정리해보려고 한다.</p>
 <h2>Monolithic Architecture</h2>
 <p>서비스의 모든 구성요소가 하나의 프로젝트로 통합되어 있는 형태이다. 전통적으로 개발할때 설계 해오던 방식이며, 하나의 프로젝트 안에서 모듈별로 개발을 진행하고 이 프로젝트를 한번에 통합해서 결과물을 빌드해서 서비스로 배포하는 방식을 말한다. 하지만 서비스의 규모가 점점 커지고 복잡해 질수록 Monolithic 구성은 한계를 보인다.</p>
 <p>Monolithic application 의 단점</p>
@@ -52,17 +52,18 @@
 </div>
 <p>Build 시점보다는 runtime에서 통합하도록 하는것이 효율적인 방법이며, 이를 구현할 수 있는 몇가지 방법이 있다</p>
 <ol>
-<li><b>iframe을 이용한 Runtime integration</b>
+<li><i><b>iframe을 이용한 Runtime integration</b></i><br/>
 가장 쉬운 방식이다. iframe을 사용하면 페이지 안에 또다른 독립적인 페이지를 쉽게 구성할 수 있다. styling과 global 변수들이 독립적으로 존재하기 때문에 상당한 고립성을 가진다. 하지만 다른 옵션들보다 유연성이 떨어지는 경향이 있다. 특히 routing, history 등이 복잡해지고 responsive design 개발에도 어려움이 존재하는것이 현실이다.
 <br/><br/></li>
-<li><b>javascript를 통한 Runtime integration</b>
-현실적으로 많이 사용하는 방식이다. 각 Micro app들은 <code class="language-text">&lt;script/></code> 태그를 통해 번들이 포함되도록 설정되고, host app은 각 번들파일을 다운받고, 초기화 메소드 등을 호출한다.
-각 번들파일을 독립적으로 배치가 가능하며, 다양한 방법으로 확장, 유연하게 구현할 수 있는 방법이므로 많이 채택된다.
+<li><i><b>javascript를 통한 Runtime integration</b></i><br/>
+현실적으로 많이 사용하는 방식이다. 각 Micro app들은 <code class="language-text">&lt;script/></code> 태그를 통해 번들이 포함되도록 설정되고, host app은 각 번들파일을 다운받고, 초기화 메소드 등을 호출한다. 각 번들파일을 독립적으로 배치가 가능하며, 다양한 방법으로 확장, 유연하게 구현할 수 있는 방법이므로 많이 채택된다.
 <br/><br/></li>
-<li><b>javascript를 통한 Build-time intergration</b>
+<li><i><b>javascript를 통한 Build-time integration</b></i><br/>
 Micro frontend를 패키지로 배포하고, host app이 그것을 라이브러리 dependency로 사용한다. <code class="language-text">package.json</code>에 추가하는 방식. 단일 번들파일을 생성하므로, 각 Micro app에 변경사항이 있을때마다 다시 complie/release 해야되는 번거로운이 있다.</li>
 </ol>
-<p>위의 3가지 방법이 주로 많이 사용되는 방법이며, <u>필자는 2번의 방법을 구현할 수 있는 솔루션 (Webpack 12의 module federation)</u>을 다음 포스팅에서 소개하도록 하겠다.</p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<br/>
+위의 3가지 방법이 주로 많이 사용되는 방법이며, <u>필자는 2번의 방법을 구현할 수 있는 솔루션 (Webpack 12의 module federation)</u>을 <a href="/blog/micro-frontend2">다음 포스팅</a>에서 소개하도록 하겠다.
+<br/><br/></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
