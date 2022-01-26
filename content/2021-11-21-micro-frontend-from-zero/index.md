@@ -52,5 +52,5 @@ Build 시점보다는 runtime에서 통합하도록 하는것이 효율적인 �
 Micro frontend를 패키지로 배포하고, host app이 그것을 라이브러리 dependency로 사용한다. `package.json`에 추가하는 방식. 단일 번들파일을 생성하므로, 각 Micro app에 변경사항이 있을때마다 다시 complie/release 해야되는 번거로운이 있다.
 
 <br/>
-위의 3가지 방법이 주로 많이 사용되는 방법이며, <u>필자는 2번의 방법을 구현할 수 있는 솔루션 (Webpack 12의 module federation)</u>을 <a href="/blog/micro-frontend2">다음 포스팅</a>에서 소개하도록 하겠다.
+위의 3가지 방법이 주로 많이 사용되는 방법이며, <u>필자는 2번의 방법을 구현할 수 있는 솔루션 (Webpack5의 module federation)</u>을 <a href="/blog/micro-frontend2">다음 포스팅</a>에서 소개하도록 하겠다.
 <br/><br/>
