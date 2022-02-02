@@ -46,8 +46,7 @@ Build 시점보다는 runtime에서 통합하도록 하는것이 효율적인 �
   <br/><br/>
 2. <i><b>javascript를 통한 Runtime integration</b></i><br/>
     현실적으로 많이 사용하는 방식이다. 각 Micro app들은 `<script/>` 태그를 통해 번들이 포함되도록 설정되고, host app은 각 번들파일을 다운받고, 초기화 메소드 등을 호출한다. 각 번들파일을 독립적으로 배치가 가능하며, 다양한 방법으로 확장, 유연하게 구현할 수 있는 방법이므로 많이 채택된다.
-<br/><br/>
-
+    <br/><br/>
 3. <i><b>javascript를 통한 Build-time integration</b></i><br/>
 Micro frontend를 패키지로 배포하고, host app이 그것을 라이브러리 dependency로 사용한다. `package.json`에 추가하는 방식. 단일 번들파일을 생성하므로, 각 Micro app에 변경사항이 있을때마다 다시 complie/release 해야되는 번거로운이 있다.
 

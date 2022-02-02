@@ -94,13 +94,19 @@ module.exports = {
 			name: 'database',
 			description:
 				'A Database is a collection of information that is organized so that it can be easily accessed, managed and updated.',
-			color: '#13be30',
+			color: '#fc0202',
 		},
 		nextjs: {
 			name: 'nextjs',
 			description:
 				'An open-source development framework built on top of Node.js enabling React based web applications functionalities.',
 			color: '#2B2B2B',
+		},
+		webpack: {
+			name: 'webpack',
+			description:
+				'Webpack is an open-source JavaScript module bundler.',
+			color: '#6C96DD',
 		},
 	},
 };
