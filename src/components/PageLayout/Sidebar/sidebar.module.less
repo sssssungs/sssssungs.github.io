@@ -56,11 +56,14 @@
 					white-space: nowrap;
 					overflow: hidden;
 					text-overflow: ellipsis;
+					font-size: 0.95rem;
+					margin-top:-2px;
+
 				}
 			}
 			.contactBlock {
 				color: #44566c;
-				font-size: 0.937rem;
+				font-size: 0.9rem;
 				padding-left: 0;
 				margin-bottom: 1.3rem;
 				@media screen and (max-width: 767px) {
@@ -76,18 +79,21 @@
 				}
 				.contactText {
 					font-weight: normal;
-					font-size: 1rem;
+					font-size: 0.85rem;
+				}
+				.icon-margin {
+					margin-right: 10px;
 				}
 			}
-			.resumeDownload {
-				a {
-					padding: 0.9rem 1rem;
-					text-transform: uppercase;
-					background-color: #304cfd;
-					border-radius: 28px;
-					color: #fff;
-				}
-			}
+			//.resumeDownload {
+			//	a {
+			//		padding: 0.9rem 1rem;
+			//		text-transform: uppercase;
+			//		background-color: #304cfd;
+			//		border-radius: 28px;
+			//		color: #fff;
+			//	}
+			//}
 		}
 	}
 	a {
@@ -96,13 +102,18 @@
 			color: rgba(0, 0, 0, 0.65);
 		}
 		.emailHider {
-			font-size: 1rem;
+
+			font-size: 0.85rem;
 			font-weight: 400 !important;
+
 			&::before {
 				content: 'sssssungs';
 			}
 			&::after {
 				content: 'gmail.com';
+			}
+			&:hover {
+				text-decoration: underline;
 			}
 		}
 	}

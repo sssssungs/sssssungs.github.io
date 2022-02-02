@@ -6,13 +6,13 @@ import { domHtml } from '../../../utils/stripTags';
 import SEO from '../../Seo';
 
 const pageText = {
-	paraOne: `Hello guys! And welcome with my big love! My name is <b>Sungsik Won</b>. I'm a <span style="font-size:17px;"><b><u>Frontend developer</u></b></span> who is
-    passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with <span style="font-size:17px;"><b><u>Jquery, Spring framework and Oracle/SQL</u></b></span> in Semiconductor industry. 
-    Also about 2 years of <span style="font-size:17px;"><b><u>React, Redux, Typescript and Next.js</u></b></span>, too. I also have hands on experience working with cloud infrastructures like <span style="font-size:17px;"><b><u>DC/OS (Apache Mesos), CI/CD with ELK and AWS</u></b></span> a little and have deployed applications
+	paraOne: `Hello guys! And welcome with my big love! My name is <b>Sungsik Won</b>. I'm a <b><u>Frontend developer</u></b> who is
+    passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with <b><u>Jquery, Spring framework and Oracle/SQL</u></b> in Semiconductor industry. 
+    Also about 2 years of <b><u>React, Redux, Typescript and Next.js</u></b>, too. I also have hands on experience working with cloud infrastructures like <b><u>DC/OS (Apache Mesos), CI/CD with ELK and AWS</u></b> a little and have deployed applications
     keeping scalability in mind.`,
-	paraTwo: `Currently I'm working mostly with <span style="font-size:17px;"><b><u>javascript/typescript library like React and Next.js with Emotion.</u></b></span> 
-	I'm always a learner and a self taught programmer. <span style="font-size:17px;"><b><u>Speaking English</u></b></span> always has been on my todo list so that I can communicate with English speaker in real life.
-	Nowadays, I'm <span style="font-size:17px;"><b><u>learning French</u></b></span> for fun. It's very attractive language I think.<br/> 
+	paraTwo: `Currently I'm working mostly with <b><u>javascript/typescript library like React and Next.js with Emotion.</u></b> 
+	I'm always a learner and a self taught programmer. <b><u>Speaking English</u></b> always has been on my todo list so that I can communicate with English speaker in real life.
+	Nowadays, I'm <b><u>learning French</u></b> for fun. It's very attractive language I think.<br/> 
 	Thank you for reading and have a good one! 🤩`,
 };
 

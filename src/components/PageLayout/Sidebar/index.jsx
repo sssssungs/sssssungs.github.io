@@ -34,22 +34,22 @@ const DomContent = () => (
 			</div>
 			<ul className={`box ${style.badge} contactBlock`}>
 				<li className={`${style.contactBlockItem}`}>
-					<div>
-						<FeatherIcon size="19" icon="calendar" />{' '}
+					<div className={`${style.iconMargin}`}>
+						<FeatherIcon size="19" icon="calendar" />
 					</div>
-					<div className={`${style.contactText}`}>&nbsp; &nbsp; Aug 31</div>
+					<div className={`${style.contactText}`}> Aug 31</div>
 				</li>
 				<li className={`${style.contactBlockItem}`}>
-					<div>
+					<div className={`${style.iconMargin}`}>
 						<FeatherIcon size="19" icon="map-pin" />
 					</div>
-					<div className={`${style.contactText}`}>&nbsp; &nbsp; Seoul, South Korea</div>
+					<div className={`${style.contactText}`}>Seoul, South Korea</div>
 				</li>
 				<li className={`${style.contactBlockItem}`}>
-					<span>
+					<span className={`${style.iconMargin}`}>
 						<FeatherIcon size="19" icon="mail" />
 					</span>
-					&nbsp;&nbsp;&nbsp;&nbsp;
+
 					<a
 						href="mailto:&#115;&#115;&#115;&#115;&#115;&#117;&#110;&#103;&#115;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;"
 						target="_top"
