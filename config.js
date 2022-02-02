@@ -105,7 +105,7 @@ module.exports = {
 		webpack: {
 			name: 'webpack',
 			description:
-				'Webpack is an open-source JavaScript module bundler.',
+				'Webpack is an open-source JavaScript module bundler. It can transform front-end assets such as HTML, CSS, and images if the corresponding loaders are included.',
 			color: '#6C96DD',
 		},
 	},
