@@ -11,9 +11,9 @@
 <p><code class="language-text">Module Federation</code>이란 2020년 10월에 release된 webpack5에 포함되어 있는 새로운 기능이다. (<a href="https://webpack.js.org/blog/2020-10-10-webpack-5-release/" target="_blank" rel="nofollow">공식문서</a>)<br/>
 요약하면, <code class="language-text">module federation</code>은 여러 분리된 build 파일을 하나의 host앱에서 불러와서 동적으로 실행시킬 수 있는 기술이다.<br/>
 이전 포스트에서 언급했었던 <code class="language-text">Micro-frontend</code>를 구현할 수 있는 기술이다. <br/></p>
-<p>각각의 분리된 서비스를 build하여 그 결과물을 동적으로 불러와서 사용하는데 이 불러오는 build앱을 보통 <code class="language-text">Remote</code>라고 지칭하며,
-<code class="language-text">Remote</code>들을 불러와 사용하는 main앱을 보통 <code class="language-text">Host</code>라고 지칭한다. 사용할 수 있는 <code class="language-text">Remote</code>는 복수개도 가능하며, 양방향으로도 <code class="language-text">module federation</code>이 가능하다.<br/></p>
-<p>사용하는 방법은 아래와 같다.<br/></p>
+<p>각각의 분리된 서비스를 build하여 그 결과물을 동적으로 불러와서 사용하는데 이 불러오는 build앱을 보통 <code class="language-text">remote</code>라고 지칭하며,
+<code class="language-text">remote</code>들을 불러와 사용하는 main앱을 보통 <code class="language-text">host</code>라고 지칭한다. 사용할 수 있는 <code class="language-text">remote</code>는 복수개도 가능하며, 양방향으로도 <code class="language-text">module federation</code>이 가능하다.<br/></p>
+<p><code class="language-text">remote</code>에서 component를 export 하는 방법은 아래와 같다.<br/></p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// webpack.config.js</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -27,8 +27,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>자신의 프로젝트에 <code class="language-text">./src/button</code>에 있는 button을 <code class="language-text">RemoteButton</code>라는 이름으로 다른 앱에서 사용할 수 있도록 <code class="language-text">exposes</code> 해주고 있다. 또한 다른곳에서 사용하기 위해 <code class="language-text">remote_from_a_entry.js</code>라는 이름으로 빌드결과물 이름을 명명 했다.</br>
-<code class="language-text">host</code>앱에서 사용할때에는 아래처럼 불러와서 사용할 수 있다.</p>
+<p>자신의 프로젝트에 <code class="language-text">./src/button</code>에 있는 button을 <code class="language-text">RemoteButton</code>라는 이름으로 다른 앱에서 사용할 수 있도록 <code class="language-text">exposes</code> 해주고 있다. 또한 다른곳에서 사용하기 위해 <code class="language-text">remote_from_a_entry.js</code>라는 이름으로 빌드결과물 이름을 명명 했다.<br/>
+shared는 의존성 module을 어떻게 공유할지 정의한다. 더 많은 shared property는 공식문서의 <a href="https://webpack.js.org/plugins/module-federation-plugin/#eager" target="_blank" rel="nofollow">Sharing hints</a>에서 볼 수 있다.<br/><br/>
+<code class="language-text">remote</code> 앱의 component를 사용할때에는 아래처럼 불러와서 사용할 수 있다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// webpack.config.js</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -63,7 +64,17 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">export</span> <span class="token keyword">default</span> Example</code></pre></div></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<span class="token keyword">export</span> <span class="token keyword">default</span> Example</code></pre></div>
+<p>Module federation은 나온지 그리 오래되지는 않은 기능이라 많은 레퍼런스와 best practice가 없어 구글링을 해도 비슷한 내용이 많다. (실제로 production 환경에서 도입하고 있는 회사가 있다고는 하지만..)<br/>
+튜토리얼을 진행하면서 예상치 못한 여러 부가적인 이슈들도 있었고, 기존에 사용하는 라이브러리와 잘 적용이 안되는 경우도 있었다. <code class="language-text">emotion.js</code>를 사용할때 <code class="language-text">hooks</code>에러 등 어려움이 많아 해결하는데 시간을 많이 쏟았다.
+그러면서 webpack에 대해 더 알게된 부분도 있지만, module federation으로 현재 프로젝트의 아키텍쳐를 migration하는것은 어려울 것이라 판단해 현재는 holding한 상태이다.<br/>
+앞으로 많은 레퍼런스와 커뮤니티들이 생기면 언젠가 다시 도전해 볼 계획이다.<br/>
+세부적인 내용은 webpack <a href="https://webpack.kr/concepts/module-federation/" target="_blank" rel="nofollow">공식문서</a>에 자세히 나와있다.</p>
+<h3>참고문서</h3>
+<p><a href="https://thekevinwang.com/2021/03/26/micro-frontends-nextjs" target="_blank" rel="nofollow">https://thekevinwang.com/2021/03/26/micro-frontends-nextjs</a> <br/>
+<a href="https://blog.wanzargen.me/38" target="_blank" rel="nofollow">https://blog.wanzargen.me/38</a> <br/>
+<a href="https://betterprogramming.pub/micro-frontends-using-webpack-5-module-federation-3b97ffb22a0d" target="_blank" rel="nofollow">https://betterprogramming.pub/micro-frontends-using-webpack-5-module-federation-3b97ffb22a0d</a> <br/>
+<a href="https://www.simform.com/blog/micro-frontend-architecture/#section4" target="_blank" rel="nofollow">https://www.simform.com/blog/micro-frontend-architecture/#section4</a> <br/></p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
