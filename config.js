@@ -108,5 +108,11 @@ module.exports = {
 				'Webpack is an open-source JavaScript module bundler. It can transform front-end assets such as HTML, CSS, and images if the corresponding loaders are included.',
 			color: '#6C96DD',
 		},
+		testing: {
+			name: 'testing',
+			description:
+				'JavaScript testing is a chain of processed to ensure correctness of any JavaScript codebase',
+			color: '#c2a013',
+		}
 	},
 };
