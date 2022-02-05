@@ -111,7 +111,7 @@ module.exports = {
 		testing: {
 			name: 'testing',
 			description:
-				'JavaScript testing is a chain of processed to ensure correctness of any JavaScript codebase.',
+				'JavaScript testing is a chain of processes to ensure correctness of any JavaScript codebase.',
 			color: '#c2a013',
 		}
 	},
