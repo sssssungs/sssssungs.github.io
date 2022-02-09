@@ -7,7 +7,18 @@
 /static/1cf966a847b6fe2b603dec0ee7fa1d6c/46604/cypress.png 500w,
 /static/1cf966a847b6fe2b603dec0ee7fa1d6c/32df2/cypress.png 730w" sizes="(max-width: 730px) 100vw, 730px" /><img loading="lazy" sizes="(max-width: 730px) 100vw, 730px" srcset="/static/1cf966a847b6fe2b603dec0ee7fa1d6c/e1953/cypress.png 250w,
 /static/1cf966a847b6fe2b603dec0ee7fa1d6c/46604/cypress.png 500w,
-/static/1cf966a847b6fe2b603dec0ee7fa1d6c/32df2/cypress.png 730w" src="/static/1cf966a847b6fe2b603dec0ee7fa1d6c/32df2/cypress.png" alt="Let's talk about Javascript testing and Cypress" title="Opinion about Cypress, end-to-end javascript based framework for testing." style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>javascript로 작성된 프로젝트에 test code를 작성할 때에 사용할 수 있는 것들은 다양하다. 대표적으로 unit test를 작성할때 <code class="language-text">jest</code>, <code class="language-text">mocha</code>, <code class="language-text">chai</code>등이 있다. 이들은 다 비슷한 목적을 가지고 있고 닮아있지만 다른 특성들을 가진다.<br/>
+/static/1cf966a847b6fe2b603dec0ee7fa1d6c/32df2/cypress.png 730w" src="/static/1cf966a847b6fe2b603dec0ee7fa1d6c/32df2/cypress.png" alt="Let's talk about Javascript testing and Cypress" title="Opinion about Cypress, end-to-end javascript based framework for testing." style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>개발을 진행하면서 test를 한다는 것은 여러가지 의미를 가진다. 사실 개발을 진행하는 모든 일련의 프로세스가 test이다. 하지만 이러한 test를 좀더 세분화시키고, 의도대로 잘 작동하는지 한번더 검증하는 단계가 필요하다. 특히 새로운 기능을 추가하는 것이 아닌 기존의 code를 수정하게 되는 경우(예를 들어 리팩토링을 하는경우)에는 그 기능의 결과에는 영향을 미치지 않아야 하기 때문에 이때에는 test 단계에서 잘못된 부분을 catch할 수 있다.<br/>
+test를 그 목적에 따라 구분지으면 다음의 세가지 분류로 나눌 수 있다.(다음의 분류는 모든 test에 대한 엄격한 rule이 아니고, 다양한 상황이나 목적에 의해 더 세분화되기도 단순화되기도 한다)<br/></p>
+<ul>
+<li><b><i>Unit Testing (유닛 테스트)</i></b><br/>
+code가 개발자의 의도대로 작동하는지 확인하기 위해 개별 컴포넌트 또는 모듈을 독립적으로 확인하는 것<br/></li>
+<li><b><i>Integration Testing (통합 테스트)</i></b><br/>
+컴포넌트 또는 모듈이 그룹화되서 통합/결합 될때 잘 작동하는지 확인하는 것<br/></li>
+<li><b><i>Functional Testing (기능 테스트)</i></b><br/>
+서비스의 기능을 테스트하여 올바른 작업을 수행하는지 확인하는 것<br/>
+<br/></li>
+</ul>
+<p>javascript로 작성된 프로젝트에 test code를 작성할 때에 사용할 수 있는 것들은 다양하다. 대표적으로 unit test를 작성할때 <code class="language-text">jest</code>, <code class="language-text">mocha</code>, <code class="language-text">chai</code>등이 있다. 이들은 다 비슷한 목적을 가지고 있고 닮아있지만 다른 특성들을 가진다.<br/>
 나는 대부분의 test code를 작성할때, <code class="language-text">react</code>로 짜여진 컴포넌트를 <code class="language-text">jest</code> 기반의 라이브러리를 사용했던 경험이 있다. <br/>
 사용했던 testing library는 <a href="https://enzymejs.github.io/enzyme/" target="_blank" rel="nofollow">enzyme</a>, <a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank" rel="nofollow">react-testing-library</a> 이 두 가지 이다.</p>
 <p>참조
