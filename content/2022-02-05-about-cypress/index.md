@@ -26,8 +26,8 @@ javascript로 작성된 프로젝트에 test code를 작성할 때에 사용할 
 [Cypress](https://github.com/cypress-io/cypress)는 e2e test 뿐만아니라 unit test, integration test까지 사용이 가능하다. 가장 큰 장점중에 하나인 GUI를 지원하고, 스펙관리 및 디버깅이 편리하다. 좀더 scenario/user-oriented의 성격을 가지고 있는 tool이다.<br/>
 `cypress`를 접하면서 가장 매력적으로 다가왔던 부분은 바로 GUI이다. 내가 어떤식으로 test를 하고있고, test failure가 발생했을 경우에는 어디에서 발생했는지 log와 함께 표시된다.
 
-<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
-  <img src="./cypress-ui.png"/>
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <img src="./cypress-ui1.png"/>
 </div>
 
 
