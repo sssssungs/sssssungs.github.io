@@ -24,14 +24,15 @@ code가 개발자의 의도대로 작동하는지 확인하기 위해 개별 컴
 하지만 위 두가지는 어려운점이 어떤 부분이 어떤 과정으로 testing 되는지 육안으로 확인하기 어렵다는 것이다. <code class="language-text">snapshot</code> 기능을 이용해서 스타일링 코드를 확인할 수 있지만 실제로 어떤 과정을 거치는지 말이다. 그래서 한번 검토해본 것이 e2e testing tool중에 한 가지인 <code class="language-text">cypress</code>이다.<br/><br/>
 <a href="https://github.com/cypress-io/cypress" target="_blank" rel="nofollow">Cypress</a>는 e2e test 뿐만아니라 unit test, integration test까지 사용이 가능하다. 가장 큰 장점중에 하나인 GUI를 지원하고, 스펙관리 및 디버깅이 편리하다. 좀더 scenario/user-oriented의 성격을 가지고 있는 tool이다.<br/>
 <code class="language-text">cypress</code>를 접하면서 가장 매력적으로 다가왔던 부분은 바로 GUI이다. 내가 어떤식으로 test를 하고있고, test failure가 발생했을 경우에는 어디에서 발생했는지 log와 함께 표시된다.</p>
-<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
   <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; ">
-      <span class="gatsby-resp-image-background-image" style="padding-bottom: 56.8%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA10lEQVQoz62T3QqCQBCF9/2JniG6MTNDVOotugh6hCIUzR/Wtf3xNC7SRXRh6bAfs8yyhzM7LNtsPARBBN8PEEYHRDERjSQ+Iqa8XyzhOlt4pMGEEOCco8O06O9rA7D8UeF6S9C2LTRVtNa/YwxMD+1ZzZ9IH40toOtoTYMVlcA9rSGl+s/dgFLKdmkdZoUgh9PdWYe25byBVMY+7SyCScbRCDmfw77l9+zHQtEP8vMtWV5W1HIJ3dGh0aNRxLdgilSlkjAkOBY9iJ3OF6zWDhx3Z3NIP+cFHitPuvAfrQsAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="cypress ui" title="cypress ui" src="/static/18459208544ec23a2c43e52401a7e695/332ff/cypress-ui.png" srcset="/static/18459208544ec23a2c43e52401a7e695/3e256/cypress-ui.png 250w,
-/static/18459208544ec23a2c43e52401a7e695/b30f8/cypress-ui.png 500w,
-/static/18459208544ec23a2c43e52401a7e695/332ff/cypress-ui.png 1000w,
-/static/18459208544ec23a2c43e52401a7e695/de2df/cypress-ui.png 1500w,
-/static/18459208544ec23a2c43e52401a7e695/fc29e/cypress-ui.png 1672w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 59.199999999999996%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABU0lEQVQoz6WST0/CMBiH+8k0wYQLxnCEm2cNIDoCwZh4NDFRdP4hXhRD9IoHjn4ZI7ggk42t3dZ2+9kSORijYdLk6du0fZ+2b0pKFQN7tSZKZQNb21VUdmoop6C5f4h64wCG0UB1tw5iWRZcxwGlFIwFkFIijuOFkVJACAF74sBxPZCJGgwGQ4zHNjwWwfUDBGGIcEGiKIJPAzhTBk/lEsf18Tp8V3YXUp2UJHGqG2qS+U05B3E9hpfhBDrq5/4XrmRhGIGwQMAaU3iUQ7ckSbBMIz7jSugrYaR1M+EyEBpwjD4odFxWNhMyLbTVlwlFqkSh6qa/yzfUHJl6Ad5GUyX1QVk4W+Bc/Nz8xXzt1xrqLpLpi9/rP+P2rotu9xGd+we0bzroPfVBTlqXODo20Tq7gnnRxrl5/Sem2capylnPF7GymkUmm0duo4DMWg6F4iY+AercbZVO15yUAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="cypress ui1" title="cypress ui1" src="/static/dc62bc51426910d83ae8c5d22677d0ce/332ff/cypress-ui1.png" srcset="/static/dc62bc51426910d83ae8c5d22677d0ce/3e256/cypress-ui1.png 250w,
+/static/dc62bc51426910d83ae8c5d22677d0ce/b30f8/cypress-ui1.png 500w,
+/static/dc62bc51426910d83ae8c5d22677d0ce/332ff/cypress-ui1.png 1000w,
+/static/dc62bc51426910d83ae8c5d22677d0ce/de2df/cypress-ui1.png 1500w,
+/static/dc62bc51426910d83ae8c5d22677d0ce/99e71/cypress-ui1.png 2000w,
+/static/dc62bc51426910d83ae8c5d22677d0ce/e2d8f/cypress-ui1.png 3348w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
     </span>
 </div>
 <p>참조
