@@ -30,6 +30,10 @@ javascript로 작성된 프로젝트에 test code를 작성할 때에 사용할 
   <img src="./cypress-ui1.png"/>
 </div>
 
+<div class='cypress-gif'>
+
+![cypress-example](./cypress-example.gif)
+</div>
 
 참조
 https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a
