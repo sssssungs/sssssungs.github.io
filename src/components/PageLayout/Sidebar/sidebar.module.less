@@ -19,9 +19,14 @@
 			background-repeat: no-repeat;
 			background-position: bottom;
 			border-radius: @border-radius-full;
+			transition: all 0.5s;
 			@media screen and (max-width: 767px) {
 				max-width: 230px;
 				margin: auto;
+			}
+			&:hover {
+				transition: all 0.5s;
+				background-image: url('../../../images/memoticon2.png');
 			}
 		}
 		.name {
