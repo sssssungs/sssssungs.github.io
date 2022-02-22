@@ -6,14 +6,14 @@ import { domHtml } from '../../../utils/stripTags';
 import SEO from '../../Seo';
 
 const pageText = {
-	paraOne: `Hello guys! And welcome with my big love! My name is <b>Sungsik Won</b>. I'm a <b><u>Frontend developer</u></b> who is
-    passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with <b><u>Jquery, Spring framework and Oracle/SQL</u></b> in Semiconductor industry. 
-    Also about 2 years of <b><u>React, Redux, Typescript and Next.js</u></b>, too. I also have hands on experience working with cloud infrastructures like <b><u>DC/OS (Apache Mesos), CI/CD with ELK and AWS</u></b> a little and have deployed applications
+	paraOne: `Hello guys! And welcome with my big love! My name is Sungsik Won. I'm a Frontend developer who is
+    passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with Jquery, Spring framework and Oracle/SQL in Semiconductor industry. 
+    Also about 2 years of React, Redux, Typescript and Next.js, too. I also have hands on experience working with cloud infrastructures like DC/OS (Apache Mesos), CI/CD with ELK and AWS a little and have deployed applications
     keeping scalability in mind.`,
-	paraTwo: `Currently I'm working mostly with <b><u>javascript/typescript library like React and Next.js with Emotion.</u></b> 
-	I'm always a learner and a self taught programmer. <b><u>Speaking English</u></b> always has been on my todo list so that I can communicate with English speaker in real life.
-	Nowadays, I'm <b><u>learning French</u></b> for fun. It's very attractive language I think.<br/> 
-	Thank you for reading and have a good one! 🤩`,
+	paraTwo: `Currently I'm working mostly with javascript/typescript library like React and Next.js with Emotion. 
+	I'm always a learner and a self taught programmer. Speaking English always has been on my todo list so that I can communicate with English speaker in real life.
+	Nowadays I'm learning French, very attractive language. <br/> 
+	Thank you for reading my article and have a beautiful day! 🤩`,
 };
 
 const AboutMe = () => (
