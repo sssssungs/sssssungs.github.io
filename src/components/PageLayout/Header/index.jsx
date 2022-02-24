@@ -46,6 +46,16 @@ export default ({ page, loading }) => {
 								Home
 							</Link>
 						</li>
+						{/* <li className={style.navItem}> */}
+						{/*	<Link */}
+						{/*		to="/career" */}
+						{/*		onClick={toggleMenu} */}
+						{/*		activeClassName={style.anchorActive} */}
+						{/*		partiallyActive={page === 'career'} */}
+						{/*	> */}
+						{/*		Career */}
+						{/*	</Link> */}
+						{/* </li> */}
 						<li className={style.navItem}>
 							<Link
 								to="/blog"

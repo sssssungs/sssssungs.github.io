@@ -7,6 +7,7 @@ module.exports = {
 	defaultLanguage: 'en',
 	pages: {
 		home: '/',
+		career:'career',
 		blog: 'blog',
 		resume: 'resume',
 		tag: 'tags',
