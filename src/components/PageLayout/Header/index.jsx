@@ -52,10 +52,10 @@ export default ({ page, loading }) => {
 						{/*		onClick={toggleMenu} */}
 						{/*		activeClassName={style.anchorActive} */}
 						{/*		partiallyActive={page === 'career'} */}
-						{/*	> */}
-						{/*		Career */}
-						{/*	</Link> */}
-						{/* </li> */}
+						{/*	>*/}
+						{/*		Career*/}
+						{/*	</Link>*/}
+						{/*</li>*/}
 						<li className={style.navItem}>
 							<Link
 								to="/blog"
