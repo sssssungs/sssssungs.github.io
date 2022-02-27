@@ -12,8 +12,8 @@ const pageText = {
     Also about 2 years of React, Redux, Typescript and Next.js, too. I also have hands on experience working with cloud infrastructures like DC/OS (Apache Mesos), CI/CD with ELK and AWS a little and have deployed applications
     keeping scalability in mind.`,
 	paraTwo: `Currently I'm working mostly with javascript/typescript library like React and Next.js with Emotion. 
-	I'm always a learner and a self taught programmer. Speaking English always has been on my todo list so that I can communicate with English speaker in real life.
-	Nowadays I'm learning French, very attractive language. <br/> 
+	I'm always a learner 😃 and a self taught programmer. Speaking English 🇬🇧 always has been on my todo list so that I can communicate with English speaker in real life.
+	Nowadays I'm learning French 🇫🇷, very attractive language. <br/> 
 	Thank you for reading my article and have a beautiful day! 🤩`,
 };
 
