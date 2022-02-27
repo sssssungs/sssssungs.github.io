@@ -131,7 +131,7 @@
 	margin-top: -10px;
 	background: #fff;
 	border-radius: 50%;
-	border: 4px solid rgb(255, 80, 80);
+	border: 3px solid rgb(252, 95, 95);
 	z-index: 10;
 }
 
@@ -192,19 +192,30 @@
 
 .desc {
 	margin: 1em 0.75em 0 0;
-
 	font-size: 0.77777em;
 	font-style: italic;
 	line-height: 1.5em;
+}
+
+.desc p {
+	font-size: 0.95em;
 }
 
 .direction-r .desc {
 	margin: 1em 0 0 0.75em;
 }
 
+.horizontalLine {
+	margin-left: auto;
+	margin-right: auto;
+	height: 1px;
+	width: 90%;
+	background: linear-gradient(to right, rgba(173, 170, 170, 0.1), rgba(173, 170, 170));
+}
+
 /* ================ Timeline Media Queries ================ */
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 767px) {
 	.timeline {
 		width: 100%;
 		padding: 4em 0 1em 0;
@@ -218,7 +229,6 @@
 	.direction-r {
 		float: none;
 		width: 100%;
-
 		text-align: center;
 	}
 
@@ -240,7 +250,7 @@
 		display: block;
 		width: 12px;
 		height: 12px;
-		margin-left: -9px;
+		margin-left: -6px;
 		background: #fff;
 		border-radius: 10px;
 		border: 4px solid rgb(255, 80, 80);
@@ -265,7 +275,7 @@
 	.time-wrapper {
 		display: block;
 		position: relative;
-		margin: 4px 0 0 0;
+		margin: 10px 0 0 0;
 		z-index: 14;
 	}
 
@@ -285,7 +295,6 @@
 		-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 		-moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-
 		z-index: 15;
 	}
 
@@ -294,14 +303,16 @@
 		position: relative;
 		margin: 1em 1em 0 1em;
 		padding: 1em;
-
 		z-index: 15;
+	}
+	.horizontalLine {
+		display: none;
 	}
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 767px) {
 	.direction-l .desc,
 	.direction-r .desc {
-		margin: 1em 4em 0 4em;
+		margin: 1em 1em 0 1em;
 	}
 }
