@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import AboutTile from '../../About';
 import { domHtml } from '../../../utils/stripTags';
+import style from './aboutme.module.less';
 
 import SEO from '../../Seo';
 
@@ -34,8 +35,8 @@ const AboutMe = () => (
 				]}
 			/>
 			<h1 className="titleSeparate">About Me</h1>
-			<p dangerouslySetInnerHTML={domHtml(pageText.paraOne)} />
-			<p dangerouslySetInnerHTML={domHtml(pageText.paraTwo)} />
+			<p className={style.paragraph} dangerouslySetInnerHTML={domHtml(pageText.paraOne)} />
+			<p className={style.paragraph} dangerouslySetInnerHTML={domHtml(pageText.paraTwo)} />
 		</div>
 		<Row gutter={[20, 20]}>
 			<Col xs={24} sm={24} md={12} lg={8}>
