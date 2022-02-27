@@ -13,7 +13,7 @@ const pageText = {
     keeping scalability in mind.`,
 	paraTwo: `Currently I'm working mostly with javascript/typescript library like React and Next.js with Emotion. 
 	I'm always a learner 😃 and a self taught programmer. Speaking English 🇬🇧 always has been on my todo list so that I can communicate with English speaker in real life.
-	Nowadays I'm learning French 🇫🇷, very attractive language. <br/> 
+	Nowadays, I'm learning French 🇫🇷, very attractive language. <br/> 
 	Thank you for reading my article and have a beautiful day! 🤩`,
 };
 
@@ -66,7 +66,7 @@ const AboutMe = () => (
 					img="social.png"
 					alt="meeting image"
 					textH4="Socially Active"
-					textH3="Awkward sometimes"
+					textH3="Shy at first"
 				/>
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
