@@ -4,7 +4,7 @@ import ContentLayout from '../contentLayout';
 import style from './career.module.less';
 
 const Career = () => (
-	<ContentLayout page="home">
+	<ContentLayout page="career">
 		<SEO
 			title="Blog"
 			description="I love various web technologies and other stuff related to javascript and other trends"
