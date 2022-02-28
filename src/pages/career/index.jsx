@@ -23,7 +23,7 @@ const Career = () => (
 				<li>
 					<div className={style.directionR}>
 						<div className={style.flagWrapper}>
-							<span className={style.flag}>Hanyang University</span>
+							<span className={style.flag}>Hanyang university</span>
 							<span className={style.timeWrapper}>
 								<span className={style.time}>2008.03 - 2015.02</span>
 							</span>
