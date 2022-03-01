@@ -47,8 +47,8 @@ const Career = () => (
 							<br />
 							<br />
 							<p>
-								✔️ Developed several internal communication systems for semiconductor
-								factory-manufacturing
+								✔️ Developed internal web based communication systems for semiconductor
+								manufacturers and engineers
 							</p>
 						</div>
 						<div className={style.horizontalLine} />
@@ -63,7 +63,8 @@ const Career = () => (
 								college to get their job in IT company
 							</p>
 							<p>
-								✔️ Developed a CI/CD console in private cloud system for developers in workplace
+								✔️ Developed a CI/CD console in private cloud system for developers working in
+								semiconductor manufacturing factory
 							</p>
 						</div>
 					</div>
@@ -87,8 +88,8 @@ const Career = () => (
 									https://style.clo-set.com
 								</a>
 								)<br />
-								Communication cloud PLM platform for Fashion industry focusing on making 3D assets,
-								garments and etc.
+								Cloud PLM (Product lifecycle management) platform for fashion industry focusing on
+								communication and decision making, management
 							</p>
 							<p>
 								✔️ CONNECT (
