@@ -22,7 +22,7 @@ module.exports = [
 			background_color: '#304CFD',
 			theme_color: '#304CFD',
 			display: 'standalone',
-			icon: 'src/images/favicon-96x96.png', // This path is relative to the root of the site.
+			icon: 'src/images/favicon-512.png', // This path is relative to the root of the site.
 			legacy: true, // this will add apple-touch-icon links to <head>. Required for
 			// versions prior to iOS 11.3.
 		},
@@ -54,7 +54,7 @@ module.exports = [
 					},
 				},
 				'gatsby-remark-prismjs',
-				'gatsby-remark-gifs'
+				'gatsby-remark-gifs',
 			],
 		},
 	},
