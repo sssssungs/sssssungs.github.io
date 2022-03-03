@@ -6,7 +6,7 @@ import style from './header.module.less';
 import '../../../styles/global.less';
 import { useWindowSize } from '../../../utils/hooks';
 
-export default ({ page, loading }) => {
+export default ({ page }) => {
 	const [menu, setMenu] = useState(false);
 	const [width] = useWindowSize();
 
@@ -21,7 +21,7 @@ export default ({ page, loading }) => {
 	};
 	return (
 		<>
-			{!loading && (
+			{
 				<div
 					className={style.circleMenu}
 					role="button"
@@ -35,7 +35,7 @@ export default ({ page, loading }) => {
 						<div className={style.hamburgerText}>MENU</div>
 					</div>
 				</div>
-			)}
+			}
 			<Layout
 				className={`${style.navWrap} ${menu ? null : style.hidden} ${menu ? style.openMenu : null}`}
 			>
