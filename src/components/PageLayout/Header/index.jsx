@@ -21,21 +21,19 @@ export default ({ page }) => {
 	};
 	return (
 		<>
-			{
-				<div
-					className={style.circleMenu}
-					role="button"
-					tabIndex="0"
-					onKeyDown={toggleMenu}
-					onClick={toggleMenu}
-				>
-					<div className={`${style.hamburger} ${menu ? style.menuIcon : null}`}>
-						<div className={style.line} />
-						<div className={style.line} />
-						<div className={style.hamburgerText}>MENU</div>
-					</div>
+			<div
+				className={style.circleMenu}
+				role="button"
+				tabIndex="0"
+				onKeyDown={toggleMenu}
+				onClick={toggleMenu}
+			>
+				<div className={`${style.hamburger} ${menu ? style.menuIcon : null}`}>
+					<div className={style.line} />
+					<div className={style.line} />
+					<div className={style.hamburgerText}>MENU</div>
 				</div>
-			}
+			</div>
 			<Layout
 				className={`${style.navWrap} ${menu ? null : style.hidden} ${menu ? style.openMenu : null}`}
 			>
@@ -76,11 +74,6 @@ export default ({ page }) => {
 								Tags
 							</Link>
 						</li>
-						{/* <li className={style.navItem}> */}
-						{/*	 <Link to="/resume" onClick={toggleMenu} activeClassName={style.anchorActive}> */}
-						{/*		Resume */}
-						{/*	</Link> */}
-						{/* </li> */}
 					</ul>
 				</div>
 			</Layout>
