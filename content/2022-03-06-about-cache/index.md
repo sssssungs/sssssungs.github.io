@@ -1,5 +1,5 @@
 ---
-title: Let's talk about cache
+title: Cassie or Cash? No, It's CACHE!
 tags: [javascript, typescript, css, react, html, network]
 date: 2022-03-06T20:05:44.226Z
 path: blog/cache
