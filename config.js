@@ -7,7 +7,7 @@ module.exports = {
 	defaultLanguage: 'en',
 	pages: {
 		home: '/',
-		career:'career',
+		career: 'career',
 		blog: 'blog',
 		resume: 'resume',
 		tag: 'tags',
@@ -114,6 +114,12 @@ module.exports = {
 			description:
 				'JavaScript testing is a chain of processes to ensure correctness of any JavaScript codebase.',
 			color: '#c2a013',
-		}
+		},
+		network: {
+			name: 'network',
+			description:
+				'A network consists of two or more computers that are linked in order to share resources (such as printers and CDs), exchange files, or allow electronic communications.',
+			color: '#803c17',
+		},
 	},
 };
