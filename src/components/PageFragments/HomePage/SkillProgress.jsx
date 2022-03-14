@@ -5,7 +5,7 @@ import style from './skill.module.less';
 
 const SkillsProgress = () => (
 	<div className={`${style.skillSectionSpacing}`}>
-		<h2 className="titleSeparate">My Skills</h2>
+		<h2 className="titleSeparate">Skills</h2>
 		<Row gutter={[20, 20]}>
 			<Col xs={24} sm={24} md={12}>
 				<ProgressBar percent={90} text="Javascript" mt="0px" />
