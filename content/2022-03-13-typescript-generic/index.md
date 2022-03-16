@@ -55,3 +55,7 @@ const generic_two_types = <T, U>(param: T, arg: U): [T, U] => [param, arg];
 ```typescript
 const generic_two_types = <T extends number>(param: T): T => param; // T는 number를 extends하여 number 이외의 타입을 받을 수 없음
 ```
+
+
+참조<br/>
+https://www.typescriptlang.org/docs/handbook/generics.html
