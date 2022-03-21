@@ -32,6 +32,10 @@ const returnYourself2 = (param: any): any => param;
 const returnYourself_generic = <T>(param: T): T => param
 ```
 `T`는 다른뜻은 없고, `generic`을 사용할때 일반적으로 사용하는 관용적인 변수명이다. 위 코드에서 이제 함수는 `T`라는 타입을 가지게 된다. `param`으로 받는 변수의 타입을 리턴타입으로 그대로 가져가는 것이다.
+해당 함수를 호출할때 타입을 정해주면 된다.
+```typescript
+returnYourself_generic<number>(3);
+```
 ```typescript
 // interface에서 사용
 interface IValue<T> {
@@ -48,14 +52,23 @@ class Student<T> {
 ```typescript
 const generic_two_types = <T, U>(param: T, arg: U): [T, U] => [param, arg];
 ```
-`generic`이 하나만 더 늘었을뿐, 사용하는 방법은 한개일때와 동일하다. 두개의 변수를 받아와서, 해당 변수의 타입을 가지는 `array`를 리턴한다.
+`generic`이 하나만 더 늘었을뿐, 사용하는 방법은 한개일때와 동일하다. 두개의 변수를 받아와서, 해당 변수의 타입을 가지는 `array`를 리턴한다. 관용적으로 `T`이후의 알파벳을 변수로 순서대로 사용하면 된다.  
 
 ### Extends 이용하기
-`generic`을 어느정도 제한하여 안정성을 확보하기 위해 `extends`를 사용할 수 있다.
+`generic`을 어느정도 제한하여 안정성을 확보하기 위해 `extends`를 사용할 수 있다. 타입 제한 뿐만 아니라 `ide`가 해당 타입의 method나 property를 예측할 수 있기 때문에 자동완성이 된다.
 ```typescript
 const generic_two_types = <T extends number>(param: T): T => param; // T는 number를 extends하여 number 이외의 타입을 받을 수 없음
 ```
 
+### Arrow function 에서 generic 사용
+`JSX`나 `TSX` 파일 내에서 `generic`을 사용할때, `component`를 뜻하는 `<>` 를 대부분 사용하게 되는데, 이때 `generic`으로 사용하는 `<>`과 동일한 문자를 사용한다. 그래서 이게 HTML이 아니라 `generic`이라는 명시를 하기 위해 `extends {}`를 사용한다.  
+`extends {}`의 경우, `generic` 타입이 object에 제한되기 때문에 `extends unknown`을 사용하기도 한다.
+```typescript
+const generic_function = <T extends {}>(param: T):T => param;
+const generic_unknown = <U extends unknown>(param: U):U => param;
+```
+
 
 참조<br/>
-https://www.typescriptlang.org/docs/handbook/generics.html
+https://www.typescriptlang.org/docs/handbook/generics.html  
+https://hyunseob.github.io/2017/01/14/typescript-generic/  
