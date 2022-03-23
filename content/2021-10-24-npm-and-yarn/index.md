@@ -9,14 +9,14 @@ show: true
 ---
 자바스크립트 개발에서 필수적인 패키지 매니저 NPM과 YARN에 대해서 알아보자.
 
-##NPM (Node Package Manager)
+## NPM (Node Package Manager)
 <div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
   <img src="./npm.png" />
 </div>
 
 `NPM`이란 Node package manager의 줄임말이며 자바스크립트 언어를 위한 패키지 관리용 툴이다. 전세계적으로 가장 많은 이들이 사용하고 있는 패키지 관리 툴이며 `Nodejs`로 만들어진 모듈을 웹상에서 쉽게 받아 설치하고 사용할 수 있도록 해주는 관리 프로그램이다. `NPM`에서는 `command`를 제공해서 설치, 삭제, 생성 등을 가능하게 하고 있으며 버전 관리 등의 기능도 제공하기 때문에 사용중인 패키지의 업데이트를 체크할 수도 있다. 설치된 패키지(라이브러리)는 `node_modules`라는 폴더에 저장이 되고 그 정보를 `package.json`파일에 명세하도록 구현되어 있다.
 
-##Yarn
+## Yarn
 <div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
   <img src="./yarn.png" />
 </div>
@@ -39,6 +39,10 @@ show: true
 나는 보통 반반씩 사용하는 것 같다. 그 원인은 다양하다. 이미 사용되었던 프로젝트에서 사용하던 패키지 매니저를 그대로 사용하는 경우가 대부분이고, 사이드 프로젝트를 할때에는 다른 추가 사항을 검토해 그에 맞는 매니징 툴을 사용하는 것 같다.  
 개인적으로는 `yarn`을 선호하는것 같다. 이유는 위에서 짚어보았던 포인트들이 될 수 있겠다. 실제로는 큰 차이는 없으니 적절하게 사용하는것이 최고의 방법일듯하다.  
 
+## Yarn berry
+`yarn berry`는 `node_modules`없이 패키지 dependency를 관리하고 사용할 수 있도록 해주는 것이다. <a href='https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern' target='_blank'>(공식문서)</a>  
+`yarn berry`는 `.yarn/` 폴더 이하에 압축된 패키지를 생성하며, `pnp`라는 개념을 도입하여 `node_modules`에서 일어나는 성능저하, 불필요한 의존성 등을 해결해준다. (복잡한 `node_modules`폴더 대신 `pnp.js`파일을 생성하여 패키지 dependency에 대한 정보를 보관한다.)  
+이에 대해서는 다음에 다른 포스트를 별도로 올리도록 하겠다.
 
 
 ### 참고) Package versioning의 의미 - tilde(~) vs caret(^)
