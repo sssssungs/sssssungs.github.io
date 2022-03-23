@@ -42,4 +42,5 @@ cache 저장 시간이 지난 후 요청을 보낼때 최종 수정일을 `if-mo
 `no-store`: cache를 하지 않을때 사용한다. `no-cache`와 차이점은 저장을 하지 않는다는것.
 
 ### CDN
-`CDN` 이란 `Content Delivery Network`의 약자로, proxy 서버에 기반한 web cache의 cloud화 라고 할 수 있고, 전세계 사용자들에게 빠르고 효율적으로 contents를 제공하기 위해 등장했다.  CDN은 각 지역에 cache 서버(PoP, Points of presence)를 분산 배치해, 근접한 사용자의 요청에 원본 서버가 아닌 cache 서버가 응답을 전달한다. 
+`CDN` 이란 `Content Delivery Network`의 약자로, proxy 서버에 기반한 web cache의 cloud화 라고 할 수 있고, 전세계 사용자들에게 빠르고 효율적으로 contents를 제공하기 위해 등장했다. CDN은 각 지역에 cache 서버(PoP, Points of presence)를 분산 배치해, 근접한 사용자의 요청에 원본 서버가 아닌 cache 서버가 응답을 전달한다.  
+`CDN`은 캐시서버를 이용하기 때문에, 예를들어 같은 파일명에 대해 image를 다시 upload 하는 경우 새로운 내용을 인식하지 못하여 실제로 변경 image가 잘 반영되지 않는 이슈가 있다. 이 때, image 파일 들에 대해 새로 cache를 refresh 하는 동작을 `purge`라고 한다.

@@ -12,6 +12,7 @@ show: true
 `typescript`에는 여러가지 `type`이 존재한다. `boolean`, `number`, `string`, `undefined`, `null` 등 코드를 짤때 활용할 수 있는 다양한 기본자료형이 존재한다. 이 포스트에서는 이 기본자료형 말고, `typescript`에서 잘 활용하면 코딩이 쉬워지는 `Generic`에 대해서 알아보려고 한다.
 
 ### Generic 
+`typescript`를 처음 시작했을 때 여기저기서 보이면 대문자 알파벳이 낯설게 느껴질때가 있었다. 이것이 바로 `generic`이다.  
 `generic`(제네릭)은 `type`을 불문하고 동작하도록 한 `type`을 말한다 <span style='font-size:12px;'>(오잉?) </span> <br/>
 선언시점이 아니라 생성시점, 함수에 인수를 넘길때 `type`에 대한 정보도 같이 넘겨주도록 하는 것이다. 이렇게 하면서 `type`에 관한 어떠한 정보도 잃어버리지 않는다.  
 한번의 선언으로 다양한 `type`에 **재사용**이 가능하다는 가장 큰 장점이 있다. 
@@ -68,6 +69,7 @@ const generic_function = <T extends {}>(param: T):T => param;
 const generic_unknown = <U extends unknown>(param: U):U => param;
 ```
 
+정리하면 `generic`은 `any`보다 더 안전하지만 동시에 자유로운 flexible한 type 이라고 할 수 있겠다.   
 
 참조<br/>
 https://www.typescriptlang.org/docs/handbook/generics.html  
