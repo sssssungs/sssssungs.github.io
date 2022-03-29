@@ -46,7 +46,7 @@
 나는 보통 반반씩 사용하는 것 같다. 그 원인은 다양하다. 이미 사용되었던 프로젝트에서 사용하던 패키지 매니저를 그대로 사용하는 경우가 대부분이고, 사이드 프로젝트를 할때에는 다른 추가 사항을 검토해 그에 맞는 매니징 툴을 사용하는 것 같다.<br>
 개인적으로는 <code class="language-text">yarn</code>을 선호하는것 같다. 이유는 위에서 짚어보았던 포인트들이 될 수 있겠다. 실제로는 큰 차이는 없으니 적절하게 사용하는것이 최고의 방법일듯하다.  </p>
 <h2>Yarn berry</h2>
-<p><code class="language-text">yarn berry</code>는 <code class="language-text">node_modules</code>없이 패키지 dependency를 관리하고 사용할 수 있도록 해주는 것이다. <a href='https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern' target='_blank'>(공식문서)</a><br>
+<p><code class="language-text">yarn berry</code>는 <code class="language-text">node_modules</code>없이 패키지 dependency를 관리하고 사용할 수 있도록 해주는 것이다. <a href='https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern' target='_blank' rel='noopener noreferer'>(공식문서)</a><br>
 <code class="language-text">yarn berry</code>는 <code class="language-text">.yarn/</code> 폴더 이하에 압축된 패키지를 생성하며, <code class="language-text">pnp</code>라는 개념을 도입하여 <code class="language-text">node_modules</code>에서 일어나는 성능저하, 불필요한 의존성 등을 해결해준다. (복잡한 <code class="language-text">node_modules</code>폴더 대신 <code class="language-text">pnp.js</code>파일을 생성하여 패키지 dependency에 대한 정보를 보관한다.)<br>
 이에 대해서는 다음에 다른 포스트를 별도로 올리도록 하겠다.</p>
 <h3>참고) Package versioning의 의미 - tilde(~) vs caret(^)</h3>
