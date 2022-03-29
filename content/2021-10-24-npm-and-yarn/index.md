@@ -40,7 +40,7 @@ show: true
 개인적으로는 `yarn`을 선호하는것 같다. 이유는 위에서 짚어보았던 포인트들이 될 수 있겠다. 실제로는 큰 차이는 없으니 적절하게 사용하는것이 최고의 방법일듯하다.  
 
 ## Yarn berry
-`yarn berry`는 `node_modules`없이 패키지 dependency를 관리하고 사용할 수 있도록 해주는 것이다. <a href='https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern' target='_blank'>(공식문서)</a>  
+`yarn berry`는 `node_modules`없이 패키지 dependency를 관리하고 사용할 수 있도록 해주는 것이다. <a href='https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern' target='_blank' rel='noopener noreferer'>(공식문서)</a>  
 `yarn berry`는 `.yarn/` 폴더 이하에 압축된 패키지를 생성하며, `pnp`라는 개념을 도입하여 `node_modules`에서 일어나는 성능저하, 불필요한 의존성 등을 해결해준다. (복잡한 `node_modules`폴더 대신 `pnp.js`파일을 생성하여 패키지 dependency에 대한 정보를 보관한다.)  
 이에 대해서는 다음에 다른 포스트를 별도로 올리도록 하겠다.
 
