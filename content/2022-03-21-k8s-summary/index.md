@@ -30,8 +30,9 @@ show: true
 `Service` label에 따라 하나의 서비스를 생성해 외부에서 접근할수 있도록 하는 어플리케이션  
 `Deployment` pod와 Replicaset에 대한 선언과 업데이트를 관리해주는 모듈  
 
-### 기본 yaml template
-```yaml
+### yaml template
+
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -45,3 +46,5 @@ spec:
 ```
 1. 띄어쓰기 구분을 잘 해야한다. 각 상위-하위 구분을 띄어쓰기로 하기 때문에 틀릴경우 적용이 되지 않는다.
 2. 원하는 종류 (`kind`)에 따라 `apiVersion`이 달라진다. (추가적인 apiVersion의 종류와 kind는 <a href='https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#-strong-api-overview-strong-' target='_blank' rel='noopener noreferer'>공식문서 참고</a>)
+
+(wip...)
