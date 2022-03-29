@@ -11,10 +11,10 @@ show: true
 `Kubernetes` 쿠버네티스는 컨테이너화된 워크로드와 서비스를 관리하기 위한 이식성이 있고, 확장가능한 오픈소스 플랫폼이다. 쿠버네티스는 선언적 구성과 자동화를 모두 용이하게 해준다. 쿠버네티스는 크고, 빠르게 성장하는 생태계를 가지고 있다. 쿠버네티스 서비스, 기술 지원 및 도구는 어디서나 쉽게 이용할 수 있다.
 <span style="font-size: 12px;">(쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다. K8s라는 표기는 `K`와 `s`와 그 사이에 있는 8글자를 나타내는 약식 표기이다. 출처: <a href='https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/' target='_blank' rel='noopener noreferer'>공식사이트</a>)</span>
 
-### 배포 아키텍쳐의 변화 
+### 배포 아키텍쳐의 변화 <span style="font-size:10px;color:#8b9196">이미지 출처: https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/</span> 
 <div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
   <img src="./deploy.png"/>
-  <div style="width:80%;margin-left:auto; margin-right: auto;font-size:10px;color:#8b9196">출처: https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/</div>
+  
 </div>
 
 - **전통적인 배포**: 초기 조직은 애플리케이션을 물리 서버에서 실행했었다. 한 물리 서버에서 여러 애플리케이션의 리소스 한계를 정의할 방법이 없었기에, 리소스 할당의 문제가 발생했다. 예를 들어 물리 서버 하나에서 여러 애플리케이션을 실행하면, 리소스 전부를 차지하는 애플리케이션 인스턴스가 있을 수 있고, 결과적으로는 다른 애플리케이션의 성능이 저하될 수 있었다.
