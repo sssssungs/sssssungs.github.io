@@ -9,8 +9,8 @@
 /static/3dd015c5f19c0988dce576e51f09980f/46604/kube.png 500w,
 /static/3dd015c5f19c0988dce576e51f09980f/ead32/kube.png 876w" src="/static/3dd015c5f19c0988dce576e51f09980f/ead32/kube.png" alt="Kubernetes cheat sheet" title="Kubernetes summary cheat sheet for myself︎ (features, definitions, commands and etc)" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p><code class="language-text">Kubernetes</code> 쿠버네티스는 컨테이너화된 워크로드와 서비스를 관리하기 위한 이식성이 있고, 확장가능한 오픈소스 플랫폼이다. 쿠버네티스는 선언적 구성과 자동화를 모두 용이하게 해준다. 쿠버네티스는 크고, 빠르게 성장하는 생태계를 가지고 있다. 쿠버네티스 서비스, 기술 지원 및 도구는 어디서나 쉽게 이용할 수 있다.
 <span style="font-size: 12px;">(쿠버네티스란 명칭은 키잡이(helmsman)나 파일럿을 뜻하는 그리스어에서 유래했다. K8s라는 표기는 <code class="language-text">K</code>와 <code class="language-text">s</code>와 그 사이에 있는 8글자를 나타내는 약식 표기이다. 출처: <a href='https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/' target='_blank' rel='noopener noreferer'>공식사이트</a>)</span></p>
-<h3>배포 아키텍쳐의 변화 <span style="font-size:10px;color:#8b9196">이미지 출처: <a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/" target="_blank" rel="nofollow">https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/</a></span></h3>
-<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+<h3>History of Deployment Architecture</h3>
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto; background-color: white;">
   <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 851px; ">
       <span class="gatsby-resp-image-background-image" style="padding-bottom: 36.8%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAByElEQVQoz22RW08TYRCG9w96IWokHuIBMYFwp/GCO6KJISo9YKUISBMlTaqCiSmNKdZqsTWlTbulW5Z2e6ZQw6E1Unbplj5s12i4cJI38yXvzPNNZoRut8tZ9ULXO8jFGim5QDpXZX2zhCgX2arvmf6xpqGp6h9p6r93p6Mj/A+oHrd57Ikx4vjMmHuN0fkQw44A3mjB9EOJPN5wBv+PDL6IbGSJj6sSO7tNBM7EX6BmAGc+hHj4yofjbRCre4WxWS/BuGz6b5YjPHv9iel3ASwLfmbeBxh3+VAqdYR25wSldkBhu0G2us9u8xBN7+Ly17EtlbB4JCYXFSYWKwRTDRP4yF1g0Jpm2BLl7pNVRiZFBm0Sa5u/EJpHOg8WRIamQtx5EWY+oLCRzXPPneemU+SG/Tu3HVGuT2d4uVKkXitz353jvCXJJQN2Yfwrl60x+mwpQnID4eCwzcCsyMWnQc4ZBc5AmZbWZsiVot8Rp3/iC1efR+izx5gLls0JRz0ZrjkT3HIaH9m/MTAncmUqTji3j9A6UkluFEkal4yl8+Qr22bT1t5vEnKJlHHlpJGlwg7NVtv0ekNkyz+RlCppQ+u5ilHfW9UJpyKw2SMDmXbyAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
   <img class="gatsby-resp-image-image" alt="deploy" title="deploy" src="/static/5501a8d7654ed35b3b844adec98959f7/b6e86/deploy.png" srcset="/static/5501a8d7654ed35b3b844adec98959f7/3e256/deploy.png 250w,
@@ -24,6 +24,15 @@
 <li><strong>가상화 배포</strong>: 이는 단일 물리 서버의 CPU에서 여러 가상 시스템 (VM)을 실행할 수 있게 한다. 가상화를 사용하면 VM간에 애플리케이션을 격리하고 애플리케이션의 정보를 다른 애플리케이션에서 자유롭게 액세스 할 수 없으므로, 일정 수준의 보안성을 제공할 수 있다.   </li>
 <li><strong>컨테이너 배포</strong>: 컨테이너는 VM과 유사하지만 격리 속성을 완화하여 애플리케이션 간에 운영체제(OS)를 공유한다. 그러므로 컨테이너는 가볍다고 여겨진다. VM과 마찬가지로 컨테이너에는 자체 파일 시스템, CPU 점유율, 메모리, 프로세스 공간 등이 있다. 기본 인프라와의 종속성을 끊었기 때문에, 클라우드나 OS 배포본에 모두 이식할 수 있다.</li>
 </ul>
+<h3>Kubernetes Architecture</h3>
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 890px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 70.8%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD+0lEQVQ4y6WT/U+TVxTHT+0S2y1svm1xy7ZoXGaWbUx/AaekGzIccxmV0QbnJiQKc5Y5NRI3nEOIg4kM0ER5m4oWRBQ7kMB4K4iWVaC8jUHfKS3t06dvtBTpU9qn5OwpbH/BTvK9yT353s+959x7gRNXAsDJha9zqiD/8vU1v4kbPxDX/cG7dadl1636Zp59Et/BJdyMPnxjnsBNUYVbWdtLiiEiT8aCQWRD0xwbEAGBiQotM/AqYOsXlevDcxtp3znve+qf93v9VIDyzT31UqM2GTVk714YtvcEdQ6VCY3ILepHWF1rXvtMhuRtdlbHW6BhwEMIrEvjAIcPCmDDvmsvA3y6vr3b8VmfuRsrdVnYO92MLpsPKzXf41X1CbykEmEf0eJCRG7HAAK3ePRFDr98C+tA3SYQe7hQbgAongCITT7K3bH/3JsAketUGlMcFfAFSY+VNs/rgxN2BV2jz6fF+vPBan0O9hOd1jCQERzPq2Otji1+ZUvCmdfihUee+1CQCVGCLIB4wZG1iV8diwL26y+ZrWQsTYcQacR6w0U8PhSDP43x8exoImaPfIL1uhKKgXFQyXTs1Txgx11+YcfnJyKSUtI4Bw+kAF+YBpCSfgrCO+ZcuALTM8Rml9uTT5D2Qr1d/bNsqqewW9teJNW2XejVdxUpdGO5eWXDEdHHbnJSC1q429Kr18Vld3CY9Syv27EqzAEk9IA+7zL0/2hcbYTeIROsJChvpFU1wZ/RqBMDLlvikovYZ5s2JMmfjAj9s+bEm82SjTK5dKPHpEsyTf69FzGwG5cW4hAXd8+arfEGjZG/4HZGLp8QbsyCZNImzZVZUDzhxKtjLryocGDVX0788ZEFW6c8iH5PTJ+G4JUqSCwZIPC20o15cnLZUzRAYvGgDXV2T5cswADrnQgau7dJ9JDEhCZjQNg6QytsVOie1kvHSoz0uJNCyuPa5bQ7YmoY0MdNJjqh0UiXjLhogzdIC1vNi7+OuHCRon5f6WG45NDig9QOMz57ZTL4Xq1uicmFZJaF0JpyZcgfZG591hKNOB8lNXoxnHu+TLlUq/Is+96t0QVKR8LPk25cBmaMISgsc23p3SSmdhJ4WGrF8wMO/KGPRFEPgaXDTvyoQVe95/7UjQKFE48ylaQxvlMyGxYMOvBQpwUzH1pxyOzuOKNmgLzrw1DR/HjvybrH3+VI5BnZ9Y8yRfeHvzzdrkku/3NKcK5TLeTdUW/nVT15P/uuTPRLk/ybs/dkopN35emiZmVyQY82+XSben/DgHZntMQMK58aYNW/Cgd7zzRCUoMS8vtJONRugm3XxmCDC//zscIeC1NebJ0Svu2aAcEDA9wetQCUWeAfYLW8Li7ItogAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="architecture" title="architecture" src="/static/70db95efe99a6a5c184573005b23a45d/91293/architecture.png" srcset="/static/70db95efe99a6a5c184573005b23a45d/3e256/architecture.png 250w,
+/static/70db95efe99a6a5c184573005b23a45d/b30f8/architecture.png 500w,
+/static/70db95efe99a6a5c184573005b23a45d/91293/architecture.png 890w" sizes="(max-width: 890px) 100vw, 890px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
 <h3>용어정리</h3>
 <p><code class="language-text">Master</code> 보통 master node를 말하고 Docker daemon을 관리<br>
 <code class="language-text">Worker</code> docker가 설치되어 있고 실제 컨테이너들이 생성되어 있는 node<br>
@@ -32,22 +41,22 @@
 <code class="language-text">Label</code> pod를 그룹핑하여 식별하도록 하는 이름표<br>
 <code class="language-text">Service</code> label에 따라 하나의 서비스를 생성해 외부에서 접근할수 있도록 하는 어플리케이션<br>
 <code class="language-text">Deployment</code> pod와 Replicaset에 대한 선언과 업데이트를 관리해주는 모듈  </p>
-<h3>yaml template</h3>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.7.9
-    ports:
-    - containerPort: 8090</code></pre></div>
-<ol>
-<li>띄어쓰기 구분을 잘 해야한다. 각 상위-하위 구분을 띄어쓰기로 하기 때문에 틀릴경우 적용이 되지 않는다.</li>
-<li>원하는 종류 (<code class="language-text">kind</code>)에 따라 <code class="language-text">apiVersion</code>이 달라진다. (추가적인 apiVersion의 종류와 kind는 <a href='https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#-strong-api-overview-strong-' target='_blank' rel='noopener noreferer'>공식문서 참고</a>)</li>
-</ol>
-<p>(wip...)</p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<h3>Kubernetes 구성 예시</h3>
+<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 687px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 77.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACNElEQVQ4y4WUTW/TQBCG81v5GRw5cUIcikCCG1IPRHweKlQhwQFUKUioohRQIWrixElqp07i2N5vv8ysEztp07LSZHZ2J8/OzI63VZYlMmWxlIZkU6/nZse88UuFgUE1mNUqtAULD0cLrgQs/bCQ6dd4zrrc2Kt8aW4dwu4UcTDzjFZGpzCZ+H7BWjrPKZRWwRgDazRtKa/Z5nW/p7X3n01SfH5xjC/tYyymWQOsoIDWCvsflzj8lhNIYnwp8fhgiUEkyRY4+JrhzVFGB6gqAONwfjJE8HvsY7oGNBTJo9cjtD/FjEdvXODusz7Ogszbzw8v8OTtqIqcy+QcBoMA4Sj0JdgC+sSdQT+cYRKnBFdQSuGsN0VRCB/VOFr4fWf1yt8hywUWmSCG253yvf0Znr5PyVL4G0rceZjgZ1+QLbH3boH77Xmdss+KLkmYcvtS1kA+ufMjxmk38cWfpwIfOhNczguKRuHkT4LOaeyB5QqoqI6FsruBxlpMoxFmSUwpU0sVOaJxgDzPvD1PIsQXIbQxdYQeqO3VtkGthZBU7LL+Q7pcNukRVCq95f9foKYe48vgC4qSHA9eTvG9yzW1EFL6frwKFLcBWfsmdtbXcO9VgF89Bjo6zFwPwG7UkEPNV0bdPk223BcYBufQSjZLW76l/66NXd0yL+Sq+uBZZ2uRjUzmCmmhaW7q/XwlDJOUcv044JaxTimmOobDkB4Ft9640be1Gfou4SG1o0fD1uW4yY/1P4Vg2RnQ/q5jAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="example" title="example" src="/static/dc7f30be16a7e461a50b1ac326149b69/e7edf/example.png" srcset="/static/dc7f30be16a7e461a50b1ac326149b69/3e256/example.png 250w,
+/static/dc7f30be16a7e461a50b1ac326149b69/b30f8/example.png 500w,
+/static/dc7f30be16a7e461a50b1ac326149b69/e7edf/example.png 687w" sizes="(max-width: 687px) 100vw, 687px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<p>위의 예시는 <code class="language-text">kubernetes</code>를 구성하는 방법 중 한가지 방식이며, 필자가 근무했던 회사의 인프라 아키텍쳐와 유사한 형태이다. 실제로 <code class="language-text">azure</code>의 <code class="language-text">kubernetes</code>서비스인 <code class="language-text">AKS(Azure Kubernetes Service)</code>를 사용하였으며 <code class="language-text">ingress</code>와 <code class="language-text">pod</code>, <code class="language-text">service</code> 를 <code class="language-text">node port</code> 방식으로 사용했었다.  </p>
+<p><br/><br/><br/><br/></p>
+<div style="font-size:10px;color:#8b9196">
+<b>이미지 출처</b><br/>
+- History of Deployment Architecture (https://avinetworks.com/glossary/kubernetes-architecture)<br/>  
+- Kubernetes architecture (https://kubernetes.io/docs/concepts/overview/what-is-kubernetes)<br/>
+</div></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
