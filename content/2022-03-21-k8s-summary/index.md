@@ -1,6 +1,6 @@
 ---
-title: Kubernetes cheat sheet 
-tags: [kubernetes, docker, react, webpack,network ]
+title: Kubernetes cheat sheet and Review
+tags: [kubernetes, docker, react, webpack, network]
 date: 2022-03-21T19:05:44.226Z
 path: blog/k8s-handbook
 cover: ./kube.png
@@ -29,13 +29,22 @@ show: true
 
 
 ### 용어정리
-`Master` 보통 master node를 말하고 Docker daemon을 관리   
+`Cluster` kubernetes 여러 resource를 관리하기 위한 집합체 단위  
+`Node` cluster의 관리대상으로 등록된 docker host로, docker 컨테이너가 배치되는 대상  
+`Master` 보통 master node를 말하고 Docker daemon을 관리 (아래 component 참조*)     
 `Worker` docker가 설치되어 있고 실제 컨테이너들이 생성되어 있는 node  
 `Pod` kubernetes의 기본단위. 컨테이너 또는 컨테이너 묶음이다 (하나의 pod안에 복수의 컨테이너도 생성이 가능하다)  
 `Replicaset` pod를 자동으로 생성/복제 관리해주는 controller (안정성을 보장)    
 `Label` pod를 그룹핑하여 식별하도록 하는 이름표  
 `Service` label에 따라 하나의 서비스를 생성해 외부에서 접근할수 있도록 하는 어플리케이션  
 `Deployment` pod와 Replicaset에 대한 선언과 업데이트를 관리해주는 모듈  
+
+#### *Master Node Component 
+`kube-apiserver` API 서버는 쿠버네티스 API를 노출하는 쿠버네티스 컨트롤 플레인 컴포넌트    
+`etcd`	모든 클러스터 데이터를 담는 쿠버네티스 뒷단의 저장소로 사용되는 일관성·고가용성 키-값 저장소    
+`kube-scheduler` 노드가 배정되지 않은 새로 생성된 파드 를 감지하고, 실행할 노드를 선택하는 컨트롤 플레인 컴포넌트    
+`kube-controller-manager` 컨트롤러 프로세스를 실행하는 컨트롤 플레인 컴포넌트  
+
 
 ### Kubernetes 구성 예시
 <div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
@@ -44,12 +53,15 @@ show: true
 
 위의 예시는 `kubernetes`를 구성하는 방법 중 한가지 방식이며, 필자가 근무했던 회사의 인프라 아키텍쳐와 유사한 형태이다. 실제로 `azure`의 `kubernetes`서비스인 `AKS(Azure Kubernetes Service)`를 사용하였으며 `ingress`와 `pod`, `service` 를 `node port` 방식으로 사용했었다.  
 
-
+### Ingress
+`Ingress` 는 외부로부터 내부로 유입되는 네트워크 트래픽을 관리하는 리소스 오브젝트. 쉽게 말해서 일종의 `gateway`같은 역할을 담당한다. 만약 `ingress`를 사용하지 않는다고 할때, 외부 요청을 처리할 수 있는 방법은 `NodePort`, `ExternalIP`가 있다. 하지만 이는 단순한 기능처리만 가능할뿐 네트워크 요청의 세부적인 처리를 구현하기엔 한계가 존재한다.  
+`Ingress`는 `layer 7`의 요청을 처리할 수 있다. 외부로부터 들어오는 트래픽의 load balancing, 인증서처리, 라우팅 등을 정의할 수 있다.  
+`kubernetes`에서 `ingress`를 사용하기 위해서는 두가지 준비가 필요하다. `ingress` 오브젝트와 `ingress controller`이다. `ingress controller`는 `ingress`의 규칙이 적용될 실 오브젝트 정도로 할 수 있겠다. `kubernetes`에서 지원하는 프로젝트로는 `AWS`, `GCE`, `Nginx` 등이 있다.
 
 
 <br/><br/><br/><br/>
 <div style="font-size:10px;color:#8b9196">
-<b>이미지 출처</b><br/>
+<b>이미지 및 내용 출처</b><br/>
 - History of Deployment Architecture (https://avinetworks.com/glossary/kubernetes-architecture)<br/>  
 - Kubernetes architecture (https://kubernetes.io/docs/concepts/overview/what-is-kubernetes)<br/>
 </div>
