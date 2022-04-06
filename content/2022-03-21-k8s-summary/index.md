@@ -60,9 +60,10 @@ show: true
 위의 예시는 `kubernetes`를 구성하는 방법 중 한가지 방식이며, 필자가 근무했던 회사의 인프라 아키텍쳐와 유사한 형태이다. 실제로 `azure`의 `kubernetes`서비스인 `AKS(Azure Kubernetes Service)`를 사용하였으며 `ingress`와 `pod`, `service` 를 `node port` 방식으로 사용했었다.  
 
 ### Ingress & Ingress controller
-`Ingress` 는 외부로부터 내부로 유입되는 네트워크 트래픽을 관리하는 리소스 오브젝트. 쉽게 말해서 일종의 `gateway`같은 역할을 담당한다. 만약 `ingress`를 사용하지 않는다고 할때, 외부 요청을 처리할 수 있는 방법은 `NodePort`, `ExternalIP`가 있다. 하지만 이는 단순한 기능처리만 가능할뿐 네트워크 요청의 세부적인 처리를 구현하기엔 한계가 존재한다.  
+`Ingress` 는 외부로부터 내부로 유입되는 네트워크 트래픽을 관리하는 리소스 오브젝트. 쉽게 말해서 일종의 `gateway`같은 역할을 담당한다.(`service`에 연결되는 제일 앞단의 `proxy server`).
+만약 `ingress`를 사용하지 않는다고 할때, 외부 요청을 처리할 수 있는 방법은 `NodePort`, `ExternalIP`가 있다. 하지만 이는 단순한 기능처리만 가능할뿐 네트워크 요청의 세부적인 처리를 구현하기엔 한계가 존재한다.  
 `Ingress`는 `layer 7`의 요청을 처리할 수 있다. 외부로부터 들어오는 트래픽의 load balancing, 인증서처리, 라우팅 등을 정의할 수 있다.  
-`kubernetes`에서 `ingress`를 사용하기 위해서는 두가지 준비가 필요하다. `ingress` 오브젝트와 `ingress controller`이다. `ingress controller`는 `ingress`의 규칙이 적용될 실 오브젝트 정도로 할 수 있겠다. `kubernetes`에서 지원하는 프로젝트로는 `AWS`, `GCE`, `Nginx` 등이 있다. <a href='https://kubernetes.io/ko/docs/concepts/services-networking/ingress-controllers/' target="_blank" rel="noopener noreferrer">(컨트롤러 더보기 공식사이트)</a>
+`kubernetes`에서 `ingress`를 사용하기 위해서는 두가지 준비가 필요하다. `ingress` 오브젝트와 `ingress controller`이다. `ingress controller`는 `ingress`의 규칙이 적용될 실 오브젝트 정도로 할 수 있겠다. `kubernetes`에서 지원하는 프로젝트로는 `AWS`, `GCE`, `Nginx` 등이 있다. <a href='https://kubernetes.io/ko/docs/concepts/services-networking/ingress-controllers/' target="_blank" rel="noopener noreferrer">(ingress controller 더보기)</a>
 
 <br/>
 <div style="font-size:10px;color:#8b9196">
