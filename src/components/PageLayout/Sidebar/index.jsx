@@ -13,7 +13,7 @@ const { github, instagram, linkedin } = Config.social;
 
 const DomContent = () => (
 	<aside>
-		<div className={style.profileAvatar} />
+		<div className={style.profileAvatar} title="Hello😁" />
 		<div className={`${style.name} centerAlign`}>
 			<div className={`${style.boxName} centerAlign`}>
 				<h2>
