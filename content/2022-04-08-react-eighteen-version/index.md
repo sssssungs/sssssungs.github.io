@@ -1,5 +1,5 @@
 ---
-title: React v18 release!
+title: React v18 has been released officially!
 tags: [javascript, typescript, react, html, css, nextjs]
 date: 2022-04-08T20:51:44.226Z
 path: blog/react18
