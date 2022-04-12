@@ -29,7 +29,7 @@
 <p>React 18부터는 <code class="language-text">startTransition</code> API를 제공함으로써 업데이트를 명시적으로 구분하여 진행할 수 있게 되었다.<br>
 <code class="language-text">Urgent update(긴급 업데이트)</code> 는 입력, 클릭, 누르기 등과 같은 직접적인 상호 작용 (ex. text 입력)<br>
 <code class="language-text">Transition update(전환 업데이트)</code> 는 UI를 한 보기에서 다른 보기로 전환(ex. text 입력되었을때 보이는 검색결과)  </p>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span>startTransition<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> startTransition <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Urgent: Show what was typed</span>
 <span class="token function">setInputValue</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -40,7 +40,31 @@
     <span class="token function">setSearchQuery</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p><code class="language-text">startTransition</code>로 래핑된 업데이트는 urgent하지 않은것으로 처리되며, 클릭이나 key down과 같은 더 urgent한 업데이트 발생할 경우 중단된다.</p>
-<p>공식문서 <a href="https://reactjs.org/blog/2022/03/29/react-v18.html" target="_blank" rel="nofollow">https://reactjs.org/blog/2022/03/29/react-v18.html</a></p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<h3>Suspense</h3>
+<p><code class="language-text">&lt;Suspense /></code>를 사용하면 컴포넌트에서 아직 표시할 준비가 되지 않은 부분에 로딩상태를 지정할 수 있다. 예전에 언급되었던 <code class="language-text">React.lazy</code>와 함께 사용했던 제한된 Suspense에서 진화하여 React 18에서 기능확장을 하였다.<br>
+React 18의 suspense는 transition API 결합하 여 사용할때 가장 사용성이 좋다. transition 중에 일시 중단을 하게되면 이미 보이던 컴포넌트가 fallback(로팅 컴포넌트)으로 변경되는 것을 방지할 수 있다. 대신 React는 충분한 데이터가 로드될때까지 rendering을 지연한다.  </p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Suspense <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token operator">&lt;</span>Suspense fallback<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>PageGlimmer <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>RightColumn<span class="token operator">></span>
+        <span class="token operator">&lt;</span>ProfileHeader <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>RightColumn<span class="token operator">></span>
+    <span class="token operator">&lt;</span>LeftColumn<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Suspense fallback<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&lt;</span>LeftColumnGlimmer <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>Comments <span class="token operator">/</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>Photos <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>Suspense<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>LeftColumn<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>Suspense<span class="token operator">></span></code></pre></div>
+<h3>New APIs</h3>
+<ul>
+<li><code class="language-text">createRoot</code>: <code class="language-text">rendering</code> 또는 <code class="language-text">unmount</code>할 root를 만드는 새 api. <code class="language-text">ReactDOM.render</code> 대신 사용하고 react 18 새 기능을 사용하려면 필수   </li>
+<li><code class="language-text">hydrateRoot</code>: server rendering을 hydrate하는 새로운 api. react 18 새 기능을 사용하려면 필수<br>
+(위 두가지 api 모두 react가 rendering 또는 hydrating 중에 오류가 발생했을때 로그를 확인할 수 있는 <code class="language-text">onRecoverableError</code> 옵션을 제공한다)</li>
+<li><code class="language-text">renderToPipeableStream</code>: node 환경에서 스트리밍을 위한 새로운 api<br>
+<br/></li>
+</ul>
+<p>위에서 알아본것들 이외에 새로운 hooks (<code class="language-text">useId</code>, <code class="language-text">useTransition</code>, <code class="language-text">useDeferredValue</code>, <code class="language-text">useSyncExternalStore</code>, <code class="language-text">useInsertionEffect</code>) 들도 추가되었다. 자세한 변경사항에 대해 궁금하다면 공식문서를 참고하길 바란다. <a href="https://reactjs.org/blog/2022/03/29/react-v18.html" target="_blank" rel="nofollow">https://reactjs.org/blog/2022/03/29/react-v18.html</a></p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
