@@ -36,7 +36,7 @@ React 18부터는 `startTransition` API를 제공함으로써 업데이트를 �
 `Urgent update(긴급 업데이트)` 는 입력, 클릭, 누르기 등과 같은 직접적인 상호 작용 (ex. text 입력)  
 `Transition update(전환 업데이트)` 는 UI를 한 보기에서 다른 보기로 전환(ex. text 입력되었을때 보이는 검색결과)  
 ```typescript
-import {startTransition} from 'react';
+import { startTransition } from 'react';
 
 // Urgent: Show what was typed
 setInputValue(input);
@@ -50,6 +50,34 @@ startTransition(() => {
 ```
 `startTransition`로 래핑된 업데이트는 urgent하지 않은것으로 처리되며, 클릭이나 key down과 같은 더 urgent한 업데이트 발생할 경우 중단된다.
 
+### Suspense
+`<Suspense />`를 사용하면 컴포넌트에서 아직 표시할 준비가 되지 않은 부분에 로딩상태를 지정할 수 있다. 예전에 언급되었던 `React.lazy`와 함께 사용했던 제한된 Suspense에서 진화하여 React 18에서 기능확장을 하였다.  
+React 18의 suspense는 transition API 결합하 여 사용할때 가장 사용성이 좋다. transition 중에 일시 중단을 하게되면 이미 보이던 컴포넌트가 fallback(로팅 컴포넌트)으로 변경되는 것을 방지할 수 있다. 대신 React는 충분한 데이터가 로드될때까지 rendering을 지연한다.  
+```typescript
+import { Suspense } from 'react';
+
+<Suspense fallback={<PageGlimmer />}>
+    <RightColumn>
+        <ProfileHeader />
+    </RightColumn>
+    <LeftColumn>
+        <Suspense fallback={<LeftColumnGlimmer />}>
+            <Comments />
+            <Photos />
+        </Suspense>
+    </LeftColumn>
+</Suspense>
+```
+
+### New APIs
+- `createRoot`: `rendering` 또는 `unmount`할 root를 만드는 새 api. `ReactDOM.render` 대신 사용하고 react 18 새 기능을 사용하려면 필수   
+- `hydrateRoot`: server rendering을 hydrate하는 새로운 api. react 18 새 기능을 사용하려면 필수  
+  (위 두가지 api 모두 react가 rendering 또는 hydrating 중에 오류가 발생했을때 로그를 확인할 수 있는 `onRecoverableError` 옵션을 제공한다)
+- `renderToPipeableStream`: node 환경에서 스트리밍을 위한 새로운 api  
+<br/>
 
 
-공식문서 https://reactjs.org/blog/2022/03/29/react-v18.html
+위에서 알아본것들 이외에 새로운 hooks (`useId`, `useTransition`, `useDeferredValue`, `useSyncExternalStore`, `useInsertionEffect`) 들도 추가되었다. 자세한 변경사항에 대해 궁금하다면 공식문서를 참고하길 바란다. https://reactjs.org/blog/2022/03/29/react-v18.html
+  
+
+
