@@ -70,8 +70,8 @@ import { Suspense } from 'react';
 ```
 
 ### New APIs
-- `createRoot`: `rendering` 또는 `unmount`할 root를 만드는 새 api. `ReactDOM.render` 대신 사용하고 react 18 새 기능을 사용하려면 필수   
-- `hydrateRoot`: server rendering을 hydrate하는 새로운 api. react 18 새 기능을 사용하려면 필수  
+- `createRoot`: `rendering` 또는 `unmount`할 root를 만드는 새 api. `ReactDOM.render` 대신 사용하고 react 18 기능을 사용하려면 필수   
+- `hydrateRoot`: server rendering을 hydrate하는 새로운 api. react 18 기능을 사용하려면 필수  
   (위 두가지 api 모두 react가 rendering 또는 hydrating 중에 오류가 발생했을때 로그를 확인할 수 있는 `onRecoverableError` 옵션을 제공한다)
 - `renderToPipeableStream`: node 환경에서 스트리밍을 위한 새로운 api  
 <br/>
