@@ -15,7 +15,7 @@ const TagCard = props => {
 				</div>
 				<div className={style.pd20px}>
 					<div className="textCenter">
-						<h4 style={{ color: `${color}` }}>#{name}</h4>
+						<h4 style={{ color: `${color}`, wordBreak: 'break-all' }}>#{name}</h4>
 					</div>
 					<p>{description}</p>
 				</div>
