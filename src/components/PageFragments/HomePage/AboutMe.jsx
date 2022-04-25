@@ -42,8 +42,8 @@ const AboutMe = () => (
 			<Col xs={24} sm={24} md={12} lg={8}>
 				<AboutTile
 					img="born.png"
-					width={110}
-					height={110}
+					width={100}
+					height={100}
 					alt="location image"
 					textH4="Born and bought up in"
 					textH3="South Korea"
@@ -51,8 +51,8 @@ const AboutMe = () => (
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
 				<AboutTile
-					width={110}
-					height={110}
+					width={100}
+					height={100}
 					img="coffee.png"
 					alt="coffee image"
 					textH4="Love Coffee"
@@ -61,8 +61,8 @@ const AboutMe = () => (
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
 				<AboutTile
-					width={110}
-					height={110}
+					width={100}
+					height={100}
 					img="social.png"
 					alt="meeting image"
 					textH4="Socially Active"
@@ -71,8 +71,8 @@ const AboutMe = () => (
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
 				<AboutTile
-					width={110}
-					height={110}
+					width={100}
+					height={100}
 					img="workout.png"
 					alt="motorcycle image"
 					textH4="Love to work out"
@@ -81,9 +81,9 @@ const AboutMe = () => (
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
 				<AboutTile
-					width={110}
-					height={110}
-					img="self-taught.png"
+					width={100}
+					height={100}
+					img="study.png"
 					alt="web image"
 					textH4="Self Taught"
 					textH3="Good Learner"
@@ -91,8 +91,8 @@ const AboutMe = () => (
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
 				<AboutTile
-					width={110}
-					height={110}
+					width={100}
+					height={100}
 					img="gradu.png"
 					alt="graduation image"
 					textH4="Pursued B.Tech in"

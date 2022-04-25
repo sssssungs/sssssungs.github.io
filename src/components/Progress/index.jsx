@@ -11,13 +11,13 @@ const ProgressBar = props => {
 			<div
 				style={{
 					position: 'absolute',
-					marginTop: '-22px',
+					marginTop: '-21px',
 					marginLeft: '15px',
 					color: 'white',
-					fontSize: '13px',
+					fontSize: '12px',
 				}}
 			>
-				<span>{text || ''}</span>
+				<span style={{ fontSize: '12px' }}>{text || ''}</span>
 			</div>
 		</div>
 	);
