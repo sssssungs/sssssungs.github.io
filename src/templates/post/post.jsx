@@ -47,7 +47,9 @@ const Post = ({ data }) => {
 					<Header page="blog" />
 					<SidebarWrapper>
 						<div className="marginTopTitle">
-							<h1>{title}</h1>
+							<div className={style.title}>
+								<h1>{title}</h1>
+							</div>
 							<div className={style.bannerImgContainer}>
 								<Img className={style.bannerImg} fluid={fluid} title={excerpt} alt={title} />
 							</div>
