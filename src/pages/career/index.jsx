@@ -45,7 +45,7 @@ const Career = () => (
 					<div className={style.desc}>
 						2015.07 - 2018.02
 						<br />
-						Full-Stack Developer (JQuery, HTML/CSS, Java, Spring, Jenkins, Oracle, Mybatis)
+						Full-Stack Developer (JQuery, HTML, CSS, Java, Spring, Jenkins, Oracle, Mybatis)
 						<br />
 						<br />
 						<p>
@@ -56,8 +56,8 @@ const Career = () => (
 					<div className={style.horizontalLine} />
 					<div className={style.desc}>
 						2018.03 - 2020.03
-						<br /> Full-Stack Developer (React, Redux, MySQL, Jenkins, ELK, DC/OS, Java, Grafana,
-						Git, Nginx)
+						<br /> Full-Stack Developer (React, Redux, MySQL, Oracle, Nodejs, Jenkins, ELK, DC/OS,
+						Java, Grafana, Git, Nginx)
 						<br />
 						<br />
 						<p>
@@ -80,8 +80,8 @@ const Career = () => (
 						</span>
 					</div>
 					<div className={style.desc}>
-						Frontend Developer (React, Redux, Mobx, Typescript, Nextjs, Emotionjs, Material UI,
-						Storybook, AWS, K8S)
+						Frontend Developer (React, Redux, Mobx, Typescript, Nextjs, Yarnberry, Emotionjs,
+						Material UI, Storybook, AWS, K8S, Azure)
 						<br />
 						<br />
 						<p>
