@@ -7,7 +7,33 @@
 /static/d1c6c7ec5d90259c9d53aa827ef76668/46604/css.png 500w,
 /static/d1c6c7ec5d90259c9d53aa827ef76668/32df2/css.png 730w" sizes="(max-width: 730px) 100vw, 730px" /><img loading="lazy" sizes="(max-width: 730px) 100vw, 730px" srcset="/static/d1c6c7ec5d90259c9d53aa827ef76668/e1953/css.png 250w,
 /static/d1c6c7ec5d90259c9d53aa827ef76668/46604/css.png 500w,
-/static/d1c6c7ec5d90259c9d53aa827ef76668/32df2/css.png 730w" src="/static/d1c6c7ec5d90259c9d53aa827ef76668/32df2/css.png" alt="CSS tips and tricks developer should know" title="Every developer should know these CSS tricks to develop their projects quickly and efficiently." style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>css wip</p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+/static/d1c6c7ec5d90259c9d53aa827ef76668/32df2/css.png 730w" src="/static/d1c6c7ec5d90259c9d53aa827ef76668/32df2/css.png" alt="CSS tips and tricks developer should know" title="Every developer should know these CSS tricks to develop their projects quickly and efficiently." style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>frontend 개발자로서 가장 많이 하는 작업중 하나는 바로 styling 작업일 것이다. (내가 제일 재밌어하는 작업중에 하나이다)<br>
+styling시 css를 이용하여 구현을 하게되는데 css도 많은 문법과 tip을 가지고 있다. 이 포스트에서는 몇가지 유용한 tip들을 소개해보려 한다!  </p>
+<h4>text-indent</h4>
+<p>문단에서 첫번째 줄만 indentation(들여쓰기)을 하고싶을때 사용할 수 있다.</p>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css">    <span class="token selector">p</span> <span class="token punctuation">{</span>
+        <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 0
+    <span class="token punctuation">}</span>
+
+    <span class="token selector">p + p</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+        <span class="token property">word-break</span> <span class="token punctuation">:</span> break-all<span class="token punctuation">;</span>
+        <span class="token property">text-indent</span><span class="token punctuation">:</span> 1.5em<span class="token punctuation">;</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> 0
+    <span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>This is new story<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+    standard dummy text ever since the 1500s, when an unknown printer took 
+    a galley of type and scrambled it to make a type specimen book.
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre></div>
+<div style="width: 50%;margin-bottom: 15px; margin-left:auto; margin-right: auto; ">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 491px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 64%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABN0lEQVQ4y42T646CQAyFff83E1DwAnJRwRgg4bfKLdDN1yyGkAV2kqbtzPT0nLls5Hf0ff/1WNd1X5uuTfNx/WYKNjfG4EPDVcCmacTzPMmyTJ7Pp8RxrFYUhSyNMZHNdPL9fsv1ehXLssT3fdnv9xIEgTYhp8Hj8ZAwDCVNU2nbdp5hWZZyu93UDoeDFjmOI6fTSc7ns8Y0sm1bDMPQeBVwt9vJ8XhUyciHFYCA3O939RhrNP18PvOAVVUpC2TCLooi2W63mg8sXdeVy+WiPkmSdYaAUEwRLGhgmqYyhj3znDF7YM9tzwJyIYBwCcjmLPGDVMCJYQogTRYBX6+XSkUOMgGhENawJKcJMfPsqet6WfJw4BTlea5rFHG+GDFKiPGLDxv63BoPHPCln/Pvh/3X5jUb1/8AqTvch8cvmKIAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="indent" title="indent" src="/static/2193d84a9a5d994665298dc3b74b1798/e4370/indent.png" srcset="/static/2193d84a9a5d994665298dc3b74b1798/3e256/indent.png 250w,
+/static/2193d84a9a5d994665298dc3b74b1798/e4370/indent.png 491w" sizes="(max-width: 491px) 100vw, 491px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
