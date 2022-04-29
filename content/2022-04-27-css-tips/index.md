@@ -13,26 +13,10 @@ styling시 css를 이용하여 구현을 하게되는데 css도 많은 문법과
 
 #### text-indent
 문단에서 첫번째 줄만 indentation(들여쓰기)을 하고싶을때 사용할 수 있다.
-```css
-    p {
-        margin-bottom: 0
-    }
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/sssssungs/embed/zYRORBY?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+See the Pen <a href="https://codepen.io/sssssungs/pen/zYRORBY">
+Untitled</a> by Randy (<a href="https://codepen.io/sssssungs">@sssssungs</a>)
+on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
-    p + p {
-        width: 300px;
-        word-break : break-all;
-        text-indent: 1.5em;
-        margin-top: 0
-    }
-```
-```html
-<p>This is new story</p>
-<p>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-    standard dummy text ever since the 1500s, when an unknown printer took 
-    a galley of type and scrambled it to make a type specimen book.
-</p>
-```
-<div style="width: 50%;margin-bottom: 15px; margin-left:auto; margin-right: auto; ">
-  <img src="./indent.png"/>
-</div>
+#### next
