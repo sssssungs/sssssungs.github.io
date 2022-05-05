@@ -4,7 +4,7 @@ tags: [javascript, typescript, functionalProgramming, react]
 date: 2021-07-21T05:25:44.226Z
 path: blog/functional-programming
 cover: ./fp-img.png
-excerpt: Book review on Functional javascript programming with my reckoning.
+excerpt: Book review on Functional javascript programming with my reckoning
 show: true
 ---
 

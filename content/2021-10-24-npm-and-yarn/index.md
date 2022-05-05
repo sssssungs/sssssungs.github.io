@@ -4,7 +4,7 @@ tags: [javascript, typescript, react, nodejs]
 date: 2021-10-24T20:25:44.226Z
 path: blog/npm-vs-yarn
 cover: ./npmyarn.png
-excerpt: Let's talk about what npm and yarn are and find some pros and cons between them.
+excerpt: Let's talk about what npm and yarn are and find some pros and cons between them
 show: true
 ---
 자바스크립트 개발에서 필수적인 패키지 매니저 NPM과 YARN에 대해서 알아보자.

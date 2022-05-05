@@ -4,7 +4,7 @@ tags: [docker, kubernetes]
 date: 2021-08-23T20:25:44.226Z
 path: blog/docker-instruction
 cover: ./docker.png
-excerpt: Archived notes about dockerfile instruction, docker life cycle command, etc.
+excerpt: Archived notes about dockerfile instruction, docker life cycle command, etc
 show: true
 ---
 
