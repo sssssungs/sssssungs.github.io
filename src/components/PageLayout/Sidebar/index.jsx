@@ -67,7 +67,7 @@ const Sidebar = props => {
 	const { children } = props;
 	const { pathname } = globalHistory.location;
 	let domContent = <DomContent />;
-	if (width > 997) {
+	if (width > 811) {
 		domContent = (
 			<Affix offsetTop={0}>
 				<DomContent />
