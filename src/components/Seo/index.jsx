@@ -9,7 +9,7 @@ import Utils from '../../utils/pageUtils';
 
 const detailsQuery = graphql`
 	query DefaultSEOQuery {
-		file(name: { eq: "favicon-512" }) {
+		file(name: { eq: "memo-fav-310" }) {
 			childImageSharp {
 				fixed(width: 600) {
 					...GatsbyImageSharpFixed_noBase64
