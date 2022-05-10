@@ -29,7 +29,7 @@ const Tags = ({ data }) => {
 				/>
 				<>
 					<div className="marginTopTitle">
-						<h1 className="titleSeparate">Tags</h1>
+						<h1 className="titleSeparate">Tag</h1>
 					</div>
 					<Row gutter={[30, 20]}>
 						{edges

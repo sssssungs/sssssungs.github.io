@@ -41,7 +41,6 @@ function SEO({
 					Config.siteUrl,
 					imageUrl || data.file.childImageSharp.fixed.src,
 				).slice(1);
-				// console.log(metaImageUrl.slice(1));
 
 				return (
 					<Helmet
