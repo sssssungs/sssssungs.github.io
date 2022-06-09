@@ -82,7 +82,7 @@ module.exports = {
 			name: 'sql',
 			description:
 				'Structured Query Language, commonly known as SQL, is a standard programming language for relational databases',
-			color: '#e13535',
+			color: '#e55757',
 		},
 		database: {
 			name: 'database',
