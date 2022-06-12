@@ -25,9 +25,9 @@ const DomContent = () => (
 				<a href={github} target="_blank" rel="noopener noreferrer">
 					<FA name="github" />
 				</a>
-				<a href={instagram} target="_blank" rel="noopener noreferrer">
-					<FA name="instagram" />
-				</a>
+				{/*<a href={instagram} target="_blank" rel="noopener noreferrer">*/}
+				{/*	<FA name="instagram" />*/}
+				{/*</a>*/}
 				<a href={linkedin} target="_blank" rel="noopener noreferrer">
 					<FA name="linkedin" />
 				</a>
