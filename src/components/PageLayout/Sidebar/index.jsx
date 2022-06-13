@@ -9,7 +9,7 @@ import { useWindowSize } from '../../../utils/hooks';
 import Config from '../../../../config';
 
 const { Content } = Layout;
-const { github, instagram, linkedin } = Config.social;
+const { github, linkedin } = Config.social;
 
 const DomContent = () => (
 	<aside>

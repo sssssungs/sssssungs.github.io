@@ -14,6 +14,19 @@ show: true
 > 2. 적은 코드양, 하지만 명료함을 잃지 않는다   
 > 3. 상태관리 로직의 재사용성이 매우 높다    
 
-나 또한 `react hooks` + `functional component` 조합으로 개발을 하고 있는 입장에서, `hooks를` 사용하기 전 `class component`로 개발하던 때와 비교해본다면 `hooks`를 사용하는것이 확실히 작성하는 코드의 양도 적고, 그냥 눈으로 코드를 읽었을때 읽기 쉬운 명료함을 가지고 있다고 생각한다.   
+나 또한 `react hooks` + `functional component` 조합으로 개발을 하고 있는 입장에서, `hooks`를 사용하기 전 `class component`로 개발하던 때와 비교해본다면 `hooks`를 사용하는것이 확실히 작성하는 코드의 양도 적고, 그냥 눈으로 코드를 읽었을때 읽기 쉬운 명료함을 가지고 있다고 생각한다.   
 
-(wip...)
+`React` <a href="https://reactjs.org/" rel="noopener noreferrer">공식문서</a>에는 `hooks` 사용에 대한 두가지 rule을 명시하고 있다.
+1. Only Call Hooks at the Top Level (최상위(*at the Top Level*)에서만 `Hook`을 호출해야한다)  
+   반복문, 조건문 혹은 중첩된 함수 내에서 `Hook`을 호출하면 안된다
+2. Only Call Hooks from React Functions (오직 React 함수 내에서 `Hook`을 호출해야한다)  
+   `Hook`을 일반적인 `JavaScript` 함수에서 호출하면 안된다
+
+위의 두가지 rule을 지키면서 재사용성이 뛰어난 `custom hooks`를 만들어서 사용할 수 있다. (보통 `useSomething`으로 명명하고 `hook`이라고 암묵적으로 통용된다)  
+`Custom hooks` 생성시 다음 두가지를 고려해야한다.
+
+(wip)
+
+### 참고문서  
+https://reactjs.org/ <br/>
+https://overreacted.io/why-isnt-x-a-hook/
