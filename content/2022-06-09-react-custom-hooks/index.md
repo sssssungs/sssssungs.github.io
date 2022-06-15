@@ -7,7 +7,19 @@ cover: ./react-custom-hooks.png
 excerpt: Custom hooks are designed to do exactly what you need to isolate and reuse its logic
 show: true
 ---
-
+<style>
+.quote {
+   font-style: italic;
+   font-size: 0.9rem;
+   font-weight: 600;
+   border-radius:5px; 
+   background: linear-gradient(to right, #c5f3c7,  #daf6dc, #ffffff);
+   margin:0 0 20px 0;
+   padding: 10px 20px; 
+   border-left: 10px solid #ace5af;
+   box-shadow: 3px 3px 5px rgba(169,169,169,0.71);
+}
+</style>
 `React hooks`가 정식으로 릴리즈 된 이후 많은 프론트엔드 개발자들이 `react hooks`를 사용하고 있다. `React hooks`는 크게 다음 세가지의 장점을 가진다.
 
 > 1. `class component` 보다 적은 양의 코드로 동일한 로직을 구현할 수 있다.  
@@ -26,6 +38,8 @@ show: true
 `Custom hooks` 생성시 다음 두가지를 고려해야한다.
 ---
 ### Composition (합성)
+<div class="quote">"대부분의 사람들이 커스텀 Hooks를 Hooks API의 꽃이라고 생각합니다. 저희는 사람들이 커스텀 Hooks를 자주 쓸 것이라고 예상했고, 협업 환경에서 이러한 커스텀 Hooks가 충돌을 일으키지 않도록 해주어야 했습니다" -Dan Abramov-</div>
+
 `custom hook`은 동시에 사용할 수 있어야하고, 서로에게 영향을 끼치지 않고 독립적으로 고유한 로직을 가지고 있어야 한다. 예를 들어 하나의 `component` 내부에서 여러개의 `useState`를 사용하는 `hook`을 사용했을때, 각 `hook`들은 서로에게 영향을 주지않고 독립적으로 동작하게 된다.
 ```javascript
 function useMyCustomHook1() {
