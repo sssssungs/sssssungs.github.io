@@ -24,8 +24,28 @@ show: true
 
 위의 두가지 rule을 지키면서 재사용성이 뛰어난 `custom hooks`를 만들어서 사용할 수 있다. (보통 `useSomething`으로 명명하고 `hook`이라고 암묵적으로 통용된다)  
 `Custom hooks` 생성시 다음 두가지를 고려해야한다.
+---
+### Composition (합성)
+`custom hook`은 동시에 사용할 수 있어야하고, 서로에게 영향을 끼치지 않고 독립적으로 고유한 로직을 가지고 있어야 한다. 예를 들어 하나의 `component` 내부에서 여러개의 `useState`를 사용하는 `hook`을 사용했을때, 각 `hook`들은 서로에게 영향을 주지않고 독립적으로 동작하게 된다.
+```javascript
+function useMyCustomHook1() {
+   const [value, setValue] = useState(0);
+   // What happens here, stays here.
+}
 
-(wip)
+function useMyCustomHook2() {
+   const [value, setValue] = useState(0);
+   // What happens here, stays here.
+}
+
+function MyComponent() {
+   useMyCustomHook1();
+   useMyCustomHook2();
+}
+```
+
+### Debugging (디버깅)
+wip 
 
 ### 참고문서  
 https://reactjs.org/ <br/>
