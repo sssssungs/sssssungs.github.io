@@ -17,13 +17,14 @@
    font-size: 0.9rem;
    font-weight: 600;
    border-radius:5px; 
-   background: linear-gradient(to right, #c5f3c7,  #daf6dc, #ffffff);
+   background: linear-gradient(to right, #d4fdd6,  #daf6dc, #ffffff);
    margin:0 0 20px 0;
    padding: 10px 20px; 
-   border-left: 10px solid #ace5af;
+   border-left: 10px solid #d1ffd4;
    box-shadow: 3px 3px 5px rgba(169,169,169,0.71);
 }
 </style>
+<div class="quote">"대부분의 사람들이 커스텀 Hooks를 Hooks API의 꽃이라고 생각합니다. 저희는 사람들이 커스텀 Hooks를 자주 쓸 것이라고 예상했고, 협업 환경에서 이러한 커스텀 Hooks가 충돌을 일으키지 않도록 해주어야 했습니다" -Dan Abramov-</div>
 <p><code class="language-text">React hooks</code>가 정식으로 릴리즈 된 이후 많은 프론트엔드 개발자들이 <code class="language-text">react hooks</code>를 사용하고 있다. <code class="language-text">React hooks</code>는 크게 다음 세가지의 장점을 가진다.</p>
 <blockquote>
 <ol>
@@ -40,11 +41,8 @@
 <li>Only Call Hooks from React Functions (오직 React 함수 내에서 <code class="language-text">Hook</code>을 호출해야한다)<br>
 <code class="language-text">Hook</code>을 일반적인 <code class="language-text">JavaScript</code> 함수에서 호출하면 안된다</li>
 </ol>
-<p>위의 두가지 rule을 지키면서 재사용성이 뛰어난 <code class="language-text">custom hooks</code>를 만들어서 사용할 수 있다. (보통 <code class="language-text">useSomething</code>으로 명명하고 <code class="language-text">hook</code>이라고 암묵적으로 통용된다)<br>
-<code class="language-text">Custom hooks</code> 생성시 다음 두가지를 고려해야한다.</p>
-<hr>
+<p>위의 두가지 rule을 지키면서 재사용성이 뛰어난 <code class="language-text">custom hooks</code>를 만들어서 사용할 수 있다. (보통 <code class="language-text">useSomething</code>으로 명명하고 <code class="language-text">hook</code>이라고 암묵적으로 통용된다) <code class="language-text">Custom hooks</code> 생성시 다음 두가지를 고려해야한다.</p>
 <h3>Composition (합성)</h3>
-<div class="quote">"대부분의 사람들이 커스텀 Hooks를 Hooks API의 꽃이라고 생각합니다. 저희는 사람들이 커스텀 Hooks를 자주 쓸 것이라고 예상했고, 협업 환경에서 이러한 커스텀 Hooks가 충돌을 일으키지 않도록 해주어야 했습니다" -Dan Abramov-</div>
 <p><code class="language-text">custom hook</code>은 동시에 사용할 수 있어야하고, 서로에게 영향을 끼치지 않고 독립적으로 고유한 로직을 가지고 있어야 한다. 예를 들어 하나의 <code class="language-text">component</code> 내부에서 여러개의 <code class="language-text">useState</code>를 사용하는 <code class="language-text">hook</code>을 사용했을때, 각 <code class="language-text">hook</code>들은 서로에게 영향을 주지않고 독립적으로 동작하게 된다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">useMyCustomHook1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
    <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -61,7 +59,29 @@
    <span class="token function">useMyCustomHook2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div>
 <h3>Debugging (디버깅)</h3>
-<p>wip </p>
+<p><code class="language-text">custom hook</code>이 코드의 디버깅 및 플로우를 파악하는데 영향을 끼치지 않아야 한다.
+<br/><br/></p>
+<p>위에서 말한 두가지 고려사항은 결국 <code class="language-text">custom hook</code>은 자신을 포함하여 다른 <code class="language-text">hook</code>이나 <code class="language-text">component</code>에 영향을 끼치지 않아야 한다는 것이다. 그리고 실제로 이를 구현하기 위해서는 공통된 값을 다루는 로직을 <code class="language-text">custom hook</code>으로 만들지 않는 것이 중요하다. 특히 공통으로 다루게 되는 <code class="language-text">window</code>의 함수나 값을 다루는 <code class="language-text">custom hook</code>을 여러개 만든다고 가정해본다면, 이는 합성과 디버깅의 고려사항 모두 만족하지 못한다. 이를 공통된 <code class="language-text">component</code>에 중복으로 사용하였을때, 사용된 <code class="language-text">hooks</code>들은 공통된 <code class="language-text">window</code> 글로벌 객체를 참조하게 되므로 서로 영향을 주게되며 (합성 규칙에 위배), <code class="language-text">component</code>에서 에러가 발생되었을때 어떤 <code class="language-text">hook</code>이 원인인지 파악이 어렵고 모든 <code class="language-text">hook</code>을 들여다 봐야한다 (디버깅 규칙에 위배).</p>
+<p>간단한 <code class="language-text">custom hook</code>을 만들어보자.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useCallback <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">UseInput</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">initialValue <span class="token operator">=</span> <span class="token keyword">null</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+   <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>initialValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">setValue</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">return</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> UseInput<span class="token punctuation">;</span></code></pre></div>
+<p>위는 <code class="language-text">react</code>개발시 <code class="language-text">input</code>을 생성할때에 사용되는 <code class="language-text">useState</code>, <code class="language-text">onChange</code> 를 묶어서 <code class="language-text">hook</code>으로 만들어둔 간단한 <code class="language-text">hook</code>이다.<br>
+<code class="language-text">hook</code>생성시 몇가지 키워드를 본다면</p>
+<ol>
+<li>명칭은 useSomething 형태로 생성한다 (use를 앞에 붙인다)</li>
+<li>내부에서는 <code class="language-text">useState</code>, <code class="language-text">useEffect</code>같은 내장 <code class="language-text">hook</code>을 사용한다.</li>
+<li><code class="language-text">return</code>은 <code class="language-text">component</code>형태가 아닌 <code class="language-text">array</code> 또는 <code class="language-text">object</code>형태를 <code class="language-text">return</code>한다  </li>
+</ol>
+<p>이것들만 잘 지키고 독립성을 유지도록 <code class="language-text">custom hook</code>을 생성한다면 가독성이 높고 관리와 재사용성이 용이한 <code class="language-text">hook</code>을 생성할 수 있다.</p>
 <h3>참고문서</h3>
 <p><a href="https://reactjs.org/" target="_blank" rel="nofollow">https://reactjs.org/</a> <br/>
 <a href="https://overreacted.io/why-isnt-x-a-hook/" target="_blank" rel="nofollow">https://overreacted.io/why-isnt-x-a-hook/</a></p></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
