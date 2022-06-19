@@ -120,5 +120,11 @@ module.exports = {
 				'The single source of truth which groups all the elements that will allow the teams to design, realize and develop a product',
 			color: '#25b66e',
 		},
+		softwareDevelopment: {
+			name: 'softwareDevelopment',
+			description:
+				'Software development refers to a set of computer science activities dedicated to the process of creating, designing, deploying and supporting software',
+			color: '#b62561',
+		},
 	},
 };
