@@ -21,7 +21,7 @@ const AboutMe = () => (
 	<>
 		<div>
 			<SEO
-				title="Welcome Home"
+				title="Hello to the dev world"
 				description="Wanna know about me? Come and check me!"
 				path=""
 				keywords={[
