@@ -1,5 +1,5 @@
 ---
-title: The Nature of software development book review
+title: The Nature of software development
 tags: [softwareDevelopment]
 date: 2022-06-19T13:51:04.226Z
 path: blog/software-dev-book-review
@@ -7,18 +7,14 @@ cover: ./software-dev.png
 excerpt: Keep It Simple, Make It Valuable, Build It Piece by Piece
 show: true
 ---
-<style>
-.quote {
-   font-style: italic;
-   font-size: 0.9rem;
-   font-weight: 600;
-   border-radius:5px; 
-   background: linear-gradient(to right, #d4fdd6,  #daf6dc, #ffffff);
-   margin:0 0 20px 0;
-   padding: 10px 20px; 
-   border-left: 10px solid #d1ffd4;
-   box-shadow: 3px 3px 5px rgba(169,169,169,0.71);
-}
-</style>
 
-(wip)
+오랜만에 읽는 개발관련 도서. 성공적인 소프트웨어 개발에 대한 거시적인 관점을 이야기 해준다.  
+**The Nature of software development  (저자 Ron Jeffries)**
+
+<div style="width: 50%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <img src="./book.png" width="300px" />
+</div>
+
+
+
+
