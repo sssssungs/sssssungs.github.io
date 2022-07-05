@@ -7,19 +7,7 @@ cover: ./react-custom-hooks.png
 excerpt: Custom hooks are designed to do exactly what you need to isolate and reuse its logic
 show: true
 ---
-<style>
-.quote {
-   font-style: italic;
-   font-size: 0.9rem;
-   font-weight: 600;
-   border-radius:5px; 
-   background: linear-gradient(to right, #d4fdd6,  #daf6dc, #ffffff);
-   margin:0 0 20px 0;
-   padding: 10px 20px; 
-   border-left: 10px solid #d1ffd4;
-   box-shadow: 3px 3px 5px rgba(169,169,169,0.71);
-}
-</style>
+
 
 <div class="quote">"대부분의 사람들이 커스텀 Hooks를 Hooks API의 꽃이라고 생각합니다. 저희는 사람들이 커스텀 Hooks를 자주 쓸 것이라고 예상했고, 협업 환경에서 이러한 커스텀 Hooks가 충돌을 일으키지 않도록 해주어야 했습니다" -Dan Abramov-</div>
 
