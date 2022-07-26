@@ -126,5 +126,11 @@ module.exports = {
 				'Software development refers to a set of computer science activities dedicated to the process of creating, designing, deploying and supporting software',
 			color: '#b62561',
 		},
+		algorithm: {
+			name: 'algorithm',
+			description:
+				'A finite sequence of rigorous instructions, typically used to solve a class of specific problems or to perform a computation',
+			color: '#c46a39',
+		},
 	},
 };
