@@ -1,5 +1,5 @@
 ---
-title: First impression of Functional programming in Javascript 
+title: BOOK REVIEW | First impression of Functional programming
 tags: [javascript, typescript, functionalProgramming, react]
 date: 2021-07-21T05:25:44.226Z
 path: blog/functional-programming
