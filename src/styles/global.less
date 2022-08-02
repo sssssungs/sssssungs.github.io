@@ -17,11 +17,19 @@
 	src: url(https://fonts.gstatic.com/s/jetbrainsmono/v6/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxTOlOTk6OThhvA.woff)
 		format('woff');
 }
+
+@font-face {
+	font-family: 'Sligoil';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../../static/font/Sligoil-Micro.woff') format('woff2');
+}
+
 body {
 	font-size: 14px;
-	font-family: 'Spline Sans Mono', sans-serif;
+	font-family: 'Sligoil', sans-serif;
 	background-color: #f0f2f5;
-	word-spacing: -4px;
+	word-spacing: -5px;
 }
 h1,
 h2,
@@ -67,6 +75,14 @@ h4 {
 	word-spacing: -3px;
 	@media only screen and (max-width: 767px) {
 		font-size: 1rem;
+	}
+}
+h5 {
+	font-size: 0.85rem;
+	margin-bottom: 0.4rem;
+	word-spacing: -3px;
+	@media only screen and (max-width: 767px) {
+		font-size: 0.9rem;
 	}
 }
 ul {
