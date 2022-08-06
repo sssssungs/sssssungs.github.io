@@ -9,7 +9,7 @@ show: true
 ---
 
 DFS(`Depth-First Search`) 깊이 우선 탐색, BFS(`Breadth-First Search`) 너비 우선 탐색 모두 `graph`를 탐색하는 방법이다. 알고리즘에서 `graph`란, `node`와 그 `node`를 연결하는 `edge`로 이루어진 자료구조를 말하며, 이를 탐색한다는 것은 하나의 `node`에서 시작해 `edge`로 연결된 차례대로 모든 `node`를 한번씩 방문하는 것을 말한다.
-<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+<div style="width: 50%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
 <img src="./nodeAndEdge.png"/>
 <div style="width:200px;margin-left:auto; margin-right: auto;font-size:13px; color:#8b9196">Node와 Edge로 구성된 Graph</div>
 </div>
