@@ -16,11 +16,19 @@
 <div style="width:200px;margin-left:auto; margin-right: auto;font-size:13px; color:#8b9196">Node와 Edge로 구성된 Graph</div>
 </div>
 <h3>Depth-First Search (DFS: 깊이 우선 탐색)</h3>
-<p><code class="language-text">DFS</code>는 탐색 <code class="language-text">graph</code>의 최초의 <code class="language-text">node</code>를 확장하여 목표 상태가 발견될 때까지 더 깊이 확장하는 <a href='https://ko.wikipedia.org/wiki/%EB%A7%B9%EB%AA%A9%EC%A0%81_%ED%83%90%EC%83%89' target='_blank' rel='noopener noreferer'>맹목적 탐색 (Blind search)</a>이다. 만일 자식<code class="language-text">node</code>를 갖고 있지 않은 <code class="language-text">node</code>에 이르면 <code class="language-text">back-tracking</code>하여 다음 <code class="language-text">node</code>에서 출발한다.
+<div style="width:30%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 391px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 80.80000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaUlEQVQ4y21U227aQBTk51upUpuoD22k5qGq0ovaNH2q8kCqiKSioUQiQAPmEiBgx2AuBmNje727nq5tMDevZMl7djw+M57jFBKW7/vhtdzAWHCYNg828HfPd1Zqk2RNtt6rM4pLeYJMT4dusUTMJnlql4zHVwTId10cl4Y4Lg4hqSSs8Q3cLuleh6sVgF3Hxki3cFF3cdV0YBgWHNdJtCixQ0IYmiMX7aENyzRBKQ1sQ0uz0BlaIcbzCIyZidbYQ2dCwBnf7tCPNz6kIcOZ1MJZ5RGKHgEbI4bPdxJ+SF1BEHlYH3G8/1PAt/IDlFn07Jpw6UVQLCoeDrMDHOXGkMc0BFRVD6+zGt7mdTxoUe3fk4eDaxVvBK67xK383JJMHRe1Jwdy0N3KF85QkU1IPSO8j0ocbdF5S12EjWxLXt5YNoPUX2BqunH++iIyjYENRkSNeaj3TShTGpH4HJ3RAgODxS+PO2Qex63q4vS+il+PBmyHYWxynLc0nOQLkLTgA3B8LUn4Xm5BM3xUNYIPuQJOskWM5jz2MZIsJKQbDl5kOvh4N4dLOLQZw7tbHc/SDRR6BLUBxctMF4dXCtQpR0EmeJ5u4uCiicFsHfgtyfm2kDClq3SJuBCUei4Y88Eox73K0NAiiUHEyqqQPd4eyZjQdpnwROTPpnFIDYuITAZh5ttB3g327qR44m058XW/FEu4li24gpx4Pi67c5xWariRF0EuonHjfvxz4Hx//EJC6jH8rDl49bsjCBYhYeDjp5KJo9IU5+IskOknjOje32YFGBsUfx8Z1IkXHypivG7aBPqcJs570voP5ijKyCv4H1MAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="dfs" title="dfs" src="/static/b9d807d7490dd5b6645a1914ca3a5764/0504d/dfs.png" srcset="/static/b9d807d7490dd5b6645a1914ca3a5764/3e256/dfs.png 250w,
+/static/b9d807d7490dd5b6645a1914ca3a5764/0504d/dfs.png 391w" sizes="(max-width: 391px) 100vw, 391px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<p><code class="language-text">DFS</code>는 탐색 <code class="language-text">graph</code>의 최초의 <code class="language-text">node</code>를 확장하여 목표 상태가 발견될 때까지 더 깊이 확장하는 <a href='https://ko.wikipedia.org/wiki/%EB%A7%B9%EB%AA%A9%EC%A0%81_%ED%83%90%EC%83%89' target='_blank' rel='noopener noreferer'>맹목적 탐색 (Blind search)</a>이다. 만일 자식<code class="language-text">node</code>를 갖고 있지 않은 <code class="language-text">node</code>에 이르면 <code class="language-text">back-tracking</code>하여 다음 <code class="language-text">node</code>에서 출발한다. 즉, 시작점 부터 다음 분기로 넘어가기 전에 해당 분기를 완벽하게 탐색하고 넘어가는 방법이다.<br>
 <code class="language-text">DFS</code>는 다음과 같은 몇가지 특징과 구현방법을 가진다   </p>
 <ul>
 <li>자기 자신을 호출하는 순환 알고리즘 형태를 가진다</li>
 <li>전위순회를 포함한 다른 형태의 트리 순회는 모두 <code class="language-text">DFS</code>의 한 종류이다</li>
+<li>단순 검색 속도는 너비 우선 탐색(<code class="language-text">BFS</code>) 보다 느림</li>
 <li>구현 시 <code class="language-text">graph</code>탐색의 경우 어떤 <code class="language-text">node</code>를 방문했었는지 여부를 반드시 검사해야 한다 (그렇지 않을 경우 무한루프 주의!)</li>
 </ul>
 <br/>
@@ -31,7 +39,22 @@
 방문하지 않은 인접 <code class="language-text">node</code>가 없으면 stack에서 최상단 <code class="language-text">node</code>를 꺼낸다<br>
 ③ 위 과정을 수행할 수 없을때까지 반복한다</li>
 </ul>
-<h3>BFS (깊이 우선 탐색)</h3>
+<h3>Breadth-First Search (BFS: 너비 우선 탐색)</h3>
+<div style="width: 30%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 329px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 90.4%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClElEQVQ4y41UWU/bQBDOr+9Dn1pVVKIHl+hDK/WQeGjVIiEBpU04EiiBQBpI4hy+Ysfn2rtef93YsXOCutJa69nd2Znvm28KeGTEcZytltiWj8JDjrKLtktxqQa40wPwiC/sL3WYbWYHR5OPbaUuxU6zh481GYqd2vjUufkHCsuMcZ5khL2ag5dnNlaLBiTVG59dhCV3OI8LIRwxjxEEBJ7nglGGs78+mn2COKJwHFekzkBDDhbyBVwL05G1BE6Hkonztgnik8Sm2wwnPQMXfRshTWPvaw6KXQunPReuH81GmC2Ix7ArMWycVPD51oQ2TA8etCjWT6vYrEhoDkYRcVRkYO24iq1KA1U5Sh7h0w6Ttfjs132s/Dawc+kiCFOH1W6I1dIQ7wSOhpPaGnKI9bKPrbKH3oDOcDCTsm87UIwQlPIJ6oxC6g+hD2wRXJSbDYtC0+wFcgrxmLaGSgRWHoZe+qJPGK7UEGeSI/xE8AjFcdtCTSEJaURkcC77qIkajdiEnIRl3eL4cqvi7eER9iXhkEWo6TE2SxfYKFZQ12JUehTvq3V8qvfRVCiqOvD6sIjt0xpaRpzjmDh0BCHbZRfPiwP8uE5r7aYfJni+ONLQVKlgPhD16OKNmJpJ8UcU/DOxtyrudAcsL/icZdMKcd1yRToT+NoChrZIK0lHpHmvhJCNFJKRDFsag2KmLGfE5lruDAhuVB8k4Hk/6Bg+bke2kD/QNDBRzrRSRq98vdex9vMXSp1gFA4UK8KH8yZWvu/iqGGlQuTjipjS+7ymE4eyyURdWXi618BePUjVYDC8Ojbw5NuV0LM70xQebV/pfow7ZVQiojz8KO+BDcFmucNzGLLoHu+HmVLm++Hk778aazb+AbyZZ158CykdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="bfs" title="bfs" src="/static/207e20744cbae0be0f0ef8d50033f438/2e251/bfs.png" srcset="/static/207e20744cbae0be0f0ef8d50033f438/3e256/bfs.png 250w,
+/static/207e20744cbae0be0f0ef8d50033f438/2e251/bfs.png 329w" sizes="(max-width: 329px) 100vw, 329px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<p><code class="language-text">BFS</code>란 너비 우선 탐색이라고도 불리며 <code class="language-text">graph</code>에서 시작 <code class="language-text">node</code>에 인접한 <code class="language-text">node</code>부터 탐색하는 알고리즘이다. 시작 <code class="language-text">node</code>로부터 가까운 <code class="language-text">node</code> 먼저 방문하고 멀리 떨어져 있는 <code class="language-text">node</code>를 나중에 방문하는 방식으로 순회함으로써 노드를 넓게(wide) 탐색한다. 주로 두 <code class="language-text">node</code> 사이의 최단 경로 혹은 임의의 경로를 찾고 싶을 때 이 방법을 사용한다.
+<code class="language-text">BFS</code>는 다음의 특징을 가진다</p>
+<ul>
+<li>직관적이지 않다는 단점이 있다 </li>
+<li>재귀적으로 동작하지 않는다</li>
+<li>구현시 어떤 <code class="language-text">node</code>를 방문했었는지 여부를 반드시 검사해야 한다</li>
+<li><a href='https://ko.wikipedia.org/wiki/%ED%94%84%EB%A6%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98' target='_blank' rel='noopener noreferer'>Prime algorithm(프림 알고리즘)</a>,  <a href='https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%81%AC%EC%8A%A4%ED%8A%B8%EB%9D%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98' target='_blank' rel='noopener noreferer'>Dijkstra algorithm(다익스트라 알고리즘)</a>과 유사하다 </li>
+</ul>
 <br/>
 <div style="font-size:10px;color:#8b9196">
 <b>내용 출처</b><br/>
