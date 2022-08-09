@@ -24,20 +24,19 @@
     </span>
 </div>
 <p><code class="language-text">DFS</code>는 탐색 <code class="language-text">graph</code>의 최초의 <code class="language-text">node</code>를 확장하여 목표 상태가 발견될 때까지 더 깊이 확장하는 <a href='https://ko.wikipedia.org/wiki/%EB%A7%B9%EB%AA%A9%EC%A0%81_%ED%83%90%EC%83%89' target='_blank' rel='noopener noreferer'>맹목적 탐색 (Blind search)</a>이다. 만일 자식<code class="language-text">node</code>를 갖고 있지 않은 <code class="language-text">node</code>에 이르면 <code class="language-text">back-tracking</code>하여 다음 <code class="language-text">node</code>에서 출발한다. 즉, 시작점 부터 다음 분기로 넘어가기 전에 해당 분기를 완벽하게 탐색하고 넘어가는 방법이다.<br>
-<code class="language-text">DFS</code>는 다음과 같은 몇가지 특징과 구현방법을 가진다   </p>
+<code class="language-text">DFS</code>는 다음과 같은 몇가지 특징을 가진다    </p>
 <ul>
 <li>자기 자신을 호출하는 순환 알고리즘 형태를 가진다</li>
 <li>전위순회를 포함한 다른 형태의 트리 순회는 모두 <code class="language-text">DFS</code>의 한 종류이다</li>
 <li>단순 검색 속도는 너비 우선 탐색(<code class="language-text">BFS</code>) 보다 느림</li>
 <li>구현 시 <code class="language-text">graph</code>탐색의 경우 어떤 <code class="language-text">node</code>를 방문했었는지 여부를 반드시 검사해야 한다 (그렇지 않을 경우 무한루프 주의!)</li>
+<li><code class="language-text">Recursion</code> 또는 <code class="language-text">Stack</code>을 이용하여 구현 가능하다</li>
 </ul>
-<br/>
+<h5>DFS의 시간 복잡도</h5>
 <ul>
-<li>보통 재귀함수 (<code class="language-text">Recursive Function</code>)이나 스택(<code class="language-text">stack</code>)을 이용하여 구현<br>
-① 탐색 시작 <code class="language-text">node</code>를 stack에 넣고 방문처리<br>
-② stack의 최상단 <code class="language-text">node</code>에 방문하지 않은 인접한 <code class="language-text">node</code>가 하나라도 있으면 그 <code class="language-text">node</code>를 stack에 넣고 방문처리<br>
-방문하지 않은 인접 <code class="language-text">node</code>가 없으면 stack에서 최상단 <code class="language-text">node</code>를 꺼낸다<br>
-③ 위 과정을 수행할 수 없을때까지 반복한다</li>
+<li>인접 리스트로 표현된 그래프: <code class="language-text">O(N+E)</code></li>
+<li>인접 행렬로 표현된 그래프: <code class="language-text">O(N^2)</code></li>
+<li>그래프 내에 적은 숫자의 간선(<code class="language-text">edge</code>)만을 가지는 희소 그래프(Sparse Graph) 의 경우 인접 행렬보다 인접 리스트를 사용하는 것이 유리하다.</li>
 </ul>
 <h3>Breadth-First Search (BFS: 너비 우선 탐색)</h3>
 <div style="width: 30%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
@@ -53,12 +52,88 @@
 <li>직관적이지 않다는 단점이 있다 </li>
 <li>재귀적으로 동작하지 않는다</li>
 <li>구현시 어떤 <code class="language-text">node</code>를 방문했었는지 여부를 반드시 검사해야 한다</li>
+<li><code class="language-text">Queue</code>를 이용하여 구현가능하다 </li>
 <li><a href='https://ko.wikipedia.org/wiki/%ED%94%84%EB%A6%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98' target='_blank' rel='noopener noreferer'>Prime algorithm(프림 알고리즘)</a>,  <a href='https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%81%AC%EC%8A%A4%ED%8A%B8%EB%9D%BC_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98' target='_blank' rel='noopener noreferer'>Dijkstra algorithm(다익스트라 알고리즘)</a>과 유사하다 </li>
 </ul>
+<h5>BFS의 시간 복잡도</h5>
+<ul>
+<li>인접 리스트로 표현된 그래프: <code class="language-text">O(N+E)</code>  </li>
+<li>인접 행렬로 표현된 그래프: <code class="language-text">O(N^2)</code>  </li>
+<li>깊이 우선 탐색(<code class="language-text">DFS</code>)과 마찬가지로 그래프 내에 적은 숫자의 간선(<code class="language-text">edge</code>)만을 가지는 희소 그래프(Sparse Graph) 의 경우 인접 행렬보다 인접 리스트를 사용하는 것이 유리하다</li>
+</ul>
 <br/>
-<div style="font-size:10px;color:#8b9196">
+<hr>
+<h3>구현예제</h3>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> graph <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token constant">A</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"C"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token constant">B</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"D"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token constant">C</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"A"</span><span class="token punctuation">,</span> <span class="token string">"E"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token constant">D</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"B"</span><span class="token punctuation">,</span> <span class="token string">"F"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token constant">E</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"C"</span><span class="token punctuation">,</span> <span class="token string">"G"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token constant">F</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"D"</span><span class="token punctuation">,</span> <span class="token string">"H"</span><span class="token punctuation">,</span> <span class="token string">"I"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token constant">G</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"E"</span><span class="token punctuation">,</span> <span class="token string">"J"</span><span class="token punctuation">,</span> <span class="token string">"K"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token constant">H</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"F"</span><span class="token punctuation">,</span> <span class="token string">"L"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token constant">I</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"F"</span><span class="token punctuation">,</span> <span class="token string">"M"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token constant">J</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"G"</span><span class="token punctuation">,</span> <span class="token string">"N"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token constant">K</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"G"</span><span class="token punctuation">,</span> <span class="token string">"O"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token constant">L</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"H"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token constant">M</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"I"</span><span class="token punctuation">,</span> <span class="token string">"P"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token constant">N</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"J"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>        <span class="token constant">O</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"K"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token constant">P</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"M"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<div style="width: 40%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 703px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 62.4%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACIElEQVQoz3VT2W7aUBD1/39Fqz6nUXhKiPoAVG2FKAK8QGwDgYCN1+sF78Dp+OJAqNqR7jqLzpyZEaqqQi0nvvEdOBxwtB2cTAtbfY728zN830ee52TS2PxHhLIsb3+iGPAYNpqGTq8HSZGhqSpEScRoPILjOBfTOvjfSyiKgit/b+aYaAoSbYHBcIghOXe7XWR5htPhhMBkmIzHGI1G6Pf7CILgJmjzuCL00j2C5QK77RZP7TZc17041ML8CMabjYDQ97734F30t0F5QH7NC55ulCRQZJlQHfFrrcFgZ0fdM/FDlFF4KcbiBFEUNYlXNxQIZZNyvlojIH6msxm6nQ7WGwPfpirm/tkxtmJY6x10XUer9QBRFInPHRVqg+Npj6I68tIKHF+Swn5Rcd9qYTad8ooqdErE2YrFYFGF2CYOZRGSJIExhuVyifv7BzDXge7I6KjSOeWKBTgSuuXrKxaLBQpqjVrqoLr6AjfJ4IUH5MGeo/c8j+vTNIVM1ISBT5AYISybgIYJk9IQFaow8fdObu385fMnrMIUWXYkhCHuvt5BpRbiRSKUj49PMM03el0rLtSUeqSsU60L5Dg2OsShQsT/HAyx8PfnABtGfzIs2zpzGsfUPgO4zoReGfHYBDzQVHwUh9pBkSUYYYLttYAoQ2I7/deUJLeTYhgGbNuGZVn83O0smPSnbXZY0+i57zpC/tHOJqT13bLc5n1efwDneohv7CAXbQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="dfs ex" title="dfs ex" src="/static/d402dceb4e7cb7639eb1b3b52873d639/0440a/dfs_ex.png" srcset="/static/d402dceb4e7cb7639eb1b3b52873d639/3e256/dfs_ex.png 250w,
+/static/d402dceb4e7cb7639eb1b3b52873d639/b30f8/dfs_ex.png 500w,
+/static/d402dceb4e7cb7639eb1b3b52873d639/0440a/dfs_ex.png 703w" sizes="(max-width: 703px) 100vw, 703px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+<div style="width:130px; margin-left:auto; margin-right: auto;font-size:15px; color:#8b9196; margin-top: 5px; font-style: italic">DFS(깊이우선탐색)</div>
+</div>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">dfs</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">graph<span class="token punctuation">,</span> start</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> checked <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment">// 탐색 완료 데이터</span>
+    <span class="token keyword">const</span> willCheck <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 탐색 예정 데이터</span>
+    
+    willCheck<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>start<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">while</span><span class="token punctuation">(</span>willCheck<span class="token punctuation">.</span>length<span class="token operator">!==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">const</span> node <span class="token operator">=</span> willCheck<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 스택(Last In First Out)</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>checked<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            checked<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment">//reverse() 제거 시 그림의 4,3,2,1 순서로 탐색     </span>
+           willCheck<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> checked<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">dfs</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ['A', 'B', 'D', 'F', 'H', 'L', 'I', 'M', 'P', 'C', 'E', 'G', 'J', 'N', 'K', 'O']</span></code></pre></div>
+<br/>
+<div style="width: 40%;margin-bottom: 15px; margin-left:auto; margin-right: auto; ">
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 703px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 62.4%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACDklEQVQoz42Ta0/aYBTH+f7fwbczWaLJ5os5A1N0qMgqYBFbHcIM0BstbWmhpZTfnlrbjOiLneTk6bn9z7WVJEn4iNI0ZbvdMtY0Tmo1HM8jTtYshW315rP9IK6yXq9zowjOuKDxZEK9Xuf+qsnTTYu7iwZP102a1xKDsVH6FXEF7wBmZNs2kiRxK7W4OPtB5NgQ+AS6RueygVw/oy30pj3jl2HlnfwD/A5wOp3y/fgYZzyApU0azESPLmmYf8/1EVen35iNHvDNYdl6EV8CFuT7Pv1+n2gdvjmvSYlf34yiOEDutQlC91VuO2Y28bKoEjCKIjzX5VFR+XleR5/KuI7KdqNngyBNNOYzheHghurJPmr/Asu859npoi3j94CWaXFweMil3EI1RjRkiWqrwbOtYSUho7nB2e01511h119oPfbYPzpAenmiKvxLwOxsssEOh0PBzyzjZZ5gbtFX71msFqKhlFC02nuQxTLyDWf6TDaE3yyJMrSiwgRdbLDbldG0Be48wfe2Yssqe3ufsY2Q0AddC9j/9JVO+zfBAl7+OBx9qdHujamq7m6F2akoisJqFQtwk9PTOu3OHXedLiPHYx5viJaRWJYikuYVet6CZrMlRjXbucfKZrPZ2fJM3FdP7uHpIqsYrzKwmVgB/0uV7O5M08QwjPKdiL9E13XBBo5hYr/pC879zB254L+0IIdWu4CAuQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="bfs ex" title="bfs ex" src="/static/c48b77c0c0fd5db773dab6e5b66c1dd8/0440a/bfs_ex.png" srcset="/static/c48b77c0c0fd5db773dab6e5b66c1dd8/3e256/bfs_ex.png 250w,
+/static/c48b77c0c0fd5db773dab6e5b66c1dd8/b30f8/bfs_ex.png 500w,
+/static/c48b77c0c0fd5db773dab6e5b66c1dd8/0440a/bfs_ex.png 703w" sizes="(max-width: 703px) 100vw, 703px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+<div style="width:130px; margin-left:auto; margin-right: auto;font-size:15px; color:#8b9196; margin-top: 5px; font-style: italic">BFS(너비우선탐색)</div>
+</div>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">bfs</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">graph<span class="token punctuation">,</span> start</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> checked <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> willCheck <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  willCheck<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>start<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span><span class="token punctuation">(</span>willCheck<span class="token punctuation">.</span>length<span class="token operator">!==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> node <span class="token operator">=</span> willCheck<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 큐(First In First Out)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>checked<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      checked<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      willCheck<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token operator">...</span>graph<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> checked<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">bfs</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span> <span class="token string">"A"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P']</span></code></pre></div>
+<br/>
+<div style="font-size:11px;color:#8b9196">
 <b>내용 출처</b><br/>
-- https://en.wikipedia.org/wiki/Depth-first_search<br/>  
+- https://ko.wikipedia.org/wiki/%EB%84%88%EB%B9%84_%EC%9A%B0%EC%84%A0_%ED%83%90%EC%83%89<br/> 
+- https://ko.wikipedia.org/wiki/%EA%B9%8A%EC%9D%B4_%EC%9A%B0%EC%84%A0_%ED%83%90%EC%83%89
 </div></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
