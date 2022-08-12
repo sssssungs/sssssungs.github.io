@@ -102,6 +102,7 @@ const Career = () => (
 							Open marketplace for online users to buy or sell their 3D assets and archive their
 							portfolios. (Metaverse-oriented)
 						</p>
+						<p>✔️ Developing Design system and back office admin for CLO-SET & CONNECT</p>
 					</div>
 				</div>
 			</li>

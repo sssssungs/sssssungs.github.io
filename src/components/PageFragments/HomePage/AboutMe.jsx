@@ -37,6 +37,7 @@ const AboutMe = () => (
 			<h1 className="titleSeparate">About Me</h1>
 			<p className={style.paragraph} dangerouslySetInnerHTML={domHtml(pageText.paraOne)} />
 			<p className={style.paragraph} dangerouslySetInnerHTML={domHtml(pageText.paraTwo)} />
+			<br />
 		</div>
 		<Row gutter={[20, 20]}>
 			<Col xs={24} sm={24} md={12} lg={8}>
