@@ -7,7 +7,29 @@
 /static/53562ec57ab138b0412d49c5478b8cbf/46604/img.png 500w,
 /static/53562ec57ab138b0412d49c5478b8cbf/696fb/img.png 589w" sizes="(max-width: 589px) 100vw, 589px" /><img loading="lazy" sizes="(max-width: 589px) 100vw, 589px" srcset="/static/53562ec57ab138b0412d49c5478b8cbf/e1953/img.png 250w,
 /static/53562ec57ab138b0412d49c5478b8cbf/46604/img.png 500w,
-/static/53562ec57ab138b0412d49c5478b8cbf/696fb/img.png 589w" src="/static/53562ec57ab138b0412d49c5478b8cbf/696fb/img.png" alt="Type vs Interface, which one ?" title="No more confusion between type and interface" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+/static/53562ec57ab138b0412d49c5478b8cbf/696fb/img.png 589w" src="/static/53562ec57ab138b0412d49c5478b8cbf/696fb/img.png" alt="Type vs Interface, which one ?" title="No more confusion between type and interface" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p><code class="language-text">typescript</code>를 이용해 개발하다보면 항상 고민하게 되는 부분이 있다. 바로 <code class="language-text">type</code>과 <code class="language-text">interface</code>중 어느것을 사용해서 타입을 정의해줄까 라는 문제이다.<br>
+우선 두가지 모두 비슷한 방식으로 동작한다. 사용자가 타입을 선언하고 그 이름을 지어주는 것이 공통적인 기능이다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    grade<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+    hobby<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Student</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    grade<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+    hobby<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p>그리고 둘 모두 확장이 가능하다. <code class="language-text">type</code>의 경우 <code class="language-text">&amp;</code> 연산자를 사용하고, <code class="language-text">interface</code>는 <code class="language-text">extends</code>를 사용해 확장시킬 수 있다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">School</span> <span class="token keyword">extends</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+    teacher<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    study<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">type</span> <span class="token class-name">School</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    teacher<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+    study<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token operator">&amp;</span> Student<span class="token punctuation">;</span></code></pre></div></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
