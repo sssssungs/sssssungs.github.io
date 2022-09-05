@@ -24,8 +24,19 @@ show: true
 4. `layout` 계산이 완료되면 이제 요소들을 화면에 그린다 (`Paint`)
 
 
-wip
+### Reflow(Layout change)
+위에서 짚어보았던 렌더링 과정을 거친 뒤에 최종적으로 `web page`가 그려진다. 하지만 이것은 끝난것이 아니다. 이후 어떠한 이벤트에 따라 `element`의 크기, 위치 등 `layout`을 변경하면 그 영향을 받는 `child node`, `parent node`들을 포함하여 다시 `layout`과정을 수행한다. 이때 `render tree`와 각 `element`의 크기와 위치를 다시 연산하게 되는데 이를 `Reflow`라고 한다.  
+`Reflow`의 경우 다음의 대표적인 경우에 발생한다
+- `node`의 추가 또는 제거
+- `element`의 위치, 크기(`margin`, `padding`, `width`, `height`...)변경 
+- `font` 변경, `image` 크기 변경 
+- `page initial rendering`
+- `window resizing` 
 
+### Repaint(Re-draw)
+`reflow`처럼 `style`을 변경하는 모든것이 `layout` 수치에 영향을 받지는 않는다. `background-color`, `visibility`, `outline` 등의 `style` 변경시에는 `layout`은 변하지 않고 `reflow`가 생략된 `repaint` 과정만 발생한다.
+
+wip 
 
 
 <br/>
