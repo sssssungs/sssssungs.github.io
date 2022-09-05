@@ -28,7 +28,19 @@
 <li><code class="language-text">viewport</code> 내에서 각 <code class="language-text">node</code>들의 정확하 위치와 크기를 계산한다 (<code class="language-text">Layout</code>)</li>
 <li><code class="language-text">layout</code> 계산이 완료되면 이제 요소들을 화면에 그린다 (<code class="language-text">Paint</code>)</li>
 </ol>
-<p>wip</p>
+<h3>Reflow(Layout change)</h3>
+<p>위에서 짚어보았던 렌더링 과정을 거친 뒤에 최종적으로 <code class="language-text">web page</code>가 그려진다. 하지만 이것은 끝난것이 아니다. 이후 어떠한 이벤트에 따라 <code class="language-text">element</code>의 크기, 위치 등 <code class="language-text">layout</code>을 변경하면 그 영향을 받는 <code class="language-text">child node</code>, <code class="language-text">parent node</code>들을 포함하여 다시 <code class="language-text">layout</code>과정을 수행한다. 이때 <code class="language-text">render tree</code>와 각 <code class="language-text">element</code>의 크기와 위치를 다시 연산하게 되는데 이를 <code class="language-text">Reflow</code>라고 한다.<br>
+<code class="language-text">Reflow</code>의 경우 다음의 대표적인 경우에 발생한다</p>
+<ul>
+<li><code class="language-text">node</code>의 추가 또는 제거</li>
+<li><code class="language-text">element</code>의 위치, 크기(<code class="language-text">margin</code>, <code class="language-text">padding</code>, <code class="language-text">width</code>, <code class="language-text">height</code>...)변경 </li>
+<li><code class="language-text">font</code> 변경, <code class="language-text">image</code> 크기 변경 </li>
+<li><code class="language-text">page initial rendering</code></li>
+<li><code class="language-text">window resizing</code> </li>
+</ul>
+<h3>Repaint(Re-draw)</h3>
+<p><code class="language-text">reflow</code>처럼 <code class="language-text">style</code>을 변경하는 모든것이 <code class="language-text">layout</code> 수치에 영향을 받지는 않는다. <code class="language-text">background-color</code>, <code class="language-text">visibility</code>, <code class="language-text">outline</code> 등의 <code class="language-text">style</code> 변경시에는 <code class="language-text">layout</code>은 변하지 않고 <code class="language-text">reflow</code>가 생략된 <code class="language-text">repaint</code> 과정만 발생한다.</p>
+<p>wip </p>
 <br/>
 <div style="font-size:10px;color:#8b9196">
 <b>내용 및 이미지 출처</b><br/>
