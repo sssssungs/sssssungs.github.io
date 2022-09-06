@@ -37,10 +37,36 @@
 <li><code class="language-text">font</code> 변경, <code class="language-text">image</code> 크기 변경 </li>
 <li><code class="language-text">page initial rendering</code></li>
 <li><code class="language-text">window resizing</code> </li>
+<li><code class="language-text">JS</code>를 이용한 <code class="language-text">DOM</code>의 동적 변화</li>
 </ul>
-<h3>Repaint(Re-draw)</h3>
+<h3>Repaint(Redraw)</h3>
 <p><code class="language-text">reflow</code>처럼 <code class="language-text">style</code>을 변경하는 모든것이 <code class="language-text">layout</code> 수치에 영향을 받지는 않는다. <code class="language-text">background-color</code>, <code class="language-text">visibility</code>, <code class="language-text">outline</code> 등의 <code class="language-text">style</code> 변경시에는 <code class="language-text">layout</code>은 변하지 않고 <code class="language-text">reflow</code>가 생략된 <code class="language-text">repaint</code> 과정만 발생한다.</p>
-<p>wip </p>
+<p><code class="language-text">reflow</code>와 <code class="language-text">repaint</code>를 완전히 피할수는 없다. <code class="language-text">repaint</code>의 경우 <code class="language-text">dom api</code>를 통해 <code class="language-text">visibility</code>를 변경하였을때, <code class="language-text">child node</code>들까지 다 검색하기 때문에 성능이 저하될 수 있다. <code class="language-text">reflow</code>의 경우 해당 요소의 <code class="language-text">child</code>, <code class="language-text">parent</code> 모두 <code class="language-text">layout</code>을 새로 연산하기 때문에 더 심각한 성능저하를 일으키기도 한다.
+<code class="language-text">Reflow</code>를 피하거나 그 영향을 줄일 수 있는 몇가지 방법은 다음과 같다.</p>
+<ol>
+<li><code class="language-text">inline style</code>을 최대한 없앤다
+<code class="language-text">inline</code>상에 <code class="language-text">style</code>이 주어진 경우, 페이지 전체에 걸쳐서 <code class="language-text">reflow</code>가 수차례 발생하게 된다. 만일 없을경우에는 외부스타일 class 조합으로 한번만 reflow를 발생시킨다</li>
+<li><code class="language-text">animation</code>이 들어간 <code class="language-text">element</code>의 경우 <code class="language-text">position: fix;</code> 또는 <code class="language-text">position: absolute;</code>로 지정한다.
+<code class="language-text">animation</code>의 경우 초단위로 상당한 <code class="language-text">reflow</code>를 불러일으킨다. 이 경우에 위 두가지 속성을 사용하여 다른 요소들에 영향을 끼치지 않도록 하면, 해당 요소만의 repaint만을 유발하므로 효율적이다</li>
+<li>
+<p><code class="language-text">JS</code>를 통해 <code class="language-text">style</code>변화를 줄 경우 가급적 한번에 처리한다</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// (X)</span>
+<span class="token keyword">var</span> newElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'elem'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+newElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
+newElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'#fff'</span><span class="token punctuation">;</span>
+newElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>border <span class="token operator">=</span> <span class="token string">'1px solid #ccc'</span><span class="token punctuation">;</span>
+<span class="token comment">// 아래처럼 바꾼다 </span>
+<span class="token comment">// (O)</span>
+<span class="token comment">/* CSS */</span>
+<span class="token comment">// #elem1 { border:1px solid #000; color:#000; background:#ddd; }</span>
+<span class="token comment">// .coloring { border-color:#00f; color:#fff; background:blue; }</span>
+<span class="token comment">/* js */</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'elem1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'coloring'</span><span class="token punctuation">;</span></code></pre></div>
+</li>
+<li><code class="language-text">table</code> 레이아웃을 줄인다
+<code class="language-text">table</code>로 구성된 요소의 경우 점진적 페이지 렌더링이 적용되지 않으며, 모두 load 되고 <code class="language-text">연산된</code> 후에 화면에 보여진다. 또한 아주 작은 변화마저도 <code class="language-text">table</code> 전체 모든 <code class="language-text">node</code>에 대한 <code class="language-text">reflow</code>를 유발한다고 한다</li>
+</ol>
+<p><code class="language-text">reflow</code>와 <code class="language-text">repaint</code>를 고려해서 개발을 진행하는 것도 중요하지만, 너무 성능/효율성에 치우칠 경우 퀄리티에 문제가 생길 수 있다. 적절히 <code class="language-text">trade-off</code>를 생각하면서 개발을 진행하면 보기에도 훌륭하고 성능적으로도 우수한 멋진 웹페이지가 탄생할 것이다.</p>
 <br/>
 <div style="font-size:10px;color:#8b9196">
 <b>내용 및 이미지 출처</b><br/>
