@@ -64,7 +64,7 @@ document.getElementById('elem1').className = 'coloring';
 `reflow`와 `repaint`를 고려해서 개발을 진행하는 것도 중요하지만, 너무 성능/효율성에 치우칠 경우 퀄리티에 문제가 생길 수 있다. 적절히 `trade-off`를 생각하면서 개발을 진행하면 보기에도 훌륭하고 성능적으로도 우수한 멋진 웹페이지가 탄생할 것이다.
 
 <br/>
-<div style="font-size:10px;color:#8b9196">
+<div style="font-size:10px;color:#8b9196;word-break: break-all">
 <b>내용 및 이미지 출처</b><br/>
 - https://medium.com/@gneutzling/the-rendering-process-of-a-web-page-78e05a6749dc
 </div>

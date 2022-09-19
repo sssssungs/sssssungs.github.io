@@ -87,7 +87,7 @@ type User = { // >> Duplicate identifier 'User' (ts2300)
 
 
 <br/>
-<div style="font-size:10px;color:#8b9196">
+<div style="font-size:10px;color:#8b9196;word-break: break-all;">
 <b>내용 출처</b><br/>
 - https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces
 </div>

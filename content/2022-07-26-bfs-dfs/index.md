@@ -131,7 +131,7 @@ console.log(bfs(graph, "A"));
 ```
 
 <br/>
-<div style="font-size:11px;color:#8b9196">
+<div style="font-size:11px;color:#8b9196;word-break: break-all;">
 <b>내용 출처</b><br/>
 - https://ko.wikipedia.org/wiki/%EB%84%88%EB%B9%84_%EC%9A%B0%EC%84%A0_%ED%83%90%EC%83%89<br/> 
 - https://ko.wikipedia.org/wiki/%EA%B9%8A%EC%9D%B4_%EC%9A%B0%EC%84%A0_%ED%83%90%EC%83%89

@@ -121,7 +121,7 @@ const dontDoLikeThis = useCallback(() => { someFunction(); }, [rest]);
 `React devtool`의 `profiler`를 사용하면 컴포넌트 속도를 측정할 수 있다. 이를 이용해 필요한 경우 `useMemo`, `useCallback`을 사용하여 상태변경을 좀 더 효율적으로 만들 수 있다.
 
 <br/>
-<div style="font-size:10px;color:#8b9196">
+<div style="font-size:10px;color:#8b9196;word-break: break-all;">
 <b>이미지 및 내용 출처</b><br/>
 - https://ko.reactjs.org<br/>  
 - https://github.com/facebook/react<br/>

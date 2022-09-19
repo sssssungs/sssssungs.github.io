@@ -34,7 +34,7 @@ ReactDOM.hydrate(element, container, [callback]);
 
 
 <br/>
-<div style="font-size:10px;color:#8b9196">
+<div style="font-size:10px;color:#8b9196;word-break: break-all;">
 <b>이미지 및 내용 출처</b><br/>
 - https://ko.reactjs.org/docs/react-dom.html<br/>  
 
