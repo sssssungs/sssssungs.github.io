@@ -11,7 +11,8 @@
 좀 더 편리하게 사용할 수 있도록 해주는 부가적인 라이브러리/프레임워크를 도입해서 사용하게 된다.<br>
 그 중 이 포스트에서는 <code class="language-text">redux-saga</code>에 대해 알아보려고 한다.</p>
 <h3>What is Redux-saga?</h3>
-<p><code class="language-text">Redux-saga</code>는 애플리케이션의 <code class="language-text">side effect</code>를 쉽게 관리하고, 실행하기 쉽도록 하고, 테스트하기 쉬우며, 오류를 더 잘 처리하는 것을 <code class="language-text">goal</code>로 하는 라이브러리이다. <code class="language-text">redux</code>의 <code class="language-text">middleware</code>중 하나인 <code class="language-text">redux-saga</code>는 정상적인 <code class="language-text">redux</code> 작업으로 메인 애플리케이션에서 시작, 일시중지, 취소 등을 수행할 수 있고, 전체 <code class="language-text">redux</code> 상태에 접근할 수 있으며, <code class="language-text">redux</code> 작업도 <code class="language-text">dispatch</code>할 수 있다.</p>
+<p><code class="language-text">Redux-saga</code>는 애플리케이션의 <code class="language-text">side effect</code> (<code class="language-text">data fetching</code>과 같은 비동기작업 또는 <code class="language-text">browser cache access</code>와 같은 순수하지 않은 작업)를 쉽게 관리하고, 실행하기 쉽도록 하고, 테스트하기 쉬우며, 오류를 더 잘 처리하는 것을 <code class="language-text">goal</code>로 하는 라이브러리이다. <code class="language-text">redux</code>의 <code class="language-text">middleware</code>중 하나인 <code class="language-text">redux-saga</code>는 정상적인 <code class="language-text">redux</code> 작업으로 메인 애플리케이션에서 시작, 일시중지, 취소 등을 수행할 수 있고, 전체 <code class="language-text">redux</code> 상태에 접근할 수 있으며, <code class="language-text">redux</code> 작업도 <code class="language-text">dispatch</code>할 수 있다.<br>
+ES6의 <code class="language-text">generator</code>기능을 활용하여 이러한 비동기 동작을 쉽게 작성하고, 읽고, 테스트할 수 있다.</p>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all">
 <b>내용 및 이미지 출처</b><br/>
