@@ -13,11 +13,14 @@ show: true
 그 중 이 포스트에서는 `redux-saga`에 대해 알아보려고 한다.
 
 ### What is Redux-saga?
+<div style="width:60%;margin: 30px auto 15px;">
+<img src="./architecture.png"/>
+<div style="font-size:10px;color:#8b9196;display:flex;justify-content:center;margin-top: 15px;margin-bottom: 20px;">Diagram of React application with Redux-saga</div>
+</div>
+
 `Redux-saga`는 애플리케이션의 `side effect` (`data fetching`과 같은 비동기작업 또는 `browser cache access`와 같은 순수하지 않은 작업)를 쉽게 관리하고, 실행하기 쉽도록 하고, 테스트하기 쉬우며, 오류를 더 잘 처리하는 것을 `goal`로 하는 라이브러리이다. `redux`의 `middleware`중 하나인 `redux-saga`는 정상적인 `redux` 작업으로 메인 애플리케이션에서 시작, 일시중지, 취소 등을 수행할 수 있고, 전체 `redux` 상태에 접근할 수 있으며, `redux` 작업도 `dispatch`할 수 있다.  
-ES6의 `generator`기능을 활용하여 이러한 비동기 동작을 쉽게 작성하고, 읽고, 테스트할 수 있다. 대부분의 비동기 `middleware`로 `redux-thunk`를 많이 사용하지만, `redux-saga`는 다음과 같은 경우 유용하게 사용할 수 있다.
-- 기존 요청을 취소 처리해야할 때 (불필요한 중복 요청 막기)
-- 특정 `action`에 다른 `action`을 연결해 요청하거나, `api` 요청 등 `redux`와 관계없는 코드를 실행할 때
-- `api` 요청 실패시 재요청 해야할 때
+ES6의 `generator`기능을 활용하여 이러한 비동기 동작을 쉽게 작성하고, 읽고, 테스트할 수 있다. 대부분의 비동기 `middleware`로 `redux-thunk`를 많이 사용하지만, `redux-saga`는 다양한 경우는 handling 할 수 있다
+
 
 ### What does Redux-saga consist of?
 <div style="font-weight:bolder;font-size: 15px;color:#3f526c;">Generator</div>
@@ -32,8 +35,27 @@ ES6의 `generator`기능을 활용하여 이러한 비동기 동작을 쉽게 �
 
 하나의 `saga`가 실행되는 것
 
+### Pros and cons
+- <span style="font-weight: bold; color: green;">Good</span> 기존 요청을 취소 하거나 불필요한 중복 요청을 방지할 수 있다
+- <span style="font-weight: bold; color: green;">Good</span> 특정 `action`에 다른 `action`을 연결해 요청하거나, `api` 요청 등 `redux`와 관계없는 코드를 실행할 때 효과적이다
+- <span style="font-weight: bold; color: green;">Good</span> 비동기 작업을 처리하는데 편리하다 
+- <span style="font-weight: bold; color: red;">Not Good</span> 많이 다루지 않는 generator 문법을 사용하여 러닝커브가 존재
+- <span style="font-weight: bold; color: red;">Not Good</span> typescript 지원이 미흡 
+- <span style="font-weight: bold; color: red;">Not Good</span> 최근 release date가 2019년으로 오래전 
+
+### Saga-effects
+- `delay` 설정된 시간이후에 `resolve` 하는 `promise`를 리턴한다
+- `put` 특정한 `action`을 `dispatch` 한다
+- `call` 주어진 함수를 실행한다 (주로 api 호출에 사용)
+- `take` 들어오는 `action`을 처리한다. 한번 실행되고 `event`가 삭제된다
+- `takeEvery` 들어오는 모든 `action` `request`에 대해 `task`를 실행한다 (`request`시 이미 이전 `task`가 실행중이라면 이전 `task`는 자동으로 취소된다)
+- `fork` 백그라운드에서 `task`를 실행한다
+- `cancel` `fork`된 `task`를 취소시킨다 
+- `all` `generator`함수를 배열 형태로 넣어주면 병렬적으로 해당 함수들이 동시 실행되고 전부 `resolve`될때까지 기다린다
+
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all">
 <b>내용 및 이미지 출처</b><br/>
-- https://redux-saga.js.org
+- https://redux-saga.js.org<br/>
+- https://itnext.io/scalable-redux-architecture-for-react-projects-with-redux-saga-and-typescript-f6afe1dece9b
 </div>
