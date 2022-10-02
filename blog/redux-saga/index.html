@@ -11,13 +11,20 @@
 좀 더 편리하게 사용할 수 있도록 해주는 부가적인 라이브러리/프레임워크를 도입해서 사용하게 된다.<br>
 그 중 이 포스트에서는 <code class="language-text">redux-saga</code>에 대해 알아보려고 한다.</p>
 <h3>What is Redux-saga?</h3>
+<div style="width:60%;margin: 30px auto 15px;">
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 62.8%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC8ElEQVQ4y22SzXPTZhCH1eHArQxMb/0Xeuy/womhEzi0h3am03tPNAcOkC9IY0OdOh9OAmRsDzE2kATnyw3BH20mWJHkOoSYBmIcSZ7ERpYlP31lO4EDO7PSzkr7vPvbfaXDn36kJPz4h+9pRCPYgF0/wmk1MZOLGPPzIm5hNxrYtt3xho3jOLRE/sQ9897Sf1evsNXTg/HdZWqhEBXLpqLb6HWoRONU7k2jVw10Xe/6IYZhUCqV2tAT0AlUslIpdmZnIZPGfVMSKfHTu7tw4BfxK06saTc7AK/OBSWv8OH4A27TxW05wt1Ohw3xvVSpdE7yHi8vkeuXeNwrUX74FQfbM9T248h/aajpIoXcDg98EaKBGPd9YbLzm3xqkiNmcmQcCprTBrbKUY6Wv+UwegZrswdT7qOc/Zm/d9OsaUlW5lcJ+2JMjEwzPTxL6tEGBVNGM/LUm8dINTEzZa/boWj7o8a901CuqowqA0wUhrmfDxLPhlmMLfAkHWV2a5ygfItAvp+F0hySedwgJb89LbasOg1vk2JcrtsZ+sbbJUbzA0ypd5hUbxPc9hNIBAls3mFcHDKt+plURggXJ4Rkp0nV0NuFruuSyWR4+vQJiUScatVs59PvVvlDHiIiYL8ojzhXNDlf2OfLf3W+UYuMKR5wmGgxhGSL7b3vLsWyLFZWlkkmkwKYQNXUU+BdAZzTbnFRXkaK5vgikUOK5Tj7vIi/MMbU9m0iHtB1bAy90hXcanfpuSPk2k27AzzoAtUhLiqrSEu7SAt5pEWFs9k9/FrwI1Cvubw+MKmK+9Nw+KxlyikheZCwOiwkz3G+aPD1nsGFHVNILjD+qeTfJte4GdmkdybD0tY+9aMqtVqdRS3Oi901XKvFammBUXmAkCicKfgY2ejjWuRXhlI3mNL8TImFjCu/d5bS9zDPYEzheiTPuubdx6aQ3CL7Zh2l/LLd4Y6pMiEKQoqPkAD8+c8gQ896CWT7BdDXzo8JybnyOv8DAQJ+O1uUGvgAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="architecture" title="architecture" src="/static/5b79b33f0447502313646838f10cd6c0/332ff/architecture.png" srcset="/static/5b79b33f0447502313646838f10cd6c0/3e256/architecture.png 250w,
+/static/5b79b33f0447502313646838f10cd6c0/b30f8/architecture.png 500w,
+/static/5b79b33f0447502313646838f10cd6c0/332ff/architecture.png 1000w,
+/static/5b79b33f0447502313646838f10cd6c0/de2df/architecture.png 1500w,
+/static/5b79b33f0447502313646838f10cd6c0/99e71/architecture.png 2000w,
+/static/5b79b33f0447502313646838f10cd6c0/8649d/architecture.png 3505w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+<div style="font-size:10px;color:#8b9196;display:flex;justify-content:center;margin-top: 15px;margin-bottom: 20px;">Diagram of React application with Redux-saga</div>
+</div>
 <p><code class="language-text">Redux-saga</code>는 애플리케이션의 <code class="language-text">side effect</code> (<code class="language-text">data fetching</code>과 같은 비동기작업 또는 <code class="language-text">browser cache access</code>와 같은 순수하지 않은 작업)를 쉽게 관리하고, 실행하기 쉽도록 하고, 테스트하기 쉬우며, 오류를 더 잘 처리하는 것을 <code class="language-text">goal</code>로 하는 라이브러리이다. <code class="language-text">redux</code>의 <code class="language-text">middleware</code>중 하나인 <code class="language-text">redux-saga</code>는 정상적인 <code class="language-text">redux</code> 작업으로 메인 애플리케이션에서 시작, 일시중지, 취소 등을 수행할 수 있고, 전체 <code class="language-text">redux</code> 상태에 접근할 수 있으며, <code class="language-text">redux</code> 작업도 <code class="language-text">dispatch</code>할 수 있다.<br>
-ES6의 <code class="language-text">generator</code>기능을 활용하여 이러한 비동기 동작을 쉽게 작성하고, 읽고, 테스트할 수 있다. 대부분의 비동기 <code class="language-text">middleware</code>로 <code class="language-text">redux-thunk</code>를 많이 사용하지만, <code class="language-text">redux-saga</code>는 다음과 같은 경우 유용하게 사용할 수 있다.</p>
-<ul>
-<li>기존 요청을 취소 처리해야할 때 (불필요한 중복 요청 막기)</li>
-<li>특정 <code class="language-text">action</code>에 다른 <code class="language-text">action</code>을 연결해 요청하거나, <code class="language-text">api</code> 요청 등 <code class="language-text">redux</code>와 관계없는 코드를 실행할 때</li>
-<li><code class="language-text">api</code> 요청 실패시 재요청 해야할 때</li>
-</ul>
+ES6의 <code class="language-text">generator</code>기능을 활용하여 이러한 비동기 동작을 쉽게 작성하고, 읽고, 테스트할 수 있다. 대부분의 비동기 <code class="language-text">middleware</code>로 <code class="language-text">redux-thunk</code>를 많이 사용하지만, <code class="language-text">redux-saga</code>는 다양한 경우는 handling 할 수 있다</p>
 <h3>What does Redux-saga consist of?</h3>
 <div style="font-weight:bolder;font-size: 15px;color:#3f526c;">Generator</div>
 <p><code class="language-text">redux-saga</code>에서는 <code class="language-text">generator</code> 문법을 사용한다. 그리고 <code class="language-text">redux-saga</code>에서 말하는 <code class="language-text">saga</code>는 이 <code class="language-text">generator function</code>이다. <code class="language-text">saga</code>는 <code class="language-text">yield</code>값을 <code class="language-text">return</code> 하고, <code class="language-text">middleware</code>가 이 값을 받아서 실행하는 역할을 한다. <code class="language-text">saga</code>는 단순히 반환만 하기 때문에 테스트와 로직이 훨씬 용이하고 간편해진다.</p>
@@ -25,10 +32,31 @@ ES6의 <code class="language-text">generator</code>기능을 활용하여 이러
 <p>실행할 명령을 담고 있는 <code class="language-text">javascript</code> 객체</p>
 <div style="font-weight:bolder;font-size: 15px;color:#3f526c;">Task</div>
 <p>하나의 <code class="language-text">saga</code>가 실행되는 것</p>
+<h3>Pros and cons</h3>
+<ul>
+<li><span style="font-weight: bold; color: green;">Good</span> 기존 요청을 취소 하거나 불필요한 중복 요청을 방지할 수 있다</li>
+<li><span style="font-weight: bold; color: green;">Good</span> 특정 <code class="language-text">action</code>에 다른 <code class="language-text">action</code>을 연결해 요청하거나, <code class="language-text">api</code> 요청 등 <code class="language-text">redux</code>와 관계없는 코드를 실행할 때 효과적이다</li>
+<li><span style="font-weight: bold; color: green;">Good</span> 비동기 작업을 처리하는데 편리하다 </li>
+<li><span style="font-weight: bold; color: red;">Not Good</span> 많이 다루지 않는 generator 문법을 사용하여 러닝커브가 존재</li>
+<li><span style="font-weight: bold; color: red;">Not Good</span> typescript 지원이 미흡 </li>
+<li><span style="font-weight: bold; color: red;">Not Good</span> 최근 release date가 2019년으로 오래전 </li>
+</ul>
+<h3>Saga-effects</h3>
+<ul>
+<li><code class="language-text">delay</code> 설정된 시간이후에 <code class="language-text">resolve</code> 하는 <code class="language-text">promise</code>를 리턴한다</li>
+<li><code class="language-text">put</code> 특정한 <code class="language-text">action</code>을 <code class="language-text">dispatch</code> 한다</li>
+<li><code class="language-text">call</code> 주어진 함수를 실행한다 (주로 api 호출에 사용)</li>
+<li><code class="language-text">take</code> 들어오는 <code class="language-text">action</code>을 처리한다. 한번 실행되고 <code class="language-text">event</code>가 삭제된다</li>
+<li><code class="language-text">takeEvery</code> 들어오는 모든 <code class="language-text">action</code> <code class="language-text">request</code>에 대해 <code class="language-text">task</code>를 실행한다 (<code class="language-text">request</code>시 이미 이전 <code class="language-text">task</code>가 실행중이라면 이전 <code class="language-text">task</code>는 자동으로 취소된다)</li>
+<li><code class="language-text">fork</code> 백그라운드에서 <code class="language-text">task</code>를 실행한다</li>
+<li><code class="language-text">cancel</code> <code class="language-text">fork</code>된 <code class="language-text">task</code>를 취소시킨다 </li>
+<li><code class="language-text">all</code> <code class="language-text">generator</code>함수를 배열 형태로 넣어주면 병렬적으로 해당 함수들이 동시 실행되고 전부 <code class="language-text">resolve</code>될때까지 기다린다</li>
+</ul>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all">
 <b>내용 및 이미지 출처</b><br/>
-- https://redux-saga.js.org
+- https://redux-saga.js.org<br/>
+- https://itnext.io/scalable-redux-architecture-for-react-projects-with-redux-saga-and-typescript-f6afe1dece9b
 </div></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
