@@ -1,6 +1,6 @@
 ---
 title: Remember me, useMemo() and useCallback()
-tags: [javascript, typescript, html, react, nextjs, webpack]
+tags: [javascript, typescript, html, react, redux, nextjs, webpack]
 date: 2022-08-12T18:25:04.226Z
 path: blog/usememo-usecallback
 cover: ./img.png

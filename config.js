@@ -132,5 +132,11 @@ module.exports = {
 				'A finite sequence of rigorous instructions, typically used to solve a class of specific problems or to perform a computation',
 			color: '#c46a39',
 		},
+		redux: {
+			name: 'redux',
+			description:
+				'Redux is an open-source JavaScript library from Facebook for managing and centralizing application state',
+			color: '#7F42C3',
+		},
 	},
 };

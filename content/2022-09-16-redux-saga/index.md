@@ -1,6 +1,6 @@
 ---
 title: Have you ever used React with REDUX-SAGA ?
-tags: [javascript, typescript, html, react, nextjs, webpack]
+tags: [javascript, typescript, html, react, redux, webpack]
 date: 2022-09-16T20:17:04.226Z
 path: blog/redux-saga
 cover: ./img.png

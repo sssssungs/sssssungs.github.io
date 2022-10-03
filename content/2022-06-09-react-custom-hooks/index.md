@@ -1,6 +1,6 @@
 ---
 title: Let's code your React Custom Hook
-tags: [javascript, typescript, react, webpack]
+tags: [javascript, typescript, react, redux, webpack]
 date: 2022-06-09T21:24:04.226Z
 path: blog/react-custom-hooks
 cover: ./react-custom-hooks.png
