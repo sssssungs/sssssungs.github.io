@@ -7,7 +7,7 @@
 /static/ff07bc076a2601e328946ce017d5348d/46604/img.png 500w,
 /static/ff07bc076a2601e328946ce017d5348d/2a4de/img.png 600w" sizes="(max-width: 600px) 100vw, 600px" /><img loading="lazy" sizes="(max-width: 600px) 100vw, 600px" srcset="/static/ff07bc076a2601e328946ce017d5348d/e1953/img.png 250w,
 /static/ff07bc076a2601e328946ce017d5348d/46604/img.png 500w,
-/static/ff07bc076a2601e328946ce017d5348d/2a4de/img.png 600w" src="/static/ff07bc076a2601e328946ce017d5348d/2a4de/img.png" alt="Let's shake the tree with javascript" title="Javascript bundle optimization with tree shaking" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p><code class="language-text">Tree shaking</code>은 그대로 해석하면 <code class="language-text">나무 흔들기</code>라는 뜻으로, 코드내에는 명시되어 있지만 실제로 프로그램 실행에 필요하지 않은 코드를 build단계에 제거하는 매커니즘을 의미한다. tree shaking을 하게 되면 bundle file을 optimization할 수 있으며,
+/static/ff07bc076a2601e328946ce017d5348d/2a4de/img.png 600w" src="/static/ff07bc076a2601e328946ce017d5348d/2a4de/img.png" alt="Let's shake the tree with javascript" title="Javascript bundle optimization with tree shaking" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p><code class="language-text">Tree shaking</code>은 그대로 해석하면 <code class="language-text">나무 흔들기</code>라는 뜻으로, 코드내에는 명시되어 있지만 실제로 프로그램 실행에 필요하지 않은 코드를 build 단계에 제거하는 매커니즘을 의미한다. tree shaking을 하게 되면 bundle file을 optimization할 수 있으며,
 그만큼 bundle file이 load되는 시간이 줄어들기 때문에 유저들이 빠른 속도로 서비스를 이용할 수 있게 된다. 그럼 왜 tree shaking 해야하는걸까 생각해보자. 대표적으로 다음의 이유가 있다.</p>
 <ul>
 <li>Interaction이 많아지면서 JS file size가 증가</li>
@@ -15,7 +15,15 @@
 <li>JS file 실행시간도 증가되어 CPU에 영향을 주고, page load 시간이 늘어나 user의 이탈률 증가  </li>
 </ul>
 <br/>
-위의 세가지 경우 말고도 다양한 이유가 존재한다. 하지만 개발자로 일한다면 bundle size는 작으면 작을수록 다다익선이라는 것에 동감할 것이다. </article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+위의 세가지 경우 말고도 다양한 이유가 존재한다. 하지만 개발자로 일한다면 bundle size는 작으면 작을수록 다다익선이라는 것에 동감할 것이다.  
+<br/>
+<p><a href='https://v4.webpack.js.org/guides/tree-shaking/' target="_blank" rel='noopener noreferer'>Webpack 공식문서</a>를 확인해보면 <code class="language-text">tree shaking</code> 설정을 위해 해줘야할 것은 대표적으로 다음 4가지가 있다.</p>
+<ol>
+<li><code class="language-text">ES6 module</code> format 사용 (<code class="language-text">import</code>/<code class="language-text">export</code>)</li>
+<li><code class="language-text">commonjs로</code> compile 되는것 방지 (<code class="language-text">@babel/preset-env</code> 등 이용)</li>
+<li><code class="language-text">package.json</code>에 <code class="language-text">sideEffects</code> 속성 사용</li>
+<li><code class="language-text">webpack production mode</code> 사용 </li>
+</ol></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
