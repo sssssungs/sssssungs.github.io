@@ -15,14 +15,28 @@
 <li>JS file 실행시간도 증가되어 CPU에 영향을 주고, page load 시간이 늘어나 user의 이탈률 증가  </li>
 </ul>
 <br/>
-위의 세가지 경우 말고도 다양한 이유가 존재한다. 하지만 개발자로 일한다면 bundle size는 작으면 작을수록 다다익선이라는 것에 동감할 것이다.  
+위의 세가지 경우 말고도 다양한 이유가 존재한다. 하지만 개발자로 일한다면 bundle size는 작으면 작을수록 좋다는 것에 공감할 것이다.  
 <br/>
-<p><a href='https://v4.webpack.js.org/guides/tree-shaking/' target="_blank" rel='noopener noreferer'>Webpack 공식문서</a>를 확인해보면 <code class="language-text">tree shaking</code> 설정을 위해 해줘야할 것은 대표적으로 다음 4가지가 있다.</p>
+<p><a href='https://v4.webpack.js.org/guides/tree-shaking/' target="_blank" rel='noopener noreferer'>Webpack 공식문서</a>를 확인해보면 <code class="language-text">tree shaking</code> 설정을 위해 할수 있는 대표적인 방법을 알아보자.</p>
+<br/>  
 <ol>
-<li><code class="language-text">ES6 module</code> format 사용 (<code class="language-text">import</code>/<code class="language-text">export</code>)</li>
-<li><code class="language-text">commonjs로</code> compile 되는것 방지 (<code class="language-text">@babel/preset-env</code> 등 이용)</li>
-<li><code class="language-text">package.json</code>에 <code class="language-text">sideEffects</code> 속성 사용</li>
-<li><code class="language-text">webpack production mode</code> 사용 </li>
+<li>
+<p><code class="language-text">ES6 module</code> format 사용 (<code class="language-text">import</code>/<code class="language-text">export</code>)<br>
+필요한 모듈만 <code class="language-text">import</code>하면 해당 코드만 bundling시 build하기 때문에 코드 크기를 줄일 수 있다</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span> <span class="token comment">// X</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span> <span class="token comment">// O</span></code></pre></div>
+</li>
+<li>
+<p><code class="language-text">commonjs로</code> compile 되는것 방지 (<code class="language-text">@babel/preset-env</code> 등 이용)<br>
+Babel 설정 : <code class="language-text">babel</code>은 JS 최신문법을 구형 browser에서도 호환가능하도록 변환하는 transpiler이다. <code class="language-text">ES5</code> 문법은 <code class="language-text">import</code>를 지원하지 않기 때문에 <code class="language-text">commonjs</code> 문법의 <code class="language-text">require</code>로 변경이 필요하다. 그런데 <code class="language-text">require</code>는 <code class="language-text">export</code>된 모든 모듈을 불러오기 때문에 tree shaking을 적용시켜도 소용이 없다. 이를 막기 위해 <code class="language-text">babelrc</code>를 설정하여 <code class="language-text">ES5</code> 변환을 막는다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript">“<span class="token decorator"><span class="token at operator">@</span><span class="token function">babel</span></span><span class="token operator">/</span>preset<span class="token operator">-</span>env”<span class="token punctuation">,</span>
+<span class="token punctuation">{</span>   
+    <span class="token string">"modules"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span></code></pre></div>
+</li>
+<li><code class="language-text">package.json</code>에 <code class="language-text">sideEffects</code> 속성 사용<br>
+<code class="language-text">webpack</code>이 <code class="language-text">sideEffects</code>를 일으킬 수 있는 코드라고 판단하면 사용을 하지 않더라도 제외시켜버린다.</li>
+<li><code class="language-text">webpack production mode</code> 사용</li>
 </ol></article><div><div id="disqus_thread"></div></div></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
