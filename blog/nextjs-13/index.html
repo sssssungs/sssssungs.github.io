@@ -7,8 +7,8 @@
 /static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/46604/main.png 500w,
 /static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/69c77/main.png 557w" sizes="(max-width: 557px) 100vw, 557px" /><img loading="lazy" sizes="(max-width: 557px) 100vw, 557px" srcset="/static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/e1953/main.png 250w,
 /static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/46604/main.png 500w,
-/static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/69c77/main.png 557w" src="/static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/69c77/main.png" alt="NextJS 13 version features" title="NextJS 13 version has been released! Let's take a look at amazing features of them" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>얼마전 release 된 nextjs 13version feature들을 알아보자. 자세한 내용은 <a href='https://nextjs.org/blog/next-13'>공식문서</a>에서 확인할 수 있다.</p>
-<h2>app/ Directory (beta)</h2>
+/static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/69c77/main.png 557w" src="/static/1f8e1c73f1e7b83fbdc783d9b5b44a3c/69c77/main.png" alt="NextJS 13 version features" title="NextJS 13 version has been released! Let's take a look at amazing features of them" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>얼마전 release 된 <code class="language-text">nextjs 13 version</code> feature들을 알아보자. 자세한 내용은 <a href='https://nextjs.org/blog/next-13'>공식문서</a>에서 확인할 수 있다.</p>
+<h2>app/ 디렉토리 (beta)</h2>
 <p><code class="language-text">app/</code> 디렉토리를 도입하여 nextjs의 <code class="language-text">routing</code>, <code class="language-text">layout</code> 경험을 개선하였다.</p>
 <div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
   <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; ">
@@ -21,7 +21,35 @@
 /static/26770258161948dee0e2f66a3fcf226f/13f4d/appdirectory.png 3596w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
     </span>
 </div>
-`app/` 이하 디렉토리는 `layout` 기능을 제공하는데, 여러 페이지간 공통적인 컴포넌트를 공유해 렌더링을 최적화 시키고 컴포넌트간 상호작용을 구현할 수 있다. </article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<p><code class="language-text">app/</code> 이하 디렉토리는 <code class="language-text">layout</code> 기능을 제공하는데, 여러 페이지간 공통적인 컴포넌트를 공유해 렌더링을 최적화 시키고 컴포넌트간 상호작용을 구현할 수 있다.  <code class="language-text">app/</code> 디렉토리에서 routing을 하려면 <code class="language-text">page.js</code>라는 파일이 필요하다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token comment">// before</span>
+<span class="token comment">// pages/index.js</span>
+<span class="token comment">// index route (/)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Next.js 13 version release!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// after (`nextjs 13`)</span>
+<span class="token comment">// app/page.js</span>
+<span class="token comment">// index route (/)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Next.js 13 version release!</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>그런 다음 파일구조를 통해 <code class="language-text">layout</code>을 정의할 수 있다. </p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">RootLayout</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> children <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token plain-text">Title of nextjs root layout</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span><span class="token plain-text">This is the shared title component</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이렇게 설정해두면 <code class="language-text">app/</code> 이하의 모든 <code class="language-text">route</code>에 <code class="language-text">RootLayout</code>이 노출된다 </p></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
