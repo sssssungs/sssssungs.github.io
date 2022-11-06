@@ -49,7 +49,23 @@
     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>이렇게 설정해두면 <code class="language-text">app/</code> 이하의 모든 <code class="language-text">route</code>에 <code class="language-text">RootLayout</code>이 노출된다 </p></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<p>이렇게 설정해두면 <code class="language-text">app/</code> 이하의 모든 <code class="language-text">route</code>에 <code class="language-text">RootLayout</code>이 노출된다</p>
+<h2>React server component</h2>
+<p>이전 버전에서는 <code class="language-text">server side</code>에서 데이터를 fetching 할때, <code class="language-text">getServerSideProps</code>나 <code class="language-text">getStaticProps</code>를 사용했지만, nextjs 13부터는 이 문법들을 사용하지 않는다. data fetch 함수를 선언한 뒤에 <code class="language-text">use()</code> 안에 넣어주기만 하면 된다.</p>
+<div class="gatsby-highlight" data-language="typescriptjsx"><pre class="language-typescriptjsx"><code class="language-typescriptjsx">import { use } from &#39;react&#39;;
+
+export default function Page() {
+    const data = use(getData());
+    return &lt;div&gt;{ data }&lt;/div&gt;
+}
+
+export async function getData() {
+    const res = await fetch(`https://dummyapi.com`, {
+        cache: &#39;force-cache&#39; // similar to getStaticProps
+        // cache: &#39;no-store&#39; // similar to getServerSideProps
+    });
+    return await res.json();
+}</code></pre></div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
