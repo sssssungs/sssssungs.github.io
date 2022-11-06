@@ -52,4 +52,25 @@ export default function RootLayout({ children }) {
   );
 }
 ```
-이렇게 설정해두면 `app/` 이하의 모든 `route`에 `RootLayout`이 노출된다 
+이렇게 설정해두면 `app/` 이하의 모든 `route`에 `RootLayout`이 노출된다
+
+## React server component
+이전 버전에서는 `server side`에서 데이터를 fetching 할때, `getServerSideProps`나 `getStaticProps`를 사용했지만, nextjs 13부터는 이 문법들을 사용하지 않는다. data fetch 함수를 선언한 뒤에 `use()` 안에 넣어주기만 하면 된다.
+```typescript jsx
+import { use } from 'react';
+
+export default function Page() {
+    const data = use(getData());
+    return <div>{ data }</div>
+}
+
+export async function getData() {
+    const res = await fetch(`https://dummyapi.com`, {
+        cache: 'force-cache' // similar to getStaticProps
+        // cache: 'no-store' // similar to getServerSideProps
+    });
+    return await res.json();
+}
+```
+
+
