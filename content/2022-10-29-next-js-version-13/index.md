@@ -8,7 +8,7 @@ excerpt: NextJS 13 version has been released! Let's take a look at amazing featu
 show: true
 ---
 
-얼마전 release 된 `nextjs 13 version` feature들을 알아보자. 자세한 내용은 <a href='https://nextjs.org/blog/next-13'>공식문서</a>에서 확인할 수 있다.
+얼마전 release 된 `nextjs 13 version`에서 주목할만한 feature들을 알아보자. 
 
 ## app/ 디렉토리 (beta)
 `app/` 디렉토리를 도입하여 nextjs의 `routing`, `layout` 경험을 개선하였다.
@@ -91,3 +91,8 @@ export async function getData() {
 
 ## @next/font (beta)
 `@next/font`를 설치해서 사용하면 브라우저에서 바로 google font를 사용할 수 있다. CSS 및 font 파일은 build시 다운로드 되며 나머지 static asset과 함께 호스팅된다. 브라우저에서 google로 요청을 보내지 않는것이다. 또한 default 값으로 css size-adjust 속성을 사용하여 <a href='https://web.dev/cls/'>layout shift</a>를 방지해준다. 
+
+## Opengraph image generation
+이번 버전에서 동적 social card를 새로 생성해주는 library인 `@vercel/og`를 공개하였다. 이 방식은 기존의 솔루션보다 5배나 빠르다고 한다.
+
+그외에 더 자세한 내용은 <a href='https://nextjs.org/blog/next-13'>Next.JS 공식 블로그</a>를 참조하길 바란다.  

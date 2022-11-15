@@ -10,7 +10,7 @@ const AboutTile = props => {
 			</div>
 			<div className={`textCenter ${style.mrTp26PX}`}>
 				<h5>{textH4 || ''}</h5>
-				<h3>{textH3 || ''}</h3>
+				<h4>{textH3 || ''}</h4>
 			</div>
 		</div>
 	);
