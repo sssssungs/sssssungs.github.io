@@ -14,7 +14,7 @@
 <br/>
 <span style='font-size: 14px'><b><code class="language-text">Mount</code>가 이루어지는 과정</b></span></p>
 <ol>
-<li><code class="language-text">Function component</code> 호출</li>
+<li><code class="language-text">function component</code> 호출</li>
 <li>구현부분 실행<br>
 <code class="language-text">Props</code> 확인, <code class="language-text">hook</code> 실행, <code class="language-text">variables</code> 및 <code class="language-text">function</code> 생성<br>
 <code class="language-text">hook</code>에 등록해둔 상태값, <code class="language-text">effect</code> 등은 별도 메모리에 저장되어 관리</li>
@@ -27,7 +27,38 @@
 <li><code class="language-text">Paint</code></li>
 <li><code class="language-text">useEffect</code><br>
 <code class="language-text">mount</code>되어 화면이 그려진 직후, <code class="language-text">useEffect</code>에 등록해둔 <code class="language-text">effect</code>가 <span style='color:red; font-weight: bold;'><u>비동기</u></span>로 실행</li>
-</ol></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+</ol>
+<h3>Re-Rendering in REACT</h3>
+<ol>
+<li><code class="language-text">function component</code> 재호출</li>
+<li>구현부 실행</li>
+<li><code class="language-text">return</code> 실행</li>
+<li><code class="language-text">render</code> 실행<br>
+새로운 가상 <code class="language-text">DOM</code> 생성 후 이전과 비교하여 달라진 부분을 탐색하고, 실제 변경을 반영할 부분을 결정한다</li>
+<li><code class="language-text">commit</code> 단계에서 달라진 부분만 실제 <code class="language-text">DOM</code>에 반영한다 </li>
+<li><code class="language-text">useLayoutEffect</code><br>
+<code class="language-text">useLayoutEffect</code>에 등록된 <code class="language-text">effect</code>가 <span style='color:red; font-weight: bold;'><u>동기</u></span>로 실행<br>
+이때, <code class="language-text">state</code>, <code class="language-text">redux-store</code> 등의 변경이 있다면 한번 더 re-rendering 된다</li>
+<li><code class="language-text">Paint</code></li>
+<li><code class="language-text">useEffect</code><br>
+<code class="language-text">update</code>되어 화면이 그려진 직후, <code class="language-text">useEffect</code>에 등록해둔 <code class="language-text">effect</code>가 <span style='color:red; font-weight: bold;'><u>비동기</u></span>로 실행</li>
+</ol>
+<h3>useEffect &#x26; useLayoutEffect</h3>
+<div style="width: 50%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 667px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 96%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAADX0lEQVQ4y11UiXLiRhTU//9HKqlUqrKVCutjs2vnWHOYmxiEuWwQN0JCNxppOj0jsnbtVDXdvBnevGswwJWKFM1WE6ZpwrIsZYIQQrNt22i1WqjX6zgcDvh/eZ6HbreL6XSKwWCA7Xar7Yb+lED/qY9Ou4PVcqVNmcg0O0cHtVoN1Wr124+klAjDEL1eT/+u3W5jv98XDuM0RpiG9CmRIUcKob+HSYgzI/9+ncUZ5/Ssz3+/RCZg9FcDlCofcVW9xu/lEn69/4Cr2jUGaxMBnfpJoOHF/jd2Qxen2COf4FAruNFJ7xnWaYmJPcHUnmK0G2tWmBymWDgLWK4Fc2HCtIbUS8yPc9iBjYiZBedQX6oQKk0YL+4c5uEZz/YYwwuUHuyGGOyHeu/P3j+46/yl9dPexMbbsSxxEfEFPp15CSOUSQLJAssoQub75BC4aAWlkcSa1bmM3c1ifs8ySE6CTFNCaM0issuDPlB/BJoNyEZds9bE+stnvNxcY3r1EZNSSWuLkKs1EPIiz0dOSAJ+AEkY0nEgdztItj3f7rTmwCFbWvA6bTjtFlzC5gVHzuqJWsxm4HwBPJMvFsithdZyuaTDKIYMQn1jpm5TOk6Qcebmn27x+scnrO/vMSePr68wu71FqjKhY0ngAq0ZgCFfZpAm0x6ayJm+JCstzQHiXhenZh1eq4Ft+QG7agUpbXKz4cWBei6QpwK4pG7IBUMdjYHxFPICrUcT+L0nbGp1rGuPWJSrRIVloMO9zSaxMcxGXoCATSMMCaYMGogs8y46YsOoZaDeBpEQsXr1+pwQkXoXfIPsrkw1Cs2XguCRIX8GTnfkAvDukDlfMO78hFH7R8z+/Vnza/8X2n5AHjELXghx5MgQZAg2lzAgbBo5BukGebKm3nBzhyx6QXpqwlmX4RL7xd84rh5wdhvIAtY8GTHoEZ0PNRA/Q8ZjOsxZA3Vb5kOc3ULn7HiygjhVsJzcYjm+wYpsjW5wdiqcvQprVuHcvQGKgyodRiyy/1AYvHKxycPC/cpyVeBv77AalzA3f0Owu+e5rxA6ZRdFdgW0ZuoGkleGahYhM3RJVjoLBlpHTg/2uoHdogbf7uqzWcKyMDOVlRSehtaEcfl/Lf5U8zct39nfL21/t5HnErl82/sPYgiU3Zpb+gcAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="hooks" title="hooks" src="/static/50da3a2203f71365e46af11af73397f2/51f76/hooks.png" srcset="/static/50da3a2203f71365e46af11af73397f2/3e256/hooks.png 250w,
+/static/50da3a2203f71365e46af11af73397f2/b30f8/hooks.png 500w,
+/static/50da3a2203f71365e46af11af73397f2/51f76/hooks.png 667w" sizes="(max-width: 667px) 100vw, 667px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<p><code class="language-text">useEffect</code>에 등록된 <code class="language-text">effect</code>는 화면이 그려진 직후 비동기로 실행된다<br>
+<code class="language-text">useLayoutEffect</code>에 등록된 <code class="language-text">effect</code>는 <code class="language-text">DOM</code> 반영 후 화면이 그려지기 직전 동기로 실행된다.</p>
+<br/>
+<div style="font-size:10px;color:#8b9196;word-break: break-all">
+<b>내용 및 이미지 출처</b><br/>
+- https://github.com/donavon/hook-flow<br/>
+</div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
