@@ -6,7 +6,12 @@ const ProgressBar = props => {
 	return (
 		<div style={{ marginTop: mt }}>
 			<div>
-				<Progress percent={percent || 0} strokeWidth={22} status="active" />
+				<Progress
+					percent={percent || 0}
+					strokeWidth={22}
+					status="active"
+					strokeColor={{ '0%': '#157dc5', '100%': '#72c8ef' }}
+				/>
 			</div>
 			<div
 				style={{
