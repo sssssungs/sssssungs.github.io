@@ -53,12 +53,12 @@ show: true
 ### rerendering이 일어나는 조건
 - `state`가 변경 되었을 때  
    `react`에서 상태관리를 위해 사용하는 `state`가 `setState`라는 메소드를 이용해 값이 변경되었을때 이를 감지하고 `rerendering`한다
-- 전달받은 `props`가 변경 되었을 때
+- 전달받은 `props`가 변경 되었을 때  
    부모 `component`로부터 받은 `props`가 변경되었을때 `rerendering`을 한다
 - 부모 `component`가 `rendering`될 때 
 
 <br/>
-<div class="quote">Rendering은 react 동작에서 일반적으로 발생하고, 또 요구되는 작업이지만 때로는 이 rendering이 낭비될수 있다. component의 rendering display가 변경되지 않았고, update할 필요가 없다면 똑같은 component를 또 그려나는것은 연산, 시간 낭비이다.</div>
+<div class="quote">Rendering은 react 동작에서 일반적으로 발생하고, 또 요구되는 작업이지만 때로는 이 rendering이 낭비될수 있다. component의 rendering display가 변경되지 않았고, update할 필요가 없다면 똑같은 component를 또 그려내는것은 연산, 시간 낭비이다.</div>
 
 ### Component rendering 최적화 기법
 `React`에서는 이러한 낭비를 막기위해 `rendering`을 최적화할 수 있는 몇가지 주요한 `API`를 제공해주고 있다.  
