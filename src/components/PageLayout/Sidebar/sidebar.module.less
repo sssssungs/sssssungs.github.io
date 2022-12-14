@@ -11,7 +11,7 @@
 	margin: 0;
 	aside {
 		padding: @padding-margin-val;
-
+		perspective: 1000px;
 		.profileAvatar {
 			background-image: url('../../../images/emoji_face.png');
 			height: 219px;
@@ -20,9 +20,16 @@
 			background-position: center;
 			filter: drop-shadow(5px 5px 10px #565555);
 			border-radius: @border-radius-full;
+			transform: rotateY(0deg);
+			transition: 0.6s;
 			@media screen and (max-width: 767px) {
 				max-width: 230px;
 				margin: auto;
+			}
+			&:hover {
+				transition: transform 0.6s;
+				transform: rotateY(180deg);
+				transform-style: preserve-3d;
 			}
 		}
 		.name {
