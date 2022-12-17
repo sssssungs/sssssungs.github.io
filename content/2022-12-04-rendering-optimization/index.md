@@ -61,13 +61,22 @@ show: true
 <div class="quote">Rendering은 react 동작에서 일반적으로 발생하고, 또 요구되는 작업이지만 때로는 이 rendering이 낭비될수 있다. component의 rendering display가 변경되지 않았고, update할 필요가 없다면 똑같은 component를 또 그려내는것은 연산, 시간 낭비이다.</div>
 
 ### Component rendering 최적화 기법
-`React`에서는 이러한 낭비를 막기위해 `rendering`을 최적화할 수 있는 몇가지 주요한 `API`를 제공해주고 있다.  
-wip
+`React`에서는 이러한 낭비를 막기위해 `rendering`을 최적화할 수 있는 몇가지 주요한 `API`를 제공해주고 있다.
+1. `React.memo()`
+`HOC(High-order component)`형태로 내장된 메소드이다. `props`가 변경되었는지 확인하고, 변경되지 않았을 경우 `rerendering` 되지 않도록 한다. 함수형, class형 component 둘다 wrapping해서 사용할 수 있다.
+2. `React.Component.shouldComponentUpdate`
+rendering 초기에 호출되는 선택적 class component life cycle 메소드 이다. `false`를 `return`하면 `rendering`을 하지 않는다. 보통 이전 `props` 및 상태가 달라졌는지 확인하고, 변화가 없다면 `false`를 `return`한다.
+3. `React.PureComponent`
+위에서 언급한 props 및 상태 비교는 `shoudComponentUpdate`를 구현하는 가장 일반적인 방법이기 때문에, `PureComponent`는 해당 로직을 기본적으로 구현해준다.
+
+### Props refer optimization
+`function component`의 경우 `react`는 동일한 참조를 재사용 할 수 있도록 유용한 `hook`을 제공해준다. 객체를 만들거나 복잡한 연산을 하는 것과 같은 일반적인 데이터를 위한 `useMemo`와 `callback` 함수를 만드는데 사용할 수 있는 `useCallback`이다. 하지만 모든 함수나 객체에 대해 `useMemo`와 `useCallback`을 사용하게 될 경우 배보다 배꼽이 더 큰 성능이슈가 발생할 수 있다. 변경을 체크를 하는것 자체가 props를 비교하는 비용이 발생하기 때문이다. <a href='https://twitter.com/dan_abramov/status/1095661142477811717' target="_blank"  rel="noopener noreferrer">관련 내용을 언급한 Dan abramov의 트윗</a>
 
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all">
 <b>내용 및 이미지 출처</b><br/>
 - https://github.com/donavon/hook-flow<br/>
+- https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/<br/>
 </div>
 
