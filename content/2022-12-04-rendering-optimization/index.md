@@ -72,10 +72,18 @@ rendering 초기에 호출되는 선택적 class component life cycle 메소드 
 ### Props refer optimization
 `function component`의 경우 `react`는 동일한 참조를 재사용 할 수 있도록 유용한 `hook`을 제공해준다. 객체를 만들거나 복잡한 연산을 하는 것과 같은 일반적인 데이터를 위한 `useMemo`와 `callback` 함수를 만드는데 사용할 수 있는 `useCallback`이다. 하지만 모든 함수나 객체에 대해 `useMemo`와 `useCallback`을 사용하게 될 경우 배보다 배꼽이 더 큰 성능이슈가 발생할 수 있다. 변경을 체크를 하는것 자체가 props를 비교하는 비용이 발생하기 때문이다. <a href='https://twitter.com/dan_abramov/status/1095661142477811717' target="_blank"  rel="noopener noreferrer">관련 내용을 언급한 Dan abramov의 트윗</a>
 
+### React Forget 의 등장예고   
+리액트 팀이 ReactConf 2021에서 `React Forget`이라는 실험적인 컴파일러를 시연했다. 이것은 자동으로 `memoization` 기능을 추가하도록 하는것. 흥미로운 점은 `hook`의 종속성 배열을 `memoization`할 뿐만 아니라 `JSX`요소 반환값도 `memoization`한다는 것이다. 다시 간단히 말해서 `React Forget`이 컴포넌트 트리 전체에서 불필요한 `rendering`을 효과적으로 제거할 수 있다는 것을 뜻한다.  
+현재 `React Forget`은 출시되지 않았지만, 작업이 잘 진행되고 있다는 힌트는 존재한다. `useEvent`가 close 되었고, 다른 곳에서 'auto memoization 으로 인해 `rendering` 문제가 사라지면 어떨까요?' 라고 언급하기도 했다.
 
 <br/>
-<div style="font-size:10px;color:#8b9196;word-break: break-all">
-<b>내용 및 이미지 출처</b><br/>
+
+결국, 개발자들이 다양한 툴과 동작의 <i>trade-off</i>를 명확하게 이해해서 자신의 상황에 가장 적합한것이 무엇인지 결정하고, 이에 기반해서 기술스택이나 서비스를 만들어나가는 것이 중요한것이 아닐까.
+
+
+
+<br/>
+<div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://github.com/donavon/hook-flow<br/>
 - https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/<br/>
 </div>

@@ -9,7 +9,6 @@ module.exports = {
 		home: '/',
 		career: 'career',
 		blog: 'blog',
-		resume: 'resume',
 		tag: 'tags',
 	},
 	social: {
