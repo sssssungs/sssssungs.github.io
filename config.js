@@ -137,5 +137,10 @@ module.exports = {
 				'Redux is an open-source JavaScript library from Facebook for managing and centralizing application state',
 			color: '#7F42C3',
 		},
+		seo: {
+			name: 'seo',
+			description: `"Search Engine Optimization", which means the process of improving your site to increase its visibility when people search for products or services related to your business in search engines.`,
+			color: '#d7187e',
+		},
 	},
 };
