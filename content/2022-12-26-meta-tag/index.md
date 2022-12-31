@@ -17,7 +17,7 @@ While many technologies and schemas exist and could be combined, there isn't a s
 </div>
 <br/>
 <div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
-  <img src="./opengraph.png"/>
+  <img src="./opengraph.png" alt="img" />
 </div>
 
 ### How to use
@@ -31,7 +31,7 @@ While many technologies and schemas exist and could be combined, there isn't a s
 실제 코드는 아래와 같이 입력한다.
 
 ```html
-<html>
+<html lang="en">
 <head>
        <title>The Rock (1996)</title>
        <meta property="og:title" content="The Rock" />
