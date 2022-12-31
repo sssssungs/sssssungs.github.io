@@ -15,13 +15,16 @@ While many technologies and schemas exist and could be combined, there isn't a s
 </div>
 <br>
 <div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
-  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; ">
+  <figure class="gatsby-resp-image-figure" style="">
+    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; ">
       <span class="gatsby-resp-image-background-image" style="padding-bottom: 66.8%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACMElEQVQ4y42TW08TURDH+V6++uCb7xpjTCQxXl5NjH4PY/wIiokxIdDSggQQkBBEeoWWbu9Q2r2e3VZ29+ecA9EmEHGTf85lZ34zZzIz43ohjsh2fMbnkF/MksvmaLQ62K6Hiib44RhfRWYNRF4Qim1MAnh+hOMqNEdrxmzkQkNdgf46s5ic1lHdKkG7jGoX8awDfKuAahbxRa5o3D8Cpy0+3oXvJXQKGOGNbChnobQgawaqS4wPt6C2xrm1zbhbAGsTKvKvtEgq8kYj43s90LZJKnnSypIYZzivf8M5a1DbXODjp3e8Wc+xur8qwCxJWWyq+RuAkmGqgTrLSg6194X+1hyzd2/z8M4t1orf2dxeMC9IdFCx+W9gKhnEOx9olX/y8ulzZu89wt1dhh9zxALSpdG2NwMFpOuja5jufSazssOTBy94fP8Z8193iQvzF/U1Ntl/A13bIZG6pbV10voGHG/gV7d4/X6FV2+zZq/vkH9JbYNJY8fU/QpQ95Hj6j5S1I7qlIplKuUqjWOLpqh61KRy2KBlNc2dJWq3uqZdnMuWc64ClWnSw9oxe/sHdLondHunZu10evR6cu4PzLnd6XM2dFDhZKqpp598CdXAMAhQKhTjCP0lSYLvK2zbJY5jc+fKBAVip8+eH14zKUK3nYBokrC+vEypUDTZNfX4yfQoPXIyelp+EJnsTgYjE0ifrwH+jRLJ7A5HDoPBkOHQFgftFP5RMLUqCTDtq/Ub/PS+d1fl4D8AAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
-  <img class="gatsby-resp-image-image" alt="opengraph" title="opengraph" src="/static/43d4ca9b48a0c69729a737df28acbb90/332ff/opengraph.png" srcset="/static/43d4ca9b48a0c69729a737df28acbb90/3e256/opengraph.png 250w,
+  <img class="gatsby-resp-image-image" alt="img" title="img" src="/static/43d4ca9b48a0c69729a737df28acbb90/332ff/opengraph.png" srcset="/static/43d4ca9b48a0c69729a737df28acbb90/3e256/opengraph.png 250w,
 /static/43d4ca9b48a0c69729a737df28acbb90/b30f8/opengraph.png 500w,
 /static/43d4ca9b48a0c69729a737df28acbb90/332ff/opengraph.png 1000w,
 /static/43d4ca9b48a0c69729a737df28acbb90/843f9/opengraph.png 1440w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
     </span>
+    <figcaption class="gatsby-resp-image-figcaption">img</figcaption>
+  </figure>
 </div>
 <h3>How to use</h3>
 <p><code class="language-text">metadata</code>를 <code class="language-text">&lt;head></code> 영역에 추가하면 bot이 해당 <code class="language-text">metadata</code>를 읽어서 내용을 표시해준다</p>
@@ -33,7 +36,7 @@ While many technologies and schemas exist and could be combined, there isn't a s
 </ul>
 <br/>
 실제 코드는 아래와 같이 입력한다.
-<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>The Rock (1996)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>og:title<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>The Rock<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
