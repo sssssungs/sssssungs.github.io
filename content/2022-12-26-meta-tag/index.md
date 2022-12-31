@@ -17,7 +17,7 @@ While many technologies and schemas exist and could be combined, there isn't a s
 </div>
 <br/>
 <div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
-  <img src="./opengraph.png" alt="img" />
+  <img src="./opengraph.png" />
 </div>
 
 ### How to use
