@@ -15,17 +15,17 @@ show: true
 The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook.<br/><br/>
 While many technologies and schemas exist and could be combined, there isn't a single technology which provides enough information to richly represent any web page within the social graph. The Open Graph protocol builds on these existing technologies and gives developers one thing to implement. Developer simplicity is a key goal of the Open Graph protocol which has informed many of the technical design decisions.
 </div>
-<br/>
-<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
-  <img src="./opengraph.png" />
-</div>
+ 
 
 ### How to use
-`metadata`를 `<head>` 영역에 추가하면 bot이 해당 `metadata`를 읽어서 내용을 표시해준다
+`metadata`를 `<head>` 영역에 추가하면 bot이 해당 `metadata`를 읽어서 내용을 표시해준다. 다음은 주로 쓰이고 되도록 명시하기를 권장하는 속성들이다.
 - `og:title` 표시될 제목
-- `og:type` 표시할 데이터의 `video` 또는 `image` website등의 타입
+- `og:type` website의 유형 (<a href='https://ogp.me/#types'>참조</a>)
 - `og:image` 표시할 `image`의 주소
-- `og:url` 전달할 웹페이지 주소  
+- `og:url` 전달할 website 주소  
+- `og:description` website에 대한 설명
+- `og:site_name` website의 이름
+- `og:locale` location 정보 
 
 <br/>
 실제 코드는 아래와 같이 입력한다.
@@ -43,6 +43,11 @@ While many technologies and schemas exist and could be combined, there isn't a s
 ...
 </html>
 ```
+
+<div style="width: 80%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <img src="./og_description.png" />
+<div style="font-size:12px;color:#8b9196;display:flex;justify-content:center">Example of Twitter card using Open Graph tags</div>
+</div>
 
 
 
