@@ -49,6 +49,39 @@ While many technologies and schemas exist and could be combined, there isn't a s
 <div style="font-size:12px;color:#8b9196;display:flex;justify-content:center">Example of Twitter card using Open Graph tags</div>
 </div>
 
+### Tag type
+`opengraph`의 경우 몇개 대표적인 플랫폼들의 meta tag를 사용할 수 있도록 하고있다.
+
+```html
+<!-- 일반 -->
+<meta property="og:title" content="...">
+<meta property="og:url" content="...">
+<meta property="og:type" content="...">
+<meta property="og:image" content="..."> 
+<meta property="og:site_name" content="..."> 
+<meta property="og:description" content="...">
+
+<!-- twitter -->
+<meta name="twitter:card" content="...">  
+<meta name="twitter:title" content="...">  
+<meta name="twitter:description" content="...">  
+<meta name="twitter:image" content="...">  
+
+<!-- mobile -->
+<meta property="al:ios:url" content="...">  
+<meta property="al:ios:app_store_id" content="...">  
+<meta property="al:ios:app_name" content="..."> 
+<meta property="al:android:url" content="...">  
+<meta property="al:android:app_name" content="...">  
+<meta property="al:android:package" content="...">  
+```
+
+### Optimal size of Opengraph image ?
+`opengraph`에는 thumbnail image를 넣을 수 있다. 하지만 플랫폼마다 지원하는 image size가 다른데 고정값을 넣어주어야 하기때문에 몇가지 유의 사항들을 고려하면 좋다.
+- `facebook`에서 권장하는 크기는 `1200`x`630` 픽셀이며, 그 image 파일용량은 `5MB`를 넘지않도록 권장한다  
+- `600` 픽셀 미만의 image는 `opengraph` 제목 왼쪽에 표시된다
+- 최소 크기는 `200`x`200` 이나 해상도가 이정도로 낮은 것은 권장하지 않는다
+
 
 
 
