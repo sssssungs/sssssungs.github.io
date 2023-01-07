@@ -82,11 +82,21 @@ While many technologies and schemas exist and could be combined, there isn't a s
 - `600` 픽셀 미만의 image는 `opengraph` 제목 왼쪽에 표시된다
 - 최소 크기는 `200`x`200` 이나 해상도가 이정도로 낮은 것은 권장하지 않는다
 
+### Caution
+기존 페이지에 cache가 남아있을 수 있으므로 적용하는데 시간이 걸릴수 있다  
+페이스북은 cache를 reload하는 기능을 제공해주기도 한다 https://developers.facebook.com/tools/debug
+
+### Useful tools  
+- opengraph 미리보기 https://www.opengraph.xyz/    
+- localhost에서 확인을 도와주는 크롬 익스텐션   
+<a href='https://chrome.google.com/webstore/detail/localhost-open-graph-debu/kckjjmiilgndeaohcljonedmledlnkij?hl=ko'>Localhost Open Graph Debugger</a>  
+    <a href='https://chrome.google.com/webstore/detail/localhost-open-graph-chec/gcbnmkhkglonipggglncobhklaegphgn?hl=ko'>Localhost Open Graph Checker</a>
 
 
-
-<br/>
+<br/><br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://ogp.me/<br/>
+- https://iamturns.com/open-graph-image-size<br/>
+- https://developers.facebook.com/tools/debug/
 </div>
 
