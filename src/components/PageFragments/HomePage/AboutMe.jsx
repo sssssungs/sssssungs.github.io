@@ -9,9 +9,9 @@ import SEO from '../../Seo';
 const pageText = {
 	paraOne: `Hello guys! And welcome with my big love! My name is Sungsik Won (English name is Randy🤪!). I'm a Frontend developer who is
     passionate about various web technologies. I have an experience of nearly 3 and half years working as a full-stack developer with Jquery, Spring framework and Oracle/SQL in Semiconductor industry. 
-    Also about 2 years of React, Redux, Typescript and Next.js, too. I also have hands on experience working with cloud infrastructures like DC/OS (Apache Mesos), CI/CD with ELK and AWS a little and have deployed applications
-    keeping scalability in mind.`,
-	paraTwo: `Currently, I'm working mostly with javascript/typescript library like React and Next.js with Emotion. 
+    Also about 3 years of React, Redux, Typescript and Next.js, too. I also have hands on experience working with cloud infrastructures like DC/OS (Apache Mesos), CI/CD with ELK and AWS a little and have deployed applications
+    keeping scalability in mind. Recently, I usually use an Azure with kubernetes for cloud infrastructures and Storybook for archiving of Design system components.`,
+	paraTwo: `I'm working mostly with javascript/typescript library like React and Next.js with Emotion, Redux-saga and Mobx. 
 	I'm always a learner 😃 and a self-taught programmer. Speaking English 🇬🇧 always has been on my todo list so that I can communicate with English speaker in real life.
 	Nowadays, I'm learning French 🇫🇷, very attractive language. <br/> 
 	Thank you for reading my article and have a beautiful day! 🤩`,
@@ -56,7 +56,7 @@ const AboutMe = () => (
 					height={100}
 					img="coffee.png"
 					alt="coffee image"
-					textH4="Love Coffee"
+					textH4="Love to break"
 					textH3="Happiness and Energy"
 				/>
 			</Col>
@@ -67,7 +67,7 @@ const AboutMe = () => (
 					img="social.png"
 					alt="meeting image"
 					textH4="Socially Active"
-					textH3="Shy at first"
+					textH3="Good communicator"
 				/>
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
@@ -77,7 +77,7 @@ const AboutMe = () => (
 					img="workout.png"
 					alt="motorcycle image"
 					textH4="Love to work out"
-					textH3="Sweaty Smile"
+					textH3="Healthy body and spirit"
 				/>
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
@@ -87,7 +87,7 @@ const AboutMe = () => (
 					img="study.png"
 					alt="web image"
 					textH4="Self Taught"
-					textH3="Good Learner"
+					textH3="Always nice Learner"
 				/>
 			</Col>
 			<Col xs={24} sm={24} md={12} lg={8}>
