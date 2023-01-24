@@ -23,13 +23,18 @@
 색인된 웹페이지의 데이터 및 해당 페이지의 <code class="language-text">SEO</code> score를 계산하여 검색결과에서 몇번째에 노출시킬 것인가를 정하는 작업이다. </li>
 </ol>
 <h3>Tips for improving SEO</h3>
-<ol>
-<li>Page title 명시<br>
-<code class="language-text">&lt;title /></code> 태그는 <code class="language-text">html</code> 태그의 자식요소중 하나이다. 텍스트만으로 구성되어야하며, <code class="language-text">Javascript</code>로 생성된 동적인 타이틀도 크롤링 된다.<br>
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">1. Page title 명시</div>  
+<p><code class="language-text">&lt;title /></code> 태그는 <code class="language-text">html</code> 태그의 자식요소중 하나이다. 텍스트만으로 구성되어야하며, <code class="language-text">Javascript</code>로 생성된 동적인 타이틀도 크롤링 된다.<br>
 각 페이지마다 구체적이고 적절한 타이틀을 정한다. 반복은 되도록 피하는것이 좋으며 타이틀 구분자로는 <code class="language-text">-</code>, <code class="language-text">|</code>, <code class="language-text">:</code> 을 사용하는것이 일반적이다.<br>
-<code class="language-text">ex) Forum | Randy's Blog</code> </li>
-<li>정확하고 올바른 meta tag 사용  </li>
-</ol>
+<code class="language-text">ex) Forum | Randy's Blog</code>  </p>
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">2. 정확하고 올바른 meta tag 사용</div>  
+<p>여러가지 meta tag들이 있지만 몇가지 <code class="language-text">seo</code>와 밀접한 관련이 있는 tag들은 <code class="language-text">author</code>, <code class="language-text">description</code>, <code class="language-text">robots</code>, <code class="language-text">og</code> 등이 있다. <code class="language-text">author</code>는 문서의 작성자를 표시한다. <code class="language-text">description</code>은 검색결과 리스트에 노출되는 설명을 넣을 수 있다. <code class="language-text">og</code>는 SNS(facebook, twitter등)에서 공유될 때 보여지는 preview를 설정할 수 있으며 <a href='https://are-you-sssssungs.kr/blog/meta-tag' target="_blank" rel="noopener noreferrer">지난 포스트</a>에서 자세히 다루었다.<br>
+그 중 <code class="language-text">robots</code>은 <code class="language-text">index</code>의 경우 검색결과에 해당 웹페이지를 표시한다는 뜻이고, <code class="language-text">noindex</code>는 그 반대이다.  </p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>robots<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>all<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>robots<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>index,follow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token comment">&lt;!-- 기본값 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>robots<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>noindex,nofollow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token comment">&lt;!-- none  --></span></code></pre></div>
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. Canonical Tag</div>
+wip
 <p><br/><br/></p>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=ko<br/>
