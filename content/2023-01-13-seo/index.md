@@ -22,12 +22,26 @@ show: true
    색인된 웹페이지의 데이터 및 해당 페이지의 `SEO` score를 계산하여 검색결과에서 몇번째에 노출시킬 것인가를 정하는 작업이다. 
     
  ### Tips for improving SEO
-1. Page title 명시  
-   `<title />` 태그는 `html` 태그의 자식요소중 하나이다. 텍스트만으로 구성되어야하며, `Javascript`로 생성된 동적인 타이틀도 크롤링 된다.  
-   각 페이지마다 구체적이고 적절한 타이틀을 정한다. 반복은 되도록 피하는것이 좋으며 타이틀 구분자로는 `-`, `|`, `:` 을 사용하는것이 일반적이다.  
-   `ex) Forum | Randy's Blog` 
-2. 정확하고 올바른 meta tag 사용  
-   
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">1. Page title 명시</div>  
+
+`<title />` 태그는 `html` 태그의 자식요소중 하나이다. 텍스트만으로 구성되어야하며, `Javascript`로 생성된 동적인 타이틀도 크롤링 된다.  
+각 페이지마다 구체적이고 적절한 타이틀을 정한다. 반복은 되도록 피하는것이 좋으며 타이틀 구분자로는 `-`, `|`, `:` 을 사용하는것이 일반적이다.  
+`ex) Forum | Randy's Blog`  
+
+
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">2. 정확하고 올바른 meta tag 사용</div>  
+
+여러가지 meta tag들이 있지만 몇가지 `seo`와 밀접한 관련이 있는 tag들은 `author`, `description`, `robots`, `og` 등이 있다. `author`는 문서의 작성자를 표시한다. `description`은 검색결과 리스트에 노출되는 설명을 넣을 수 있다. `og`는 SNS(facebook, twitter등)에서 공유될 때 보여지는 preview를 설정할 수 있으며 <a href='https://are-you-sssssungs.kr/blog/meta-tag' target="_blank" rel="noopener noreferrer">지난 포스트</a>에서 자세히 다루었다.  
+그 중 `robots`은 `index`의 경우 검색결과에 해당 웹페이지를 표시한다는 뜻이고, `noindex`는 그 반대이다.  
+```html
+<meta name="robots" content="all">
+<meta name="robots" content="index,follow"> <!-- 기본값 -->
+<meta name="robots" content="noindex,nofollow"> <!-- none  -->
+```
+
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. Canonical Tag</div>
+wip
+
 
 
 
