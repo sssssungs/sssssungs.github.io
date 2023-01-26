@@ -39,8 +39,24 @@ show: true
 <meta name="robots" content="noindex,nofollow"> <!-- none  -->
 ```
 
-<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. Canonical Tag</div>
-wip
+<div style="margin-bottom:5px;font-size: 13px;font-weight: 700;">참고) Canonical Tag</div>  
+
+Canonical tag란 사이트 내 `URL`은 다르지만 동일한 중복된 페이지가 있을때 검색엔진에게 대표가 되는 `URL` 하나만을 알려주는 역할을 한다.   
+아래 예시를 보면, 동일한 페이지의 `URL`에 `query param`이 붙는다던가, 추적코드가 삽입된 경우 같은페이지로 연결되지만 `URL`은 동일하지 않은 경우가 된다.
+```
+https://sssssung.com/blog
+https://sssssung.com/blog?keyword=react
+https://sssssung.com/blog?utm=2
+```
+이러한 경우 검색엔진이 원본페이지를 식별하지 못해 다른 `URL`을 원본페이지로 인식할 수 있으며, 분산된 `URL`은 `SEO` score를 낮추거나 심한경우 패널티를 받을 수도 있다. 아래처럼 canonical tag를 삽입하여 원본 페이지를 명시할 수 있다.
+```html
+<head>
+   <link rel="canonical" href="https://sssssung.com/blog">
+</head>
+```
+
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. 정확하고 올바른 html 작성</div>  
+
 
 
 
