@@ -28,7 +28,7 @@ show: true
 각 페이지마다 구체적이고 적절한 타이틀을 정한다. 반복은 되도록 피하는것이 좋으며 타이틀 구분자로는 `-`, `|`, `:` 을 사용하는것이 일반적이다.  
 `ex) Forum | Randy's Blog`  
 
-
+<br/>
 <div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">2. 정확하고 올바른 meta tag 사용</div>  
 
 여러가지 meta tag들이 있지만 몇가지 `seo`와 밀접한 관련이 있는 tag들은 `author`, `description`, `robots`, `og` 등이 있다. `author`는 문서의 작성자를 표시한다. `description`은 검색결과 리스트에 노출되는 설명을 넣을 수 있다. `og`는 SNS(facebook, twitter등)에서 공유될 때 보여지는 preview를 설정할 수 있으며 <a href='https://are-you-sssssungs.kr/blog/meta-tag' target="_blank" rel="noopener noreferrer">지난 포스트</a>에서 자세히 다루었다.  
@@ -55,8 +55,11 @@ https://sssssung.com/blog?utm=2
 </head>
 ```
 
+<br/>
 <div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. 정확하고 올바른 html 작성</div>  
 
+`html`을 작성할때 semantic하게 그리고 올바르게 사용해야 `SEO` score를 높일 수 있다. 특히 `img` 태그에서 `alt`와 `title`의 사용, `anchor` 태그에서 중요한 키워드 배치와 어떻게 이동하는지 등 설명이 되어야한다. 그리고 `Heading`태그를 적절히 사용하여 작성된 문서가 접근하기 편하고 전달되는 정보가 잘 보이도록 해야한다.  
+물론 동일한 내용을 반복한다거나 장황하게 설명하는 불필요한 텍스트는 없애야한다. 웹 접근성 측면에서 생각해보았을 때, 정보의 전달 차이가 없어야 좋은 컨텐츠라고 생각한다.
 
 
 
