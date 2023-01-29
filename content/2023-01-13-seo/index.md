@@ -29,7 +29,7 @@ show: true
 `ex) Forum | Randy's Blog`  
 
 <br/>
-<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">2. 정확하고 올바른 meta tag 사용</div>  
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">2. 정확하고 올바른 meta tag / html tag 사용</div>  
 
 여러가지 meta tag들이 있지만 몇가지 `seo`와 밀접한 관련이 있는 tag들은 `author`, `description`, `robots`, `og` 등이 있다. `author`는 문서의 작성자를 표시한다. `description`은 검색결과 리스트에 노출되는 설명을 넣을 수 있다. `og`는 SNS(facebook, twitter등)에서 공유될 때 보여지는 preview를 설정할 수 있으며 <a href='https://are-you-sssssungs.kr/blog/meta-tag' target="_blank" rel="noopener noreferrer">지난 포스트</a>에서 자세히 다루었다.  
 그 중 `robots`은 `index`의 경우 검색결과에 해당 웹페이지를 표시한다는 뜻이고, `noindex`는 그 반대이다.  
@@ -38,6 +38,9 @@ show: true
 <meta name="robots" content="index,follow"> <!-- 기본값 -->
 <meta name="robots" content="noindex,nofollow"> <!-- none  -->
 ```
+
+또한 `html`을 작성할때 semantic하게 그리고 올바르게 사용해야 `SEO` score를 높일 수 있다. 특히 `img` 태그에서 `alt`와 `title`의 사용, `anchor` 태그에서 중요한 키워드 배치와 어떻게 이동하는지 등 설명이 되어야한다. 그리고 `Heading`태그를 적절히 사용하여 작성된 문서가 접근하기 편하고 전달되는 정보가 잘 보이도록 해야한다.  
+물론 동일한 내용을 반복한다거나 장황하게 설명하는 불필요한 텍스트는 없애야한다. 웹 접근성 측면에서 생각해보았을 때, 정보의 전달 차이가 없어야 좋은 컨텐츠라고 생각한다.
 
 <div style="margin-bottom:5px;font-size: 13px;font-weight: 700;">참고) Canonical Tag</div>  
 
@@ -56,16 +59,36 @@ https://sssssung.com/blog?utm=2
 ```
 
 <br/>
-<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. 정확하고 올바른 html 작성</div>  
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. Core Web Vitals & Contents load speed</div>  
 
-`html`을 작성할때 semantic하게 그리고 올바르게 사용해야 `SEO` score를 높일 수 있다. 특히 `img` 태그에서 `alt`와 `title`의 사용, `anchor` 태그에서 중요한 키워드 배치와 어떻게 이동하는지 등 설명이 되어야한다. 그리고 `Heading`태그를 적절히 사용하여 작성된 문서가 접근하기 편하고 전달되는 정보가 잘 보이도록 해야한다.  
-물론 동일한 내용을 반복한다거나 장황하게 설명하는 불필요한 텍스트는 없애야한다. 웹 접근성 측면에서 생각해보았을 때, 정보의 전달 차이가 없어야 좋은 컨텐츠라고 생각한다.
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <img src="./core-web.png" />
+</div>
 
+웹 화면 로딩속도, 클릭 반응속도 등 웹 사이트 이용에 측정되는 여러가지 성능지표가 존재한다. 여러 지표중 `LCP`, `FID`, `CLS이` 세가지를 `Core Web Vitals`라고 하고, 구글에서 가장 기본적이고 핵심적인 요소라고 소개하고 있다.
+
+
+
+
+- `LCP` (Largest Contentful Paint)  
+  웹 페이지의 컨텐츠중 가장 큰 영역을 차지하는 것이 화면(`viewport`)에 `paint`(display)될때 까지 걸리는 시간을 나타낸다. 가장 큰 영역을 차지하는것을 주요 컨텐츠로 생각하기 때문에 이것이 빠르게 유저에게 보이는것이 중요하다. `LCP`에서 컨텐츠로 판단하는 범위는 다음과 같다.  
+  1. `<img>` 
+  2. `svg` 내부의 `<image>`
+  3. `url()`과 같이 `image`가 `background`로 load되는 요소
+  4. preview가 사용되는 `<video>` 등  
+  
+  가장 큰 컨텐츠가 2.5초 이하로 화면이 로딩이 완료되면 `LCP`가 `Good`이라고 판단된다.  
+
+
+- `FID` (First Input Delay)
+- `CLS` (Cumulative Layout Shift)
 
 
 
 <br/><br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=ko<br/>
+- https://support.google.com/webmasters/answer/9205520?hl=en
+- https://web.dev/vitals/
 </div>
 
