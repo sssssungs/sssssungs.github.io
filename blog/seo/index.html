@@ -28,12 +28,14 @@
 각 페이지마다 구체적이고 적절한 타이틀을 정한다. 반복은 되도록 피하는것이 좋으며 타이틀 구분자로는 <code class="language-text">-</code>, <code class="language-text">|</code>, <code class="language-text">:</code> 을 사용하는것이 일반적이다.<br>
 <code class="language-text">ex) Forum | Randy's Blog</code>  </p>
 <br/>
-<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">2. 정확하고 올바른 meta tag 사용</div>  
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">2. 정확하고 올바른 meta tag / html tag 사용</div>  
 <p>여러가지 meta tag들이 있지만 몇가지 <code class="language-text">seo</code>와 밀접한 관련이 있는 tag들은 <code class="language-text">author</code>, <code class="language-text">description</code>, <code class="language-text">robots</code>, <code class="language-text">og</code> 등이 있다. <code class="language-text">author</code>는 문서의 작성자를 표시한다. <code class="language-text">description</code>은 검색결과 리스트에 노출되는 설명을 넣을 수 있다. <code class="language-text">og</code>는 SNS(facebook, twitter등)에서 공유될 때 보여지는 preview를 설정할 수 있으며 <a href='https://are-you-sssssungs.kr/blog/meta-tag' target="_blank" rel="noopener noreferrer">지난 포스트</a>에서 자세히 다루었다.<br>
 그 중 <code class="language-text">robots</code>은 <code class="language-text">index</code>의 경우 검색결과에 해당 웹페이지를 표시한다는 뜻이고, <code class="language-text">noindex</code>는 그 반대이다.  </p>
 <div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>robots<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>all<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>robots<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>index,follow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token comment">&lt;!-- 기본값 --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>robots<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>noindex,nofollow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token comment">&lt;!-- none  --></span></code></pre></div>
+<p>또한 <code class="language-text">html</code>을 작성할때 semantic하게 그리고 올바르게 사용해야 <code class="language-text">SEO</code> score를 높일 수 있다. 특히 <code class="language-text">img</code> 태그에서 <code class="language-text">alt</code>와 <code class="language-text">title</code>의 사용, <code class="language-text">anchor</code> 태그에서 중요한 키워드 배치와 어떻게 이동하는지 등 설명이 되어야한다. 그리고 <code class="language-text">Heading</code>태그를 적절히 사용하여 작성된 문서가 접근하기 편하고 전달되는 정보가 잘 보이도록 해야한다.<br>
+물론 동일한 내용을 반복한다거나 장황하게 설명하는 불필요한 텍스트는 없애야한다. 웹 접근성 측면에서 생각해보았을 때, 정보의 전달 차이가 없어야 좋은 컨텐츠라고 생각한다.</p>
 <div style="margin-bottom:5px;font-size: 13px;font-weight: 700;">참고) Canonical Tag</div>  
 <p>Canonical tag란 사이트 내 <code class="language-text">URL</code>은 다르지만 동일한 중복된 페이지가 있을때 검색엔진에게 대표가 되는 <code class="language-text">URL</code> 하나만을 알려주는 역할을 한다.<br>
 아래 예시를 보면, 동일한 페이지의 <code class="language-text">URL</code>에 <code class="language-text">query param</code>이 붙는다던가, 추적코드가 삽입된 경우 같은페이지로 연결되지만 <code class="language-text">URL</code>은 동일하지 않은 경우가 된다.</p>
@@ -45,12 +47,38 @@ https://sssssung.com/blog?utm=2</code></pre></div>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>canonical<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://sssssung.com/blog<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></code></pre></div>
 <br/>
-<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. 정확하고 올바른 html 작성</div>  
-<p><code class="language-text">html</code>을 작성할때 semantic하게 그리고 올바르게 사용해야 <code class="language-text">SEO</code> score를 높일 수 있다. 특히 <code class="language-text">img</code> 태그에서 <code class="language-text">alt</code>와 <code class="language-text">title</code>의 사용, <code class="language-text">anchor</code> 태그에서 중요한 키워드 배치와 어떻게 이동하는지 등 설명이 되어야한다. 그리고 <code class="language-text">Heading</code>태그를 적절히 사용하여 작성된 문서가 접근하기 편하고 전달되는 정보가 잘 보이도록 해야한다.<br>
-물론 동일한 내용을 반복한다거나 장황하게 설명하는 불필요한 텍스트는 없애야한다. 웹 접근성 측면에서 생각해보았을 때, 정보의 전달 차이가 없어야 좋은 컨텐츠라고 생각한다.</p>
+<div style="margin-bottom:7px;font-size: 14px;font-weight: 700;">3. Core Web Vitals & Contents load speed</div>  
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; ">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 28.799999999999997%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABN0lEQVQY012Q20sCQRSH9/8OtEcpoqInIzKLCo0gSkjraXvKNIP1VmK5ayg+WJmurZeZ+ZrdrQgHDnPO7ztzLmMo/CNxxx5CyCBSSgUWBnMQXngvMCXniJlmcvbHDIGi4EhK9ozrmkT6RTUQUgWNrI7g0ppR7fiFdbb0myo8nVfWzGpPubc183VtBtp/6sBjH1pDmARlgjfB6b2DaUO5H0o/cpD00oNiF/La5j+yEbOzFJrHfJXW8Mwk7kkKul1e5YCtnkmukWJUjOHexJmcpuG5SUt8sNrKkqsfarbC2NxmcHSAatQxlpxzrqw47m2EwcUmk/0EOA5N8UbEyZCuJBjmowyy64x34lCt0NAs2s5wVttjdLfMZ3aDaXIXVX7QK/vTT8ORR2phLd/3Qjb0v3CB/Qbjf/o3ttC+KiYrMv8AAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="core web" title="core web" src="/static/869921f391534b30fabfeda6d5168d17/332ff/core-web.png" srcset="/static/869921f391534b30fabfeda6d5168d17/3e256/core-web.png 250w,
+/static/869921f391534b30fabfeda6d5168d17/b30f8/core-web.png 500w,
+/static/869921f391534b30fabfeda6d5168d17/332ff/core-web.png 1000w,
+/static/869921f391534b30fabfeda6d5168d17/de2df/core-web.png 1500w,
+/static/869921f391534b30fabfeda6d5168d17/1a152/core-web.png 1600w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<p>웹 화면 로딩속도, 클릭 반응속도 등 웹 사이트 이용에 측정되는 여러가지 성능지표가 존재한다. 여러 지표중 <code class="language-text">LCP</code>, <code class="language-text">FID</code>, <code class="language-text">CLS이</code> 세가지를 <code class="language-text">Core Web Vitals</code>라고 하고, 구글에서 가장 기본적이고 핵심적인 요소라고 소개하고 있다.</p>
+<ul>
+<li>
+<p><code class="language-text">LCP</code> (Largest Contentful Paint)<br>
+웹 페이지의 컨텐츠중 가장 큰 영역을 차지하는 것이 화면(<code class="language-text">viewport</code>)에 <code class="language-text">paint</code>(display)될때 까지 걸리는 시간을 나타낸다. 가장 큰 영역을 차지하는것을 주요 컨텐츠로 생각하기 때문에 이것이 빠르게 유저에게 보이는것이 중요하다. <code class="language-text">LCP</code>에서 컨텐츠로 판단하는 범위는 다음과 같다.  </p>
+<ol>
+<li><code class="language-text">&lt;img></code> </li>
+<li><code class="language-text">svg</code> 내부의 <code class="language-text">&lt;image></code></li>
+<li><code class="language-text">url()</code>과 같이 <code class="language-text">image</code>가 <code class="language-text">background</code>로 load되는 요소</li>
+<li>preview가 사용되는 <code class="language-text">&lt;video></code> 등  </li>
+</ol>
+<p>가장 큰 컨텐츠가 2.5초 이하로 화면이 로딩이 완료되면 <code class="language-text">LCP</code>가 <code class="language-text">Good</code>이라고 판단된다.  </p>
+</li>
+<li><code class="language-text">FID</code> (First Input Delay)</li>
+<li><code class="language-text">CLS</code> (Cumulative Layout Shift)</li>
+</ul>
 <p><br/><br/></p>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=ko<br/>
+- https://support.google.com/webmasters/answer/9205520?hl=en
+- https://web.dev/vitals/
 </div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
