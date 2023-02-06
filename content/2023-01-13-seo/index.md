@@ -80,7 +80,10 @@ https://sssssung.com/blog?utm=2
   가장 큰 컨텐츠가 2.5초 이하로 화면이 로딩이 완료되면 `LCP`가 `Good`이라고 판단된다.  
 
 
-- `FID` (First Input Delay)
+- `FID` (First Input Delay)  
+  페이지 렌더링 이후, 유저의 입력에 대해 delay된 시간을 측정한다. 페이지가 렌더링 되었다고 유저가 입력을 바로 수행하는것은 아니다. 유저가 입력을 했다고 하더라도 해당 이벤트를 실행할 수 있는 상태여야 하며, 그렇지 않은 경우는 이벤트가 지연이 되는 것이다. 따로 유저의 입력 이벤트가 없을 경우 측정되지 않는다.
+
+
 - `CLS` (Cumulative Layout Shift)
 
 
