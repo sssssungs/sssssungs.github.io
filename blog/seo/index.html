@@ -58,7 +58,7 @@ https://sssssung.com/blog?utm=2</code></pre></div>
 /static/869921f391534b30fabfeda6d5168d17/1a152/core-web.png 1600w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
     </span>
 </div>
-<p>웹 화면 로딩속도, 클릭 반응속도 등 웹 사이트 이용에 측정되는 여러가지 성능지표가 존재한다. 여러 지표중 <code class="language-text">LCP</code>, <code class="language-text">FID</code>, <code class="language-text">CLS이</code> 세가지를 <code class="language-text">Core Web Vitals</code>라고 하고, 구글에서 가장 기본적이고 핵심적인 요소라고 소개하고 있다.</p>
+<p>웹 화면 로딩속도, 클릭 반응속도 등 웹 사이트 이용에 측정되는 여러가지 성능지표가 존재한다. 여러 지표중 <code class="language-text">LCP</code>, <code class="language-text">FID</code>, <code class="language-text">CLS</code> 세가지를 <code class="language-text">Core Web Vitals</code>라고 하고, 구글에서 가장 기본적이고 핵심적인 요소라고 소개하고 있다.</p>
 <ul>
 <li>
 <p><code class="language-text">LCP</code> (Largest Contentful Paint)<br>
@@ -73,9 +73,14 @@ https://sssssung.com/blog?utm=2</code></pre></div>
 </li>
 <li><code class="language-text">FID</code> (First Input Delay)<br>
 페이지 렌더링 이후, 유저의 입력에 대해 delay된 시간을 측정한다. 페이지가 렌더링 되었다고 유저가 입력을 바로 수행하는것은 아니다. 유저가 입력을 했다고 하더라도 해당 이벤트를 실행할 수 있는 상태여야 하며, 그렇지 않은 경우는 이벤트가 지연이 되는 것이다. 따로 유저의 입력 이벤트가 없을 경우 측정되지 않는다.</li>
-<li><code class="language-text">CLS</code> (Cumulative Layout Shift)</li>
+<li><code class="language-text">CLS</code> (Cumulative Layout Shift)<br>
+CLS는 페이지 렌더링 이후, 기대하지 않은 레이아웃의 움직임에 대해 측정한다. 예를 들어, 웹페이지가 로드되는 도중 이미지가 완전히 렌더링 되지 않아 페이지가 로드된 이후 이미지가 렌더링 되어 그만큼의 위치가 밀려버리는 현상이 발생할 수 있다. 이는 잘못된 클릭을 유발할 수 있고 방해요소가 될수 있는 것이다.</li>
 </ul>
-<p><br/><br/></p>
+<p>세가지 지표들은 <code class="language-text">SEO</code> score에 큰 영향을 끼치므로, 이를 개선하기 위해서는 초기 로딩 전략을 잘 세워야 한다.</p>
+<p>위에서 언급한 내용 말고도 다양한 방법으로 <code class="language-text">SEO</code> score를 높일 수 있다. <code class="language-text">SSL(https)</code>을 사용한다던가, 양질의 콘텐츠를 주기적으로 제공하고, 적절한 양의 링크를 제공하는 것도 <code class="language-text">SEO</code> score를 올릴수 있다.  </p>
+<h3>마무리</h3>
+<p>검색엔진 최적화도 마케팅의 한가지 방법이 될 수 있겠지만 결국 웹접근성, 웹표준, 웹성능 최적화 등과 유기적으로 연결되어 있고 웹사이트의 질적향상을 위해 꼭 필요한 과정중 하나이다. 실무에서 코딩할때 이러한 사항을 하나하나 고려해가면서는 못하더라도, 최대한 이러한 부분이 있음을 생각하면서 코딩하는것이 개발자의 중요한 자질 중 하나가 아닐까 생각한다.  </p>
+<br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=ko<br/>
 - https://support.google.com/webmasters/answer/9205520?hl=en
