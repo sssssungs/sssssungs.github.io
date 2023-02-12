@@ -45,7 +45,8 @@ const Career = () => (
 					<div className={style.desc}>
 						2015.07 - 2018.02
 						<br />
-						Full-Stack Developer (JQuery, HTML, CSS, Java, Spring, Jenkins, Oracle, Mybatis)
+						<b>Full-Stack Developer</b>
+						<br /> (JQuery, HTML, CSS, Java, Spring, Jenkins, Oracle, Mybatis)
 						<br />
 						<br />
 						<p>
@@ -56,8 +57,9 @@ const Career = () => (
 					<div className={style.horizontalLine} />
 					<div className={style.desc}>
 						2018.03 - 2020.03
-						<br /> Full-Stack Developer (React, Redux, MySQL, Oracle, Nodejs, Jenkins, ELK, DC/OS,
-						Java, Grafana, Git, Nginx)
+						<br /> <b>Frontend Developer (witn BFF)</b>
+						<br />
+						(React, Redux, MySQL, Oracle, Nodejs, Jenkins, ELK, DC/OS, Java, Grafana, Git, Nginx)
 						<br />
 						<br />
 						<p>
@@ -80,8 +82,10 @@ const Career = () => (
 						</span>
 					</div>
 					<div className={style.desc}>
-						Frontend Developer (React, Redux, Mobx, Typescript, Nextjs, Yarnberry, Emotionjs,
-						Material UI, Storybook, AWS, K8S, Azure)
+						<b>Frontend Developer</b>
+						<br />
+						(React, Redux, Mobx, Javascript, Typescript, Nextjs, Yarnberry, Emotionjs, Material UI,
+						Storybook, AWS, K8S, Azure, Figma, Zeplin, Framer, JIRA, confluence, Slack)
 						<br />
 						<br />
 						<p>
@@ -94,13 +98,17 @@ const Career = () => (
 							communication and decision making, management.
 						</p>
 						<p>
-							✔️ CONNECT (
-							<a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer">
-								https://connect.clo-set.com
-							</a>
-							)<br />
-							Open marketplace for online users to buy or sell their 3D assets and archive their
-							portfolios. (Metaverse-oriented)
+							✔️{' '}
+							<b>
+								CONNECT (
+								<a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer">
+									https://connect.clo-set.com
+								</a>
+								)
+							</b>
+							<br />
+							CLO-SET CONNECT is a global community for fashion creators to empower their digital
+							assets through open marketplace, portfolio management tools, and networking solutions.
 						</p>
 						<p>✔️ Developing Design system and back office admin for CLO-SET & CONNECT</p>
 					</div>

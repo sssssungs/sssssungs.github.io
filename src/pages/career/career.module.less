@@ -134,7 +134,7 @@
 	border-radius: 5px;
 	font-weight: 600;
 	text-align: left;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .direction-l .flag {
@@ -198,7 +198,7 @@
 .time-wrapper {
 	display: inline;
 	line-height: 1em;
-	font-size: 1em;
+	font-size: 0.85em;
 	color: rgb(250, 80, 80);
 	vertical-align: middle;
 }
@@ -219,7 +219,7 @@
 
 .desc {
 	margin: 1em 0.75em 0 0;
-	font-size: 0.9em;
+	font-size: 0.85em;
 	//font-style: italic;
 	line-height: 1.4em;
 }
@@ -289,13 +289,14 @@
 		content: '';
 		position: absolute;
 		left: 50%;
-		top: -8px;
+		top: -7px;
 		height: 0;
 		width: 0;
 		margin-left: -8px;
 		border: 8px solid transparent;
 		border-bottom-color: rgb(255, 255, 255);
 		pointer-events: none;
+		filter: drop-shadow(1px 0px rgba(0, 0, 0, 0.1));
 	}
 
 	.time-wrapper {
