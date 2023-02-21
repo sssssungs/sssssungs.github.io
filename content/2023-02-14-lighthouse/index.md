@@ -46,4 +46,4 @@ show: true
 
 ✔︎ `viewport`를 차지하는 가장 큰 `content`(`image`, 텍스트블록)의 `rendering` 시간을 측정한다.  
 
-(wip)
+(wip.test)
