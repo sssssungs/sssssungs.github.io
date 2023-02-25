@@ -34,24 +34,31 @@
 <p><code class="language-text">lighthouse</code>report에는 <i><code class="language-text">Performance</code>(성능), <code class="language-text">Accessibility</code>(웹접근성), <code class="language-text">Best practices</code>(웹표준), <code class="language-text">SEO</code>(검색엔진최적화), <code class="language-text">PWA</code>(Progressive Web app, 모바일화)</i> 다섯개 항목을 점수화 해서 보여준다. 이번 포스트에서는 <code class="language-text">Performance</code> 측정시 어떤 기준을 가지고 평가하는지 구체적으로 알아보도록 하자.</p>
 <h3>Performance metrics of Lighthouse</h3>
 <p><code class="language-text">lighthouse</code>는 성능측정을 위해서 다음과 같은 <code class="language-text">metric</code>들을 사용한다(<code class="language-text">metric</code>은 다음 버전에서 새로 생기거나 때로는 사라지기도 한다). 그럼 하나하나씩 알아보도록 하자.</p>
-<ol>
-<li>First Contentful Paint   </li>
-<li>Largest Contentful Paint</li>
-<li>Speed Index</li>
-<li>Total Blocking Time  </li>
-<li>Time to Interactive</li>
-<li>Cumulative Layout Shift</li>
-</ol>
 <br/>
-<div style="margin-bottom:7px;font-size: 15px;font-weight: 600;text-shadow: 1px 1px 2px #d5d5d5;">First Contentful Paint</div>
+<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">First Contentful Paint (FCP)</div>
 <p> ✔︎ 성능 지표를 추적하는 metric<br>
 ✔︎ 사용자가 웹페이지에 접속했을때 첫번째 <code class="language-text">DOM Content</code>를 <code class="language-text">rendering</code> 하는데 걸리는 시간을 측정한다. 이는 곧 사용자가 느끼는 페이지 로딩속도로 판단할 수 있고, <code class="language-text">FCP</code>가 <span style="color: red;font-weight: 800;">1.8</span>초 이하의 경우 <u>우수한 사용자 경험</u>을 제공한다고 할 수 있다.<br>
 ✔︎ 해당 페이지의 <code class="language-text">image</code>, <code class="language-text">canvas</code>요소, <code class="language-text">svg</code> 등 모두 <code class="language-text">DOM Content</code>로 구분되며, <code class="language-text">iframe</code>의 경우는 포함되지 않는다.
 <br/>
 <br/></p>
-<div style="margin-bottom:7px;font-size: 15px;font-weight: 600;text-shadow: 1px 1px 2px #d5d5d5;">Largest Contentful Paint</div>
-<p>✔︎ <code class="language-text">viewport</code>를 차지하는 가장 큰 <code class="language-text">content</code>(<code class="language-text">image</code>, 텍스트블록)의 <code class="language-text">rendering</code> 시간을 측정한다.  </p>
-<p>(wip.test)</p></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Largest Contentful Paint (LCP)</div>
+<p>✔︎ <code class="language-text">viewport</code>를 차지하는 가장 큰 <code class="language-text">content</code>(<code class="language-text">image</code>, 텍스트블록)의 <code class="language-text">rendering</code> 시간을 측정한다.<br>
+✔︎ <code class="language-text">LCP</code>가 0 ~ 2.5초일 경우 <code class="language-text">Fast</code>(<span style="color:green;">Green</span>) / 2.5 ~ 4초는 <code class="language-text">Moderate</code>(<span style="color:orange;">Orange</span>) / 4초 이상은 <code class="language-text">Slow</code>(<span style="color:red;">Red</span>)
+<br/>
+<br/></p>
+<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Speed Index</div>
+<p>✔︎ 웹페이지를 load하는 동안 컨텐츠가 얼마나 빠르게 표시되는지를 측정한다.<br>
+✔︎ 측정원리: 페이지 load를 각 <code class="language-text">frame</code>마다 캡쳐하고, <code class="language-text">frame</code>간에 보이는 컨텐츠를 파악하고 <a href="https://github.com/paulirish/speedline" target="_blank" rel='noopener noreferer'>Speedline module</a>을 이용해 측정해 표시한다.<br>
+✔︎ <code class="language-text">Speed index</code>가 0 ~ 3.4일때 <code class="language-text">Fast</code>(<span style="color:green;">Green</span>) / 3.4 ~ 5.8은 <code class="language-text">Moderate</code>(<span style="color:orange;">Orange</span>) / 5.8 이상은 <code class="language-text">Slow</code>(<span style="color:red;">Red</span>)
+<br/>
+<br/></p>
+<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Total Blocking Time (TBT)</div>
+<p>✔︎ 웹페이지를 접속한 유저가 실제 <code class="language-text">interaction</code>하기까지 block된 시간을 측정한다.  </p>
+<p><i>(wip)</i></p>
+<br/>
+<div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
+- https://github.com/paulirish/speedline<br/>
+</div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
