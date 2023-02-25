@@ -1,5 +1,5 @@
 ---
-title: Run the lighthouse to light your web page.
+title: Run the lighthouse to light your web page
 tags: [javascript, typescript, react, html, css, network, seo]
 date: 2023-02-14T19:44:32.226Z
 path: blog/lighthouse
