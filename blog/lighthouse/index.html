@@ -35,26 +35,41 @@
 <h3>Performance metrics of Lighthouse</h3>
 <p><code class="language-text">lighthouse</code>는 성능측정을 위해서 다음과 같은 <code class="language-text">metric</code>들을 사용한다(<code class="language-text">metric</code>은 다음 버전에서 새로 생기거나 때로는 사라지기도 한다). 그럼 하나하나씩 알아보도록 하자.</p>
 <br/>
-<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">First Contentful Paint (FCP)</div>
+<div style="margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">First Contentful Paint (FCP)</div>
 <p> ✔︎ 성능 지표를 추적하는 metric<br>
-✔︎ 사용자가 웹페이지에 접속했을때 첫번째 <code class="language-text">DOM Content</code>를 <code class="language-text">rendering</code> 하는데 걸리는 시간을 측정한다. 이는 곧 사용자가 느끼는 페이지 로딩속도로 판단할 수 있고, <code class="language-text">FCP</code>가 <span style="color: red;font-weight: 800;">1.8</span>초 이하의 경우 <u>우수한 사용자 경험</u>을 제공한다고 할 수 있다.<br>
+✔︎ 사용자가 웹페이지에 접속했을때 첫번째 <code class="language-text">DOM Content</code>를 <code class="language-text">rendering</code> 하는데 걸리는 시간을 측정한다. 이는 곧 사용자가 느끼는 페이지 로딩속도로 판단할 수 있고, <code class="language-text">FCP</code>가 1.8초 이하의 경우 우수한 사용자 경험을 제공한다고 할 수 있다.<br>
 ✔︎ 해당 페이지의 <code class="language-text">image</code>, <code class="language-text">canvas</code>요소, <code class="language-text">svg</code> 등 모두 <code class="language-text">DOM Content</code>로 구분되며, <code class="language-text">iframe</code>의 경우는 포함되지 않는다.
 <br/>
 <br/></p>
-<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Largest Contentful Paint (LCP)</div>
+<div style="margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Largest Contentful Paint (LCP)</div>
 <p>✔︎ <code class="language-text">viewport</code>를 차지하는 가장 큰 <code class="language-text">content</code>(<code class="language-text">image</code>, 텍스트블록)의 <code class="language-text">rendering</code> 시간을 측정한다.<br>
 ✔︎ <code class="language-text">LCP</code>가 0 ~ 2.5초일 경우 <code class="language-text">Fast</code>(<span style="color:green;">Green</span>) / 2.5 ~ 4초는 <code class="language-text">Moderate</code>(<span style="color:orange;">Orange</span>) / 4초 이상은 <code class="language-text">Slow</code>(<span style="color:red;">Red</span>)
 <br/>
 <br/></p>
-<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Speed Index</div>
+<div style="margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Speed Index</div>
 <p>✔︎ 웹페이지를 load하는 동안 컨텐츠가 얼마나 빠르게 표시되는지를 측정한다.<br>
 ✔︎ 측정원리: 페이지 load를 각 <code class="language-text">frame</code>마다 캡쳐하고, <code class="language-text">frame</code>간에 보이는 컨텐츠를 파악하고 <a href="https://github.com/paulirish/speedline" target="_blank" rel='noopener noreferer'>Speedline module</a>을 이용해 측정해 표시한다.<br>
 ✔︎ <code class="language-text">Speed index</code>가 0 ~ 3.4일때 <code class="language-text">Fast</code>(<span style="color:green;">Green</span>) / 3.4 ~ 5.8은 <code class="language-text">Moderate</code>(<span style="color:orange;">Orange</span>) / 5.8 이상은 <code class="language-text">Slow</code>(<span style="color:red;">Red</span>)
 <br/>
 <br/></p>
-<div style="font-family: 'cousine';margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Total Blocking Time (TBT)</div>
-<p>✔︎ 웹페이지를 접속한 유저가 실제 <code class="language-text">interaction</code>하기까지 block된 시간을 측정한다.  </p>
-<p><i>(wip)</i></p>
+<div style="margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Time to Interactive (TTI)</div>
+<p>✔︎ 페이지 load시점부터 유저가 실제 <code class="language-text">interaction</code>이 가능한 시점까지의 시간을 측정하고, 아래와 같은 기준을 가진다.<br>
+<span style="margin:0 10px 0 13px">▸</span>페이지가 0.05초 안에 사용자의 interaction에 응답한다<br>
+<span style="margin:0 10px 0 13px">▸</span><code class="language-text">event handler</code>가 가장 잘보이는 element에 등록된다<br>
+<span style="margin:0 10px 0 13px">▸</span>페이지에 <code class="language-text">FCP</code>(<code class="language-text">First contentful paint</code>)로 측정된 컨텐츠가 보여야한다.<br>
+✔︎ <code class="language-text">Time to interactive</code>가 0 ~ 3.8초일때 <code class="language-text">Fast</code>(<span style="color:green;">Green</span>) / 3.9 ~ 7.3초는 <code class="language-text">Moderate</code>(<span style="color:orange;">Orange</span>) / 7.3초 이상은 <code class="language-text">Slow</code>(<span style="color:red;">Red</span>)
+<br/>
+<br/></p>
+<div style="margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Total Blocking Time (TBT)</div>
+<p>✔︎ 웹페이지를 접속한 유저가 실제 <code class="language-text">interaction</code>하기까지 block된 시간을 측정한다.<br>
+✔︎ <code class="language-text">Lighthouse</code>에서는 <code class="language-text">FCP</code>와 <code class="language-text">TTI</code> 사이의 긴 시간의 작업을 모두 기록하여 <code class="language-text">TBT</code>를 측정한다.
+<br/>
+<br/></p>
+<div style="margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Cumulative Layout Shift (CLS)</div>
+<p>✔︎ 컨텐츠가 유저에게 보여질때, 예상치못하게 얼마나 움직이는지를 수치화한 지표이다.<br>
+<span style="margin:0 10px 0 13px">▸</span>예) 상단의 메인배너가 뒤늦게 load되면서 아래쪽의 컨텐츠가 밀리는 경우<br>
+<span style="margin:0 10px 0 13px">▸</span>예) 웹폰트가 뒤늦게 load되면서 시스템폰트를 대체하는데 폰트의 줄간격이 달라 레이아웃이 변하는 경우<br>
+✔︎ 0 ~ 1 까지의 범위가 있으며, 0.1이하의 경우 우수한 경험을 제공한다고 판단한다. </p>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://github.com/paulirish/speedline<br/>
