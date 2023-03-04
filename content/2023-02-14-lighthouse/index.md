@@ -23,7 +23,8 @@ show: true
 
 <br/>
 
-`lighthouse`report에는 <i>`Performance`(성능), `Accessibility`(웹접근성), `Best practices`(웹표준), `SEO`(검색엔진최적화), `PWA`(Progressive Web app, 모바일화)</i> 다섯개 항목을 점수화 해서 보여준다. 이번 포스트에서는 `Performance` 측정시 어떤 기준을 가지고 평가하는지 구체적으로 알아보도록 하자.
+`lighthouse`report에는 <i>`Performance`(성능), `Accessibility`(웹접근성), `Best practices`(웹표준), `SEO`(검색엔진최적화), `PWA`(Progressive Web app, 모바일화)</i> 다섯개 항목을 점수화 해서 보여준다.  
+이번 포스트에서는 `Performance` 측정시 어떤 기준을 가지고 평가하는지 구체적으로 알아보도록 하자.
 
 ### Performance metrics of Lighthouse
 `lighthouse`는 성능측정을 위해서 다음과 같은 `metric`들을 사용한다(`metric`은 다음 버전에서 새로 생기거나 때로는 사라지기도 한다). 그럼 하나하나씩 알아보도록 하자.
@@ -39,6 +40,10 @@ show: true
 <div style="margin-bottom:7px;font-size: 15px;font-weight: 800;text-shadow: 1px 1px 2px #d5d5d5;">Largest Contentful Paint (LCP)</div>
 
 ✔︎ `viewport`를 차지하는 가장 큰 `content`(`image`, 텍스트블록)의 `rendering` 시간을 측정한다.  
+✔︎ `LCP`로 간주되는 요소는 다음 등이 있다   
+<span style="margin:0 10px 0 13px">▸</span>`<img/>`와 `<video />` 요소         
+<span style="margin:0 10px 0 13px">▸</span>`background-image`의 `url`로 load되는 요소   
+<span style="margin:0 10px 0 13px">▸</span>`block` 요소    
 ✔︎ `LCP`가 0 ~ 2.5초일 경우 `Fast`(<span style="color:green;">Green</span>) / 2.5 ~ 4초는 `Moderate`(<span style="color:orange;">Orange</span>) / 4초 이상은 `Slow`(<span style="color:red;">Red</span>)
 <br/>
 <br/>
@@ -46,6 +51,10 @@ show: true
 
 ✔︎ 웹페이지를 load하는 동안 컨텐츠가 얼마나 빠르게 표시되는지를 측정한다.  
 ✔︎ 측정원리: 페이지 load를 각 `frame`마다 캡쳐하고, `frame`간에 보이는 컨텐츠를 파악하고 <a href="https://github.com/paulirish/speedline" target="_blank" rel='noopener noreferer'>Speedline module</a>을 이용해 측정해 표시한다.  
+✔︎ 점수를 높이는 방법  
+<span style="margin:0 10px 0 13px">▸</span>`javascript` 실행 시간 단축         
+<span style="margin:0 10px 0 13px">▸</span>`font` load 중에도 텍스트 표시 유지  
+<span style="margin:0 10px 0 13px">▸</span>`main thread` 작업을 최소화  
 ✔︎ `Speed index`가 0 ~ 3.4일때 `Fast`(<span style="color:green;">Green</span>) / 3.4 ~ 5.8은 `Moderate`(<span style="color:orange;">Orange</span>) / 5.8 이상은 `Slow`(<span style="color:red;">Red</span>)
 <br/>
 <br/>
@@ -71,12 +80,28 @@ show: true
 <span style="margin:0 10px 0 13px">▸</span>예) 웹폰트가 뒤늦게 load되면서 시스템폰트를 대체하는데 폰트의 줄간격이 달라 레이아웃이 변하는 경우         
 ✔︎ 0 ~ 1 까지의 범위가 있으며, 0.1이하의 경우 우수한 경험을 제공한다고 판단한다. 
 
+위 `metric`들은 다음의 가중치(`weight`)를 가지고 평균점수 계산에 이용된다.
 
+<div style="width: 50%;margin-bottom: 15px; margin-left:auto; margin-right: auto; box-shadow: 1px 1px 5px grey">
+  <img src="./weight-img.png" />
+</div>
+<br/>
 
+그리고 각 취약점들에 대해 `Opportunities`, `Diagnostics` 결과를 제공해주어 개선이 될수 있는 방안을 추천해준다.
+<div style="width: 50%;margin-bottom: 15px; margin-left:auto; margin-right: auto; box-shadow: 1px 1px 5px grey">
+  <img src="./oppuanddia.png" />
+</div>
+<br/>
 
+성능 최적화를 하는 것은 개발자에게 항상 미뤄둔 숙제같은 느낌일 것이다. 우리는 항상 생각하고 개발을 진행해야한다.<span style="font-size: 11px">(하지만 물론 쉽진 않다..)</span>  
+그리고 이렇게 직접적인 지표를 개선하는 방법도 있겠지만, 좀더 `user-oriented`한 입장에서 `UIUX`적으로 풀어낸다던가, 아니면 구조적으로 `architecture`를 변경하는 방법도 있을 것이다.  
+하지만 결국 성능개선을 위한 노력은 미룰수 없다. 주기적으로 웹페이지를 점검해보고 현재 어떤 부분이 성능적으로 이슈가 되고 있는지 파악하는것이 그 시작이라고 생각한다. 오늘 당장 `Lighthouse`를 이용해 개선점을 찾아보도록 하자!
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://github.com/paulirish/speedline<br/>
+- https://developer.chrome.com/docs/lighthouse/overview/<br/>
+- https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk<br/>
+
 </div>
 
