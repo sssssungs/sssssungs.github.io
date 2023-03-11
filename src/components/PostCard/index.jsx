@@ -26,7 +26,7 @@ const PostCard = props => {
 			<div className={style.mrTp20}>
 				<p>
 					<span className={style.dateHolder}>
-						{frontmatter ? moment(frontmatter.date).format('MMM Do YYYY') : ''}
+						{frontmatter ? moment(frontmatter.date, 'YYYYMMDD').format('MMM Do YYYY') : ''}
 					</span>
 				</p>
 				<Link to={Utils.resolvePageUrl(frontmatter.path)}>
