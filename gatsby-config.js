@@ -9,7 +9,6 @@ const plugins = require('./gatsby-config.plugins');
 
 module.exports = {
 	pathPrefix: config.pathPrefix,
-	flags: { PRESERVE_WEBPACK_CACHE: true },
 	siteMetadata: {
 		// Data used by some gatsby plugins
 		siteUrl: config.siteUrl,
