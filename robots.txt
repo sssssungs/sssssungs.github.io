@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://sssssungs.github.io/sitemap/sitemap-index.xml
+Sitemap: https://sssssungs.github.io/sitemap.xml
 Host: https://sssssungs.github.io
