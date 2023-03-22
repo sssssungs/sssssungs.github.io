@@ -3,7 +3,7 @@ title: Do you know what the PROXY server is ?
 tags: [javascript, typescript, network, softwareDevelopment]
 date: 2023-03-13T17:32:32.226Z
 path: blog/proxy
-cover: ./img.png
+cover: ./mainimg.png
 excerpt: Don't send it to server directly! Please Hand it over to Proxy
 show: true
 ---
@@ -30,15 +30,26 @@ show: true
 
 표준 인터넷 통신에서는 `A`가 `C`에 direct연결이 되어 client는 원본 서버(`C`)에 요청을 보내며 원본 서버가 client에 응답하게 된다. `forward proxy`가 설정되면 `A`가 `C`에 바로 요청을 하는것이 아니라 `B`로 요청을 보내고 `B`가 그 요청을 `C`로 전달하며, 반대의 경우 역시 `C`에서 보낸 응답을 `B`가 `A`에게 전달한다.  
 그럼 `forward proxy`를 설정하는 이유는 무엇일까 
-1. <i>액세스 권한을 제한</i>  
+1. <ㅠ><i>액세스 권한을 제한</i>  
    일부 조직에서는 방화벽을 사용해서 사용자들에게 제한된 인터넷 액세스 권한을 부여한다. `forward proxy`를 통해 이를 1차적으로 제한할 수 있다. 예를 들어 학교에서 컨텐츠 필터링 규칙을 활성화 하는 프록시를 통해 웹에 연결한다면, facebook이나 기타 소셜 미디어 사이트의 응답 전달을 막을 수 있다.
 2. <i>온라인에서의 privacy 보호</i>  
    `forward proxy`를 통하게 되면 인터넷에 남게되는 `IP`주소의 출처가 proxy의 `IP`주소로 고정이 되기 때문에 추적을 막을 수 있다.
 
+### Reverse Proxy
+역방향 프록시는 하나 이상의 웹 서버 앞에 위치하여 client의 요청을 받는 서버이다. proxy가 client 앞에 위치하는 forward proxy와는 다르다. reverse proxy를 통해 어떤 client도 원본 서버와 직접 통신하지 못하도록 한다. 
 
+<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto; box-shadow: 1px 1px 5px grey">
+  <img src="./rproxy.png" />
+</div>
+<br/>
 
-
-
+일반적으로 `D`의 모든 요청은 `F`로 직접 이동하고, `F`는 `D`에게로 직접 응답을 보낸다. `reverse proxy`를 사용하면 `D`의 모든 요청이 `E`로 직접 이동하고, `E`는 요청을 `F`에게로 보내며 `F`로부터 응답을 받는다. `E`는 그런 다음 적절한 응답을 `D`에게 전달한다.
+1. <i>부하 분산</i>  
+   단일 원본 서버로 들어오는 트래픽을 서로 다른 서버 풀에 분산하도록 하는 솔루션을 제공할 수 있다.
+2. <i>공격에 대한 방어</i>  
+   원본 서버의 `IP` 주소를 공개하지 않기 때문에 공격자가 `DDoS`와 같은 표적 공격을 활용하기가 훨씬 더 어렵다.
+3. <i>캐싱</i>  
+   `reverse proxy`를 통해 원본 서버에서 받아온 응답을 캐싱할 수 있다.
 
 <br/>
 
