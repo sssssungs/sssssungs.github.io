@@ -16,7 +16,7 @@ show: true
   <img src="./simple-proxy.png" />
 </div>
 
-`proxy server`의 경우 그 위치에 따라 두가지 종류로 크게 나눌 수 있다.
+`proxy server`의 경우 네트워크 상 어디에 위치하냐느, 혹은 어느방향으로 데이터를 제공하냐에 따라 두가지 종류로 크게 나눌 수 있다.
 - Forward proxy
 - Reverse proxy
 
@@ -44,12 +44,20 @@ show: true
 <br/>
 
 일반적으로 `D`의 모든 요청은 `F`로 직접 이동하고, `F`는 `D`에게로 직접 응답을 보낸다. `reverse proxy`를 사용하면 `D`의 모든 요청이 `E`로 직접 이동하고, `E`는 요청을 `F`에게로 보내며 `F`로부터 응답을 받는다. `E`는 그런 다음 적절한 응답을 `D`에게 전달한다.
-1. 부하 분산  
+1. 부하 분산 (Load balancing)  
    단일 원본 서버로 들어오는 트래픽을 서로 다른 서버 풀에 분산하도록 하는 솔루션을 제공할 수 있다.
 2. 공격에 대한 방어  
    원본 서버의 `IP` 주소를 공개하지 않기 때문에 공격자가 `DDoS`와 같은 표적 공격을 활용하기가 훨씬 더 어렵다.
 3. 캐싱  
    `reverse proxy`를 통해 원본 서버에서 받아온 응답을 캐싱할 수 있다.
+
+<br/>
+
+### 정리
+- `Forward proxy`는 내부망에서 클라이언트로 `proxy server`가 통신하여 인터넷을 통해 외부에서 데이터를 가져온다
+- `Reverse proxy`는 내부망에서 `proxy server`와 내부망 서버가 통신하여 인터넷을 통해 요청이 들어오면 `proxy server`가 받아 응답해준다
+- `Forward proxy`는 직접 서버 url로 요청을 보내지만, `Reverse proxy`는 `proxy server url`로만 접근이 가능하다. 이로서 `reverse proxy`는 본 서버의 `IP` 정보를 숨길 수 있는 효과를 얻게 된다
+- `Forward proxy`는 내부망에서 인터넷 상에 있는 서버에 요청할 때 먼저 `forward proxy` 서버를 호출하고 `proxy`가 서버에게 요청을 보내게 되는데, 이로서 서버에게 클라이언트가 누구인지 감출 수 있다. 즉, 서버 입장에서 응답받은 `IP`는 `forward proxy`의 `IP`이기 때문에 클라이언트가 누군지 알 수 없다
 
 <br/>
 <br/>
