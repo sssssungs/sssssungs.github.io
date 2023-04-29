@@ -10,7 +10,7 @@
 /static/72dcb482326d4644930ed5dc28eb3c74/de221/img.png 725w" src="/static/72dcb482326d4644930ed5dc28eb3c74/de221/img.png" alt="Performance optimization tips from my experiences" title="This and that about performance optimization" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p>웹성능 개선을 위한 이것저것/여러가지 방법을 작성해보려고 한다. 개인적으로 공부하는 내용이라 두서가 없을 수 있으니 주의!</p>
 <h3>Bundle analyzer</h3>
 <p><code class="language-text">bundle</code>된 <code class="language-text">JS</code> 파일이 어떤 코드들로 어느정도의 크기를 가지고 있는지 가시화 하여 보여주는것이 바로 <code class="language-text">bundle-analyzer</code>이다. <code class="language-text">NEXTJS</code>를 사용한 경우 <a href="https://www.npmjs.com/package/@next/bundle-analyzer"  target='_blank' rel='noopener noreferer'>@next/bundle-analyzer</a>를, <code class="language-text">CRA</code>(<code class="language-text">create-react-app</code>)을 사용한 경우에는 <a href="https://www.npmjs.com/package/cra-bundle-analyzer"  target='_blank' rel='noopener noreferer'>cra-bundle-analyzer</a>를 세팅하면 된다. bundle analyzer를 실행하면 아래 사진처럼 JS 코드가 어떻게 구성되어 있는지 보여준다. 그 크기가 클수록 큰 용량을 차지한다. </p>
-<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto; box-shadow: 1px 1px 5px grey">
+<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto; box-shadow: 1px 1px 5px grey">
   <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 671px;">
       <span class="gatsby-resp-image-background-image" style="padding-bottom: 55.60000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAADCUlEQVQozx2SWVOaBxRA+Smd/ou+5SWt9iEzTTttpmlmOlqbWrs91BlrlzGakIVgdEqKu4hFFEXFIGXHFiWCJmGRgB8CAh/IYiMQlWgzc/q1T/ftzD33XFnUqyVuv0Xe14+4oSTjvU92XUl+U8mBw05swkVa5yGlTxBXJYiN53AqRTz3D5jpOWL4mzqTvQ16vzxhVv0a2WFAQdHWStLcTni+jbChhbytnbLrOqJ9GWHUTeQHLcJElGhPgkBPDEufiKE9w+i3h/ReqqHoqNLWXEfZfYLs5Z6ZWmSKil/azPoFOUsrhdVrFN1fIzofIUy6EQZMRE07bM9E8RvSmNQpFgYyqORler4rcbuvQctn59xRnknApINq1PA/sLTWSdH6KYnFj0kvvU/6rzmeLtoITOrYcUbxaSJsGFOYZ/LoVVlGh6r8+P3f3FaccvXzf7iheIWs8nyFfGCc9JqcfddPiNbrJI0fIOibyPjnCf/h4fHIJAFPEIf5GQ5LginNHoMDAvdURdq7CnTerdPcdkxX/zGyWmyGo/Uu6W4dxOfeI7lwmeziJcSFt0kH53gSWsO/tUhwJ4bNHsTijjPrTKJZzqI1l7k59gK59pSv+hvc+72B7GDzAQnjJxQtV8nMv0Nq9iLZ+SaKy02I8RUiwgY+n46NnTCmJyFMgRjqlSgjrhxDzgrKR1VuGY/p1p0y7DiXKj/uI7tyBVEK8d/MmS6TmbtAQvMW21tjmKLL6J+N4U2FWY1FWIruognsoX2a5+FmhX5vHcWfZ3Sbz5kKSG+Tdf2Me/Aiu7Mfsq9vJqu7wLbiDfx33yS0rcW0a+KhT45518eopD+diKBNSLrJEr89f8F47ARr+gxP5pxQQaqcijxgy9lKaK2DkP0aQetHWKffxbd0BZswjEpQo9obRL/vYUhwMVOQdMV91IUSv+bqjItnBMsvKRmmqIkZZKFTLd7jG3hqv+A46sZ90oX7VSfGUgurBxOMJTXI0zeZzjq5k1xFVQgwUkkxUpWA9QYT1df4yzVE3zqVyiH/AmIms26ogPQtAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
   <img class="gatsby-resp-image-image" alt="bundera" title="bundera" src="/static/e5939397831b0d515926aaee6931d3f3/af2a3/bundera.png" srcset="/static/e5939397831b0d515926aaee6931d3f3/3e256/bundera.png 250w,
@@ -19,7 +19,7 @@
     </span>
 </div>
 <h3>Image size optimization with CDN</h3>
-<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto; box-shadow: 1px 1px 5px grey">
+<div style="width: 60%;margin-bottom: 15px; margin-left:auto; margin-right: auto; box-shadow: 1px 1px 5px grey">
   <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1000px;">
       <span class="gatsby-resp-image-background-image" style="padding-bottom: 63.2%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADB0lEQVQ4yy2TSXPiVhSF9bOz731XdVVX0otOZ1rYlZTbSdkmYTaTETZIgGZZIECAQAgxuZNsUl+uSRYqHu89nXu/c66UziylNVqjLrZUxxu09YFct0/envKHv6EUJGjxjv56RzXcUAtXFO0xD1HG0yKlEsTcGBE3w5BmtEYZWjPa7WfK9oJesqc53fCpqvFzL+TaWNKYpBibA1Z6pDHNuNJG5Ls6zuEvSn7Et/kmP9WHfCrmKXomijnboFpzGmFCXwTzfkzOXVGWrquyZ6UHgu2esTx29kLFnfAQhKizNT+U21TGiXSW8bBcUpuOUazshH/6k84ioyIiAxGtzzPc3QtqlNJfpjSNgIJq058J/jTmSjXRZD8/8NHFIlc06uMVdw+PKN56jzWJ6cdbLEHz9i90TA9zvMCUi2GyZeTPaVsOg3GIlsR04xVeeqK3WuLsDjjZkarjUvMclChYMPzwmadRJAcneV64vMnRccf44pO7zshWWyZrKbCKqI/qlLxH6qbPReGGi2JOxAwufr+lHYYorqTb1T30RcIwOUhy23MIA1l3xYahpGume3wppK32YoOPOp3wKHZokfjnPNOVX13OTKFVyk7Iu7smxU6Xgmbz7rZNsVGj3L7n66LGr4UqujnCSTPe37b4vnzPvT7gY6nHd4V7OlqVHytPfJOrUG2pKHq04vJepeEGDBZrfmn2qNkBQ1l/VodSxBCxPZ6knO/b5HQHYx5TNAN+6+iYcULNGXHV0hgsExRD0F5R3e1JQhG0w5dzwrbM3Wso/STDTF6RT2dk5/97weFvJqd/5P8LluwZm0xs2glyIF2p0lG0pCto9jTBCGPp6sjAepZ0PYYi4EiqH9s+D7O5fB02+bnBe/uS4ux1hJYyj7YU3KI0R0vu+oEM8J5BWRDuHrHr1tngljcV/FA6OGJJ9WvNx1ofufZbvOm85Sv1DaXI4mmeUhDL+kKgvHLrs8UZxZSXniYzzM1/aINYvm3p3JWE7c1Ohjo637HlrBfKWoTc7IsU2dGdRGeb/gWOU5Kr8gmvnwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
   <img class="gatsby-resp-image-image" alt="cdn" title="cdn" src="/static/f2eb82c0df1eb77206986fca8ca5f792/332ff/cdn.png" srcset="/static/f2eb82c0df1eb77206986fca8ca5f792/3e256/cdn.png 250w,
@@ -53,9 +53,27 @@
   <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>만약 항목의 순서가 바뀔 수 있는 경우, <code class="language-text">key</code>에 <code class="language-text">index</code>를 사용하는것은 권장하지 않는다. 성능이 저하되거나 <code class="language-text">component</code>의 <code class="language-text">state</code>와 관련된 문제가 발생 할 수 있기 때문이다. 이 <a href='https://robinpokorny.medium.com/index-as-a-key-is-an-anti-pattern-e0349aece318' target='_blank' rel='noopener noreferer'>포스팅</a>에서 자세히 설명되어 있다. <code class="language-text">component</code>는 <code class="language-text">key</code>를 보고 갱신되고 재사용된다. <code class="language-text">index</code>를 사용했다면 항목의 순서가 바뀌었을 경우 <code class="language-text">key</code>또한 바뀌었을 거고 이는 <code class="language-text">state</code>에 영향을 줄 수 있다. 하지만 배열의 항목들이 <code class="language-text">static</code>하여 변경되지 않는 단순 반복의 경우에는 <code class="language-text">index</code>를 <code class="language-text">key</code>로 사용해도 문제가 발생할 확률이 낮다. </p>
+<h3>Animation optimization</h3>
+<p><code class="language-text">will-change</code> 속성은 요소에 예상되는 변화의 종류에 관한 힌트를 브라우저에 제공한다.  그래서 요소가 변화되기 전에 미리 브라우저는 적절하게 최적화할 수 있다.<br>
+<br/>
+<code class="language-text">animation</code>을 구현할때 javascript code를 이용할 수도 있지만 <code class="language-text">css</code>를 이용해서도 훌륭한 <code class="language-text">animation</code>을 구현할 수 있다. 하지만 animation 처럼 움직임이 발생하는 경우 그에 따른 연산동작도 꽤나 많은 부하가 필요하고 적절히 효율적인 코드로 작성하는것이 반드시 필요하다.<br>
+일반적으로 <code class="language-text">animation</code>을 구현하게 되면 다음과 같은 흐름으로 동작하게 된다.</p>
+<ol>
+<li><em>Recalculate</em> (<code class="language-text">element</code>에 <code class="language-text">style</code>이 적용될 경우 발생)</li>
+<li><em>Reflow</em> (적용된 <code class="language-text">style</code>에 의해 위치나 크기가 변경되어 계산이 필요한 경우 발생 : <b>CPU</b>를 이용하여 수행)</li>
+<li><em>Repaint</em> (<code class="language-text">element</code>가 화면에 다시 그려져야 할 경우 발생)  </li>
+</ol>
+<p>하지만 <b>GPU</b>를 사용하는 option을 사용할 경우에는 다음과 같은 흐름으로 동작한다.</p>
+<ol>
+<li><em>Recalculate</em></li>
+<li><em>Composite</em> layer (Render layer를 계산하고 합성 : GPU를 이용하여 수행)</li>
+</ol>
+<p><b>GPU</b>를 통해 <code class="language-text">animation</code>을 수행한다는 것은 기하구조를 계산하고 그려주는 <code class="language-text">reflow</code>/<code class="language-text">repaint</code> 동작을 <strong>CPU</strong>에서 거칠 필요가 없다는 뜻이다. 대표적으로 <strong>GPU</strong>를 사용하는 css option은 <code class="language-text">transform</code>과 <code class="language-text">opacity</code>가 있다. 효율적인 <code class="language-text">animation</code>을 구현하기 위해 이 <code class="language-text">top</code>/<code class="language-text">left</code>, <code class="language-text">display</code>를 사용하기보다 이 두가지를 적극적으로 활용하도록 하자. </p>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
-- https://robinpokorny.medium.com/index-as-a-key-is-an-anti-pattern-e0349aece318
+- https://robinpokorny.medium.com/index-as-a-key-is-an-anti-pattern-e0349aece318<br/>
+- https://developer.mozilla.org/en-US/docs/Web/Performance/CSS_JavaScript_animation_performance#running_the_performance_test<br/>  
+- https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/
 </div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
