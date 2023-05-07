@@ -1,5 +1,5 @@
 ---
-title: Zustand, a small, fast and saleable state manager 
+title: Zustand, small and fast and scaleable state manager 
 tags: [javascript, typescript, react, html, css, nextjs]
 date: 2023-05-07T15:38:32.226Z
 path: blog/zustand
