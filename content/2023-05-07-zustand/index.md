@@ -27,6 +27,7 @@ show: true
 `store`를 만들때는 `create` 함수를 이용하여 `state`와 `action`을 정희할 수 있다. 그러면 `hook`을 `return`하는 형태이다.
 ```typescript
 import { create } from "zustand";
+
 export const useBookStore = create(
     (set) => ({
         amount: 30,
@@ -40,7 +41,8 @@ export const useBookStore = create(
 ```
 `component`단에서 `state`를 꺼내기 위해서는 `selector`를 전달해주어야한다. 그렇지 않으면 `store` 전체를 `return` 하게된다.
 ```typescript
-import useBookStore from './bookStore'
+import useBookStore from './bookStore';
+
 const BookShelf = () => {
     const amount = useBookStore(state => state.amount);
     const { addAmount } = useBookActions(state => state.actions);
@@ -51,4 +53,14 @@ const BookShelf = () => {
         </>
     )
 };
+```
+`selector`에서 `object`를 반환하려는 경우, `shallow compare`를 사용하여 `re-render`를 줄이도록 `option`을 넣어줄 수 있다 (최적화 기능)
+```typescript
+import { shallow } from 'zustand/shallow';
+
+// only re-renders when either amount or title changes
+const { amount, title } = useBookStore(
+  (state) => ({ amount: state.amount, title: state.title }),
+  shallow
+);
 ```
