@@ -16,12 +16,22 @@ show: true
 </div>
 
 
-그 중 하나가 오늘 소개할 `Zustand`이다. <a href='https://github.com/pmndrs/zustand' target="_blank" rel="noopener noreferrer">`Zustand`</a>는 `global state`를 저장하고 `select`하는 간단한 `api`를 제공하는 `library`이다. 가볍고 쉽게 사용할 수 있는 _**`state manager`**_ 라고 할수 있겠다. <span style='font-size:10px'>(개인적으로는 `useReducer`를 뚝 떼어논 형태라고 생각한다)</span>  
+
+
+
+그 중 하나가 오늘 소개할 `Zustand`이다. <a href='https://github.com/pmndrs/zustand' target="_blank" rel="noopener noreferrer">`Zustand`</a>는 `global state`를 저장하고 `select`하는 간단한 `api`를 제공하는 `library`이다. 가볍고 쉽게 사용할 수 있는 _**`state manager`**_ 라고 할수 있겠다. <span style='font-size:10px'>(개인적으로는 `useReducer`를 뚝 떼어논 형태라고 생각한다)</span>
+
+<div style="width: 90%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
+    <img src="statistics.png" />
+    <div style="font-size:13px;color:#8b9196;display:flex;justify-content:center;margin-top:7px;">redux를 제외한 신규 라이브러리 중 가장 성장속도가 빠르다 </div>
+</div>
+
 `Zustand`는 다양한 `library`와 결합해서 사용할 수 있다. `immutable`한 변화를 쉽게 컨트롤하기 위해 <a href='https://github.com/pmndrs/zustand/tree/2b29d736841dc7b3fd7dec8cbfea50fee7295974#sick-of-reducers-and-changing-nested-state-use-immer' target="_blank" rel="noopener noreferrer">immer</a>와 함께 사용할 수도 있고, 다양한 <a href='https://github.com/pmndrs/zustand/tree/2b29d736841dc7b3fd7dec8cbfea50fee7295974#middleware' target="_blank" rel="noopener noreferrer">middleware</a>를 제공해주어 편의를 제공한다. 다음은 zustand의 몇가지 장점이다.
 - 특정 `library`에 엮이지 않고 다양한 `library`를 결합해 사용할 수 있다.
 - 하나의 중앙 `store`를 만들어 사용하면서, `state`를 정의/사용하는것이 단순하다.
 - 동작을 이해하기 위해 알아야 하는 코드량이 매우 적다.
 - `rendering optimization`을 하기가 쉽다
+- `<Provider />`로 감싸주지 않고 독립적으로 사용이 가능하다
 
 ### How to use the Zustand?
 `store`를 만들때는 `create` 함수를 이용하여 `state`와 `action`을 정희할 수 있다. 그러면 `hook`을 `return`하는 형태이다.
@@ -39,7 +49,8 @@ export const useBookStore = create(
     })
 );
 ```
-`component`단에서 `state`를 꺼내기 위해서는 `selector`를 전달해주어야한다. 그렇지 않으면 `store` 전체를 `return` 하게된다.
+
+`component`단에서 `state`를 꺼내기 위해서는 `selector`를 전달해주어야한다. `selector`를 명시하지 않으면 `store` 전체를 `return` 하게된다.
 ```typescript
 import useBookStore from './bookStore';
 
@@ -54,6 +65,7 @@ const BookShelf = () => {
     )
 };
 ```
+
 `selector`에서 `object`를 반환하려는 경우, `shallow compare`를 사용하여 `re-render`를 줄이도록 `option`을 넣어줄 수 있다 (최적화 기능)
 ```typescript
 import { shallow } from 'zustand/shallow';
@@ -62,5 +74,30 @@ import { shallow } from 'zustand/shallow';
 const { amount, title } = useBookStore(
   (state) => ({ amount: state.amount, title: state.title }),
   shallow
+);
+```
+
+다양한 `middleware`를 손쉽게 적용할 수 있다. 특히 `react`와는 뗄수없는 `immer`, `devtool`을 사용하는 방법은 다음과 같이 간단하다.
+```typescript
+import { immer } from "zustand/middleware/immer"; // npm install immer 필요
+import { devtools } from "zustand/middleware";
+
+const useBookStore = create(
+  subscribeWithSelector(
+    devtools( // devtool 적용 
+      immer((set) => ({ // immer 적용 
+        amount: 30,
+        title: "Alice wonderland",
+        actions: {
+          addAmount: (value: number) =>
+            set((state) => ({ amount: state.amount + value })),
+          subAmount: (value: number) =>
+            set((state) => ({ amount: state.amount - value })),
+          changeTitle: (value: string) =>
+            set((state) => ({ title: state.title + value })),
+        },
+      }))
+    )
+  )
 );
 ```
