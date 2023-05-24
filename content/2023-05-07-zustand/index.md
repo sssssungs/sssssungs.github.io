@@ -77,13 +77,12 @@ const { amount, title } = useBookStore(
 );
 ```
 
-다양한 `middleware`를 손쉽게 적용할 수 있다. 특히 `react`와는 뗄수없는 `immer`, `devtool`을 사용하는 방법은 다음과 같이 간단하다.
+다양한 `middleware`를 손쉽게 적용할 수 있다. 특히 `react`와는 뗄수없는 `immer`, `devtool`을 사용하는 방법은 다음과 같이 간단하다. (`local storage`, `session storage`를 지원하는 `middleware`도 손쉽게 사용가능하다)
 ```typescript
 import { immer } from "zustand/middleware/immer"; // npm install immer 필요
 import { devtools } from "zustand/middleware";
 
 const useBookStore = create(
-  subscribeWithSelector(
     devtools( // devtool 적용 
       immer((set) => ({ // immer 적용 
         amount: 30,
@@ -98,6 +97,19 @@ const useBookStore = create(
         },
       }))
     )
-  )
 );
 ```
+
+`Zustand`는 `Context API` 사용을 지양하고 `closure`를 활용하여 `store` 내부상태를 관리한다. 따라서 `zustand store hook`을 호출하여 리턴된 `useHook`을 어느 컴포넌트에서 사용하더라도 같은 `store`를 바라보게 된다.
+
+
+
+
+
+<br/>
+<div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
+- https://blog.axlight.com/posts/steps-to-develop-global-state-for-react/<br/>
+- https://github.com/pmndrs/zustand<br/>  
+- https://ui.toast.com/posts/ko_20210812
+</div>
+
