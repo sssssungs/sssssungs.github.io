@@ -100,8 +100,8 @@ const useBookStore = create(
 );
 ```
 
-`Zustand`는 `Context API` 사용을 지양하고 `closure`를 활용하여 `store` 내부상태를 관리한다. 따라서 `zustand store hook`을 호출하여 리턴된 `useHook`을 어느 컴포넌트에서 사용하더라도 같은 `store`를 바라보게 된다.
-
+`Zustand`는 `Context API` 사용을 지양하고 `closure`를 활용하여 `store` 내부상태를 관리한다. (<i>`closure`는 간단히 말해서 함수가 선언될 당시의 주변 환경을 기억하는 것이다 <a href='https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures' target="_blank" rel="noopener noreferrer">참고</a></i>). 따라서 `zustand store hook`을 호출하여 리턴된 `useHook`을 어느 컴포넌트에서 사용하더라도 같은 `store`를 바라보게 된다.<br/>
+`store`를 생성하는 함수를 호출할때 `closure`를 활용하기 때문에 상태의 변경, 조회, 구독등의 `interface`를 통해서 `store`를 다루고 실제 상태는 의도치 않게 변경되는 것을 막을 수 있다. 
 
 
 
@@ -110,6 +110,7 @@ const useBookStore = create(
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://blog.axlight.com/posts/steps-to-develop-global-state-for-react/<br/>
 - https://github.com/pmndrs/zustand<br/>  
-- https://ui.toast.com/posts/ko_20210812
+- https://ui.toast.com/posts/ko_20210812<br/>
+- https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures
 </div>
 
