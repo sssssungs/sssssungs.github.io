@@ -78,7 +78,7 @@ const Career = () => (
 					<div className={style.flagWrapper}>
 						<span className={style.flag}>CLO Virtual Fashion</span>
 						<span className={style.timeWrapper}>
-							<span className={style.time}>2020.08 - present</span>
+							<span className={style.time}>2020.08 - <i>present</i></span>
 						</span>
 					</div>
 					<div className={style.desc}>
@@ -97,6 +97,8 @@ const Career = () => (
 							Cloud PLM (Product lifecycle management) platform for fashion industry focusing on
 							communication and decision making, management.
 						</p>
+						<span>• Refactored annotation features</span><br/>
+						<span>• Developed history of billing for advanced paid plan</span><br/><br/>
 						<p>
 							✔️{' '}
 							<b>
@@ -110,7 +112,13 @@ const Career = () => (
 							CLO-SET CONNECT is a global community for fashion creators to empower their digital
 							assets through open marketplace, portfolio management tools, and networking solutions.
 						</p>
-						<p>✔️ Developing Design system and back office admin for CLO-SET & CONNECT</p>
+						<span>• Developed store and creator page with category filter syncing url query param to maintain selected data</span><br/>
+						<span>• Upgraded payment system with Stripe and Paypal SDK</span><br/>
+						<span>• Refactored the fabric categories</span><br/>
+						<span>• Optimized web-based service to mobile web design</span><br/>
+						<span>• Developed the notification system using web socket api</span><br/><br/>
+						<p>✔️ Developing Design system </p>
+						<p>✔️ Back office admin for CLO-SET & CONNECT</p>
 					</div>
 				</div>
 			</li>

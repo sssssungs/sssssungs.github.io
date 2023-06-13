@@ -1,8 +1,8 @@
 module.exports = {
 	siteUrl: 'https://sssssungs.github.io',
-	siteTitle: 'Sungsik R. Won',
+	siteTitle: `Sungsik Won :-)`,
 	siteDescription: 'Frontend Engineer',
-	author: 'Rolwin Reevan',
+	author: '',
 	postsForArchivePage: 3,
 	defaultLanguage: 'en',
 	pages: {
