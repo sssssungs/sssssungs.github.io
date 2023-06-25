@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './about.module.less';
 
-const AboutTile = async props => {
+const AboutTile = props => {
 	const { img, textH4, textH3, alt, height, width } = props;
 	return (
 		<div className={style.aboutTile}>
