@@ -17,7 +17,7 @@ Error: Do not use img. Use Image from 'next/image' instead. See https://nextjs.o
 <li><code class="language-text">image</code>가 <code class="language-text">viewport</code>에 들어갈때만 <code class="language-text">load</code> 되도록하며 <code class="language-text">placeholder</code>를 제공 </li>
 </ul>
 <h3>How to use</h3>
-<p><code class="language-text">next/image</code>의  사용법은 아래와 같다</p>
+<p><code class="language-text">next/image</code>의 사용법은 아래와 같다</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> Image <span class="token keyword">from</span> <span class="token string">'next/image'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">Photo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
@@ -27,7 +27,21 @@ Error: Do not use img. Use Image from 'next/image' instead. See https://nextjs.o
       <span class="token operator">/</span><span class="token operator">></span>
   <span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p><code class="language-text">next/image</code>는 정적이미지의 경우 <code class="language-text">width</code>, <code class="language-text">height</code>, <code class="language-text">blurDataURL</code>이 자동으로 생성된다 </p></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
+<p><code class="language-text">next/image</code>는 정적이미지의 경우 <code class="language-text">width</code>, <code class="language-text">height</code>, <code class="language-text">blurDataURL</code>이 자동으로 생성된다. 원격저장소에 저장되어 있는 이미지를 사용할 경우 <code class="language-text">width</code>, <code class="language-text">height</code>를 필수적으로 입력해주어야 한다. 정적이미지의 경우 <code class="language-text">build</code>시 <code class="language-text">width</code>, <code class="language-text">height</code>를 계산할 수 있으나 그렇지 않는 경우는 불가능하기 때문이다.</p>
+<h3>Props</h3>
+<p><em>Required props</em></p>
+<ol>
+<li>src<br>
+• 정적이미지<br>
+• 외부 url (보안을 위해 <code class="language-text">next.config.js</code>에 <code class="language-text">domain</code> 설정 필요)  </li>
+<li>width &#x26; height<br>
+• <code class="language-text">layout</code>이 <code class="language-text">fill</code> 또는 정적이미지가 아닌 경우를 제외하고는 모두 필수로 명시해주어야 한다  </li>
+</ol>
+<p><em>Optional props</em></p>
+<ol>
+<li>layout<br>
+• <code class="language-text">viewport</code>를 기준으로 이미지의 <code class="language-text">size</code>를 지정한다 </li>
+</ol></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
     );
