@@ -23,7 +23,7 @@ Error: Do not use img. Use Image from 'next/image' instead. See https://nextjs.o
 
 
 ### How to use
-`next/image`의  사용법은 아래와 같다
+`next/image`의 사용법은 아래와 같다
 ```javascript
 import Image from 'next/image';
 const Photo = () => {
@@ -36,4 +36,17 @@ const Photo = () => {
 }
 ```
 
-`next/image`는 정적이미지의 경우 `width`, `height`, `blurDataURL`이 자동으로 생성된다 
+`next/image`는 정적이미지의 경우 `width`, `height`, `blurDataURL`이 자동으로 생성된다. 원격저장소에 저장되어 있는 이미지를 사용할 경우 `width`, `height`를 필수적으로 입력해주어야 한다. 정적이미지의 경우 `build`시 `width`, `height`를 계산할 수 있으나 그렇지 않는 경우는 불가능하기 때문이다.
+
+### Props
+_Required props_
+1. src  
+   • 정적이미지  
+   • 외부 url (보안을 위해 `next.config.js`에 `domain` 설정 필요)  
+2. width & height  
+   • `layout`이 `fill` 또는 정적이미지가 아닌 경우를 제외하고는 모두 필수로 명시해주어야 한다  
+
+
+_Optional props_
+1. layout  
+   • `viewport`를 기준으로 이미지의 `size`를 지정한다 
