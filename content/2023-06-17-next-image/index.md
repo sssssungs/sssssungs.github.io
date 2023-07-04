@@ -45,8 +45,31 @@ _Required props_
    • 외부 url (보안을 위해 `next.config.js`에 `domain` 설정 필요)  
 2. width & height  
    • `layout`이 `fill` 또는 정적이미지가 아닌 경우를 제외하고는 모두 필수로 명시해주어야 한다  
-
+3. alt  
+   • 웹 접근성(screen reader)을 위해서 명시 필요
 
 _Optional props_
-1. layout  
-   • `viewport`를 기준으로 이미지의 `size`를 지정한다 
+1. loader  
+   • `src`, `width`, `quality` 등의 parameter를 활용해서 image URL을 받아오도록 _customize_ 할수 있다  
+
+```javascript
+const imageLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+}
+ 
+export default function Page() {
+  return (
+    <Image
+      loader={imageLoader}
+      src="me.png"
+      alt="Picture of the author"
+      width={500}
+      height={500}
+    />
+  )
+}
+```
+
+2. wip
+
+     
