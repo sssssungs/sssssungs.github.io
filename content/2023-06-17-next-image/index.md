@@ -39,18 +39,24 @@ const Photo = () => {
 `next/image`는 정적이미지의 경우 `width`, `height`, `blurDataURL`이 자동으로 생성된다. 원격저장소에 저장되어 있는 이미지를 사용할 경우 `width`, `height`를 필수적으로 입력해주어야 한다. 정적이미지의 경우 `build`시 `width`, `height`를 계산할 수 있으나 그렇지 않는 경우는 불가능하기 때문이다.
 
 ### Props
-_Required props_
-1. src  
-   • 정적이미지  
-   • 외부 url (보안을 위해 `next.config.js`에 `domain` 설정 필요)  
-2. width & height  
-   • `layout`이 `fill` 또는 정적이미지가 아닌 경우를 제외하고는 모두 필수로 명시해주어야 한다  
-3. alt  
-   • 웹 접근성(screen reader)을 위해서 명시 필요
+_Required props_  
 
-_Optional props_
-1. loader  
-   • `src`, `width`, `quality` 등의 parameter를 활용해서 image URL을 받아오도록 _customize_ 할수 있다  
+➣ src  
+ㅤ• 정적 이미지 위치 입력  
+ㅤ• 외부 url (보안을 위해 `next.config.js`에 `domain` 설정 필요)
+   <br/>
+
+➣ width & height  
+ㅤ• `layout`이 `fill` 또는 정적이미지가 아닌 경우를 제외하고는 모두 필수로 명시해주어야 한다
+   <br/>
+
+➣ alt  
+ㅤ• 웹 접근성(screen reader)을 위해서 명시 필요
+
+_Optional props_  
+
+➣ loader  
+ㅤ• `src`, `width`, `quality` 등의 parameter를 활용해서 image URL을 받아오도록 _customize_ 할수 있다  
 
 ```javascript
 const imageLoader = ({ src, width, quality }) => {
@@ -70,6 +76,23 @@ export default function Page() {
 }
 ```
 
-2. wip
+➣ placeholder  
+ㅤ• `image`가 로딩되기 전에 페이지에서 그만큼의 자리를 어떻게 `display`할지에 관한 속성이다.  
+ㅤ• `blur`, `empty`로 지정할 수 있으며, `blur`로 지정하면 `image`가 로드되기 전에 `blur`처리한 화면이 보이고, 완전히 로드되면 `image`가 나타난다. 정적이미지의 경우 자동으로 `blurDataURL`(블러이미지)을 생성해 준다.
+<br/><br/>
 
-     
+➣ priority  
+ㅤ• `image`를 미리 렌더링 되도록 하는 옵션이다. 가장 처음 노출되는 `image`에는 이 속성을 `true`로 설정하여 미리 렌더링 하는것이 유리하다.
+<br/><br/>
+
+➣ quailty  
+ㅤ• `1`에서 `100`까지 숫자로 지정하며 `100`이 최고 품질이다. 기본값은 `75`
+
+
+
+
+<br/>
+<div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
+- https://nextjs.org/docs/pages/api-reference/components/image<br/>
+</div>
+
