@@ -87,6 +87,13 @@ export default function Page() {
 
 ➣ quailty  
 ㅤ• `1`에서 `100`까지 숫자로 지정하며 `100`이 최고 품질이다. 기본값은 `75`
+<br/><br/>
+
+➣ sizes  
+ㅤ• <a href='https://web.dev/cls/' target="_blank" rel="noopener noreferrer">CLS(Cummulative layout shift)</a> 현상을 방지하기 위해서는 `image size`를 `viewport`에 맞게 `load`해야한다. 이때 사용되는 옵션이고, 브라우저가 `page load`시에 `layout`에 대해 해치지 않는 선에서 `load`를 실행하게 된다.   
+ㅤ✷ 참고로 `next/image`에서는 <a href='https://ahrefs.com/seo/glossary/srcset' target="_blank" rel="noopener noreferrer">srcset</a>(viewport widths에 따라 load될 image 후보들을 설정하는 CSS 속성) `attribute`를 자동으로 설정해 `load`될 `image` 후보들중 알맞은 `viewport width`의 `image`를 로드한다. 이때 `next.config.js` 내부에 설정된 `deviceSizes`(device breakpoint), `imageSizes`(image width)를 사용하게 된다. 
+
+
 
 
 
@@ -94,5 +101,7 @@ export default function Page() {
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://nextjs.org/docs/pages/api-reference/components/image<br/>
+- https://web.dev/cls<br/>
+- https://ahrefs.com/seo/glossary/srcset<br/>
 </div>
 
