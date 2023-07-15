@@ -65,10 +65,16 @@ Error: Do not use img. Use Image from 'next/image' instead. See https://nextjs.o
 ㅤ• <code class="language-text">image</code>를 미리 렌더링 되도록 하는 옵션이다. 가장 처음 노출되는 <code class="language-text">image</code>에는 이 속성을 <code class="language-text">true</code>로 설정하여 미리 렌더링 하는것이 유리하다.
 <br/><br/></p>
 <p>➣ quailty<br>
-ㅤ• <code class="language-text">1</code>에서 <code class="language-text">100</code>까지 숫자로 지정하며 <code class="language-text">100</code>이 최고 품질이다. 기본값은 <code class="language-text">75</code></p>
+ㅤ• <code class="language-text">1</code>에서 <code class="language-text">100</code>까지 숫자로 지정하며 <code class="language-text">100</code>이 최고 품질이다. 기본값은 <code class="language-text">75</code>
+<br/><br/></p>
+<p>➣ sizes<br>
+ㅤ• <a href='https://web.dev/cls/' target="_blank" rel="noopener noreferrer">CLS(Cummulative layout shift)</a> 현상을 방지하기 위해서는 <code class="language-text">image size</code>를 <code class="language-text">viewport</code>에 맞게 <code class="language-text">load</code>해야한다. 이때 사용되는 옵션이고, 브라우저가 <code class="language-text">page load</code>시에 <code class="language-text">layout</code>에 대해 해치지 않는 선에서 <code class="language-text">load</code>를 실행하게 된다.<br>
+ㅤ✷ 참고로 <code class="language-text">next/image</code>에서는 <a href='https://ahrefs.com/seo/glossary/srcset' target="_blank" rel="noopener noreferrer">srcset</a>(viewport widths에 따라 load될 image 후보들을 설정하는 CSS 속성) <code class="language-text">attribute</code>를 자동으로 설정해 <code class="language-text">load</code>될 <code class="language-text">image</code> 후보들중 알맞은 <code class="language-text">viewport width</code>의 <code class="language-text">image</code>를 로드한다. 이때 <code class="language-text">next.config.js</code> 내부에 설정된 <code class="language-text">deviceSizes</code>(device breakpoint), <code class="language-text">imageSizes</code>(image width)를 사용하게 된다. </p>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://nextjs.org/docs/pages/api-reference/components/image<br/>
+- https://web.dev/cls<br/>
+- https://ahrefs.com/seo/glossary/srcset<br/>
 </div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
