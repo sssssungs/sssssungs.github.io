@@ -19,7 +19,8 @@ Error: Do not use img. Use Image from 'next/image' instead. See https://nextjs.o
 `Nextjs`에서 제공하는 `Image component`는 _**version 10**_ 부터 등장했으며 그 기능을 요약하자면 다음과 같다. 
 - 최신 `image format`으로 여러 `device`를 대응하여 적절한 `image size` 제공
 - `layout shift` 방지 
-- `image`가 `viewport`에 들어갈때만 `load` 되도록하며 `placeholder`를 제공 
+- `image`가 `viewport`에 들어갈때만 `load` 되도록하며 `placeholder`를 제공
+- `image`를 `webp`와 같은 용량이 작은 포맷으로 변환제공 
 
 
 ### How to use
@@ -79,6 +80,14 @@ export default function Page() {
 ➣ placeholder  
 ㅤ• `image`가 로딩되기 전에 페이지에서 그만큼의 자리를 어떻게 `display`할지에 관한 속성이다.  
 ㅤ• `blur`, `empty`로 지정할 수 있으며, `blur`로 지정하면 `image`가 로드되기 전에 `blur`처리한 화면이 보이고, 완전히 로드되면 `image`가 나타난다. 정적이미지의 경우 자동으로 `blurDataURL`(블러이미지)을 생성해 준다.
+
+<div class='cypress-gif'>
+
+![blur-example](./capture.gif)
+<div class='caption2'>정적이미지는 blur image를 자동 생성</div>
+</div>
+
+
 <br/><br/>
 
 ➣ priority  
@@ -91,16 +100,13 @@ export default function Page() {
 
 ➣ sizes  
 ㅤ• <a href='https://web.dev/cls/' target="_blank" rel="noopener noreferrer">CLS(Cummulative layout shift)</a> 현상을 방지하기 위해서는 `image size`를 `viewport`에 맞게 `load`해야한다. 이때 사용되는 옵션이고, 브라우저가 `page load`시에 `layout`에 대해 해치지 않는 선에서 `load`를 실행하게 된다.   
-ㅤ✷ 참고로 `next/image`에서는 <a href='https://ahrefs.com/seo/glossary/srcset' target="_blank" rel="noopener noreferrer">srcset</a>(viewport widths에 따라 load될 image 후보들을 설정하는 CSS 속성) `attribute`를 자동으로 설정해 `load`될 `image` 후보들중 알맞은 `viewport width`의 `image`를 로드한다. 이때 `next.config.js` 내부에 설정된 `deviceSizes`(device breakpoint), `imageSizes`(image width)를 사용하게 된다. 
-
-
-
-
+ㅤ✷ 참고로 `next/image`에서는 <a href='https://ahrefs.com/seo/glossary/srcset' target="_blank" rel="noopener noreferrer">srcset</a>(viewport widths에 따라 load될 image 후보들을 설정하는 CSS 속성) `attribute`를 자동으로 설정해 `load`될 `image` 후보들중 알맞은 `viewport width`의 `image`를 로드한다. 이때 `next.config.js` 내부에 설정된 `deviceSizes`(device breakpoint), `imageSizes`(image width)를 사용하게 된다.
 
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://nextjs.org/docs/pages/api-reference/components/image<br/>
+- https://nextjs.org/docs/pages/building-your-application/optimizing/images<br/>
 - https://web.dev/cls<br/>
 - https://ahrefs.com/seo/glossary/srcset<br/>
 </div>
