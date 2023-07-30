@@ -142,5 +142,10 @@ module.exports = {
 			description: `"Search Engine Optimization", which means the process of improving your site to increase its visibility when people search for products or services related to your business in search engines.`,
 			color: '#d7187e',
 		},
+		babel: {
+			name: 'babel',
+			description: `Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.`,
+			color: '#d7ae18',
+		},
 	},
 };

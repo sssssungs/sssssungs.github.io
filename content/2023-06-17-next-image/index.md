@@ -91,7 +91,7 @@ export default function Page() {
 <br/><br/>
 
 ➣ priority  
-ㅤ• `image`를 미리 렌더링 되도록 하는 옵션이다. 가장 처음 노출되는 `image`에는 이 속성을 `true`로 설정하여 미리 렌더링 하는것이 유리하다.
+ㅤ• `image`를 미리 렌더링 되도록 하는 옵션이다. 가장 처음 노출되는 `image`에는 이 속성을 `true`로 설정하여 미리 렌더링 하는것이 유리하다. (`lazy loading`이 비활성화 되므로 `LCP` 요소로 측정된 `image`에는 사용해주는것이 `web vital score`에 도움이 될것이다.)  
 <br/><br/>
 
 ➣ quailty  
@@ -101,6 +101,15 @@ export default function Page() {
 ➣ sizes  
 ㅤ• <a href='https://web.dev/cls/' target="_blank" rel="noopener noreferrer">CLS(Cummulative layout shift)</a> 현상을 방지하기 위해서는 `image size`를 `viewport`에 맞게 `load`해야한다. 이때 사용되는 옵션이고, 브라우저가 `page load`시에 `layout`에 대해 해치지 않는 선에서 `load`를 실행하게 된다.   
 ㅤ✷ 참고로 `next/image`에서는 <a href='https://ahrefs.com/seo/glossary/srcset' target="_blank" rel="noopener noreferrer">srcset</a>(viewport widths에 따라 load될 image 후보들을 설정하는 CSS 속성) `attribute`를 자동으로 설정해 `load`될 `image` 후보들중 알맞은 `viewport width`의 `image`를 로드한다. 이때 `next.config.js` 내부에 설정된 `deviceSizes`(device breakpoint), `imageSizes`(image width)를 사용하게 된다.
+<br/><br/>
+
+### Cache
+`default loader`의 경우 `image`가 한번 `loading` 되면 그 이후에는 `optimize`된 `image`가 `<distDir>/cache/images`에 `caching` 된다. `expiration time`은 `cache-control`로 제어된다  
+(`default loader`가 아닌 `3rd party cloud`에 대한 `Image loader`를 사용할 경우에는 해당 `loader`에서 지원하는 방식을 사용해야 한다)
+
+
+`next`도 많은 업데이트가 이루어 지면서 다양한 기능을 제공하고 있다. 특히 `image`를 최적화 하는것은 프론트엔드 개발자의 가장 큰 숙제가 아니었나 싶다. 다양한 `props`를 가지고 다양한 기능을 제공하는 만큼, 서비스의 운영환경에 맞게 알맞은 최적화 방법을 적절히 찾아서 적용하면 좋을것 같다.  
+조만간 현업에서 랜딩페이지를 제작할 일이 있어 집중탐구 후 사용할것 이다. 그 이후 또 느낀점을 공유해보도록 하겠다.
 
 
 <br/>
