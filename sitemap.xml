@@ -37,15 +37,15 @@
 <url> <loc>https://sssssungs.github.io/blog/functional-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://sssssungs.github.io/tags/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/nextjs</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/babel</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://sssssungs.github.io/tags/webpack</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://sssssungs.github.io/tags/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/softwareDevelopment</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/network</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/seo</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://sssssungs.github.io/tags/webpack</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/redux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/algorithm</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/designSystem</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -61,7 +61,7 @@
 <url> <loc>https://sssssungs.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/scrollHOC/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://sssssungs.github.io/career/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/contact/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://sssssungs.github.io/career/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
