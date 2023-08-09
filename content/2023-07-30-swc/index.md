@@ -26,6 +26,8 @@ show: true
 SWC is 20x faster than Babel on a single thread and 70x faster on four cores. [출처:https://swc.rs] 
 </div>
 
+현재 일하는 프로젝트에서는 `webpack`+`babel` 조합으로 프로젝트를 진행하고 있다. 아직 시작한지 3년 남짓한 프로젝트이기 때문에 그렇게 크진않지만 점점 빌드시간이 늘어나는것이 체감되고 있는 현실이다. 얼마전까지는 테스트 환경 빌드를 할때에 20분 이상 도달했던 적도 있다.  
+빌드시간을 줄일수 있는 방법중 가장 빠르게 적용해볼 수 있는 방법중 하나로 `babel`을 `swc`로 변경하는 것으로 생각했고 진행을 해보았다. 빌드를 진행할때마다 `Disabled SWC as replacement for Babel because of custom Babel configuration ".babelrc" `이라고 경고메시지가 떠서 이것을 언젠가는 없애보리라 생각했던것을 몸소 옮기게 된것이다. <span style='font-size:10px;color:grey;'>(사실 예전에도 한번 시도했던적이 있지만 그때는 현재 작성되어 있는 테스트코드를 커버하지 못해 중간에 손을 놓았었다)</span>
 
 
 wip
