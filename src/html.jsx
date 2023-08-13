@@ -11,7 +11,7 @@ export default class HTML extends React.Component {
 		return (
 			<html lang="en-US" {...this.props.htmlAttributes}>
 				<head>
-					<title>Do you know sssssungs?</title>
+					<title>sssssungs</title>
 					<meta charSet="utf-8" />
 					<meta httpEquiv="x-ua-compatible" content="ie=edge" />
 					<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
