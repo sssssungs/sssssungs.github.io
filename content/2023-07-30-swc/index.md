@@ -30,12 +30,20 @@ SWC is 20x faster than Babel on a single thread and 70x faster on four cores. [�
 빌드시간을 줄일수 있는 방법중 가장 빠르게 적용해볼 수 있는 방법중 하나로 `babel`을 `swc`로 변경하는 것으로 생각했고 진행을 해보았다. 빌드를 진행할때마다 `Disabled SWC as replacement for Babel because of custom Babel configuration ".babelrc" `이라고 경고메시지가 떠서 이것을 언젠가는 없애보리라 생각했던것을 몸소 옮기게 된것이다. <span style='font-size:10px;color:grey;'>(사실 예전에도 한번 시도했던적이 있지만 그때는 현재 작성되어 있는 테스트코드를 커버하지 못해 중간에 손을 놓았었다)</span>
 
 
-wip
+### Process
+가장 먼저 진행한 내용은 `babel` 관련된 파일을 모두 지워버리는것이다. 하지만 꽤나 많은 내용이 `babel-dependent` 하게 셋업되어있는것을 다시한번 느꼈다. 그리고 가장 `base`가 되는 `module`인 `@swc/cli`, `@swc/core`, `@swc/helpers`, `swc-loader`를 설치하였다. 그리고 `next.config.js` 내부로 `babel` 설정을 하나씩 하나씩 옮기기 시작하였다.  
+기존 프로젝트에서는 `css-in-js` 패키지로 `emotion.js`를 사용하고 있었기 때문에, `@emotion/babel-plugin`을 비롯한 여러 `emotion` 관련 패키지를 삭제하고, `next.config.js` 파일에 `emotion`을 `true`로 세팅하였다. `NEXTJS` 공식문서에는 `emotion`관련된 컴파일을 위해 다양한 옵션을 제공해주고 있으니 좀더 디테일한 설정이 필요하면 <a href='https://nextjs.org/docs/architecture/nextjs-compiler#emotion' target="_blank" rel="noopener noreferrer">관련공식문서</a>를 참조하도록 하자.  
 
+```javascript
+  compiler: {
+    emotion: true,
+  }
+```
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://gs.statcounter.com/browser-market-share/desktop/worldwide/#monthly-202201-202307-bar<br/>
 - https://swc.rs/<br/>
+- https://nextjs.org/docs/architecture/nextjs-compiler#emotion<br/>
 </div>
 
