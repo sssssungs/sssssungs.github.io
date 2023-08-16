@@ -31,13 +31,30 @@ SWC is 20x faster than Babel on a single thread and 70x faster on four cores. [�
 
 
 ### Process
-가장 먼저 진행한 내용은 `babel` 관련된 파일을 모두 지워버리는것이다. 하지만 꽤나 많은 내용이 `babel-dependent` 하게 셋업되어있는것을 다시한번 느꼈다. 그리고 가장 `base`가 되는 `module`인 `@swc/cli`, `@swc/core`, `@swc/helpers`, `swc-loader`를 설치하였다. 그리고 `next.config.js` 내부로 `babel` 설정을 하나씩 하나씩 옮기기 시작하였다.  
-기존 프로젝트에서는 `css-in-js` 패키지로 `emotion.js`를 사용하고 있었기 때문에, `@emotion/babel-plugin`을 비롯한 여러 `emotion` 관련 패키지를 삭제하고, `next.config.js` 파일에 `emotion`을 `true`로 세팅하였다. `NEXTJS` 공식문서에는 `emotion`관련된 컴파일을 위해 다양한 옵션을 제공해주고 있으니 좀더 디테일한 설정이 필요하면 <a href='https://nextjs.org/docs/architecture/nextjs-compiler#emotion' target="_blank" rel="noopener noreferrer">관련공식문서</a>를 참조하도록 하자.  
+가장 먼저 진행한 내용은 `swcMinify`를 `true`로 설정한 것이다.   
+그 다음으로는 `babel` 관련된 파일을 모두 제거했다. 하지만 꽤나 많은 내용이 `babel-dependent` 하게 셋업되어있는것을 다시한번 느꼈다. 그리고 가장 `base`가 되는 `module`인 `@swc/cli`, `@swc/core`, `@swc/helpers`, `swc-loader`를 설치하였다. 그리고 `next.config.js` 내부로 `babel` 설정을 하나씩 하나씩 옮기기 시작하였다. 기존 프로젝트에서는 `css-in-js` 패키지로 `emotion.js`를 사용하고 있었기 때문에, `@emotion/babel-plugin`을 비롯한 여러 `emotion` 관련 패키지를 삭제하고, `next.config.js` 파일에 `emotion`을 `true`로 세팅하였다. `NEXTJS` 공식문서에는 `emotion`관련된 컴파일을 위해 다양한 옵션을 제공해주고 있으니 좀더 디테일한 설정이 필요하면 <a href='https://nextjs.org/docs/architecture/nextjs-compiler#emotion' target="_blank" rel="noopener noreferrer">관련공식문서</a>를 참조하도록 하자.  
 
 ```javascript
-  compiler: {
-    emotion: true,
-  }
+compiler: {
+    emotion: true
+}
+```
+
+그리고 `lodash`에 대해서 `tree-shaking` 설정을 해주었다. 보통 `lodash`를 사용할때 전체를 `import`해서 사용하는 경우가 많은데, 기존 프로젝트에서는 용량 최적화를 위해서 필요한 `function`만 `import` 하는 방식으로 작업을 했었다.
+```javascript
+import _ from 'lodash'; // X
+import _find from 'lodash/find'; // O
+```
+이렇게 `tree-shaking`에 대한 옵션인 `modularizeImports`에 `transform` 형태로 넣어주면 설정을 할 수 있다. (`preventFullImport` 옵션을 `true`로 하게되면 전체를 `import`하는 구문 (위의 예제처럼)이 있을 경우 친절하게 `compile error`를 발생시켜준다)
+```javascript
+experimental: {
+    modularizeImports: {
+        lodash: {
+            transform: 'lodash/{{member}}'
+            // preventFullImport: true
+        }
+    }
+}
 ```
 
 <br/>
