@@ -57,6 +57,14 @@ experimental: {
 }
 ```
 
+다음으로 진행했던 것은 테스트 코드 관련한 `module` 설정이었다. `babel`을 사용하면서 테스트코드의 많은 부분이 종속되어 있었고, 이것을 해결하는것이 곧 `swc`를 적용하는것과 같다고 해도 무방할 만큼 큰 `migration` 작업이었다. 많은 버그와 설정을 통해서 완전히는 아니지만 돌아가는 정도로 구현하였다. 먼저 `jest`를 사용하기 위해 `@swc/jest` 패키지를 설치하였고, `typescript`를 사용하고 있었기 때문에 `@types/jest` 또한 추가로 설치하였다. 그리고 `babel`에서 사용하던 옵션들을 하나하나 옮겨왔다.  
+먼저 파일에 대한 `transform` 모듈을 `@swc/jest`로 지정해주었다. 
+```javascript
+transform: {
+    '^.+\\.(t|j)sx?$' : ['@swc/jest']
+}
+```
+
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://gs.statcounter.com/browser-market-share/desktop/worldwide/#monthly-202201-202307-bar<br/>
