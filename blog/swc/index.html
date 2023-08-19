@@ -50,6 +50,11 @@ SWC is 20x faster than Babel on a single thread and 70x faster on four cores. [�
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
+<p>다음으로 진행했던 것은 테스트 코드 관련한 <code class="language-text">module</code> 설정이었다. <code class="language-text">babel</code>을 사용하면서 테스트코드의 많은 부분이 종속되어 있었고, 이것을 해결하는것이 곧 <code class="language-text">swc</code>를 적용하는것과 같다고 해도 무방할 만큼 큰 <code class="language-text">migration</code> 작업이었다. 많은 버그와 설정을 통해서 완전히는 아니지만 돌아가는 정도로 구현하였다. 먼저 <code class="language-text">jest</code>를 사용하기 위해 <code class="language-text">@swc/jest</code> 패키지를 설치하였고, <code class="language-text">typescript</code>를 사용하고 있었기 때문에 <code class="language-text">@types/jest</code> 또한 추가로 설치하였다. 그리고 <code class="language-text">babel</code>에서 사용하던 옵션들을 하나하나 옮겨왔다.<br>
+먼저 파일에 대한 <code class="language-text">transform</code> 모듈을 <code class="language-text">@swc/jest</code>로 지정해주었다. </p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">transform<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'^.+\\.(t|j)sx?$'</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'@swc/jest'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre></div>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://gs.statcounter.com/browser-market-share/desktop/worldwide/#monthly-202201-202307-bar<br/>
