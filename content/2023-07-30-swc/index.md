@@ -61,7 +61,23 @@ experimental: {
 먼저 파일에 대한 `transform` 모듈을 `@swc/jest`로 지정해주었다. 
 ```javascript
 transform: {
-    '^.+\\.(t|j)sx?$' : ['@swc/jest']
+    '^.+\\.(t|j)sx?$' : [
+        '@swc/jest', 
+        {
+            "sourceMaps": true,
+            "jsc": {
+                "parser": {
+                    "syntax": "typescript",
+                    "tsx": true
+                },
+                "transform": {
+                    "react": {
+                        "runtime": "automatic"
+                    }
+                }
+            }
+        }
+    ]
 }
 ```
 
