@@ -65,6 +65,19 @@ transform: {
 }
 ```
 
+다음부터는 아직도 `working on`인 내용이며, 정확한 원인/결과를 위해 열심히 구글링 중이다. 첫번째로 `test.tsx` 파일 내부에서 수행하는 `module import`에 대해 `esModule mock`으로 설정해주고, 실제 `module import`를 가져오도록 설정하였다.
+```javascript
+import * as redirect from 'services/redirect';
+
+// 추가한 코드 
+jest.mock('services/redirect', () => {
+    return {
+        __esModule: true,
+        ...jest.requireActual('services/redirect'),
+    };
+});
+```
+
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://gs.statcounter.com/browser-market-share/desktop/worldwide/#monthly-202201-202307-bar<br/>
