@@ -55,6 +55,16 @@ SWC is 20x faster than Babel on a single thread and 70x faster on four cores. [�
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">transform<span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token string">'^.+\\.(t|j)sx?$'</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'@swc/jest'</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre></div>
+<p>다음부터는 아직도 <code class="language-text">working on</code>인 내용이며, 정확한 원인/결과를 위해 열심히 구글링 중이다. 첫번째로 <code class="language-text">test.tsx</code> 파일 내부에서 수행하는 <code class="language-text">module import</code>에 대해 <code class="language-text">esModule mock</code>으로 설정해주고, 실제 <code class="language-text">module import</code>를 가져오도록 설정하였다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> redirect <span class="token keyword">from</span> <span class="token string">'services/redirect'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 추가한 코드 </span>
+jest<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'services/redirect'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        __esModule<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>jest<span class="token punctuation">.</span><span class="token function">requireActual</span><span class="token punctuation">(</span><span class="token string">'services/redirect'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://gs.statcounter.com/browser-market-share/desktop/worldwide/#monthly-202201-202307-bar<br/>
