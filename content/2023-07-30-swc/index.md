@@ -94,6 +94,9 @@ jest.mock('services/redirect', () => {
 });
 ```
 
+위 설정 이후 `test`는 몇십개의 `warning`을 뱉었지만, 최종적으로는 통과하여 `build`가 성공하게 된다. 결과적으로 `build time`만 따져봤을때 `10`~`13`분 걸리던 `time`이 `7`~`8`분 정도로 체감될 정도로 줄었다.  
+현재 프로젝트에는 `CI/CD`가 `setting`되어 있기 때문에 `push` 이후 `k8s` `deployment`까지 총 배포되는 시간까지 생각해보면 반정도는 안되더라도 `before`를 `100%`으로 보았을때 체감상 `65%`까지는 줄어든것을 확인하였다. 나름 성공적인 결과를 얻었다고 생각한다. 하지만 `test` 실행시 발생하는 `warning`이 굉장히 많았기 때문에 반쯤의 성공이라고 하겠다.  
+
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://gs.statcounter.com/browser-market-share/desktop/worldwide/#monthly-202201-202307-bar<br/>

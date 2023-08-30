@@ -9,7 +9,7 @@ import { useWindowSize } from '../../../utils/hooks';
 import Config from '../../../../config';
 
 const { Content } = Layout;
-const { github, linkedin } = Config.social;
+const { github, linkedin, email } = Config.social;
 
 const DomContent = () => (
 	<aside>
@@ -25,11 +25,11 @@ const DomContent = () => (
 				<a href={github} target="_blank" rel="noopener noreferrer">
 					<FA name="github" />
 				</a>
-				{/*<a href={instagram} target="_blank" rel="noopener noreferrer">*/}
-				{/*	<FA name="instagram" />*/}
-				{/*</a>*/}
 				<a href={linkedin} target="_blank" rel="noopener noreferrer">
 					<FA name="linkedin" />
+				</a>
+				<a href={`mailto:${email}`} target="_top">
+					<FA name="envelope" />
 				</a>
 			</div>
 			<ul className={`box ${style.badge} contactBlock`}>
@@ -44,18 +44,6 @@ const DomContent = () => (
 						<FeatherIcon size="19" icon="map-pin" />
 					</div>
 					<div className={`${style.contactText}`}>Seoul, South Korea</div>
-				</li>
-				<li className={`${style.contactBlockItem}`}>
-					<span className={`${style.iconMargin}`}>
-						<FeatherIcon size="19" icon="mail" />
-					</span>
-
-					<a
-						href="mailto:&#115;&#115;&#115;&#115;&#115;&#117;&#110;&#103;&#115;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;"
-						target="_top"
-					>
-						<span className={style.emailHider}>@</span>
-					</a>
 				</li>
 			</ul>
 		</div>
