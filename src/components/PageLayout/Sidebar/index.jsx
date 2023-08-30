@@ -32,7 +32,7 @@ const DomContent = () => (
 					<FA name="envelope" />
 				</a>
 			</div>
-			<ul className={`box ${style.badge} contactBlock`}>
+			<ul className={`no-bottom-box ${style.badge} contactBlock`}>
 				<li className={`${style.contactBlockItem}`}>
 					<div className={`${style.iconMargin}`}>
 						<FeatherIcon size="19" icon="calendar" />
