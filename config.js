@@ -148,5 +148,10 @@ module.exports = {
 			description: `Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.`,
 			color: '#d7ae18',
 		},
+		helm: {
+			name: 'helm',
+			description: `A package manager for Kubernetes applications that includes templating and lifecycle management functionality`,
+			color: '#0f1689',
+		},
 	},
 };
