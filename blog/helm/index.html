@@ -15,7 +15,13 @@
 <li><code class="language-text">Repository</code>: <code class="language-text">chart</code>가 저장되고 공유되는 곳이다. <code class="language-text">docker</code>로 생각한다면 <code class="language-text">dockethub</code>의 역할이라고 할 수 있다. 대표적인 <code class="language-text">repo</code>로는 <i>bitnami</i>(<a href="https://bitnami.com/stacks" target="_blank" rel="nofollow">https://bitnami.com/stacks</a>)가 있다. </li>
 <li><code class="language-text">Release</code>: <code class="language-text">Helm</code>이 실행되는 <code class="language-text">chart instance</code>이다. </li>
 </ul>
-<p>wip</p>
+<h3>기본 Command</h3>
+<p><code class="language-text">helm search</code> helm hub/repository에서 chart 검색<br>
+<code class="language-text">helm install</code> k8s에 helm chart 설치 (kubectl apply와 비슷)<br>
+<code class="language-text">helm list</code> k8s에 install된 모든 release를 리스트업<br>
+<code class="language-text">helm show</code> chart에 대한 정보 보기<br>
+<code class="language-text">helm repo</code> chart repository 추가, 업데이트 등<br>
+<code class="language-text">helm package-tgz</code> 현재 폴더에 chart archive 생성  </p>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://helm.sh/<br/>
