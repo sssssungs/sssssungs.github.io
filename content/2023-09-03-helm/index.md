@@ -18,7 +18,15 @@ show: true
 - `Release`: `Helm`이 실행되는 `chart instance`이다. 
 
 
-wip
+### 기본 Command
+
+`helm search` helm hub/repository에서 chart 검색  
+`helm install` k8s에 helm chart 설치 (kubectl apply와 비슷)  
+`helm list` k8s에 install된 모든 release를 리스트업  
+`helm show` chart에 대한 정보 보기  
+`helm repo` chart repository 추가, 업데이트 등  
+`helm package-tgz` 현재 폴더에 chart archive 생성  
+
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
