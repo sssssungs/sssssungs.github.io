@@ -15,13 +15,38 @@
 <li><code class="language-text">Repository</code>: <code class="language-text">chart</code>가 저장되고 공유되는 곳이다. <code class="language-text">docker</code>로 생각한다면 <code class="language-text">dockethub</code>의 역할이라고 할 수 있다. 대표적인 <code class="language-text">repo</code>로는 <i>bitnami</i>(<a href="https://bitnami.com/stacks" target="_blank" rel="nofollow">https://bitnami.com/stacks</a>)가 있다. </li>
 <li><code class="language-text">Release</code>: <code class="language-text">Helm</code>이 실행되는 <code class="language-text">chart instance</code>이다. </li>
 </ul>
+<h3>Basic tree of the helm chart</h3>
+<p><code class="language-text">helm</code>을 이용해서 새로운 chart를 생성하게 되면 기본구조를 가지고 있는 chart가 생성된다. 그 tree 구조는 아래와 같다.</p>
+<div style="padding:10px;background:#fff4cf;color:black;border-radius:5px;box-shadow: 1px 1px 5px #0e3767">
+<u>myChart/</u><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;|____ Chart.yaml<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;|____ values.yaml<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;|____ <u>charts/</u><br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;|____ <u>templates/</u><br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____ NOTES.txt<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____ _helpers.tpl<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____ deployment.yaml<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____ ingress.yaml<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|____ service.yaml<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+</div><br/>
+<ul>
+<li><code class="language-text">Chart.yaml</code>: chart 정보를 정의 (name, description, version 등)</li>
+<li><code class="language-text">values.yaml</code>: k8s template yaml에 적용하는 dynamic value들을 정의</li>
+<li><code class="language-text">charts</code>: dependency chart를 저장하는 directory</li>
+<li><code class="language-text">templates</code>: k8s resource template이 저장되는 directory</li>
+<li><code class="language-text">NOTES.txt</code>: chart 설치후 출력할 메시지를 정의</li>
+<li><code class="language-text">_helpers</code>: templates 폴더에서 사용할 변수들을 정의</li>
+<li><code class="language-text">deployment.yaml</code>, <code class="language-text">ingress.yaml</code>, <code class="language-text">service.yaml</code>: k8s에 실행할 resource template</li>
+</ul>
 <h3>기본 Command</h3>
-<p><code class="language-text">helm search</code> helm hub/repository에서 chart 검색<br>
+<p><code class="language-text">helm create [name]</code> 새로운 helm chart를 생성
+<code class="language-text">helm search</code> helm hub/repository에서 chart 검색<br>
 <code class="language-text">helm install</code> k8s에 helm chart 설치 (kubectl apply와 비슷)<br>
 <code class="language-text">helm list</code> k8s에 install된 모든 release를 리스트업<br>
 <code class="language-text">helm show</code> chart에 대한 정보 보기<br>
 <code class="language-text">helm repo</code> chart repository 추가, 업데이트 등<br>
-<code class="language-text">helm package-tgz</code> 현재 폴더에 chart archive 생성  </p>
+<code class="language-text">helm package [name]</code> 현재 폴더에 chart archive 생성 (<code class="language-text">[name]-[version].tgz</code> 포맷으로 생성)  </p>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://helm.sh/<br/>
