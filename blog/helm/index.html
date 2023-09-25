@@ -47,6 +47,46 @@
 <code class="language-text">helm show</code> chart에 대한 정보 보기<br>
 <code class="language-text">helm repo</code> chart repository 추가, 업데이트 등<br>
 <code class="language-text">helm package [name]</code> 현재 폴더에 chart archive 생성 (<code class="language-text">[name]-[version].tgz</code> 포맷으로 생성)  </p>
+<h3>Helm install with dynamic variable: chart.yaml, values.yaml</h3>
+<p><code class="language-text">templates</code> 이하의 <code class="language-text">yaml</code> 파일을 작성할때, 그 내부 변수들을 <code class="language-text">values.yaml</code>에서 읽어와 동적으로 <code class="language-text">injection</code> 시켜줄 수 있다. <code class="language-text">helm</code>을 사용하는 이유라고 해도 과언이 아닌 기능이다.
+<code class="language-text">Chart.yaml</code>, <code class="language-text">values.yaml</code> 파일을 아래처럼 정의하고, <code class="language-text">templates</code> 폴더 이하에 <code class="language-text">deployment.yaml</code> 아래처럼 작성하게 되면,  </p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment">## Chart.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v2
+<span class="token key atrule">name</span><span class="token punctuation">:</span> myapp
+<span class="token key atrule">description</span><span class="token punctuation">:</span> myapp nginx description
+<span class="token key atrule">type</span><span class="token punctuation">:</span> application
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 0.0.1
+<span class="token key atrule">appVersion</span><span class="token punctuation">:</span> 1.0.0</code></pre></div>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment">## values.yaml</span>
+<span class="token key atrule">replicaCount</span><span class="token punctuation">:</span> <span class="token number">2</span>
+<span class="token key atrule">image</span><span class="token punctuation">:</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> nginx
+  <span class="token key atrule">tag</span><span class="token punctuation">:</span> 1.2.3
+  <span class="token key atrule">pullPolicy</span><span class="token punctuation">:</span> ifNotPresent
+  <span class="token key atrule">pullSecret</span><span class="token punctuation">:</span>
+<span class="token key atrule">service</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort</code></pre></div>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment">## deployment.yaml</span>
+<span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"deploy-{{ .Release.Name }}"</span> <span class="token comment"># install 할때에 지정하는 name이 주입된다.</span>
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Values.replicaCount <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token comment"># values에서 replicaCount를 읽어와 replicas: 2 로 생성된다.</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> <span class="token string">"{{ .Chart.Name }}"</span> <span class="token comment"># chart에서 name을 읽어온다. 즉, app: myapp</span>
+    <span class="token key atrule">template</span><span class="token punctuation">:</span>
+      <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+        <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+          <span class="token key atrule">app</span><span class="token punctuation">:</span> <span class="token string">"{{ .Chart.Name }}"</span> <span class="token comment"># chart에서 name을 읽어온다. 즉, app: myapp</span>
+      <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+        <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">"{{ .Values.image.repository }}"</span> <span class="token comment"># values에서 repository을 읽어온다. 즉, image: nginx</span>
+            <span class="token key atrule">imagePullPolicy</span><span class="token punctuation">:</span> <span class="token string">"{{ .Values.image.pullPolicy }}"</span> <span class="token comment"># values에서 pullPolicy을 읽어온다. 즉, imagePullPolicy: ifNotPresent</span>
+            <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"{{ .Chart.Name }}"</span> <span class="token comment"># chart에서 name을 읽어온다. 즉, app: myapp</span>
+            <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+              <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span></code></pre></div>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://helm.sh/<br/>
