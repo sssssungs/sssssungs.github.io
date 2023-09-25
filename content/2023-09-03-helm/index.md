@@ -53,6 +53,57 @@ show: true
 `helm repo` chart repository 추가, 업데이트 등  
 `helm package [name]` 현재 폴더에 chart archive 생성 (`[name]-[version].tgz` 포맷으로 생성)  
 
+### Helm install with dynamic variable: chart.yaml, values.yaml
+`templates` 이하의 `yaml` 파일을 작성할때, 그 내부 변수들을 `values.yaml`에서 읽어와 동적으로 `injection` 시켜줄 수 있다. `helm`을 사용하는 이유라고 해도 과언이 아닌 기능이다.
+`Chart.yaml`, `values.yaml` 파일을 아래처럼 정의하고, `templates` 폴더 이하에 `deployment.yaml` 아래처럼 작성하게 되면,  
+
+```yaml
+## Chart.yaml
+apiVersion: v2
+name: myapp
+description: myapp nginx description
+type: application
+version: 0.0.1
+appVersion: 1.0.0
+```
+
+```yaml
+## values.yaml
+replicaCount: 2
+image:
+  repository: nginx
+  tag: 1.2.3
+  pullPolicy: ifNotPresent
+  pullSecret:
+service:
+  type: NodePort
+```
+
+```yaml
+## deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "deploy-{{ .Release.Name }}" # install 할때에 지정하는 name이 주입된다.
+spec:
+  replicas: {{ .Values.replicaCount }} # values에서 replicaCount를 읽어와 replicas: 2 로 생성된다.
+  selector:
+    matchLabels:
+      app: "{{ .Chart.Name }}" # chart에서 name을 읽어온다. 즉, app: myapp
+    template:
+      metadata:
+        labels:
+          app: "{{ .Chart.Name }}" # chart에서 name을 읽어온다. 즉, app: myapp
+      spec:
+        containers:
+          - image: "{{ .Values.image.repository }}" # values에서 repository을 읽어온다. 즉, image: nginx
+            imagePullPolicy: "{{ .Values.image.pullPolicy }}" # values에서 pullPolicy을 읽어온다. 즉, imagePullPolicy: ifNotPresent
+            name: "{{ .Chart.Name }}" # chart에서 name을 읽어온다. 즉, app: myapp
+            ports:
+              - containerPort: 80
+```
+
+
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
