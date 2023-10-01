@@ -11,7 +11,7 @@
 <p><code class="language-text">Helm</code>이란 <code class="language-text">k8s</code> 패키지 관리를 도와주는 매니저이다. <a href='https://helm.sh/' target="_blank" rel="noopener noreferrer">공식사이트</a> (<code class="language-text">nodejs</code>의 <code class="language-text">npm</code>, <code class="language-text">python</code>의 <code class="language-text">pip</code>, <code class="language-text">MacOS</code>의 <code class="language-text">brew</code>와 같은 역할이라고 할 수 있다) <code class="language-text">Helm</code>을 이용하면 <code class="language-text">k8s</code>에 쉽게 그리고 빠르게 원하는 패키지들을 설치하고, 관리(업데이트, 배포 등) 할 수 있다.<br>
 기본이 되는 필수개념을 소개하자면, <code class="language-text">Chart</code>, <code class="language-text">Repository</code>, <code class="language-text">Release</code> 3가지가 있다. </p>
 <ul>
-<li><code class="language-text">Chart</code>: <code class="language-text">Helm</code>의 단위가 되는 패키지이며, <code class="language-text">application</code>이 구동되기 위해 필요한 여러 리소스들이 포함되어 있다.</li>
+<li><code class="language-text">Chart</code>: <code class="language-text">Helm</code>의 단위가 되는 패키지이며, <code class="language-text">application</code>이 구동되기 위해 필요한 여러 리소스들이 포함되어 있다. </li>
 <li><code class="language-text">Repository</code>: <code class="language-text">chart</code>가 저장되고 공유되는 곳이다. <code class="language-text">docker</code>로 생각한다면 <code class="language-text">dockethub</code>의 역할이라고 할 수 있다. 대표적인 <code class="language-text">repo</code>로는 <i>bitnami</i>(<a href="https://bitnami.com/stacks" target="_blank" rel="nofollow">https://bitnami.com/stacks</a>)가 있다. </li>
 <li><code class="language-text">Release</code>: <code class="language-text">Helm</code>이 실행되는 <code class="language-text">chart instance</code>이다. </li>
 </ul>
@@ -31,7 +31,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
 </div><br/>
 <ul>
-<li><code class="language-text">Chart.yaml</code>: chart 정보를 정의 (name, description, version 등)</li>
+<li><code class="language-text">Chart.yaml</code>: chart 정보를 정의 (name, description, version 등. 자세한 항목은 <a href='https://helm.sh/ko/docs/topics/charts/' target="_blank" rel="noopener noreferrer">공식문서</a> 참조)</li>
 <li><code class="language-text">values.yaml</code>: k8s template yaml에 적용하는 dynamic value들을 정의</li>
 <li><code class="language-text">charts</code>: dependency chart를 저장하는 directory</li>
 <li><code class="language-text">templates</code>: k8s resource template이 저장되는 directory</li>
@@ -90,6 +90,7 @@
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://helm.sh/<br/>
+- https://helm.sh/ko/docs/topics/charts/<br/>
 </div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
