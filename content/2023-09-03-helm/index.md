@@ -34,7 +34,7 @@ show: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
 </div><br/>
 
-- `Chart.yaml`: chart 정보를 정의 (name, description, version 등. 자세한 항목은 <a href='https://helm.sh/ko/docs/topics/charts/' target="_blank" rel="noopener noreferrer">공식문서</a> 참조)
+- `Chart.yaml`: chart 정보를 정의 (name, description, version 등. 자세한 항목은 <a href='https://helm.sh/docs/topics/charts/#the-chartyaml-file' target="_blank" rel="noopener noreferrer">공식문서</a> 참조)
 - `values.yaml`: k8s template yaml에 적용하는 dynamic value들을 정의
 - `charts`: dependency chart를 저장하는 directory
 - `templates`: k8s resource template이 저장되는 directory
@@ -108,6 +108,6 @@ spec:
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://helm.sh/<br/>
-- https://helm.sh/ko/docs/topics/charts/<br/>
+- https://helm.sh/docs/topics/charts/<br/>
 </div>
 
