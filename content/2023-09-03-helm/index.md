@@ -15,7 +15,11 @@ show: true
 
 - `Chart`: `Helm`의 단위가 되는 패키지이며, `application`이 구동되기 위해 필요한 여러 리소스들이 포함되어 있다. 
 - `Repository`: `chart`가 저장되고 공유되는 곳이다. `docker`로 생각한다면 `dockethub`의 역할이라고 할 수 있다. 대표적인 `repo`로는 <i>bitnami</i>(https://bitnami.com/stacks)가 있다. 
-- `Release`: `Helm`이 실행되는 `chart instance`이다. 
+- `Release`: `Helm`이 실행되는 `chart instance`이다. 일반적으로 동일한 `chart`를 여러번 실행(설치) 가능하고, `chart`, `config`들이 결합되어 실행된다.  
+
+<br/>
+
+❖ `Helm`을 실행하기 위해서는 `k8s`가 필수적으로 설치되어 있어야 정상적으로 동작한다. (`k8s cluster`, `kubeconfig`)
 
 ### Basic tree of the helm chart 
 `helm`을 이용해서 새로운 chart를 생성하게 되면 기본구조를 가지고 있는 chart가 생성된다. 그 tree 구조는 아래와 같다.
@@ -45,13 +49,18 @@ show: true
 
 ### 기본 Command
 
-`helm create [name]` 새로운 helm chart를 생성
-`helm search` helm hub/repository에서 chart 검색  
-`helm install` k8s에 helm chart 설치 (kubectl apply와 비슷)  
-`helm list` k8s에 install된 모든 release를 리스트업  
-`helm show` chart에 대한 정보 보기  
-`helm repo` chart repository 추가, 업데이트 등  
-`helm package [name]` 현재 폴더에 chart archive 생성 (`[name]-[version].tgz` 포맷으로 생성)  
+<span style='color:Red'>✓</span> `helm create [name]` 새로운 helm chart를 생성  
+<span style='color:Red'>✓</span> `helm search` helm hub/repository에서 chart 검색  
+<span style='color:Red'>✓</span> `helm update` apt update와 비슷한 역할. chart 정보를 최신화    
+<span style='color:Red'>✓</span> `helm install` k8s에 helm chart 설치 (kubectl apply와 비슷)  
+<span style='color:Red'>✓</span> `helm uninstall` 설치된 release를 삭제    
+<span style='color:Red'>✓</span> `helm list` k8s에 install된 모든 release를 리스트업  
+<span style='color:Red'>✓</span> `helm show` chart에 대한 정보 보기  
+<span style='color:Red'>✓</span> `helm repo` chart repository 추가, 업데이트 등  
+<span style='color:Red'>✓</span> `helm package [name]` 현재 폴더에 chart archive 생성 (`[name]-[version].tgz` 포맷으로 생성)  
+<span style='color:Red'>✓</span> `helm history [name]` release history를 확인    
+<span style='color:Red'>✓</span> `helm hellback [name] [revision]` 입력한 revision으로 rollback 한다  
+<span style='color:Red'>✓</span> `helm install [name] . --dry-run --debug` helm chart를 설치하는 시뮬레이션을 실행하여 실제로 어떤 작업이 수행될지 미리 확인할 수 있다   
 
 ### Helm install with dynamic variable: chart.yaml, values.yaml
 `templates` 이하의 `yaml` 파일을 작성할때, 그 내부 변수들을 `values.yaml`에서 읽어와 동적으로 `injection` 시켜줄 수 있다. `helm`을 사용하는 이유라고 해도 과언이 아닌 기능이다.
@@ -84,7 +93,8 @@ service:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "deploy-{{ .Release.Name }}" # install 할때에 지정하는 name이 주입된다.
+  name: "deploy-{{ .Release.Name }}" # install 할때에 지정하는 name이 주입된다. 
+  # 특정값으로 지정해둘 경우 같은 값이 들어갈수 있기 때문에 name을 따라가도록 설정하는것에 주의 
 spec:
   replicas: {{ .Values.replicaCount }} # values에서 replicaCount를 읽어와 replicas: 2 로 생성된다.
   selector:
