@@ -13,8 +13,10 @@
 <ul>
 <li><code class="language-text">Chart</code>: <code class="language-text">Helm</code>의 단위가 되는 패키지이며, <code class="language-text">application</code>이 구동되기 위해 필요한 여러 리소스들이 포함되어 있다. </li>
 <li><code class="language-text">Repository</code>: <code class="language-text">chart</code>가 저장되고 공유되는 곳이다. <code class="language-text">docker</code>로 생각한다면 <code class="language-text">dockethub</code>의 역할이라고 할 수 있다. 대표적인 <code class="language-text">repo</code>로는 <i>bitnami</i>(<a href="https://bitnami.com/stacks" target="_blank" rel="nofollow">https://bitnami.com/stacks</a>)가 있다. </li>
-<li><code class="language-text">Release</code>: <code class="language-text">Helm</code>이 실행되는 <code class="language-text">chart instance</code>이다. </li>
+<li><code class="language-text">Release</code>: <code class="language-text">Helm</code>이 실행되는 <code class="language-text">chart instance</code>이다. 일반적으로 동일한 <code class="language-text">chart</code>를 여러번 실행(설치) 가능하고, <code class="language-text">chart</code>, <code class="language-text">config</code>들이 결합되어 실행된다.  </li>
 </ul>
+<br/>
+<p>❖ <code class="language-text">Helm</code>을 실행하기 위해서는 <code class="language-text">k8s</code>가 필수적으로 설치되어 있어야 정상적으로 동작한다. (<code class="language-text">k8s cluster</code>, <code class="language-text">kubeconfig</code>)</p>
 <h3>Basic tree of the helm chart</h3>
 <p><code class="language-text">helm</code>을 이용해서 새로운 chart를 생성하게 되면 기본구조를 가지고 있는 chart가 생성된다. 그 tree 구조는 아래와 같다.</p>
 <div style="padding:10px;background:#fff4cf;color:black;border-radius:5px;box-shadow: 1px 1px 5px #0e3767">
@@ -40,13 +42,18 @@
 <li><code class="language-text">deployment.yaml</code>, <code class="language-text">ingress.yaml</code>, <code class="language-text">service.yaml</code>: k8s에 실행할 resource template</li>
 </ul>
 <h3>기본 Command</h3>
-<p><code class="language-text">helm create [name]</code> 새로운 helm chart를 생성
-<code class="language-text">helm search</code> helm hub/repository에서 chart 검색<br>
-<code class="language-text">helm install</code> k8s에 helm chart 설치 (kubectl apply와 비슷)<br>
-<code class="language-text">helm list</code> k8s에 install된 모든 release를 리스트업<br>
-<code class="language-text">helm show</code> chart에 대한 정보 보기<br>
-<code class="language-text">helm repo</code> chart repository 추가, 업데이트 등<br>
-<code class="language-text">helm package [name]</code> 현재 폴더에 chart archive 생성 (<code class="language-text">[name]-[version].tgz</code> 포맷으로 생성)  </p>
+<p><span style='color:Red'>✓</span> <code class="language-text">helm create [name]</code> 새로운 helm chart를 생성<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm search</code> helm hub/repository에서 chart 검색<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm update</code> apt update와 비슷한 역할. chart 정보를 최신화<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm install</code> k8s에 helm chart 설치 (kubectl apply와 비슷)<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm uninstall</code> 설치된 release를 삭제<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm list</code> k8s에 install된 모든 release를 리스트업<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm show</code> chart에 대한 정보 보기<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm repo</code> chart repository 추가, 업데이트 등<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm package [name]</code> 현재 폴더에 chart archive 생성 (<code class="language-text">[name]-[version].tgz</code> 포맷으로 생성)<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm history [name]</code> release history를 확인<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm hellback [name] [revision]</code> 입력한 revision으로 rollback 한다<br>
+<span style='color:Red'>✓</span> <code class="language-text">helm install [name] . --dry-run --debug</code> helm chart를 설치하는 시뮬레이션을 실행하여 실제로 어떤 작업이 수행될지 미리 확인할 수 있다   </p>
 <h3>Helm install with dynamic variable: chart.yaml, values.yaml</h3>
 <p><code class="language-text">templates</code> 이하의 <code class="language-text">yaml</code> 파일을 작성할때, 그 내부 변수들을 <code class="language-text">values.yaml</code>에서 읽어와 동적으로 <code class="language-text">injection</code> 시켜줄 수 있다. <code class="language-text">helm</code>을 사용하는 이유라고 해도 과언이 아닌 기능이다.
 <code class="language-text">Chart.yaml</code>, <code class="language-text">values.yaml</code> 파일을 아래처럼 정의하고, <code class="language-text">templates</code> 폴더 이하에 <code class="language-text">deployment.yaml</code> 아래처럼 작성하게 되면,  </p>
@@ -70,7 +77,8 @@
 <span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
 <span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
 <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
-  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"deploy-{{ .Release.Name }}"</span> <span class="token comment"># install 할때에 지정하는 name이 주입된다.</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"deploy-{{ .Release.Name }}"</span> <span class="token comment"># install 할때에 지정하는 name이 주입된다. </span>
+  <span class="token comment"># 특정값으로 지정해둘 경우 같은 값이 들어갈수 있기 때문에 name을 따라가도록 설정하는것에 주의 </span>
 <span class="token key atrule">spec</span><span class="token punctuation">:</span>
   <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Values.replicaCount <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token comment"># values에서 replicaCount를 읽어와 replicas: 2 로 생성된다.</span>
   <span class="token key atrule">selector</span><span class="token punctuation">:</span>
