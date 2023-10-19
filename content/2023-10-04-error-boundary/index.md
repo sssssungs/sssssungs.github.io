@@ -64,19 +64,16 @@ const DetailApp = () => {
 ```
 
 ### Error boundary에 catch 되지 않는 case
-
+<i>`Error boundary`는 `rendering` 중에 발생한 에러만을 catch 한다</i>
 - `Event handler` : `Error boundary`는 `event handler` (`onChange` 등) 내에서 발생하는 오류는 catch하지 못한다.
 - `Asynchronous action` : `setTimeout`, `requestAnimationFrame`등 비동기 동작 코드에서 발생하는 오류는 catch하지 못한다.
 - `Server side rendering (SSR)`
 - `Error boundary 자체 오류` : `Error boundary` 컴포넌트 내부에서 발생하는 오류는 catch 하지 못한다. 이러한 error의 경우 상위 컴포넌트의 `error boundary`를 사용해야한다.
 
-
 <br/>
 
----
-wip
-
-
+언제나 늘 그렇듯이, `error boundary`를 너무 적게 사용하는 경우나 과도하게 사용하는 경우, 각각의 단점이 존재하기 때문에 적절한 사용이 필요하다. 너무 적게 사용할 경우 한부분에서의 오류가 전체 서비스의 중단을 초래할 수 있고, 그렇다고 각 `component`마다 `error boundary`를 설정한다면 ux에 영향을 줄 수 있다.<br/>  
+가장 중요한것은 서비스를 설계할때에 `error` 상태를 포함시켜서 하는것이다. `error`가 `0%`인 서비스는 존재하지 않는다. 대부분의 기획자나 개발자들이 서비스를 구현하는데에 집중하여 설계를 하지만, 그 서비스에는 `error`가 발생했을때 얼마나 `smooth`하게 `handling`하여 사용자 경험을 해치지 않는지도 포함되어 있는것이다.
 
 
 <br/>
