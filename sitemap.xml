@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://sssssungs.github.io/blog/web-rendering</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/blog/error-boundary</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/blog/helm</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/blog/swc</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -43,6 +44,7 @@
 <url> <loc>https://sssssungs.github.io/tags/html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/nextjs</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://sssssungs.github.io/tags/seo</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/network</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/softwareDevelopment</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/docker</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -50,7 +52,6 @@
 <url> <loc>https://sssssungs.github.io/tags/helm</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/babel</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/webpack</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://sssssungs.github.io/tags/seo</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/redux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/algorithm</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/designSystem</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -63,8 +64,8 @@
 <url> <loc>https://sssssungs.github.io/contentLayout/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/scrollHOC/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://sssssungs.github.io/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/contact/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://sssssungs.github.io/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/career/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://sssssungs.github.io/tags/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
