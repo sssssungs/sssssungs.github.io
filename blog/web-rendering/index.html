@@ -11,15 +11,29 @@
 /static/cb750d298f508eaa5b11624663ee9943/31987/img.png 1000w,
 /static/cb750d298f508eaa5b11624663ee9943/59098/img.png 1416w" src="/static/cb750d298f508eaa5b11624663ee9943/31987/img.png" alt="Different types of web rendering strategy" title="Do you know 4 types of web rendering in frontend rendering?" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><article class="post-module--blogArticle--1Ro02"><p><code class="language-text">Frontend</code>에서 <code class="language-text">ui</code>를 렌더링하는 방식은 다음과 같이 4가지로 크게 구분할 수 있다. </p>
 <ul>
-<li>SSG (Static Site Generators)</li>
-<li>ISR (Incremental Static Regeneration) <span style="font-size:10px;color:grey;">(또는 ISG라고도 한다)</span> </li>
-<li>SSR (Server-Side Rendering)</li>
-<li>CSR (Client-Side Rendering)</li>
+<li><i>SSG (Static Site Generators)</i></li>
+<li><i>ISR (Incremental Static Regeneration)</i> <span style="font-size:10px;color:grey;">(또는 ISG라고도 한다)</span> </li>
+<li><i>SSR (Server-Side Rendering)</i></li>
+<li><i>CSR (Client-Side Rendering)</i></li>
 </ul>
 <br/>
 <p>각 방식마다 장단점이 있고 지원하는 <code class="language-text">library</code>/<code class="language-text">framework도</code> 다르다. 또한 프로젝트의 기획이나 <code class="language-text">UX design</code>에 따라서도 어떤 방식을 적용할 지 달라질 수 있다. 하나의 서비스에 한가지 방법만을 사용하지 않아도 된다. 어떤 페이지는 <code class="language-text">SSG</code>, 또 다른 페이지는 <code class="language-text">SSR</code>을 사용할수도 있다.<br>
 <br/>
-본격적으로 렌더링을 이야기하기 전에, <code class="language-text">SPA</code>(<code class="language-text">Single page application</code>)에 대해서 알아보자. <code class="language-text">SPA</code>는 2010년 초반, 프론트엔드 개발자들이 각 페이지에 대해서 기존 <code class="language-text">HTML/CSS/JS</code> 조합을 사용하는 대신 전체 앱 컨텐츠 흐름을 <code class="language-text">javascript</code>만으로 구현하기를 원하여 탄생하게 되었다. 따라서 서로 다른 <code class="language-text">CSS</code>와 <code class="language-text">javascript</code> 리소스를 로드하는 여러 <code class="language-text">HTML</code>을 보유하고, <code class="language-text">browser</code>가 링크를 사용해 페이지 사이를 탐색하는 대신에, <code class="language-text">SPA</code>를 이용하여 컨텐츠가 없는 단일 <code class="language-text">HTML</code>페이지를 사용하여 하나 이상의 <code class="language-text">javascript</code> 파일을 로드할 수 있게 된 것이다.</p>
+본격적으로 렌더링을 이야기하기 전에, <code class="language-text">SPA</code>(<code class="language-text">Single page application</code>)에 대해서 알아보자. <code class="language-text">SPA</code>는 2010년 초반, 프론트엔드 개발자들이 각 페이지에 대해서 기존 <code class="language-text">HTML/CSS/JS</code> 조합을 사용하는 대신 전체 앱 컨텐츠 흐름을 <code class="language-text">javascript</code>만으로 구현하기를 원하여 탄생하게 되었다. 따라서 서로 다른 <code class="language-text">CSS</code>와 <code class="language-text">javascript</code> 리소스를 로드하는 여러 <code class="language-text">HTML</code>을 보유하고, <code class="language-text">browser</code>가 링크를 사용해 페이지 사이를 탐색하는 대신에, <code class="language-text">SPA</code>를 이용하여 컨텐츠가 없는 단일 <code class="language-text">HTML</code>페이지를 사용하여 하나 이상의 <code class="language-text">javascript</code> 파일을 로드할 수 있게 된 것이다. <code class="language-text">SPA</code>의 등장으로 다음과 같은 이점이 생기기도 했다.</p>
+<ul>
+<li>원하는 방식으로의 코드 설계/배포를 단일 패키지로 구축</li>
+<li><code class="language-text">application</code>이 한번에 모두 로드되므로 탐색 및 <code class="language-text">interaction</code>에 일반적으로 추가적인 리소스 로딩이 필요하지 않아 빠른 속도</li>
+<li><code class="language-text">SPA</code>는 <code class="language-text">api</code>를 사용해 <code class="language-text">content</code>를 <code class="language-text">query</code>하기 때문에 <code class="language-text">data</code>와 <code class="language-text">ui</code>간의 <code class="language-text">decoupling</code>으로 관심사 분리</li>
+</ul>
+<br/>
+<p>하지만 동시에 다음와 같은 한계점도 발생하였다.</p>
+<ul>
+<li><code class="language-text">app bundle</code>의 전체 크기가 상당히 커져 초기로딩속도가 느려짐 -> 성능부담으로 발전</li>
+<li>페이지 탐색시 상태관리가 복잡해질수 있는 가능성</li>
+<li>까다로운 <code class="language-text">SEO</code> 최적화 <span style="color:Red;font-size:17px;vertical-align:middle;">*</span></li>
+</ul>
+<br/>
+<p>특히 <code class="language-text">SEO</code>가 점점 중요한 역할을 하게 되면서 <code class="language-text">SPA</code>의 한계점중 하나인 <code class="language-text">SEO</code> 최적화를 커버하기 위해 여러가지 <code class="language-text">rendering</code> 방식이 등장하게 되었다.</p>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 </div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
