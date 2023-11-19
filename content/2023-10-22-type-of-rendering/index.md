@@ -4,15 +4,15 @@ tags: [javascript, typescript, react, html, css, nextjs, seo]
 date: 2023-10-22T13:12:11.226Z
 path: blog/web-rendering
 cover: ./img.png
-excerpt: Do you know 4 types of web rendering in frontend rendering?
+excerpt: Do you know 4 types of web rendering in frontend?
 show: true
 ---
 
 `Frontend`에서 `ui`를 렌더링하는 방식은 다음과 같이 4가지로 크게 구분할 수 있다. 
 - <i>SSG (Static Site Generators)</i>
-- <i>ISR (Incremental Static Regeneration)</i> <span style="font-size:10px;color:grey;">(또는 ISG라고도 한다)</span> 
 - <i>SSR (Server-Side Rendering)</i>
 - <i>CSR (Client-Side Rendering)</i>
+- <i>ISR (Incremental Static Regeneration)</i> <span style="font-size:10px;color:grey;">(또는 ISG라고도 한다)</span> 
 
 <br/>
 
@@ -44,6 +44,8 @@ show: true
 - 성능 향상: 최신 `SSG` 도구에는 요청한 페이지를 실행하는 데 필요한 `JS`/`CSS` 코드만 포함되어 있으며 사용자가 웹 사이트를 탐색하면 추가 코드를 `load`한다
 - 다중 소스 콘텐츠: `SSG`는 `headless CMS`(`Contentful`, `Strapi`), 로컬 `markup` 파일같은 다중 콘텐츠 소스 통합을 제공한다
 
+<br/>
+
 하지만 단점도 존재하며 다음과 같다.
 - 사용자 맞춤형 콘텐츠: 모든 사용자가 동일하다고 생각하고 간주하게 된다. 그렇지 않으면 각 사용자에 대해 정적 콘텐츠를 만들어줘야 하며 용량이나 보안 등의 문제가 생긴다
 - `learning curve`: `Gatsby`같은 경우 `react` 기반임에도 불구하고 콘텐츠 쿼리에 `graphQL`을 사용하므로 이를 자세히 살펴보아야한다
@@ -54,12 +56,29 @@ show: true
 ```html
 <div>Hello <?php echo 'world'; ?></div> <!-- 이를 코드 기억하는가 ? -->
 ```
-`SSR`은 `server`단에서 `HTML` 컨텐츠를 `rendering` 하는것을 의미한다. `JEE`, `ASP.NET`, `PHP`등의 일반적인 `MVC framework`는 `SSR`을 가능하게하는 `template` 기반의 `engine`을 가지고 있다.  
+`SSR`은 `server`단에서 `HTML` 컨텐츠를 `rendering` 하는것을 의미한다. `JEE`, `ASP.NET`, `PHP`등의 일반적인 `MVC framework`는 `SSR`을 가능하게하는 `template` 기반의 `engine`을 가지고 있다.    
+
+<br/>
+
 이러한 `SSR`은 한가지 제한사항이 있다. `client`단에서의 `interaction`을 `server`에서 처리할 수 없으며, 브라우저에 표시되는 컨텐츠는 초기 `server`에서 생성된 컨텐츠로 제한된다는 것이다. 
-그 다음 동작들은 `javascript` 파일에 작성되어야 한다. 하지만 `Nodejs`의 등장으로 이제는 `server`단과 `client`단 모두 `javascript`를 실행할수 있게 되었고, `rendering` 공유가 가능해졌다. 즉, `Nextjs`, `Nuxt` 등의 `framework`가 제공하는것은 `javascript`를 활용하여 `server`단의 초기 로드와 `client`단의 `interaction`을 통합하여 `rendering`을 공유하는 것이라고 할수 있다.
+그 다음 동작들은 `javascript` 파일에 작성되어야 한다. 하지만 `Nodejs`의 등장으로 이제는 `server`단과 `client`단 모두 `javascript`를 실행할수 있게 되었고, `rendering` 공유가 가능해졌다. 즉, `Nextjs`, `Nuxt` 등의 `framework`가 제공하는것은 `javascript`를 활용하여 `server`단의 초기 로드와 `client`단의 `interaction`을 통합하여 `rendering`을 공유하는 것이라고 할수 있다.  
+`SSR`은 다음과 같은 장단점을 가진다.  
+
+장점
+- `SEO`에 유리: 검색엔진 `indexing`이나 `social media`에 공유할 수 있는 정보를 가지고 있다
+- 빠른 성능: 일반적인 `SPA`보다 리소스 로드시 더 나은 성능을 가진다
+- API `hosting`가능: `SSR`이 `server`에서 실행되므로 `SSR`을 사용하여 `API`를 개발할 수도 있다
+
+<br/>
+
+단점
+- `server`가 필요: `SSR`이 작동하려면 당연히 `server`가 필요하다. 이는 추가적인 리소스 비용으로 간주된다
+- `learning curve`: `client`단에서만 작업하는것에 비해 많은 새로운 개념과 내용이 많으므로 사전학습이 필요하다 
+- `client`과 다른 동작: 예를들어 `window` 객체는 `server`에서는 사용할 수 없으므로 이러한 차이를 확인하여 전체적으로 잘 동작하는지 통합적인 테스트가 필요하다
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
-
+- https://en.wikipedia.org/wiki/Content_management_system<br/>
+- https://levelup.gitconnected.com/spa-ssg-ssr-and-jamstack-a-front-end-acronyms-guide-6add9543f24d<br/>
 </div>
 
