@@ -76,6 +76,9 @@ show: true
 - `learning curve`: `client`단에서만 작업하는것에 비해 많은 새로운 개념과 내용이 많으므로 사전학습이 필요하다 
 - `client`과 다른 동작: 예를들어 `window` 객체는 `server`에서는 사용할 수 없으므로 이러한 차이를 확인하여 전체적으로 잘 동작하는지 통합적인 테스트가 필요하다
 
+### CSR (Client Side Rendering)
+`CSR`에서는 페이지의 기본 `HTML` 컨테이너만 서버에 의해 `rendering`된다. 그리고 페이지의 컨텐츠를 표시하기 위해 필요한 로직이나 `data fetch`, `routing` 등은 실행되는 `javascript` 코드에 의해 처리된다. `SPA`의 성장과 함께 `CSR`도 자연스럽게 인기를 얻었다. `frontend` 개발자들에게 가장 친숙하고 또 기본적으로 사용했던 방식일것이다. 간단히 장단점만 짚고 넘어가도록 하겠다.
+
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://en.wikipedia.org/wiki/Content_management_system<br/>
