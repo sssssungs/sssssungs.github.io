@@ -83,5 +83,6 @@ show: true
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://en.wikipedia.org/wiki/Content_management_system<br/>
 - https://levelup.gitconnected.com/spa-ssg-ssr-and-jamstack-a-front-end-acronyms-guide-6add9543f24d<br/>
+- https://www.patterns.dev/react/client-side-rendering/
 </div>
 
