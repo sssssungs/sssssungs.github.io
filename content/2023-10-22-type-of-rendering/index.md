@@ -77,12 +77,37 @@ show: true
 - `client`과 다른 동작: 예를들어 `window` 객체는 `server`에서는 사용할 수 없으므로 이러한 차이를 확인하여 전체적으로 잘 동작하는지 통합적인 테스트가 필요하다
 
 ### CSR (Client Side Rendering)
-`CSR`에서는 페이지의 기본 `HTML` 컨테이너만 서버에 의해 `rendering`된다. 그리고 페이지의 컨텐츠를 표시하기 위해 필요한 로직이나 `data fetch`, `routing` 등은 실행되는 `javascript` 코드에 의해 처리된다. `SPA`의 성장과 함께 `CSR`도 자연스럽게 인기를 얻었다. `frontend` 개발자들에게 가장 친숙하고 또 기본적으로 사용했던 방식일것이다. 간단히 장단점만 짚고 넘어가도록 하겠다.
+`CSR`에서는 페이지의 기본 `HTML` 컨테이너만 서버에 의해 `rendering`된다. 그리고 페이지의 컨텐츠를 표시하기 위해 필요한 로직이나 `data fetch`, `routing` 등은 실행되는 `javascript` 코드에 의해 처리된다. `SPA`의 성장과 함께 `CSR`도 자연스럽게 인기를 얻었다. `frontend` 개발자들에게 가장 친숙하고 또 기본적으로 사용했던 방식일것이다. 간단히 장단점만 짚고 넘어가도록 하겠다.  
+
+장점
+- 뛰어난 사용자 경험: 페이지 새로고침 없이 탐색을 지원하고, 뛰어난 사용자 경험을 제공하는 `SPA`를 가능하게 하며, 페이지간 `routing`이 일반적으로 빠르기 때문에 반응성이 좋아보인다
+- 관심사의 분리: `client` 코드와 `server` 코드를 명확하게 분리할 수 있다
+
+<br/>
+
+단점
+- `SEO` 최적화가 어려움: `CSR`의 경우 큰 `payload`와 `network`요청으로 의미있는 콘텐츠가 `crawler`가 `index`를 생성할만큼 빠르게 `rendering`되지 않을 수 있으므로 `SEO` 최적화에 어려움이 존재한다
+- 느린 응답 시간: `server`로의 왕복이 없기 때문에 응답시간이 느리다. 웹페이지가 `client`측에서 콘텐츠를 처음으로 `rendering`하려면 `javascript`가 먼저 `load`되고, 처리가 시작될때까지 기다려야한다. 또한 `api` 호출로 데이터를 가져올 경우 응답시간이 걸릴 수 있다
+
+### ISR (Incremental Static Regeneration)
+`ISR`은 간단히 말해, 정적 생성(`static generation`)으로 미리 만들어놓은 페이지도 업데이트가 가능하다는 것이다. 그렇게 되면 정적생성의 장점은 가져가면서 단점은 보완할 수 있다. `ISR`은 일정 주기마다 업데이트된 데이터로 정적페이지를 다시 생성해주는 방식이다.  
+구현방식은 `nextjs` 기준으로 보았을때, `getStaticProps`에 `revalidate`를 추가하고 그 값으로 갱신주기(초단위)를 전달해주면 된다.
+
+```javascript
+export async function getStaticProps(context) {
+  const data = await fetch(api);
+  return {
+    props: { data },
+    revalidate: 20, // (서버시간 기준 20초마다 data의 업데이트를 검사)
+  };
+}
+```
 
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://en.wikipedia.org/wiki/Content_management_system<br/>
 - https://levelup.gitconnected.com/spa-ssg-ssr-and-jamstack-a-front-end-acronyms-guide-6add9543f24d<br/>
-- https://www.patterns.dev/react/client-side-rendering/
+- https://www.patterns.dev/react/client-side-rendering/<br/>
+- https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration<br/>
 </div>
 
