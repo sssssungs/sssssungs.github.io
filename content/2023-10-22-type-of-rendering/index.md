@@ -103,11 +103,36 @@ export async function getStaticProps(context) {
 }
 ```
 
+`revalidate time`을 지정하기 때문에, 업데이트된 정보에 있어 `revalidate` 값만큼의 딜레이가 발생하게 된다. 즉, 실제로 데이터가 업데이트 되었더라도 일정 시간동안은 업데이트되지 않은 필요없는 내용을 사용자들이 보게 된다는 것이다. 또한 실제업데이트 여부와는 관계없이 `revalidate`가 이루어지기 때문에 그만큼의 프론트엔드 리소스가 이용된다는 단점이 존재한다. 이러한 단점을 극복할 수 있는 새로운 기능이 바로 `on-demand revalidate`이다.  
+`on-demand revalidate`방식은 `nextjs 12.2.0` 부터 지원하고, 지정한 `interval time` 이외에도 업데이트 이벤트를 전달해주어 `revalidate`를 시키는 방식이다. `api`를 열어둔 다음 아래처럼 구현이 가능하다. <a href='https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration#using-on-demand-revalidation' target='_blank' rel='noopener noreferer'>공식문서참조</a>
+
+```javascript
+export default async function handler(req, res) {
+  // Check for secret to confirm this is a valid request
+  if (req.query.secret !== process.env.MY_SECRET_TOKEN) {
+    return res.status(401).json({ message: 'Invalid token' })
+  }
+ 
+  try {
+    // this should be the actual path not a rewritten path
+    // e.g. for "/blog/[slug]" this should be "/blog/post-1"
+    await res.revalidate('/path-to-revalidate')
+    return res.json({ revalidated: true })
+  } catch (err) {
+    // If there was an error, Next.js will continue
+    // to show the last successfully generated page
+    return res.status(500).send('Error revalidating')
+  }
+}
+```
+
+
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://en.wikipedia.org/wiki/Content_management_system<br/>
 - https://levelup.gitconnected.com/spa-ssg-ssr-and-jamstack-a-front-end-acronyms-guide-6add9543f24d<br/>
 - https://www.patterns.dev/react/client-side-rendering/<br/>
 - https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration<br/>
+- https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration#using-on-demand-revalidation
 </div>
 
