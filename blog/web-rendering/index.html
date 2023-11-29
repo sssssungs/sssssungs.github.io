@@ -94,12 +94,32 @@
     revalidate<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token comment">// (서버시간 기준 20초마다 data의 업데이트를 검사)</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div>
+<p><code class="language-text">revalidate time</code>을 지정하기 때문에, 업데이트된 정보에 있어 <code class="language-text">revalidate</code> 값만큼의 딜레이가 발생하게 된다. 즉, 실제로 데이터가 업데이트 되었더라도 일정 시간동안은 업데이트되지 않은 필요없는 내용을 사용자들이 보게 된다는 것이다. 또한 실제업데이트 여부와는 관계없이 <code class="language-text">revalidate</code>가 이루어지기 때문에 그만큼의 프론트엔드 리소스가 이용된다는 단점이 존재한다. 이러한 단점을 극복할 수 있는 새로운 기능이 바로 <code class="language-text">on-demand revalidate</code>이다.<br>
+<code class="language-text">on-demand revalidate</code>방식은 <code class="language-text">nextjs 12.2.0</code> 부터 지원하고, 지정한 <code class="language-text">interval time</code> 이외에도 업데이트 이벤트를 전달해주어 <code class="language-text">revalidate</code>를 시키는 방식이다. <code class="language-text">api</code>를 열어둔 다음 아래처럼 구현이 가능하다. <a href='https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration#using-on-demand-revalidation' target='_blank' rel='noopener noreferer'>공식문서참조</a></p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">handler</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Check for secret to confirm this is a valid request</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>secret <span class="token operator">!==</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MY_SECRET_TOKEN</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">401</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span> message<span class="token operator">:</span> <span class="token string">'Invalid token'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+ 
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token comment">// this should be the actual path not a rewritten path</span>
+    <span class="token comment">// e.g. for "/blog/[slug]" this should be "/blog/post-1"</span>
+    <span class="token keyword">await</span> res<span class="token punctuation">.</span><span class="token function">revalidate</span><span class="token punctuation">(</span><span class="token string">'/path-to-revalidate'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span> revalidated<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// If there was an error, Next.js will continue</span>
+    <span class="token comment">// to show the last successfully generated page</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Error revalidating'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://en.wikipedia.org/wiki/Content_management_system<br/>
 - https://levelup.gitconnected.com/spa-ssg-ssr-and-jamstack-a-front-end-acronyms-guide-6add9543f24d<br/>
 - https://www.patterns.dev/react/client-side-rendering/<br/>
 - https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration<br/>
+- https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration#using-on-demand-revalidation
 </div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
       'G-1LBVTYLESG'
