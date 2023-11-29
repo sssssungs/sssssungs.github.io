@@ -3,7 +3,7 @@ title: Different types of web rendering strategy
 tags: [javascript, typescript, react, html, css, nextjs, seo]
 date: 2023-10-22T13:12:11.226Z
 path: blog/web-rendering
-cover: ./img.png
+cover: ./img_1.png
 excerpt: Do you know 4 types of web rendering in frontend?
 show: true
 ---
