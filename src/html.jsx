@@ -5,7 +5,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Snowflake from './components/Effect/snowflake';
 
 export default class HTML extends React.Component {
 	render() {
@@ -19,7 +18,6 @@ export default class HTML extends React.Component {
 					{this.props.headComponents}
 				</head>
 				<body {...this.props.bodyAttributes} className="light">
-					<Snowflake />
 					{this.props.preBodyComponents}
 					<div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
 					{this.props.postBodyComponents}
