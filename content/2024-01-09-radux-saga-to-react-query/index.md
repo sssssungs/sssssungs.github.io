@@ -20,7 +20,10 @@ show: true
 2. 코드 작성시 `boilerplate`가 너무 많다  
 현재 프로젝트에서는 `redux-saga` + `redux-toolkit`을 함께 사용하고 있고, `REQUEST`/`SUCCESS`/`FAILURE` 패턴을 사용하고 있다. 한번의 동작에 대해 3가지 케이스를 다 만들어줘야하고, `reducer와` `saga도` 3가지를 작성해야하니 불필요한 반복작업과 실제로 유명무실한 코드들이 많았다.
 
-3. 그외에 자잘하지만 치명적인 `error`들  
+3. `typescript` 호환이 잘 안된다  
+가장 치명적인 단점이라고 본다. `typescript` 지원이 잘 되지 않기 때문에 `return type` 정하는데 애를 먹는 경우가 많다.
+
+4. 그외에 자잘하지만 치명적인 `error`들  
 현재 `redux와` `nextjs를` 함께 사용하고 있기 때문에 이를 연결하기 위한 `next-redux-wrapper` library도 사용하고 있다. 다른 부분은 상관이 없지만 `getServerSideProps` 내부에서 saga를 call한 다음 2번째로 다른 saga를 call할때 데이터가 꼬이는 현상을 심심치않게 발견할 수 있었다. 정확한 원인은 모르지만 그 이슈때문에 작업을 할때 몇번이고 우회했던 기억이 있다. (내가 해결법을 모르는것 일수도)
 
 그래서 빨리 `redux-saga`를 다른 것으로 대체했으면 좋겠다는 이야기가 점점 대두되기 시작하였고, 다른 프로젝트에서 일찍이 도입해서 사용하던 `react-query`를 도입하게 되었다. 그리하여 현재 프로젝트는 `redux`, `redux-saga`, `react-query`가 공존하는 상태가 된 것이다.
@@ -28,9 +31,20 @@ show: true
 ### 도입 시작
 `react-query`를 도입하면서 가장 큰 골칫거리는 바로 query key를 어떻게 관리할지 정책을 정하는 것이다. `react-query`에서 모든 data의 관리의 시작은 query key를 기반으로 하기 때문에 당연히 중복이 발생할 우려가 있거나 관리하기 어려운 key 생성 정책은 피했어야했다. 다양한 방법이 있었지만 그래도 `tanstack` 문서에도 명시되어 있는 `query key management library` 중 하나인 <a href='https://github.com/lukemorales/query-key-factory' target='_blank' rel='noopener noreferer'>@lukemorales/query-key-factory</a>를 사용했다. 이 library를 사용하면서 `array` 형태로 구조화된 `key`를 사용하게 되면서 좀더 정합성이 보장되는 효율적인 key 관리가 가능해졌다. 물론 이 외에도 여러가지 key management library들은 많이 있을것이다.
 
-### Redux-saga와의 차이 
-
-
+### Redux-saga와의 사용법 차이  
+사실 `redux-saga`는 `middleware`로 다양한 사용방법이 존재한다. 현재 프로젝트에서는 `redux-saga`를 비동기호출에서 동기를 보장받기 위해 사용하는 목적이 크기 때문에 `fetch`한 `response`를 `success`/`failure` saga로 전달해주면서 `reducer`에 해당값을 할당하는 `basic`한 방식을 사용하고 있다. 
+```javascript
+const [SUCCESS, FAILURE] = ['data_fetch_success', 'data_fetch_failure']
+const getDataSaga = (payload) => {
+    const data = api(payload);
+        if(data) {
+            yield put({ type: SUCCESS, payload: data });
+        } else {
+            yield put({ type: FAILURE, payload: data });
+        }
+};
+```
+필요한 경우 `saga`에서 제공하는 `effects`들을 사용하고 있다 (`select`, `debounce`, `put`, `cancel` 등)
 
 
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
