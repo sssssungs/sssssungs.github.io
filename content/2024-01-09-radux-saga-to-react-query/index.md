@@ -36,7 +36,7 @@ show: true
 ```javascript
 const [SUCCESS, FAILURE] = ['data_fetch_success', 'data_fetch_failure']
 const getDataSaga = (payload) => {
-    const data = api(payload);
+    const data = fetch_api(payload);
         if(data) {
             yield put({ type: SUCCESS, payload: data });
         } else {
@@ -44,12 +44,15 @@ const getDataSaga = (payload) => {
         }
 };
 ```
-필요한 경우 `saga`에서 제공하는 `effects`들을 사용하고 있다 (`select`, `debounce`, `put`, `cancel` 등)
+필요한 경우 `saga`에서 제공하는 `effects`들을 사용하고 있다 (`select`, `debounce`, `put`, `cancel` 등)  
+`react-query`는 이와 사용법이 전혀 다르다. 우선 제일 다른점을 `hooks` 기반의 `library`이기 때문에 기존 `react hook`에 적용되는 <a href='https://legacy.reactjs.org/docs/hooks-rules.html' target='_blank' rel='noopener noreferer'>rule</a>들을 따라야한다. 이것이 조금 까다로운 부분이기도 하다. (특히, rule중 `hooks`는 조건과 상관없이 항상 호출되어야 한다는 내용을 충족하는것이 `saga` 로직에서 넘어올때 많은 걸림돌이 되기도 했었다)
+
 
 
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://tanstack.com/query/latest <br/>
 - https://tanstack.com/query/latest/docs/react/community/community-projects#query-key-factory <br/>
 - https://github.com/lukemorales/query-key-factory <br/>
+- https://legacy.reactjs.org/docs/hooks-rules.html <br/>
 </div>
 
