@@ -56,6 +56,7 @@ const { data, isLoading, isError } = useQuery('data', fetch_api,
     } 
 );
 ```
+간단한 사용법 뿐만 아니라 `react-query`에서 자체적으로 제공해주는 여러가지 기본함수를 활용할 수 있다. (`refetch`, `useInfiniteQuery`, `prefetching` 등)
 
 
 
