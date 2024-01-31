@@ -45,7 +45,17 @@ const getDataSaga = (payload) => {
 };
 ```
 필요한 경우 `saga`에서 제공하는 `effects`들을 사용하고 있다 (`select`, `debounce`, `put`, `cancel` 등)  
-`react-query`는 이와 사용법이 전혀 다르다. 우선 제일 다른점을 `hooks` 기반의 `library`이기 때문에 기존 `react hook`에 적용되는 <a href='https://legacy.reactjs.org/docs/hooks-rules.html' target='_blank' rel='noopener noreferer'>rule</a>들을 따라야한다. 이것이 조금 까다로운 부분이기도 하다. (특히, rule중 `hooks`는 조건과 상관없이 항상 호출되어야 한다는 내용을 충족하는것이 `saga` 로직에서 넘어올때 많은 걸림돌이 되기도 했었다)
+`react-query`는 이와 사용법이 전혀 다르다. 우선 제일 다른점을 `hooks` 기반의 `library`이기 때문에 기존 `react hook`에 적용되는 <a href='https://legacy.reactjs.org/docs/hooks-rules.html' target='_blank' rel='noopener noreferer'>rule</a>들을 따라야한다. 이것이 조금 까다로운 부분이기도 하다. (특히, rule중 `hooks`는 조건과 상관없이 항상 호출되어야 한다는 내용을 충족하는것이 `saga` 로직에서 넘어올때 많은 걸림돌이 되기도 했었다)  
+하지만 `react-query`로는 다음과 같이 간단한 하나의 함수로 위의 로직수행이 가능하다. 
+```javascript
+const { data, isLoading, isError } = useQuery('data', fetch_api, 
+    {   
+        onSuccess: (data) => doSomething(data), 
+        onError: (error) => toast.error(error.message) 
+        // 단, query의 onSuccess, onError는 react-query v5에서 deprecated 되었다 
+    } 
+);
+```
 
 
 
