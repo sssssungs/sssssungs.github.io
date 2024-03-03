@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import AboutTile from '../../About';
 import { domHtml } from '../../../utils/stripTags';
-import style from './aboutme.module.less';
+import * as style from './aboutme.module.less';
 
 import SEO from '../../Seo';
 

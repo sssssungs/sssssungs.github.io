@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import ProgressBar from '../../Progress';
-import style from './skill.module.less';
+import * as style from './skill.module.less';
 
 const SkillsProgress = () => (
 	<div className={`${style.skillSectionSpacing}`}>

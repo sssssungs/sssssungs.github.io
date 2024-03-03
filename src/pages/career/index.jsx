@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from '../../components/Seo';
 import ContentLayout from '../contentLayout';
-import style from './career.module.less';
+import * as style from './career.module.less';
 
 const Career = () => (
 	<ContentLayout page="career">

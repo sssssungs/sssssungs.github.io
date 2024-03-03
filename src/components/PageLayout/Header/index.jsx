@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { Layout } from 'antd';
 import 'font-awesome/less/font-awesome.less';
-import style from './header.module.less';
+import * as style from './header.module.less';
 import '../../../styles/global.less';
 import { useWindowSize } from '../../../utils/hooks';
 

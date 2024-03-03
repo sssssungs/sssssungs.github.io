@@ -8,7 +8,7 @@ import SEO from '../../components/Seo';
 
 import 'prismjs/themes/prism-solarizedlight.css';
 import './highlight-syntax.less';
-import style from './post.module.less';
+import * as style from './post.module.less';
 import ScrollHOC from '../../pages/scrollHOC';
 
 const Post = ({ data }) => {

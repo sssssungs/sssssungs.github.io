@@ -12,7 +12,7 @@ import PostCard from '../../components/PostCard';
 import SidebarWrapper from '../../components/PageLayout/Sidebar';
 import Config from '../../../config';
 import Utils from '../../utils/pageUtils';
-import style from './tags.module.less';
+import * as style from './tags.module.less';
 import ScrollHOC from '../../pages/scrollHOC';
 
 const TagPage = ({ data, pageContext }) => {
