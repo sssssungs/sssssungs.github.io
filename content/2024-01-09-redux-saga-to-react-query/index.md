@@ -66,7 +66,8 @@ const { data, isLoading, isError } = useQuery('data', fetch_api,
 현재 서비스에서는 검색을할때 넣을수 있는 parameter가 굉장히 많다. 모든 조건을 다 선택하게 되면 30개도 넘어가는 경우가 있다. `redux-saga`를 사용했을때는 `cache` 옵션을 크게 고려하지 않고 구현을 하였기 때문에 30개 조건을 검색한 다음 또 동일한 조건을 검색하게 되면 그만큼의 computing과 시간이 걸리게 되었다. 하지만 react query 도입이후 같은 검색조건으로 검색을 한 다음 또 동일한 조건을 검색하게 되면 `cache`에서 바로 가져오기 때문에 이전만큼의 리소스가 사용되지 않는다. 성능적으로나 ux적으로 많은 도움을 받은 기능이기도 하다. 물론 `redux-saga`에서도 가능하고 내가 사용하지 않았던 기능일지도 모른다. 하지만 `react query`처럼 reference가 많지는 않았기 때문에 내가 사용하지 않았을까 하고 추측해본다.
 
 
-
+<br/>
+<br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://tanstack.com/query/latest <br/>
 - https://tanstack.com/query/latest/docs/react/community/community-projects#query-key-factory <br/>
