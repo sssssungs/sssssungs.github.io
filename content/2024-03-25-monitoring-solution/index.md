@@ -1,5 +1,5 @@
 ---
-title: Do you use any monitoring solutions for your production environment?
+title: Do you use any monitoring solutions for your production?
 tags: [javascript, typescript, react, redux, nextjs]
 date: 2024-03-25T19:20:11.226Z
 path: blog/datadog-log
@@ -16,10 +16,16 @@ show: true
 
 ### Datadog
 <b>`Datadog`</b>은 서버, 데이터베이스, 도구 및 서비스에 대한 모니터링을 통해 클라우드 규모 애플리케이션에 대한 전체적인 모니터링 서비스를 `Saas` 형태로 제공하는 모니터링 솔루션 중 하나이다. 마스코트는 `Bits`라는 강아지이다. (귀엽) `Datadog`은 서버상태를 실시간 모니터링하는 기능을 기본으로하여, 다양한 클라우드 플랫폼(Aws, Azure, Google cloud등)기반의 서비스와 통합기능을 제공하고 데이터베이스나 캐시스토어 등에 대한 추가적인 메트릭 수집/모니터링을 지원한다.
-
 <div style="width: 10%;margin-bottom: 15px; margin-left:auto; margin-right: auto;">
     <img src="./bits.png" alt=""/>
 </div>
+현재 프로젝트에서는 `Logging`, `RUM (Real User Monitoring)`, `Session play` 이 세가지를 주로 활용하고 있다. 물론 이들은 `frontend` 입장에서 트러블슈팅을 하기 위해서 사용하는 기능이고 실제로 개발팀을 위해 셋업되어 있는 것은 `k8s`연동이나, 실제 리소스 metric 수집 등 다양한 기능들을 사용하고 있다.
+
+### Logging
+
+### RUM (Real user monitoring)
+
+
 
 <br/>
 <br/>
