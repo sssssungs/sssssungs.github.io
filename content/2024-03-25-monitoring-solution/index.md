@@ -45,5 +45,6 @@ show: true
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://sentry.io/welcome/ <br/>
 - https://www.datadoghq.com <br/>
+- https://docs.datadoghq.com/ko/getting_started/application/ <br/>
 </div>
 
