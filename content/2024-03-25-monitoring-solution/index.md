@@ -28,12 +28,22 @@ show: true
 현재 프로젝트에서는 `axios interceptor` 내부에 logger를 심어서 api 통신이 발생할때마다 _server side_ 요청의 경우 <a href='https://github.com/expressjs/morgan' target='_blank' rel='noopener noreferer'>morgan format</a>으로, _client side_ 요청의 경우 최대한 정보를 꺼내서 `custom format`으로 log를 추출해 datadog으로 수집하고 있다.
 
 ### RUM (Real user monitoring)
+`Datadog`의 `RUM(Real User Monitoring)`은 사용자의 실시간 활동과 경험에 대한 여러 정보를 제공한다. `RUM`에서는 다음과 같은 네가지 모니터링 기능을 제공한다
+- Performance: 웹페이지, 모바일 등 환경에서 프론트엔드 코드의 성능을 트래킹
+- Error management: 진행중인 버그와 문제를 모니터링하고 시간/버전별 트래킹
+- Analytics/Usage: 서비스를 사용하는 유저의 정보, 활동, 상호작용방식 등을 분석
+- Support: 한 사용자 세션과 관련된 모든 정보를 검색
 
+<br/>
+
+현재 프로젝트에서는 주로 `performance`와 `error management`를 활용하고 있다. 특히 `error management` 메뉴에서 현재 서비스에서 발생하는 에러를 가시화하여 보여주고, 발생수를 기준으로 정렬도 해주기 때문에 그를 기준으로 어떤 에러를 우선적으로 고쳐야하는지를 쉽게 알수 있다.  
+또한 `RUM`에는 `session replay`라는 기능을 포함하는데, 이는 사용자의 화면을 캡처하고 실제 영상으로 재생할 수 있는 기능이다. RUM 성능 데이터와 결합되어 어떤 페이지를 방문해서 어떤 활동을 하였는지 replay하는 기능이다. 현재 맡고 있는 프로젝트에는 결제가 이루어지는 페이지가 있다. 그곳에서만 `session replay`를 활성화해서 사용하고 있고, 실제 사용자들이 어떤 버튼을 클릭하고, 어떤 페이지로 이동했고 또 어디서부터 현재 결제 페이지로 왔는지 등등 다양한 정보와 결합하여 어뷰징을 막는데 사용하고 있는 기능이다. 물론 개인정보나 텍스트 등은 mark 처리되기 때문에 정보유출에 대한 우려 없이 안전하게 사용하고 있다. 
 
 
 <br/>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
- 
+- https://sentry.io/welcome/ <br/>
+- https://www.datadoghq.com <br/>
 </div>
 
