@@ -25,7 +25,8 @@ show: true
 
 ### Log Management
 `Log Management`에서는 `log data`를 분석하고, 탐색하거나 `tracing`, `metric`을 연동하여 datadog 전체에서 유용한 log를 수집할수 있다. log는 `client/server` log를 포함하고, 또한 `Trace Id`를 활용하면 하나의 정보로 <i>**`from frontend to backend`**</i>의 log tracking을 할 수 있다. log agent를 연결하는 방법은 <a href='https://docs.datadoghq.com/logs/log_collection/javascript/'  target='_blank' rel='noopener noreferer'>다음 페이지</a>에서 확인할 수 있다.  
-현재 프로젝트에서는 `axios interceptor` 내부에 logger를 심어서 api 통신이 발생할때마다 _server side_ 요청의 경우 <a href='https://github.com/expressjs/morgan' target='_blank' rel='noopener noreferer'>morgan format</a>으로, _client side_ 요청의 경우 최대한 정보를 꺼내서 `custom format`으로 log를 추출해 datadog으로 수집하고 있다.
+현재 프로젝트에서는 `axios interceptor` 내부에 logger를 심어서 api 통신이 발생할때마다 _server side_ 요청의 경우 <a href='https://github.com/expressjs/morgan' target='_blank' rel='noopener noreferer'>morgan format</a>으로, _client side_ 요청의 경우 최대한 정보를 꺼내서 `custom format`으로 log를 추출해 datadog으로 수집하고 있다.  
+`Log`를 탐색하기 위해 다양한 필터를 활용할수 있는데, 기본값인 `time series`하도록 볼수도 있고, `datadog`에서 `preset` 해둔 다양한 <a href='https://docs.datadoghq.com/logs/log_configuration/attributes_naming_convention/#default-standard-attribute-list' target='_blank' rel='noopener noreferer'>attribute</a>들을 활용해 검색을 할수 있고, 해당 `attribute`를 검색기준으로 `group`을 지어 순위보기, 분포도 등 다양하게 활용할 수 있다. 
 
 ### RUM (Real user monitoring)
 `Datadog`의 `RUM(Real User Monitoring)`은 사용자의 실시간 활동과 경험에 대한 여러 정보를 제공한다. `RUM`에서는 다음과 같은 네가지 모니터링 기능을 제공한다
@@ -37,7 +38,8 @@ show: true
 <br/>
 
 현재 프로젝트에서는 주로 `performance`와 `error management`를 활용하고 있다. 특히 `error management` 메뉴에서 현재 서비스에서 발생하는 에러를 가시화하여 보여주고, 발생수를 기준으로 정렬도 해주기 때문에 그를 기준으로 어떤 에러를 우선적으로 고쳐야하는지를 쉽게 알수 있다.  
-또한 `RUM`에는 `session replay`라는 기능을 포함하는데, 이는 사용자의 화면을 캡처하고 실제 영상으로 재생할 수 있는 기능이다. RUM 성능 데이터와 결합되어 어떤 페이지를 방문해서 어떤 활동을 하였는지 replay하는 기능이다. 현재 맡고 있는 프로젝트에는 결제가 이루어지는 페이지가 있다. 그곳에서만 `session replay`를 활성화해서 사용하고 있고, 실제 사용자들이 어떤 버튼을 클릭하고, 어떤 페이지로 이동했고 또 어디서부터 현재 결제 페이지로 왔는지 등등 다양한 정보와 결합하여 어뷰징을 막는데 사용하고 있는 기능이다. 물론 개인정보나 텍스트 등은 mark 처리되기 때문에 정보유출에 대한 우려 없이 안전하게 사용하고 있다. 
+또한 `RUM`에는 `session replay`라는 기능을 포함하는데, 이는 사용자의 화면을 캡처하고 실제 영상으로 재생할 수 있는 기능이다. RUM 성능 데이터와 결합되어 어떤 페이지를 방문해서 어떤 활동을 하였는지 replay하는 기능이다. 현재 맡고 있는 프로젝트에는 결제가 이루어지는 페이지가 있다. 그곳에서만 `session replay`를 활성화해서 사용하고 있고, 실제 사용자들이 어떤 버튼을 클릭하고, 어떤 페이지로 이동했고 또 어디서부터 현재 결제 페이지로 왔는지 등등 다양한 정보와 결합하여 어뷰징을 막는데 사용하고 있는 기능이다. 물론 개인정보나 텍스트 등은 mark 처리되기 때문에 정보유출에 대한 우려 없이 안전하게 사용하고 있다.
+
 
 
 <br/>
@@ -45,6 +47,7 @@ show: true
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://sentry.io/welcome/ <br/>
 - https://www.datadoghq.com <br/>
-- https://docs.datadoghq.com/ko/getting_started/application/ <br/>
+- https://docs.datadoghq.com/getting_started/application/ <br/>
+- https://docs.datadoghq.com/logs/log_configuration/attributes_naming_convention/#default-standard-attribute-list <br/>
 </div>
 
