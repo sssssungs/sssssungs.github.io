@@ -132,6 +132,12 @@ const Career = () => (
 						<br />
 						<span>• Performance enhancement on web service</span>
 						<br />
+						<span>• Setting up the monitoring solution, Datadog, from frontend's side</span>
+						<br />
+						<span>• Migration Babel to SWC (Reduced build time by 70%)</span>
+						<br />
+						<span>• Search engine optimization</span>
+						<br />
 						<br />
 						<p>✔️ Developing Design system </p>
 						<p>✔️ Back office admin for CLO-SET & CONNECT</p>
