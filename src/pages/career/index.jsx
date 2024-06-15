@@ -132,7 +132,7 @@ const Career = () => (
 						<br />
 						<span>• Performance enhancement on web service</span>
 						<br />
-						<span>• Setting up the monitoring solution, Datadog, from frontend's side</span>
+						<span>• Setting up the monitoring solution, Datadog, from frontend&apos;s side</span>
 						<br />
 						<span>• Migration Babel to SWC (Reduced build time by 70%)</span>
 						<br />
