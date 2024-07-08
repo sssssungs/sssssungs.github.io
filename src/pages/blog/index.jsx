@@ -26,12 +26,14 @@ const Blog = ({ data }) => (
 		</div>
 		<Row gutter={[20, 20]}>
 			{data.allMarkdownRemark &&
-				data.allMarkdownRemark.edges.map((val, key) => (
-					// val.node.frontmatter.show &&
-					<Col key={key} xs={24} sm={24} md={12} lg={8}>
-						<PostCard data={val} />
-					</Col>
-				))}
+				data.allMarkdownRemark.edges.map((val, key) => {
+					if (!val.node.frontmatter.show) return <></>;
+					return (
+						<Col key={key} xs={24} sm={24} md={12} lg={8}>
+							<PostCard data={val} />
+						</Col>
+					);
+				})}
 		</Row>
 	</ContentLayout>
 );
