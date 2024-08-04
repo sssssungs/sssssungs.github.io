@@ -13,6 +13,9 @@
 <p>바로 본론으로 들어가서, <code class="language-text">a11y</code>이란 무엇일까? 접근성이라는 의미를 가지는 <code class="language-text">accessibility</code>의 줄임말이다. 첫번째 글자인 <code class="language-text">a</code>와 마지막 글자인 <code class="language-text">y</code> 사이에 11개 글자가 있기 때문에 편의상 <code class="language-text">a11y</code>로 사용하고 있다. (이런 형태를 숫자약어 <a href='https://en.wikipedia.org/wiki/Numeronym' target="_blank" rel="noopener noreferrer"><code class="language-text">Numeronym</code></a> 라고 한다)
 우리는 보통 웹접근성 (또는 정보통신접근성) 이라고 부른다. 그럼 웹접근성이란 구체적으로 어떤것일까. 아마 어떤 내용인지는 대략적으로 알고 있는 개발자들이 많을것이고 또 웹개발을 하면서 많은 접근성 이슈들을 마주하는 경우가 있을것이다.
 보통 우리가 웹접근성을 생각하는 경우 장애인들을 위한 배려/편의 사항이라는 생각이 지배적이지만, 꼭 그런 경우만 있는것은 아니다. 실제로 웹접근성 지침중 <u>키보드만으로도 웹서비스가 제공하는 모든 기능을 수행할수 있어야 한다</u>라는 지침이 있다. 이는 마우스 사용에 제한이 있는 장애인 뿐만 아니라 갑자기 마우스가 고장난 일반인도 해당하는 것이다. 이처럼 누구에게나 웹을 사용할때 불편함들 최소하하는 것이 웹 접근성이라고 할 수 있다.</p>
+<div class="quote">
+무엇보다 웹접근성 보장은 「국가정보화기본법」과 「장애인차별금지 및 권리구제 등에 관한 법률(이하 "장애인차별금지법")」 등 법률에 명시된 의무사항이다
+</div>
 <h2>Principals</h2>
 <p>한국의 웹접근성에 대한 기준은</p>
 <ul>
@@ -21,12 +24,82 @@
 <li>이해의 용이성</li>
 <li>견고성</li>
 </ul>
-<p>4가지로 구분하고 있다</p>
+<br/>
+<p>위 4가지로 구분하고 있다. 그중 웹개발에서 잘 다루어지는 몇가지 항목을 알아보자</p>
+<h3>WAI-ARIA</h3>
+<p><code class="language-text">WAI (Web Accessibility Initiative)</code>는 W3C의 웹접근성을 담당하는 조직으로, <code class="language-text">ARIA (Accessible Rich Internet Applications)</code>는 RIA 환경의 웹접근성에 대한 표준 규격이다. 웹개발 필드에서는 주로 HTML 요소에 role, aria 속성을 추가하여, 상태, 속성, 역할 정보를 보조기기에 제공하는 역할을 한다. 자세한 내용은 <a href='https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA' target="_blank" rel="noopener noreferrer">MDN 문서</a> 참조</p>
+<h3>Semantic markup</h3>
+<p>태그를 구성할때, 의미있는 태그를 사용해서 그 이름을 붙여 작성하여, 웹 접근성 보조 도구들이 정보의 구조를 잘 이해할수 있도록 해야한다</p>
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;text-align: center">
+    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 619px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 84.8%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAADzklEQVR42mWUWW8bZRSG82cQPwAh/gA/oxJVb3qDEEJBFbQ33CKEuIGCqFgqVJUqBMjSNA1tnbQlTW3HW7zEHi8Ze8bbbF7Gs9l+OHYS9YJPOvMt+vTM+55zZlaQMR6PsW0by7JxHIfhcChrC03TCIJgcYX5fC4PGA0GOKbFcHFPQlOby/niEiuLeSCXGo06zaZKrVaTuUmn01kC3Yn7BijDkLuVVpOarqFbJq1+D2s04nKseOOQ3tkYS/cwtQntuk2nMaDfdLE0j546IvBnzESpt/uC6dY+3sMY/nYMd/Mp7laMcHsff/MZkemwMnZCTuM25aRDKW6xu57g+U6J4muDcsKhIufeZMZU0jK9+S18+CX9a7eoXfkU5coq7aufwUdfMf/4a6Jaa6HQZdTOMu6eR6t8iK4cMennZZ9h2D4h8kMmgc/d7B63j7e5k97h+xd/cPtgjZ8yj7gjZz8mt+gMTFYmI7GqKlhNBUev0ihkJTICzcl5RaJK6IX4UcCT1gk7aortbpF7Ro3fWkV+acvaqnHfUen67rnlyrGDkpLCFMbU0y75Q4OD7RKlo4XlIZ47ZRoGTNMVeF0gLGu8smG9HvJrvMNaxeOgJx3gRwtgQDXdp5YxUAs21WNLctohdVBDSRoSJv4F0M2U8ONZhorKD/qUz/M6X6Sr3MypfHMWMLgE1jIWjZwtQFEqhVgAk7EKlYQAEzb+RIBS5eCkDKkCttImZhgM9Qf0K3cJur+z3xXLE2mbyTAk/6pF+oX0X1F6TCp+KhUuHHYov7ZkbwkwYhaGmEdp2o9jdAtn7Elzt81tWp0N+uYGj7step4A3UEoLaJzcni2BC4UlRM9jsVyOX6u0LsA2vE0/afP6Reb7Ng96tEDlOE9tNl9Hpp1+guF/7McdwTYJ/tSFXWmAK03lnMLy3mcSoc9p4c+W0d1xTZr/GM13gCVlCGFkaIUnaXl4r8G2X2d08NLy+fASVqKcpTDU5rcyMK7mzbvPzJ4b8vm+lHEOJheKjSoZ02x7NDIiMJkj+S+QlVeVEtZyyrPpA+jUoF5NsO8rbJagrf+HPHOepe3/xpxLTnHDaNFDgMB2bROHflKBJg3OZP20U6HNEvOMgJvSiB5rDwRB7sDCns26ZgnEZA+CMkeRBKB/IlCVkaWv8xZNWVymuiys/ZSvuWMqOyiHBvLCKS/xtaUrVsz/l6Fn6/r3L5a4rsP8tyV9cYnsHVjjq0JMJD8WB0Pu+vh9HzMjvxlpKEW+8uIwhmh5EcvBGi5ED0fcZb1UHM+2klE6ySklQ+Wuf4Pw73IF1lrXJwAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="seman" title="seman" src="/static/3d83d1f4e49aacafd1ae1e545e966c9d/8e541/seman.png" srcset="/static/3d83d1f4e49aacafd1ae1e545e966c9d/3e256/seman.png 250w,
+/static/3d83d1f4e49aacafd1ae1e545e966c9d/b30f8/seman.png 500w,
+/static/3d83d1f4e49aacafd1ae1e545e966c9d/8e541/seman.png 619w" sizes="(max-width: 619px) 100vw, 619px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<h3>Alt attribute</h3>
+<p>이미지는 웹사이트를 구축하는데에 빠지지 않는 요소중 하나이다. 이미지 태그를 사용할때에 <code class="language-text">alt</code> 항목에 만약 이 이미지가 정상적으로 로드되지 못하였을때 노출할 텍스트를 넣어주어야 한다. 이는 이미지 로드 실패일때 뿐만 아니라, 스크린 리더를 사용하는 사람들이 웹사이트의 내용을 이해하는데 도움을 준다. (하지만 특별한 경우, 불필요한 설명이라고 판단이 된다면 대체텍스트를 제공하지 않아도 된다)
+대체텍스트 속성은 검색엔진 <code class="language-text">score</code> 에도 도움을 주기 때문에 꼭 고려해야할 항목중 하나이다.</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>strawberry.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>strawberry image<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre></div>
+<h3>텍스트의 명도대비 준수</h3>
+<p>웹사이트에서 텍스트를 사용하는 컨텐츠가 있을때, 저시력자와 고령자 등도 텍스트를 문제없이 인식도록 하기 위해 텍스트와 배경간의 명도대비는 <code class="language-text">4.5:1</code> 이상이어야 한다.
+몇가지 예외적인 사항이 있어 명도대비가 <code class="language-text">3:1</code>도 허용되기도 하고, 포커싱 되었을대 명도대비가 커지는 이미지의 경우에는 명도대비 검사항목에 포함되지 않기도 한다. 아래 이미지는 <a href='https://sitero.co.kr/contrast' target="_blank" rel="noopener noreferrer">명도대비 체크 사이트</a>에서 생성해본 이미지 예시이다.</p>
+<div style="display:flex;">
+<div style="width: 41%;margin-bottom: 15px; margin-left:auto; margin-right: auto;text-align: center">
+    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1000px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 87.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAABYlAAAWJQFJUiTwAAABy0lEQVR42qVUyU4CQRCdb3QDRlBCxF1cEEUWNcYY9eYnePYDZBEBFxYRE09e/A968FDW6+rRUTEZ8fC6amqqX9fWbYVKPRovCCYgiywZsA8Dyy73KHGraPlG0VJd0SrrczWlf9o+EPJIIeRlhclc0jWWs1VFY5cS9VjhU7q6145s4BswWVmTHOHanaJ1hku8yJFu3ittT97LIevffKAjAPim2Cd2LaRWmAkPOg7lW4r2HhyNnabStqy2KUo3xZ5rObTP8rjr0G7boSOWSSbOt1EmD+Hho2w+e3bopCubsrw503IPcOj0SfTDjtJECAA1HzXpf6SMBWkDYSNtY4sAV6yXvtrDHt8fTcEyXWHwxilGtCJEQeMQHDAasAWLg/9ZiCDD4W83FG0xclyPBBcbM4lNSOW3zYPn0BMh0oAeNd9u1JCRsk9CkKDt6Ya0P8Vy406A0UFDYMewB3zcID2HMzxDCzXpWqwi3zPVHsWrQgQdkfpJWzcFkz7KGDG3I1D8Cd81xII0MYcA7rI3NfuvjwOWOKc0XxMZMTNmD/vaoF4Xr290/tLnm9LXtwZXT9dsiGdMN2WxLqMSM82YLP/jPQyWvjZi4g8NGET4DsT2VQI+iT5DAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="2 1" title="2 1" src="/static/b67f005e6a7939fd5a26308082d9e919/332ff/2_1.png" srcset="/static/b67f005e6a7939fd5a26308082d9e919/3e256/2_1.png 250w,
+/static/b67f005e6a7939fd5a26308082d9e919/b30f8/2_1.png 500w,
+/static/b67f005e6a7939fd5a26308082d9e919/332ff/2_1.png 1000w,
+/static/b67f005e6a7939fd5a26308082d9e919/5aa16/2_1.png 1191w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+    <span>명도대비 2.1:1</span>
+</div>
+<div style="width: 45%;margin-bottom: 15px; margin-left:auto; margin-right: auto;text-align: center">
+    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1000px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 80%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACEUlEQVR42qVUS08TYRQlfVBrFU1MhIKVh/GxIEoTEx6FGNQAkR0Ldiz5B6WIaEBEHgKKPBUSwoqFf8G2lNKWMi0gifHvHM+9nUJjSyi4uHNnvrnfmXvuOd+UXHkdhm0gCAvDOhCCxR9E6WAYsn6ZKJGLdzaJlq8GvHNJ+BYMuEejsAVCWuAYPI3cjc6h/LUTQPf7KDxjuygfiSrYzbcRuN6EGdu4no3hbTgFyNxoCwT1fR6g0PMtGuj6doCm+X00zxva5au1Q7QupvBsKYU25mYyaF9Oo+v7IV6uHuhzJ/cIOxmVdKyADl6er6TRwaLezWMF6mBhmwCZYD0bvxSsZ+OYYGm8YAira+ywjJ07cjsUClWkK/FgKo7q8V0tLh/dQc14TO/vTcQ1103E4PmQqb3Kjkp1tqH8GcqMbvBLUpSdlZ2iyJw0k5JkK52QXTtTZQFp4Bwav+yjYWaPczRwe2QHVm4UFe3sQHKuIM7zbOMmvUqqW0GgO6Qm95XMFWa+9S5S0CIFAUUdLzvzUeGmz0k8pReffNpT9UR1WfeMRXVezqIATQquocwMJUQ5l+m9suGIrhV9UoSK0KqlorUfY2pqe+D0dKiSFzl6suEurfBoKoH66YQJGCqKXkFAMWf/jz/o2/qN7vUjtCyk8JB+vCyoivKYQtyfTKixxbj/uv/CfxuL/yes/mDGuDTx//y+/gIKR+SkTk9/oAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="4 6" title="4 6" src="/static/ed6ecb6741b2ca5ccf793c5c4d56e4fa/332ff/4_6.png" srcset="/static/ed6ecb6741b2ca5ccf793c5c4d56e4fa/3e256/4_6.png 250w,
+/static/ed6ecb6741b2ca5ccf793c5c4d56e4fa/b30f8/4_6.png 500w,
+/static/ed6ecb6741b2ca5ccf793c5c4d56e4fa/332ff/4_6.png 1000w,
+/static/ed6ecb6741b2ca5ccf793c5c4d56e4fa/5aa16/4_6.png 1191w" sizes="(max-width: 1000px) 100vw, 1000px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+    <span>명도대비 4.6:1</span>
+</div>
+</div>
+<h3>명확한 지시사항 제공</h3>
+<p>지사사항은 <em>모양, 크기, 위치, 방향, 색, 소리</em> 등에 관계없이 인식될수 있어야한다.<br>
+웹사이트에 들어가는 다양할 색 조합은 색을 잘 구별하지 못하는 사용자, 흑백 디스플레이 등에서도 인식할 수 있도록 되어야 한다.
+예를 들어 색깔로만 어떠한 정보를 전달하는 이미지가 있을 경우, 흑백 디스플레이를 사용하는 사용자에게는 그 의미가 전혀 전달되지 않을 수 있다.
+색깔에 모든 정보를 담기보다 색상, 모양, 패턴 등 다양한 시각적 정보를 조합하여 색을 구별하기 어려운 사용자나, 흑백 디스플레이 사용자 등 모든 사용자들이 의미를 제대로 전달받고 사용할 수 있도록 제공해야 한다.</p>
+<div style="width: 90%;margin-bottom: 15px; margin-left:auto; margin-right: auto;text-align: center">
+    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 773px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 77.2%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACzUlEQVR42lVT2W7TQBT19/OG+AGe4AUJgVohqkooamlJi0Qr2qZLltpxHTsez+bxksTO4d4JrcDS0b0zPnPmbhPUUqEOIzRJAmstyrLEarVC27YvaJoGRVEgTVNIKaG1Rl3X/3GeEbTOoSdCT2K8wWL8bbdbD/7W6zUc8fgyFq+qCpvN5j8eg88GLd1U5cLfqnQJpRQaOsD71joIISHJsuByufS8PM89jy9gcSEEsizzUQdtVWNLP3axAI5EbSpgcwm7LFBpC1tTVCT4En3fexEuA1sW54t8yitKYa00ykLDCgWTFUC3Qbvu0HU92tUa1tWoKRJjDDQd5kgt+Zwmi3AwnAGXI+ANcHp5gZzE1lQbJrDtuS6bDq6hJlF0JYmmlG5Bovyv63u/z7YmMR+hTTPIyQQmnkNHIQT5cjqFGI/JzqDI9/bxEXo2g4kiSLLMMXEMRbCLBSxNSUVpB45u1GEIM5/DEkomzCNC7NcmjLy1tM9iDPaZ5xYpXLaEo6BKEm1oUoKGwqx4FAiuaWGoFgzn17RP/23delv9XTsqkaZGWuaR70Hl4LQDbnvlKt9FDtkUAkZJVKXze660yIT2RfdcAneUB5wfAq95XBStuWnUFCpq69CVAl1j0dUlemfQORp2R01qa+rebuC5i/++kOchZ9s8N6WiGfv6K8Pr/Qnefovw/niON18iHF4mePVpiotJgW3XIqNRGQwGGJ4Nsbe/h4uLCxwcHOD8/BxHx0f+WfKL8hFeTht8OJL4PNQ4/Jni4/cUJ1cC7wYK49jxJMPQgI9uRhhd3+L05BS3ozsMf5zh6veVRyEKeo4dgtQkiPU9MjvBTNwjEjdI1B1m+TVS+4BIPmC8pHXxgKSMMM3vvc/cxIZY2AiiSbEoaexqiUDYHFHxiFjNkei5t7GM8ET+XIZ4UuSrcAe5Q0x+oiPPX5YJMvOE1NCY1Rp/ANPxbQdxqhlRAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="chart" title="chart" src="/static/2e6bd126b90ce389072479a8d165ad87/ecf91/chart.png" srcset="/static/2e6bd126b90ce389072479a8d165ad87/3e256/chart.png 250w,
+/static/2e6bd126b90ce389072479a8d165ad87/b30f8/chart.png 500w,
+/static/2e6bd126b90ce389072479a8d165ad87/ecf91/chart.png 773w" sizes="(max-width: 773px) 100vw, 773px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;text-align: center;">
+    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 874px;">
+      <span class="gatsby-resp-image-background-image" style="padding-bottom: 40.400000000000006%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA0UlEQVR42q1S7QqDMAz0/R9PnGNOcDpxfhTnx1zX2vbWKhZ07p+BkpBcLpdQBwebswTDMIAQgrIskef55Nu2nWpKKdtgcgZnMMYXRYG+7y3OEgohwBjDOI7TW+KtmRznfIUzvT8KpZSzgqZBXdd2yNYWXEUqq2zJrQiNXLMY10Wqp6rNqhYn5xxnWiXXG6g1bkX40Xdhvg8WBKBJArm3shyRdTGi+orbM0TxSiHVH4U0y0BdF9Tz8I5jiB1CITnSLsKlPCEkZzz6uybcueFR3+YL/kh0QsIFo80AAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="color" title="color" src="/static/663eff0b640767bb3a7c8b00ee6c5305/3e14c/color.png" srcset="/static/663eff0b640767bb3a7c8b00ee6c5305/3e256/color.png 250w,
+/static/663eff0b640767bb3a7c8b00ee6c5305/b30f8/color.png 500w,
+/static/663eff0b640767bb3a7c8b00ee6c5305/3e14c/color.png 874w" sizes="(max-width: 874px) 100vw, 874px" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;" loading="lazy">
+    </span>
+</div>
+<h3>광과민성 발작</h3>
+<p>10인치 이상의 디스플레이에서는 번쩍이는 컨텐츠로 발작을 일으키지 않도록 주의해야한다. 초당 <code class="language-text">30~50회</code> 주기로 번쩍이는 컨텐츠는 제한된다.</p>
+<h3>마무리</h3>
+<p>개발을 할때에 가장 신경써야하지만, 그렇지 못한 부분이 바로 웹접근성이다. 하지만 모두가 평등하게 웹 환경을 이용하기 위해서는 필수적인 요소이며, 좋은 웹을 만들기 위해서 반드시 적용되어야하는 기본적인 사항들 이므로, 개념에 명확히 이해하고 적절하게 준수하려는 노력이 필요할것 같다.</p>
 <br/>
 <br/>
 <div style="font-size:10px;color:#8b9196;word-break: break-all"><b>내용 및 이미지 출처</b><br/>
 - https://en.wikipedia.org/wiki/Numeronym <br/>
+- https://www.w3.org/WAI/fundamentals/accessibility-intro/ko <br/>
 - https://www.wa.or.kr/index.asp <br/>
+- https://sitero.co.kr/contrast <br/>
+- http://www.websoul.co.kr/accessibility/define.asp <br/>
 - 논문: 국립전파연구원 한국형 웹 콘텐츠 접근성 지침 2.1 (Korean Web Content Accessibility Guidelines 2.1) / 국립전파연구원 고시 제2015-5호
 </div></article></div></section></div></div></main></section></section></section></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-1LBVTYLESG"></script><script>
     window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
