@@ -5,7 +5,7 @@ date: 2024-06-15T17:19:11.226Z
 path: blog/a11y
 cover: ./img.png
 excerpt: Equality on the web world
-show: false
+show: true
 ---
 
 ## What is the a11y ?
@@ -30,6 +30,14 @@ show: false
 
 ### WAI-ARIA
 `WAI (Web Accessibility Initiative)`는 W3C의 웹접근성을 담당하는 조직으로, `ARIA (Accessible Rich Internet Applications)`는 RIA 환경의 웹접근성에 대한 표준 규격이다. 웹개발 필드에서는 주로 HTML 요소에 role, aria 속성을 추가하여, 상태, 속성, 역할 정보를 보조기기에 제공하는 역할을 한다. 자세한 내용은 <a href='https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA' target="_blank" rel="noopener noreferrer">MDN 문서</a> 참조 
+
+### Semantic markup
+태그를 구성할때, 의미있는 태그를 사용해서 그 이름을 붙여 작성하여, 웹 접근성 보조 도구들이 정보의 구조를 잘 이해할수 있도록 해야한다
+
+<div style="width: 70%;margin-bottom: 15px; margin-left:auto; margin-right: auto;text-align: center">
+    <img src="./seman.png"/>
+</div>
+
 
 ### Alt attribute 
 이미지는 웹사이트를 구축하는데에 빠지지 않는 요소중 하나이다. 이미지 태그를 사용할때에 `alt` 항목에 만약 이 이미지가 정상적으로 로드되지 못하였을때 노출할 텍스트를 넣어주어야 한다. 이는 이미지 로드 실패일때 뿐만 아니라, 스크린 리더를 사용하는 사람들이 웹사이트의 내용을 이해하는데 도움을 준다. (하지만 특별한 경우, 불필요한 설명이라고 판단이 된다면 대체텍스트를 제공하지 않아도 된다) 
@@ -69,9 +77,10 @@ show: false
 </div>
 
 ### 광과민성 발작 
-10인치 이상의 디스플레이에서는 번쩍이는 컨텐츠로 발작을 일으키지 않도록 주의해야한다. 초당 30~50회 주기로 번쩍이는 컨텐츠는 제한된다.  
+10인치 이상의 디스플레이에서는 번쩍이는 컨텐츠로 발작을 일으키지 않도록 주의해야한다. 초당 `30~50회` 주기로 번쩍이는 컨텐츠는 제한된다.  
 
-
+### 마무리
+개발을 할때에 가장 신경써야하지만, 그렇지 못한 부분이 바로 웹접근성이다. 하지만 모두가 평등하게 웹 환경을 이용하기 위해서는 필수적인 요소이며, 좋은 웹을 만들기 위해서 반드시 적용되어야하는 기본적인 사항들 이므로, 개념에 명확히 이해하고 적절하게 준수하려는 노력이 필요할것 같다.
 
 <br/>
 <br/>
