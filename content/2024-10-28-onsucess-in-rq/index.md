@@ -13,9 +13,30 @@ show: true
 
 <br/>
 
-`v5`버전의 `doc`를 보면 다음 <a target="_blank" rel="noopener noreferrer" href='https://tanstack.com/query/v5/docs/framework/react/guides/migrating-to-v5#callbacks-on-usequery-and-queryobserver-have-been-removed'>링크</a>에서 `onSuccess`, `onError`, `onSettled`가 삭제되었다고 명시해주고 있다. 물론 `queries`에서만이고, `mutation`에서는 유지된다.  
-해당 옵션은 굉장히 편리한 기능이었고, 많은 개발자들이 해당 옵션을 사용해서 코드를 작성했을거라고 본다. 아마 이 변경사항이 현재까지 `react-query` 업데이트 중 가장 큰 `breaking change`가 아닐까 싶다. 생각해보면 지금까지 아무 문제없이 잘돌아가는 기능이 사라지게 된것이다. <span style='font-size: 10px'>(상상만해도 막막하다...끔찍해..)</span>
+`v5`버전의 `doc`를 보면 다음 <a target="_blank" rel="noopener noreferrer" href='https://tanstack.com/query/v5/docs/framework/react/guides/migrating-to-v5#callbacks-on-usequery-and-queryobserver-have-been-removed'>링크</a>에서 `onSuccess`, `onError`, `onSettled`가 삭제되었다고 명시해주고 있다. 물론 `queries`에서만이고, `mutation`에서는 유지된다. 심지어 어떤 개발자는 해당 함수들을 _bad api_ 라고 칭하기도 했다!    
+해당 옵션은 굉장히 편리한 기능이었고, 많은 개발자들이 해당 옵션을 사용해서 코드를 작성했을거라고 본다. 아마 이 변경사항이 현재까지 `react-query` 업데이트 중 가장 큰 `breaking change`가 아닐까 싶다. 생각해보면 지금까지 아무 문제없이 잘돌아가는 기능이 사라지게 된것이다. <span style='font-size: 10px'>(상상만해도 막막하다...끔찍해..)</span>  
+  
+대표적으로 `onSuccess`를 사용하는 예시를 보자.
 
+```jsx
+export function useTodos() {
+  const [todoCount, setTodoCount] = React.useState(0)
+  const { data: todos } = useQuery({
+    queryKey: ['todos', 'list'],
+    queryFn: fetchTodos,
+    //😭 Don't do this!
+    onSuccess: (data) => {
+      setTodoCount(data.length)
+    },
+  })
+
+  return { todos, todoCount }
+}
+```
+
+저런 구조는 다음과 같은 문제를 야기할수 있다.
+1. `useState`의 `setState` 함수는 또 다른 렌더링을 유발한다 <span style='font-size: 10px'>(이것은 자명하다)</span>
+2. `staletime` 안의 호출일 경우 캐시에서 데이터를 읽어왔을때 문제가 발생할수 있다 (`fetch`가 발생해야 `onSuccess`가 호출되는데 캐시를 읽어올경우 `refetch`가 발생하지 않는다)
 
 <br/>
 <br/>
