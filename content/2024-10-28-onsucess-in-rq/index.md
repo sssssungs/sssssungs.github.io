@@ -5,7 +5,7 @@ date: 2024-10-28T20:31:52.226Z
 path: blog/onsuccess-rq
 cover: ./img.png
 excerpt: How on earth can we find another way?
-show: true
+show: false
 ---
  
 현재 회사에서는 `react-query`를 상태관리 및 캐시관리 라이브러리로 사용하고 있다. 사실 사용하고 있는 버전은 v4로, 앞으로 언급할 `onSuccess`를 포함한 `onError`, `onSettled`를 사용할 수 있다.  
