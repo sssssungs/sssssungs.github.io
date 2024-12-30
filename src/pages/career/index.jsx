@@ -25,15 +25,74 @@ const Career = () => (
 			<li>
 				<div className={style.directionR}>
 					<div className={style.flagWrapper}>
-						<span className={style.flag}>Hanyang university</span>
+						<span className={style.flag}>CLO Virtual Fashion</span>
 						<span className={style.timeWrapper}>
-							<span className={style.time}>2008.03 - 2015.02</span>
+							<span className={style.time}>
+								2020.08 - <i>present</i>
+							</span>
 						</span>
 					</div>
-					<div className={style.desc}>Majored in Electronic engineering (Bachelor Degree)</div>
+					<div className={style.desc}>
+						<b>Frontend Developer</b>
+						<br />
+						(React, Redux, Mobx, Javascript, Typescript, Nextjs, Yarnberry, Emotionjs, Material UI,
+						Storybook, AWS, K8S, Azure, Figma, Zeplin, Framer, JIRA, confluence, Slack)
+						<br />
+						<br />
+						<p>
+							✔️{' '}
+							<b>
+								CONNECT (
+								<a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer">
+									https://connect.clo-set.com
+								</a>
+								)
+							</b>
+							<br />
+							CLO-SET CONNECT is a global community for fashion creators to empower their digital
+							assets through open marketplace, portfolio management tools, and networking solutions.
+						</p>
+						<span>
+							• Upgraded payment system with Stripe and Paypal SDK including cart page renewal
+						</span>
+						<br />
+						<span>
+							• Refactored the fabric categories which is search filter categories having nested
+							parent-children object structures
+						</span>
+						<br />
+						<span>• Optimized web-based service to mobile web design</span>
+						<br />
+						<span>• Developed the notification system using web socket api</span>
+						<br />
+						<span>• Performance enhancement on web service</span>
+						<br />
+						<span>• Setting up the monitoring solution, Datadog, from frontend&apos;s side</span>
+						<br />
+						<span>• Migration Babel to SWC (Reduced build time by 70%)</span>
+						<br />
+						<span>• Search engine optimization</span>
+						<br />
+						<br />
+						<p>
+							✔️ CLO-SET (
+							<a href="https://style.clo-set.com" target="_blank" rel="noopener noreferrer">
+								https://style.clo-set.com
+							</a>
+							)<br />
+							Cloud PLM (Product lifecycle management) platform for fashion industry focusing on
+							communication and decision making, management.
+						</p>
+						<span>• Refactored annotation features</span>
+						<br />
+						<span>• Developed history of billing for advanced paid plan</span>
+						<br />
+						<br />
+						<p>✔️ Developing Design system </p>
+						<p>✔️ Back office admin for CLO-SET & CONNECT</p>
+					</div>
 				</div>
 			</li>
-
 			<li>
 				<div className={style.directionL}>
 					<div className={style.flagWrapper}>
@@ -76,72 +135,12 @@ const Career = () => (
 			<li>
 				<div className={style.directionR}>
 					<div className={style.flagWrapper}>
-						<span className={style.flag}>CLO Virtual Fashion</span>
+						<span className={style.flag}>Hanyang university</span>
 						<span className={style.timeWrapper}>
-							<span className={style.time}>
-								2020.08 - <i>present</i>
-							</span>
+							<span className={style.time}>2008.03 - 2015.02</span>
 						</span>
 					</div>
-					<div className={style.desc}>
-						<b>Frontend Developer</b>
-						<br />
-						(React, Redux, Mobx, Javascript, Typescript, Nextjs, Yarnberry, Emotionjs, Material UI,
-						Storybook, AWS, K8S, Azure, Figma, Zeplin, Framer, JIRA, confluence, Slack)
-						<br />
-						<br />
-						<p>
-							✔️ CLO-SET (
-							<a href="https://style.clo-set.com" target="_blank" rel="noopener noreferrer">
-								https://style.clo-set.com
-							</a>
-							)<br />
-							Cloud PLM (Product lifecycle management) platform for fashion industry focusing on
-							communication and decision making, management.
-						</p>
-						<span>• Refactored annotation features</span>
-						<br />
-						<span>• Developed history of billing for advanced paid plan</span>
-						<br />
-						<br />
-						<p>
-							✔️{' '}
-							<b>
-								CONNECT (
-								<a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer">
-									https://connect.clo-set.com
-								</a>
-								)
-							</b>
-							<br />
-							CLO-SET CONNECT is a global community for fashion creators to empower their digital
-							assets through open marketplace, portfolio management tools, and networking solutions.
-						</p>
-						<span>
-							• Upgraded payment system with Stripe and Paypal SDK including cart page renewal
-						</span>
-						<br />
-						<span>
-							• Refactored the fabric categories which is search filter categories having nested
-							parent-children object structures
-						</span>
-						<br />
-						<span>• Optimized web-based service to mobile web design</span>
-						<br />
-						<span>• Developed the notification system using web socket api</span>
-						<br />
-						<span>• Performance enhancement on web service</span>
-						<br />
-						<span>• Setting up the monitoring solution, Datadog, from frontend&apos;s side</span>
-						<br />
-						<span>• Migration Babel to SWC (Reduced build time by 70%)</span>
-						<br />
-						<span>• Search engine optimization</span>
-						<br />
-						<br />
-						<p>✔️ Developing Design system </p>
-						<p>✔️ Back office admin for CLO-SET & CONNECT</p>
-					</div>
+					<div className={style.desc}>Majored in Electronic engineering (Bachelor Degree)</div>
 				</div>
 			</li>
 		</ul>
