@@ -23,7 +23,7 @@ const Career = () => (
 		</div>
 		<ul className={style.timeline}>
 			<li>
-				<div className={style.directionR}>
+				<div className={style.directionL}>
 					<div className={style.flagWrapper}>
 						<span className={style.flag}>CLO Virtual Fashion</span>
 						<span className={style.timeWrapper}>
@@ -40,9 +40,8 @@ const Career = () => (
 						<br />
 						<br />
 						<p>
-							✔️{' '}
 							<b>
-								CONNECT (
+								✔️ CONNECT (
 								<a href="https://connect.clo-set.com" target="_blank" rel="noopener noreferrer">
 									https://connect.clo-set.com
 								</a>
@@ -53,25 +52,32 @@ const Career = () => (
 							assets through open marketplace, portfolio management tools, and networking solutions.
 						</p>
 						<span>
-							• Upgraded payment system with Stripe and Paypal SDK including cart page renewal
+							• Upgraded the payment system by integrating Stripe and PayPal SDKs, including a
+							complete cart page redesign
 						</span>
 						<br />
 						<span>
-							• Refactored the fabric categories which is search filter categories having nested
-							parent-children object structures
+							• Refactored fabric and garment categories, implementing nested parent-child object
+							structures for enhanced search filtering
 						</span>
 						<br />
-						<span>• Optimized web-based service to mobile web design</span>
+						<span>
+							• Optimized the web-based service for mobile web design to improve accessibility and
+							user experience
+						</span>
 						<br />
-						<span>• Developed the notification system using web socket api</span>
+						<span>• Developed a real-time notification system using WebSocket APIs</span>
 						<br />
-						<span>• Performance enhancement on web service</span>
+						<span>
+							• Built a text editor for the user community page utilizing the Headless Editor API
+							(Tiptap)
+						</span>
 						<br />
-						<span>• Setting up the monitoring solution, Datadog, from frontend&apos;s side</span>
+						<span>• Enhanced overall web service performance through targeted optimizations</span>
 						<br />
-						<span>• Migration Babel to SWC (Reduced build time by 70%)</span>
-						<br />
-						<span>• Search engine optimization</span>
+						<span>
+							• Implemented frontend monitoring solutions with Datadog for improved system insights
+						</span>
 						<br />
 						<br />
 						<p>
@@ -85,7 +91,7 @@ const Career = () => (
 						</p>
 						<span>• Refactored annotation features</span>
 						<br />
-						<span>• Developed history of billing for advanced paid plan</span>
+						<span>• Developed history of billing for paid subscription plan</span>
 						<br />
 						<br />
 						<p>✔️ Developing Design system </p>
@@ -94,7 +100,7 @@ const Career = () => (
 				</div>
 			</li>
 			<li>
-				<div className={style.directionL}>
+				<div className={style.directionR}>
 					<div className={style.flagWrapper}>
 						<span className={style.flag}>SK Holdings (C&C)</span>
 						<span className={style.timeWrapper}>
@@ -109,7 +115,7 @@ const Career = () => (
 						<br />
 						<br />
 						<p>
-							✔️ Developed internal web based communication systems for semiconductor manufacturers
+							• Developed internal web based communication systems for semiconductor manufacturers
 							and engineers.
 						</p>
 					</div>
@@ -122,25 +128,25 @@ const Career = () => (
 						<br />
 						<br />
 						<p>
-							✔️ Developed the hiring application for regional college students who were in college
-							to get their job in IT company.
+							• Developed a hiring website to help local college students launch their IT careers by
+							connecting them with their first professional opportunities
 						</p>
 						<p>
-							✔️ Developed a CI/CD console in private cloud system for developers working in
-							semiconductor manufacturing factory.
+							• Built the SK Hynix internal private cloud platform console, including a CI/CD
+							management interface to streamline development workflows
 						</p>
 					</div>
 				</div>
 			</li>
 			<li>
-				<div className={style.directionR}>
+				<div className={style.directionL}>
 					<div className={style.flagWrapper}>
 						<span className={style.flag}>Hanyang university</span>
 						<span className={style.timeWrapper}>
 							<span className={style.time}>2008.03 - 2015.02</span>
 						</span>
 					</div>
-					<div className={style.desc}>Majored in Electronic engineering (Bachelor Degree)</div>
+					<div className={style.desc}>• Majored in Electronic engineering (Bachelor Degree)</div>
 				</div>
 			</li>
 		</ul>
