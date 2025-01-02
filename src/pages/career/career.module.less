@@ -223,14 +223,25 @@
 	font-size: 0.95em;
 	//font-style: italic;
 	line-height: 1.4em;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
 }
 
 .desc p {
 	font-size: 0.95em;
+	text-align: left;
 }
 
 .desc span {
 	font-size: 0.95em;
+	text-align: left;
+	display: flex;
+}
+
+.desc .jobTitle {
+	line-height: 1.5em;
+	font-style: italic;
 }
 
 .direction-r .desc {
@@ -240,9 +251,10 @@
 .horizontalLine {
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 10px;
 	height: 1px;
-	width: 90%;
-	background: linear-gradient(to right, rgba(173, 170, 170, 0.1), rgba(173, 170, 170));
+	width: 95%;
+	background: linear-gradient(to left, rgba(173, 170, 170, 0.1), rgba(173, 170, 170, 0.5));
 }
 
 /* ================ Timeline Media Queries ================ */
