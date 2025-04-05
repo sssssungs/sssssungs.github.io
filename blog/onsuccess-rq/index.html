@@ -15,7 +15,7 @@
 해당 옵션은 굉장히 편리한 기능이었고, 많은 개발자들이 해당 옵션을 사용해서 코드를 작성했을거라고 본다. 아마 이 변경사항이 현재까지 <code class="language-text">react-query</code> 업데이트 중 가장 큰 <code class="language-text">breaking change</code>가 아닐까 싶다. 생각해보면 지금까지 아무 문제없이 잘돌아가는 기능이 사라지게 된것이다. <span style='font-size: 10px'>(상상만해도 막막하다...끔찍해..)</span></p>
 <p>대표적으로 <code class="language-text">onSuccess</code>를 사용하는 예시를 보자.</p>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">useTodos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> <span class="token punctuation">[</span>todoCount<span class="token punctuation">,</span> setTodoCount<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>todoCount<span class="token punctuation">,</span> setTodoCount<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> todos <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useQuery</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         <span class="token literal-property property">queryKey</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'todos'</span><span class="token punctuation">,</span> <span class="token string">'list'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token literal-property property">queryFn</span><span class="token operator">:</span> fetchTodos<span class="token punctuation">,</span>
@@ -23,36 +23,53 @@
         <span class="token function-variable function">onSuccess</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
           <span class="token function">setTodoCount</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    <span class="token keyword">return</span> <span class="token punctuation">{</span> todos<span class="token punctuation">,</span> todoCount <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> todos<span class="token punctuation">,</span> todoCount <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>저런 구조는 다음과 같은 문제를 야기할수 있다.</p>
 <ol>
 <li><code class="language-text">useState</code>의 <code class="language-text">setState</code> 함수는 또 다른 렌더링을 유발한다 <span style='font-size: 10px'>(이것은 자명하다)</span></li>
 <li><code class="language-text">staletime</code> 안의 호출일 경우 캐시에서 데이터를 읽어왔을때 문제가 발생할수 있다 (<code class="language-text">fetch</code>가 발생해야 <code class="language-text">onSuccess</code>가 호출되는데 캐시를 읽어올경우 <code class="language-text">refetch</code>가 발생하지 않는다)</li>
+<li><code class="language-text">onSuccess</code>는 <code class="language-text">query</code>가 성공하면 바로 실행되기 때문에 <code class="language-text">useEffect</code> 처럼 렌더링이 끝난뒤 실행되지 않는다. 이는 다시말하면 렌더링 후에도 화면이 최신 데이터로 업데이트 되지 않을수가 있는 것이다.</li>
 </ol>
 <h3>어떻게 대체할수 있을까</h3>
 <p>하지만 코드를 짜다보면 분명히 (아니면 무조건) onSuccess 의 로직이 필요한 경우가 있다. 그런경우 사용할 수 있는 방법 몇가지를 알아보자.</p>
-<ul>
-<li>
-<p><strong>useEffect</strong> 의 사용</p>
+<h4>1) <strong>useEffect</strong> 의 사용</h4>
 <p>아래 코드를 보면 잘 와닿을것이다. <code class="language-text">response</code>를 <code class="language-text">watch</code>해서 동작하도록 하는 방법이다.</p>
-</li>
-</ul>
 <div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">useTodos</span><span class="token punctuation">(</span><span class="token parameter">filters</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> <span class="token punctuation">[</span>todoCount<span class="token punctuation">,</span> setTodoCount<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>todoCount<span class="token punctuation">,</span> setTodoCount<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> todos <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useQuery</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
         <span class="token literal-property property">queryKey</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'todos'</span><span class="token punctuation">,</span> <span class="token string">'list'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token literal-property property">queryFn</span><span class="token operator">:</span> fetchTodos<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     React<span class="token punctuation">.</span><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>todos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token function">setTodoCount</span><span class="token punctuation">(</span>todos<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>todos<span class="token punctuation">]</span><span class="token punctuation">)</span>
-  
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>todos<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h4>2) 불필요한 state 사용하지 않기</h4>
+<p>위에서 언급한 문제점중 3번 문제점 (렌더링이후에도 데이터가 동기화 되지 않는이슈)을 해결하기 위해서는 <code class="language-text">useState</code>를 활용하지 않고 바로 <code class="language-text">data</code>를 사용해서 데이터를 동기화 시킬수 있다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">useTodos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> todos <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useQuery</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">queryKey</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'todos'</span><span class="token punctuation">,</span> <span class="token string">'list'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">queryFn</span><span class="token operator">:</span> fetchTodos<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> todoCount <span class="token operator">=</span> todos<span class="token operator">?.</span>length <span class="token operator">??</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 위의 예시에서처럼 todo count 를 사용하지 않는다</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> todos<span class="token punctuation">,</span> todoCount <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h4>3) select 활용</h4>
+<p>1의 예제에서 처럼 todos를 watch 하는 방법처럼 <code class="language-text">select</code>를 사용할 수도 있다. <code class="language-text">select</code>는 항상 return data가 있을때 동작하기 때문이다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">useTodos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> <span class="token punctuation">{</span> <span class="token literal-property property">data</span><span class="token operator">:</span> todoCounts <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useQuery</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">queryKey</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'todos'</span><span class="token punctuation">,</span> <span class="token string">'list'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">queryFn</span><span class="token operator">:</span> fetchTodos<span class="token punctuation">,</span>
+        <span class="token function-variable function">select</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=></span> data<span class="token punctuation">.</span>length
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token punctuation">{</span> todoCounts <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre></div>
 <br/>
 <br/>
