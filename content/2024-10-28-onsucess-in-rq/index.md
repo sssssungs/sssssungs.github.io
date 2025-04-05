@@ -5,7 +5,7 @@ date: 2024-10-28T20:31:52.226Z
 path: blog/onsuccess-rq
 cover: ./img.png
 excerpt: How on earth can we find another way?
-show: false
+show: true
 ---
  
 현재 회사에서는 `react-query`를 상태관리 및 캐시관리 라이브러리로 사용하고 있다. 사실 사용하고 있는 버전은 v4로, 앞으로 언급할 `onSuccess`를 포함한 `onError`, `onSettled`를 사용할 수 있다.  
@@ -21,7 +21,7 @@ show: false
 
 ```jsx
 export function useTodos() {
-    const [todoCount, setTodoCount] = React.useState(0)
+    const [todoCount, setTodoCount] = React.useState(0);
     const { data: todos } = useQuery({
         queryKey: ['todos', 'list'],
         queryFn: fetchTodos,
@@ -29,40 +29,64 @@ export function useTodos() {
         onSuccess: (data) => {
           setTodoCount(data.length)
         },
-    })
+    });
     
-    return { todos, todoCount }
+    return { todos, todoCount };
 }
 ```
 
 저런 구조는 다음과 같은 문제를 야기할수 있다.
 1. `useState`의 `setState` 함수는 또 다른 렌더링을 유발한다 <span style='font-size: 10px'>(이것은 자명하다)</span>
 2. `staletime` 안의 호출일 경우 캐시에서 데이터를 읽어왔을때 문제가 발생할수 있다 (`fetch`가 발생해야 `onSuccess`가 호출되는데 캐시를 읽어올경우 `refetch`가 발생하지 않는다)
+3. `onSuccess`는 `query`가 성공하면 바로 실행되기 때문에 `useEffect` 처럼 렌더링이 끝난뒤 실행되지 않는다. 이는 다시말하면 렌더링 후에도 화면이 최신 데이터로 업데이트 되지 않을수가 있는 것이다.
 
 ### 어떻게 대체할수 있을까
 하지만 코드를 짜다보면 분명히 (아니면 무조건) onSuccess 의 로직이 필요한 경우가 있다. 그런경우 사용할 수 있는 방법 몇가지를 알아보자.
 
-- **useEffect** 의 사용
-  
-
-    아래 코드를 보면 잘 와닿을것이다. `response`를 `watch`해서 동작하도록 하는 방법이다.
+#### 1) **useEffect** 의 사용
+아래 코드를 보면 잘 와닿을것이다. `response`를 `watch`해서 동작하도록 하는 방법이다.
 ```jsx
 export function useTodos(filters) {
-    const [todoCount, setTodoCount] = React.useState(0)
+    const [todoCount, setTodoCount] = React.useState(0);
     const { data: todos } = useQuery({
         queryKey: ['todos', 'list'],
         queryFn: fetchTodos,
-    })
+    });
 
     React.useEffect(() => {
         if (todos) {
           setTodoCount(todos.length);
         }
-    }, [todos])
-  
+    }, [todos]);
 }
 ```
 
+#### 2) 불필요한 state 사용하지 않기
+위에서 언급한 문제점중 3번 문제점 (렌더링이후에도 데이터가 동기화 되지 않는이슈)을 해결하기 위해서는 `useState`를 활용하지 않고 바로 `data`를 사용해서 데이터를 동기화 시킬수 있다.
+```jsx
+export function useTodos() {
+	const { data: todos } = useQuery({
+        queryKey: ['todos', 'list'],
+        queryFn: fetchTodos,
+    });
+
+    const todoCount = todos?.length ?? 0; // 위의 예시에서처럼 todo count 를 사용하지 않는다
+    return { todos, todoCount };
+}
+```
+
+#### 3) select 활용
+1의 예제에서 처럼 todos를 watch 하는 방법처럼 `select`를 사용할 수도 있다. `select`는 항상 return data가 있을때 동작하기 때문이다.
+```jsx
+export function useTodos() {
+	const { data: todoCounts } = useQuery({
+        queryKey: ['todos', 'list'],
+        queryFn: fetchTodos,
+        select: (data) => data.length
+    });
+	return { todoCounts };
+}
+```
 
 <br/>
 <br/>
