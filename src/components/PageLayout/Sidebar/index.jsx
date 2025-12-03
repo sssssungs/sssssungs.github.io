@@ -2,7 +2,7 @@ import React from 'react';
 import { Affix, Layout, Row, Col } from 'antd';
 import FA from 'react-fontawesome';
 import FeatherIcon from 'feather-icons-react';
-import { globalHistory } from '@reach/router';
+import { useLocation } from '@gatsbyjs/reach-router';
 import * as style from './sidebar.module.less';
 import { useWindowSize } from '../../../utils/hooks';
 import Config from '../../../../config';
@@ -52,7 +52,7 @@ const DomContent = () => (
 const Sidebar = props => {
 	const [width] = useWindowSize();
 	const { children } = props;
-	const { pathname } = globalHistory.location;
+	const { pathname } = useLocation();
 	let domContent = <DomContent />;
 	if (width > 811) {
 		domContent = (
