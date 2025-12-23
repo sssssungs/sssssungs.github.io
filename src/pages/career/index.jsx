@@ -53,26 +53,31 @@ const Career = () => (
 								solutions.
 							</p>
 							<span>
-								• Upgraded the payment system by integrating Stripe and PayPal SDKs, including a
-								complete cart page redesign
+								• Upgraded the payment system by integrating Stripe and PayPal SDKs, along with a full cart page redesign to improve checkout UX, including abuse prevention logic.
 							</span>
 							<span>
-								• Refactored fabric and garment categories, implementing nested parent-child object
-								structures for enhanced search filtering
+								• Refactored fabric and garment categorization using nested parent-child object structures, enabling more granular and efficient search filtering.
 							</span>
 							<span>
-								• Optimized the web-based service for mobile web design to improve accessibility and
-								user experience
+								• Optimized the web platform for responsive mobile design, enhancing accessibility and overall UX.
 							</span>
-							<span>• Developed a real-time notification system using WebSocket APIs</span>
 							<span>
-								• Built a text editor for the user community page utilizing the Headless Editor API
-								(Tiptap)
+								• Developed a real-time notification system using WebSocket APIs to improve user engagement and instant communication.
 							</span>
-							<span>• Enhanced overall web service performance through targeted optimizations</span>
 							<span>
-								• Implemented frontend monitoring solutions with Datadog for improved system
-								insights
+								• Developed a rich-text editor for the community page using the Tiptap Headless Editor API (Tiptap).
+							</span>
+							<span>
+								• Developed pages that offering 3D mod outfits for games (Inzoi).
+							</span>
+							<span>
+								• Monitored Web Vitals scores monthly, achieving a cumulative improvement of over 20 points through continuous performance optimization.
+							</span>
+							<span>
+								• Implemented frontend monitoring solutions with Datadog for improved system insights.
+							</span>
+							<span>
+								• Migrated the build process from Babel to SWC, reducing build time by up to 50%.
 							</span>
 							<br />
 							<br />
